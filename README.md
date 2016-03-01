@@ -5,8 +5,13 @@ Node.js bindings
 ## Setup Development Environment
 `npm install`
 
+## Run AuthenticateTestRequest Sample
+`node tests/test.js`
+
+## Run Particular Tests
+`mocha test/<testfile>`
+
 ## Run Tests
 `mocha`
 
-## Run AuthenticateTestRequest Sample
-`node tests\test.js`
+
