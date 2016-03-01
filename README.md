@@ -11,7 +11,7 @@ Node.js bindings
 ## Run Particular Tests
 `mocha test/<testfile>`
 
-## Run Tests
+## Run All Tests
 `mocha`
 
 
