@@ -1,0 +1,17 @@
+class APICONTROLLERNAMEController extends APIOperationBase {
+    constructor(apiRequest) {
+        super(apiRequest);
+    }
+
+    validateRequest(){
+        console.log('performing custom validation..');
+        return;
+    }
+
+    getRequestType(){
+        return 'APICONTROLLERNAMERequest';
+    }
+}
+
+module.exports.APICONTROLLERNAMEController = APICONTROLLERNAMEController;
+
