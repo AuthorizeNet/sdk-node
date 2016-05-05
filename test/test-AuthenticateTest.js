@@ -2,11 +2,11 @@
 
 var assert = require('assert');
 
-var AuthenticateTestController = require('../authorizenet/apicontrollers.js').AuthenticateTestController;
+var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
 
-var ApiContracts = require('../authorizenet/apicontracts.js');
-var AuthenticateTestResponse = require('../authorizenet/apicontracts.js').AuthenticateTestResponse;
-var MerchantAuthenticationType = require('../authorizenet/apicontracts.js').MerchantAuthenticationType;
+var ApiContracts = require('../lib/apicontracts.js');
+var AuthenticateTestResponse = require('../lib/apicontracts.js').AuthenticateTestResponse;
+var MerchantAuthenticationType = require('../lib/apicontracts.js').MerchantAuthenticationType;
 
 var apiLoginKey = "5KP3u95bQpv";
 var transactionKey = "4Ktq966gC55GAX7S";

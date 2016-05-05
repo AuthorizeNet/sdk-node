@@ -1,10 +1,14 @@
 class APICONTROLLERNAMEController extends APIOperationBase {
     constructor(apiRequest) {
+        logger.debug('Enter APICONTROLLERNAMEController constructor');
         super(apiRequest);
+        logger.debug('Exit APICONTROLLERNAMEController constructor');
     }
 
     validateRequest(){
-        console.log('performing custom validation..');
+        logger.debug('Enter validateRequest');
+
+        logger.debug('Exit validateRequest');
         return;
     }
 

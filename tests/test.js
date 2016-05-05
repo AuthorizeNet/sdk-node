@@ -1,8 +1,8 @@
 "use strict";
 
-var AuthenticateTestController = require('../authorizenet/apicontrollers.js').AuthenticateTestController;
+var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
 
-var ApiContracts = require('../authorizenet/apicontracts.js');
+var ApiContracts = require('../lib/apicontracts.js');
 
 var apiLoginKey = "5KP3u95bQpv";
 var transactionKey = "4Ktq966gC55GAX7S";
