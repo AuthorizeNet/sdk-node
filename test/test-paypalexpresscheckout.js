@@ -4,9 +4,9 @@ var assert = require('chai').assert;
 
 var utils = require('./utils.js');
 
-var ApiControllers = require('../authorizenet/apicontrollers.js');
+var ApiControllers = require('../lib/apicontrollers.js');
 
-var ApiContracts = require('../authorizenet/apicontracts.js');
+var ApiContracts = require('../lib/apicontracts.js');
 
 var apiLoginKey = "5KP3u95bQpv";
 var transactionKey = "4Ktq966gC55GAX7S";

@@ -382,6 +382,7 @@
 		<xs:sequence>
 			<xs:element name="marketType" minOccurs="0" type="xs:string" default="2" />
 			<xs:element name="deviceType" minOccurs="0" type="xs:string" />
+            <xs:element name="customerSignature" minOccurs="0" maxOccurs="1" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ===================================================== -->
@@ -572,6 +573,7 @@
 				<xs:element name="encryptedTrackData" type="anet:encryptedTrackDataType" />
 				<xs:element name="payPal" type="anet:payPalType" />
         <xs:element name="opaqueData" type="anet:opaqueDataType" />
+                <xs:element name="emv" type="anet:paymentEmvType" />
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -999,6 +1001,7 @@
 			<xs:element name="customer" type="anet:customerType" minOccurs="0" />
 			<xs:element name="billTo" type="anet:nameAndAddressType" minOccurs="0" />
 			<xs:element name="shipTo" type="anet:nameAndAddressType" minOccurs="0" />
+			<xs:element name="profile" type="anet:customerProfileIdType" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -1118,7 +1121,8 @@
 			<xs:element name="payment" type="anet:paymentType" minOccurs="0" />
       <xs:element name="profile" type="anet:customerProfilePaymentType" minOccurs="0"/>
       <xs:element name="solution" type="anet:solutionType" minOccurs="0"/>
-      <xs:element name="callId" type="xs:string" minOccurs="0" maxOccurs="1"/>      
+      <xs:element name="callId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="terminalNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="authCode" type="xs:string" minOccurs="0" />
 			<xs:element name="refTransId" type="xs:string" minOccurs="0" />
 			<xs:element name="splitTenderId" minOccurs="0" type="xs:string" />
@@ -1333,6 +1337,14 @@
 			<xs:element name="value" type="xs:string" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
+    <!-- ===================================================== -->
+    <xs:complexType name="emvTag">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0" />
+            <xs:element name="value" type="xs:string" minOccurs="0" />
+            <xs:element name="formatted" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>    
 	<!-- ===================================================== -->
 	<xs:complexType name="customerPaymentProfileBaseType">
 		<xs:sequence>
@@ -1386,10 +1398,19 @@
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
+					<xs:element minOccurs="0" maxOccurs="1"  name="subscriptionIds" type="anet:SubscriptionIdList" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<!-- ===================================================== -->	
+ 
+ 
+	<xs:complexType name="SubscriptionIdList">
+		<xs:sequence>
+				<xs:element name="subscriptionId" type="anet:numericString" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+	</xs:complexType>	
 	<!-- ===================================================== -->
 	<xs:complexType name="customerProfileBaseType">
 		<xs:sequence>
@@ -1427,6 +1448,14 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+    <!-- ===================================================== -->
+    <xs:complexType name="paymentEmvType">
+        <xs:sequence>
+            <xs:element name="emvData" minOccurs="1" maxOccurs="1" />
+            <xs:element name="emvDescriptor" minOccurs="1" maxOccurs="1" />
+            <xs:element name="emvVersion" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>    
 	<!-- ===================================================== -->
 	<xs:complexType name="customerProfileExType">
 		<xs:complexContent>
@@ -1801,10 +1830,13 @@
 			<xs:element name="recurringBilling" type="xs:boolean" minOccurs="0" />
 			<xs:element name="customerIP" type="xs:string" minOccurs="0" />
 			<xs:element name="product" type="xs:string" minOccurs="0" />
+            <xs:element name="entryMethod" type="xs:string" minOccurs="0" />
 			<xs:element name="marketType" type="xs:string" minOccurs="0" />
 			<xs:element name="mobileDeviceId" type="xs:string" minOccurs="0" />
+            <xs:element name="customerSignature" type="xs:string" minOccurs="0" />
       <xs:element name="returnedItems" type="anet:ArrayOfReturnedItem" minOccurs="0" />
       <xs:element name="solution" type="anet:solutionType" minOccurs="0" />
+            <xs:element name="emvDetails" type="anet:ArrayOfEmvDetailType" minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
   <!-- ===================================================== -->
@@ -1815,6 +1847,19 @@
       <xs:element name="vendorName" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
   </xs:complexType>
+    <!-- ===================================================== -->
+    <xs:complexType name="emvDetailType">
+        <xs:sequence>
+            <xs:element name="tagId" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- ===================================================== -->
+    <xs:complexType name="ArrayOfEmvDetailType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="tags" type="anet:emvDetailType" />
+        </xs:sequence>
+    </xs:complexType>
   <!-- ===================================================== -->
   <xs:complexType name="ArrayOfReturnedItem">
     <xs:sequence>
@@ -1892,6 +1937,7 @@
 			<xs:element name="testRequest" type="xs:string" minOccurs="0" />
 			<xs:element name="accountNumber" type="xs:string" minOccurs="0" />
 			<xs:element name="accountType" type="xs:string" minOccurs="0" />
+            <xs:element name="entryMode" type="xs:string" minOccurs="0" />
 			<xs:element name="splitTenderId" type="xs:string" minOccurs="0" />
 			<xs:element name="prePaidCard" minOccurs="0">
 				<xs:complexType>
@@ -1967,6 +2013,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+            <xs:element name="emvResponse" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tlvData" type="xs:string" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="tag" type="anet:emvTag" minOccurs="0" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
     </xs:sequence>
 	</xs:complexType>
 	<!-- 
@@ -2145,6 +2199,7 @@
 			</xs:complexContent>
 		</xs:complexType>
 	</xs:element>
+  
 	<!-- 
 	===================================================================
 	ARBCreateSubscriptionResponse
@@ -2158,6 +2213,7 @@
 					<xs:sequence>
 						<!-- subscriptionId will only be present if a subscription was created. -->
 						<xs:element name="subscriptionId" type="anet:numericString" minOccurs="0" />
+						<xs:element name="profile" type="anet:customerProfileIdType" minOccurs="0" />
 					</xs:sequence>
 				</xs:extension>
 			</xs:complexContent>
@@ -2192,7 +2248,10 @@
 		<xs:complexType>
 			<xs:complexContent>
 				<xs:extension base="anet:ANetApiResponse">
-				</xs:extension>
+          <xs:sequence>
+            <xs:element name="profile" type="anet:customerProfileIdType" minOccurs="0" />
+          </xs:sequence>
+        </xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
 	</xs:element>
@@ -2420,6 +2479,8 @@
         <xs:extension base="anet:ANetApiRequest">
           <xs:sequence>
             <xs:element name="transId" type="anet:numericString" minOccurs="1" maxOccurs="1" />
+            <xs:element name="customer" type="anet:customerProfileBaseType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="customerProfileId" type="anet:numericString" minOccurs="0" maxOccurs="1" />
           </xs:sequence>
         </xs:extension>
       </xs:complexContent>
@@ -2458,6 +2519,7 @@
 										<xs:sequence>
 												<!-- profile will only be present if a profile was successfully retrieved. -->
 												<xs:element name="profile" type="anet:customerProfileMaskedType" minOccurs="0" />
+												<xs:element minOccurs="0" maxOccurs="1"  name="subscriptionIds" type="anet:SubscriptionIdList" />
 										</xs:sequence>
 								</xs:extension>
 						</xs:complexContent>
@@ -2483,6 +2545,7 @@
 						</xs:complexContent>
 				</xs:complexType>
 		</xs:element>
+		
 		<!-- 
 	===================================================================
 	getCustomerPaymentProfileResponse
@@ -2495,7 +2558,7 @@
 								<xs:extension base="anet:ANetApiResponse">
 										<xs:sequence>
 												<!-- paymentProfile and customerProfileId will only be present if a payment profile was successfully retrieved. -->
-												<xs:element name="paymentProfile" type="anet:customerPaymentProfileMaskedType" minOccurs="0" />
+												<xs:element minOccurs="0"  name="paymentProfile" type="anet:customerPaymentProfileMaskedType" />
 										</xs:sequence>
 								</xs:extension>
 						</xs:complexContent>
@@ -2533,6 +2596,7 @@
 										<xs:sequence>
 												<!-- address and customerProfileId will only be present if a shipping address was successfully retrieved. -->
 												<xs:element name="address" type="anet:customerAddressExType" minOccurs="0" />
+												<xs:element minOccurs="0" maxOccurs="1"  name="subscriptionIds" type="anet:SubscriptionIdList" />
 										</xs:sequence>
 								</xs:extension>
 						</xs:complexContent>
@@ -3587,6 +3651,17 @@ Get ARBSubscription Response
 	  </xs:complexContent>
 	 </xs:complexType>
 	</xs:element>
+  <!--
+	===================================================================
+	Customer Profile Subscription Payment Type.
+	===================================================================
+	-->
+  <xs:complexType name="customerProfileIdType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="customerProfileId" type="anet:numericString"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="customerPaymentProfileId" type="anet:numericString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="customerAddressId" type="anet:numericString" />
+    </xs:sequence>
+  </xs:complexType>
 
-  
 </xs:schema>

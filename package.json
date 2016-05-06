@@ -1,15 +1,16 @@
 {
-  "name": "sdk-node",
+  "name": "authorizenet",
   "version": "1.0.0",
   "description": "nodejs sdk for Authorize.Net",
-  "main": "Schema.js",
+  "main": "lib/authorizenet.js",
   "directories": {
     "test": "tests"
   },
   "dependencies": {
     "chai": "^3.5.0",
     "jsonix": "^2.3.2",
-    "request": "^2.67.0"
+    "request": "^2.72.0",
+    "winston": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {

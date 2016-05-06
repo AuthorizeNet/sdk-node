@@ -1,6 +1,4 @@
-var schema = require('../Schema.js').Schema
-
-//console.log(schema);
+var schema = require('../mappings/Schema.js').Schema
 
 controllerSet = new Set();
 
@@ -23,8 +21,6 @@ for(var i=0;i<schema.typeInfos.length;i++){
     	}
 	}
 }
-
-//console.log(controllerSet.size)
 
 controllerSet.forEach(function(value) {
   console.log(value);

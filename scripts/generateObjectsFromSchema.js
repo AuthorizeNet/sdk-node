@@ -1,4 +1,4 @@
-var schema = require('../Schema.js').Schema
+var schema = require('../mappings/Schema.js').Schema
 
 var newline = "\n";
 var tabcount = 1;
@@ -6,6 +6,7 @@ var tab = "\t";
 
 console.log("\"use strict\";" + newline);
 console.log("var utils = require('./utils.js');" + newline);
+console.log("var logger = require('./logger.js').logger;" + newline);
 
 
 var elementInfo = {};
@@ -71,8 +72,10 @@ for(var i=0;i<schema.typeInfos.length;i++) {
         if(elementInfo[obj['localName']] != null) {
             var getJSONfunc = tab.repeat(tabcount) + "getJSON() { " + newline;
             tabcount++;
+            getJSONfunc += tab.repeat(tabcount) + "logger.debug('Enter " + obj['localName'] +" getJSON');" + newline;
             getJSONfunc += tab.repeat(tabcount) + "utils.delete_null_properties(this, true);" + newline;
             getJSONfunc += tab.repeat(tabcount) + "var obj = { \"" + elementInfo[obj['localName']] + "\" : this };" + newline;
+            getJSONfunc += tab.repeat(tabcount) + "logger.debug('Exit " + obj['localName'] +" getJSON');" + newline;
             getJSONfunc += tab.repeat(tabcount) + "return obj;" + newline;
             tabcount--;
             getJSONfunc += tab.repeat(tabcount) + "}" + newline;
@@ -109,6 +112,7 @@ for(var i=0;i<schema.typeInfos.length;i++) {
 
         var copyCtor = new String(tab.repeat(tabcount) + "constructor(obj) {" + newline);
         tabcount++;
+        copyCtor += tab.repeat(tabcount) + "logger.debug('Enter " + obj['localName'] +" constructor');" + newline;
         copyCtor += tab.repeat(tabcount) + "if(arguments.length == 1) {" + newline;
         tabcount++;
 
@@ -177,6 +181,8 @@ for(var i=0;i<schema.typeInfos.length;i++) {
         tabcount--;
 
         copyCtor += tab.repeat(tabcount) + "}" + newline;
+
+        copyCtor += tab.repeat(tabcount) + "logger.debug('Exit " + obj['localName'] +" constructor');" + newline;
 
         tabcount--;
 
