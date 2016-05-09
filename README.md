@@ -6,7 +6,7 @@ Node.js bindings
 `npm install`
 
 ## Run AuthenticateTestRequest Sample
-`node tests/test.js`
+`node sample/test.js`
 
 ## Run Particular Tests
 `mocha test/<testfile>`
