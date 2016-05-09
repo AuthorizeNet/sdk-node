@@ -2,22 +2,22 @@ var schema = require('../mappings/Schema.js').Schema
 
 controllerSet = new Set();
 
-for(var i=0;i<schema.typeInfos.length;i++){
-    var obj = schema.typeInfos[i];
-    if(obj['typeName'] == null)
+for(var i=0;i<schema.elementInfos.length;i++){
+    var obj = schema.elementInfos[i];
+    if(obj['typeInfo'] != null)
     {
     	var objName = "";
-    	if(obj['localName'].match('Request'+"$") == 'Request')
+    	if(obj['typeInfo'].match('Request'+"$") == 'Request')
     	{
-    		objName = obj['localName'].replace(/Request$/, "");
+    		objName = obj['typeInfo'].replace(/Request$/, "");
     		//console.log(objName);
-    		controllerSet.add(objName);
+    		controllerSet.add(objName.slice(1));
     	}
-    		
-    	if(obj['localName'].match('Response'+"$") == 'Response'){
-    		objName = obj['localName'].replace(/Response$/, "");
+    	
+    	if(obj['typeInfo'].match('Response'+"$") == 'Response'){
+    		objName = obj['typeInfo'].replace(/Response$/, "");
     		//console.log(objName);
-    		controllerSet.add(objName);
+    		controllerSet.add(objName.slice(1));
     	}
 	}
 }
