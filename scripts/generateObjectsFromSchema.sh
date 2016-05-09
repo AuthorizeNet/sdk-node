@@ -11,11 +11,11 @@ echo Starting ${dt}
 CDIR=`pwd`
 SRCDIR=${CDIR}
 
-HOST=apitest.authorize.net
-PROTOCOL=https
+HOST=localhost:8111
+PROTOCOL=http
 LOCALXSD=mappings/AnetApiSchema.xsd
 
-XSD=${PROTOCOL}://${HOST}/xml/v1/schema/AnetApiSchema.xsd
+XSD=${PROTOCOL}://${HOST}/xsdupdate/AnetApiSchema.xsd
 
 echo Get Latest XSD from path - ${XSD}
 
