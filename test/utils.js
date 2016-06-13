@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function getRandomString(text){
 	return text + Math.floor((Math.random() * 100000) + 1);

@@ -20,9 +20,9 @@ node scripts/generateControllersFromSchema.js > "${SRCLOG}"
 echo Creating Controllers
 for cntrls in `cat "${SRCLOG}"`;
 do
-    echo Generating Code for ${cntrls}Controller.js
-    cp ${SRCDIR}/scripts/ControllerTemplate.jst ${SRCDIR}/${CONTROLLERFOLDER}/${cntrls}Controller.js
-    perl -pi -w -e "s/APICONTROLLERNAME/$cntrls/g;" ${SRCDIR}/${CONTROLLERFOLDER}/${cntrls}Controller.js
+	echo Generating Code for ${cntrls}Controller.js
+	cp ${SRCDIR}/scripts/ControllerTemplate.jst ${SRCDIR}/${CONTROLLERFOLDER}/${cntrls}Controller.js
+	perl -pi -w -e "s/APICONTROLLERNAME/$cntrls/g;" ${SRCDIR}/${CONTROLLERFOLDER}/${cntrls}Controller.js
 done
 
 cat ${SRCDIR}/scripts/headertemplate.jst ${SRCDIR}/${CONTROLLERFOLDER}/*.js  > ${SRCDIR}/lib/apicontrollers.js
