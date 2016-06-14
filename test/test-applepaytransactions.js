@@ -1,12 +1,9 @@
 'use strict';
 
 var assert = require('chai').assert;
-
 var utils = require('./utils.js');
 var constants = require('./constants.js');
-
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
 var apiLoginKey = constants.apiLoginKey;
@@ -37,7 +34,6 @@ describe('Apple Pay', function() {
 		var response;
 
 		before(function(done){
-
 			var transactionRequest = new ApiContracts.TransactionRequestType();
 			transactionRequest.setAmount(utils.getRandomAmount());
 			transactionRequest.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHCAPTURETRANSACTION);

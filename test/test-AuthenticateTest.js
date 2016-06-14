@@ -1,16 +1,11 @@
 'use strict';
 
 var assert = require('assert');
-
-var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
-
 var ApiContracts = require('../lib/apicontracts.js');
-
 var constants = require('./constants.js');
 
 var apiLoginKey = constants.apiLoginKey;
 var transactionKey = constants.transactionKey;
-
 
 describe('AuthenticateTest', function() {
 	this.timeout(120000);
@@ -25,7 +20,7 @@ describe('AuthenticateTest', function() {
 			var request = new ApiContracts.AuthenticateTestRequest();
 			request.setMerchantAuthentication(merchant);
 
-			var ctrl = new AuthenticateTestController(request.getJSON());
+			var ctrl = new ApiContracts.AuthenticateTestController(request.getJSON());
 			ctrl.execute(function(){
 				var apiResponse = ctrl.getResponse();
 
