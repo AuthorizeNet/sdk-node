@@ -151,13 +151,13 @@ for(i=0;i<schema.typeInfos.length;i++) {
 			}
 			else if((prop['typeInfo'] != null) && (prop['typeInfo'][0] == '.'))
 			{
-				copyCtor += tab.repeat(tabcount) + 'if(' + propname + ' != null) { this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(';
+				copyCtor += tab.repeat(tabcount) + 'if((\'' + name + '\' in obj) && (' + propname + ' != null)) { this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(';
 				copyCtor += 'new ' + prop['typeInfo'].slice(1) + '(' + propname + ')';
 				copyCtor += '); }' + newline;
 			}
 			else
 			{
-				copyCtor += tab.repeat(tabcount) + 'if(' + propname + ' != null) { this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(';
+				copyCtor += tab.repeat(tabcount) + 'if((\'' + name + '\' in obj) && (' + propname + ' != null)) { this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(';
 				copyCtor += propname;
 				copyCtor += '); }' + newline;
 			}

@@ -2,6 +2,7 @@
 
 var assert = require('assert');
 var ApiContracts = require('../lib/apicontracts.js');
+var ApiControllers = require('../lib/apicontrollers.js');
 var constants = require('./constants.js');
 
 var apiLoginKey = constants.apiLoginKey;
@@ -20,7 +21,7 @@ describe('AuthenticateTest', function() {
 			var request = new ApiContracts.AuthenticateTestRequest();
 			request.setMerchantAuthentication(merchant);
 
-			var ctrl = new ApiContracts.AuthenticateTestController(request.getJSON());
+			var ctrl = new ApiControllers.AuthenticateTestController(request.getJSON());
 			ctrl.execute(function(){
 				var apiResponse = ctrl.getResponse();
 
