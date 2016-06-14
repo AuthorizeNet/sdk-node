@@ -36,7 +36,7 @@ if [ $? -eq 0 ]; then
 		echo Failed Generating Schema.js from XSD
 	fi
 else
-    echo Failed downloading the XSD.
+	echo Failed downloading the XSD.
 fi
 
 echo Finished ${dt}

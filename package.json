@@ -12,7 +12,9 @@
     "request": "^2.72.0",
     "winston": "^2.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^2.12.0"
+  },
   "scripts": {
     "test": "mocha"
   },

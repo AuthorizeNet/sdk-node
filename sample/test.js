@@ -1,16 +1,12 @@
-"use strict";
+'use strict';
 
 var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
 
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
-
-
 var merchant = new ApiContracts.MerchantAuthenticationType();
-merchant.setName("5KP3u95bQpv");
-merchant.setTransactionKey("4Ktq966gC55GAX7S");
+merchant.setName('5KP3u95bQpv');
+merchant.setTransactionKey('4Ktq966gC55GAX7S');
 
 var request = new ApiContracts.AuthenticateTestRequest();
 request.setMerchantAuthentication(merchant);

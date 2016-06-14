@@ -1,15 +1,13 @@
-"use strict";
+'use strict';
 
 var assert = require('chai').assert;
-
 var utils = require('./utils.js');
-
+var constants = require('./constants.js');
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
+var apiLoginKey = constants.apiLoginKey;
+var transactionKey = constants.transactionKey;
 
 class PaymentTransactionsTestData {
 
@@ -19,16 +17,16 @@ class PaymentTransactionsTestData {
 		this.merchantAuthenticationType.setName(apiLoginKey);
 		this.merchantAuthenticationType.setTransactionKey(transactionKey);
 
-        this.creditCard = new ApiContracts.CreditCardType();
-        this.creditCard.setCardNumber("4242424242424242");
-        this.creditCard.setExpirationDate("0822");
+		this.creditCard = new ApiContracts.CreditCardType();
+		this.creditCard.setCardNumber('4242424242424242');
+		this.creditCard.setExpirationDate('0822');
 
-        this.paymentType = new ApiContracts.PaymentType();
-        this.paymentType.setCreditCard(this.creditCard);
+		this.paymentType = new ApiContracts.PaymentType();
+		this.paymentType.setCreditCard(this.creditCard);
 
-		this.authCode = "ROHNFQ";
-		this.splitTenderId = "115901";
-		this.refId = "123456";
+		this.authCode = 'ROHNFQ';
+		this.splitTenderId = '115901';
+		this.refId = '123456';
 	}
 }
 
@@ -39,7 +37,6 @@ describe('Payment Transactions', function() {
 	var authAndCaptureTransactionId;
 	var debitTransactionId;
 	var createCustomerProfileResponse;
-	var createCustomerPaymentProfileResponse;
 	var testData = new PaymentTransactionsTestData();
 
 	describe('Charge a credit card', function () {
@@ -69,8 +66,7 @@ describe('Payment Transactions', function() {
 				authAndCaptureTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -115,8 +111,7 @@ describe('Payment Transactions', function() {
 				authOnlyTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -158,8 +153,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -203,8 +197,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -222,7 +215,6 @@ describe('Payment Transactions', function() {
 		});
 
 		it('should return authCode same as input when successful', function () {
-
 			assert.equal(response.getTransactionResponse().getAuthCode(), testData.authCode);
 		});
 	});
@@ -253,8 +245,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -266,7 +257,7 @@ describe('Payment Transactions', function() {
 		it('should return error code 54', function () {
 
 			assert.isAbove(response.getTransactionResponse().getErrors().getError().length, 0);
-			assert.equal(response.getTransactionResponse().getErrors().getError()[0].getErrorCode(), "54");
+			assert.equal(response.getTransactionResponse().getErrors().getError()[0].getErrorCode(), '54');
 		});
 	});
 
@@ -297,7 +288,6 @@ describe('Payment Transactions', function() {
 				authOnlyTransactionIdForVoid = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
 				done();
 			});
 		});
@@ -340,8 +330,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -372,8 +361,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.UpdateSplitTenderGroupResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -392,9 +380,9 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber("125000024");
-			bankAccountType.setAccountNumber("12345678");
-			bankAccountType.setNameOnAccount("John Doe");
+			bankAccountType.setRoutingNumber('125000024');
+			bankAccountType.setAccountNumber('12345678');
+			bankAccountType.setNameOnAccount('John Doe');
 			paymentType.setBankAccount(bankAccountType);
 
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
@@ -420,8 +408,7 @@ describe('Payment Transactions', function() {
 				debitTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -453,9 +440,9 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber("125000024");
-			bankAccountType.setAccountNumber("12345678");
-			bankAccountType.setNameOnAccount("John Doe");
+			bankAccountType.setRoutingNumber('125000024');
+			bankAccountType.setAccountNumber('12345678');
+			bankAccountType.setNameOnAccount('John Doe');
 			paymentType.setBankAccount(bankAccountType);
 
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
@@ -479,8 +466,7 @@ describe('Payment Transactions', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -508,9 +494,9 @@ describe('Payment Transactions', function() {
 			customerPaymentProfileType.setPayment(testData.paymentType);
 
 			var customerProfileType = new ApiContracts.CustomerProfileType();
-			customerProfileType.setMerchantCustomerId("M_" + utils.getRandomString("cust"));
-			customerProfileType.setDescription("Profile description here");
-			customerProfileType.setEmail(utils.getRandomString("cust")+"@anet.net");
+			customerProfileType.setMerchantCustomerId('M_' + utils.getRandomString('cust'));
+			customerProfileType.setDescription('Profile description here');
+			customerProfileType.setEmail(utils.getRandomString('cust')+'@anet.net');
 
 			var paymentProfilesList = [];
 			paymentProfilesList.push(customerPaymentProfileType);
@@ -534,8 +520,7 @@ describe('Payment Transactions', function() {
 				createCustomerProfileResponse = response;
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -594,8 +579,7 @@ describe('Payment Transactions', function() {
 				authAndCaptureTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -619,9 +603,9 @@ describe('Payment Transactions', function() {
 		before(function(done){
 
 			var creditCard = new ApiContracts.CreditCardType();
-			creditCard.setCardNumber("4242424242424242");
-			creditCard.setExpirationDate("0822");
-			creditCard.setCryptogram("EjRWeJASNFZ4kBI0VniQEjRWeJA=");
+			creditCard.setCardNumber('4242424242424242');
+			creditCard.setExpirationDate('0822');
+			creditCard.setCryptogram('EjRWeJASNFZ4kBI0VniQEjRWeJA=');
 
 			var paymentType = new ApiContracts.PaymentType();
 			paymentType.setCreditCard(creditCard);
@@ -648,8 +632,7 @@ describe('Payment Transactions', function() {
 				authAndCaptureTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 

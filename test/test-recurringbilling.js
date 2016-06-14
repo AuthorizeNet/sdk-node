@@ -1,15 +1,13 @@
-"use strict";
+'use strict';
 
 var assert = require('chai').assert;
-
 var utils = require('./utils.js');
-
+var constants = require('./constants.js');
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
+var apiLoginKey = constants.apiLoginKey;
+var transactionKey = constants.transactionKey;
 
 class ARBSubscriptionTestData {
 
@@ -20,26 +18,26 @@ class ARBSubscriptionTestData {
 		this.merchantAuthenticationType.setTransactionKey(transactionKey);
 
 		this.customerProfileType = new ApiContracts.CustomerProfileType();
-		this.customerProfileType.setDescription(utils.getRandomString("CustomerDescription"));
-		this.customerProfileType.setMerchantCustomerId(utils.getRandomString("Customer"));
-		this.customerProfileType.setEmail(utils.getRandomString("email")+"@anet.net");
+		this.customerProfileType.setDescription(utils.getRandomString('CustomerDescription'));
+		this.customerProfileType.setMerchantCustomerId(utils.getRandomString('Customer'));
+		this.customerProfileType.setEmail(utils.getRandomString('email')+'@anet.net');
 
 		this.creditCardOne = new ApiContracts.CreditCardType();
-		this.creditCardOne.setExpirationDate("2038-12");
-		this.creditCardOne.setCardNumber("4111111111111111");
+		this.creditCardOne.setExpirationDate('2038-12');
+		this.creditCardOne.setCardNumber('4111111111111111');
 
 		this.bankAccountOne = new ApiContracts.BankAccountType();
 		this.bankAccountOne.setAccountType(ApiContracts.BankAccountTypeEnum.SAVINGS);
-		this.bankAccountOne.setRoutingNumber("125000000");
-		this.bankAccountOne.setAccountNumber(utils.getRandomString("A/C#"));
-		this.bankAccountOne.setNameOnAccount(utils.getRandomString("A/CName"));
+		this.bankAccountOne.setRoutingNumber('125000000');
+		this.bankAccountOne.setAccountNumber(utils.getRandomString('A/C#'));
+		this.bankAccountOne.setNameOnAccount(utils.getRandomString('A/CName'));
 		this.bankAccountOne.setEcheckType(ApiContracts.EcheckTypeEnum.WEB); 
-		this.bankAccountOne.setBankName(utils.getRandomString("Bank"));
+		this.bankAccountOne.setBankName(utils.getRandomString('Bank'));
 		this.bankAccountOne.setCheckNumber(utils.getRandomInt());
 
 		this.trackDataOne = new ApiContracts.CreditCardTrackType();
-		this.trackDataOne.setTrack1(utils.getRandomString("Track1"));
-		this.trackDataOne.setTrack2(utils.getRandomString("Track2"));
+		this.trackDataOne.setTrack1(utils.getRandomString('Track1'));
+		this.trackDataOne.setTrack2(utils.getRandomString('Track2'));
 
 		this.encryptedTrackDataOne = new ApiContracts.EncryptedTrackDataType();
 		var keyBlock = new ApiContracts.KeyBlock();
@@ -47,39 +45,39 @@ class ARBSubscriptionTestData {
 		this.encryptedTrackDataOne.setFormOfPayment(keyBlock);
 
 		this.payPalOne = new ApiContracts.PayPalType();
-		this.payPalOne.setSuccessUrl(utils.getRandomString("https://success.anet.net"));
-		this.payPalOne.setCancelUrl(utils.getRandomString("https://cancel.anet.net"));
-		this.payPalOne.setPaypalLc(utils.getRandomString("Lc"));
-		this.payPalOne.setPaypalHdrImg(utils.getRandomString("Hdr"));
-		this.payPalOne.setPaypalPayflowcolor(utils.getRandomString("flowClr"));
-		this.payPalOne.setPayerID(utils.getRandomString("PayerId"));
+		this.payPalOne.setSuccessUrl(utils.getRandomString('https://success.anet.net'));
+		this.payPalOne.setCancelUrl(utils.getRandomString('https://cancel.anet.net'));
+		this.payPalOne.setPaypalLc(utils.getRandomString('Lc'));
+		this.payPalOne.setPaypalHdrImg(utils.getRandomString('Hdr'));
+		this.payPalOne.setPaypalPayflowcolor(utils.getRandomString('flowClr'));
+		this.payPalOne.setPayerID(utils.getRandomString('PayerId'));
 
 		this.paymentOne = new ApiContracts.PaymentType();
 		this.paymentOne.setCreditCard(this.creditCardOne);
 
 		this.customerAddressOne = new ApiContracts.CustomerAddressType();
-		this.customerAddressOne.setFirstName(utils.getRandomString("FName"));
-		this.customerAddressOne.setLastName(utils.getRandomString("LName"));
-		this.customerAddressOne.setCompany(utils.getRandomString("Company"));
-		this.customerAddressOne.setAddress(utils.getRandomString("StreetAdd"));
-		this.customerAddressOne.setCity("Bellevue");
-		this.customerAddressOne.setState("WA");
-		this.customerAddressOne.setZip("98000");
-		this.customerAddressOne.setCountry("USA");
-		this.customerAddressOne.setPhoneNumber("1232122122");
-		this.customerAddressOne.setFaxNumber("1232122122");    	    		
+		this.customerAddressOne.setFirstName(utils.getRandomString('FName'));
+		this.customerAddressOne.setLastName(utils.getRandomString('LName'));
+		this.customerAddressOne.setCompany(utils.getRandomString('Company'));
+		this.customerAddressOne.setAddress(utils.getRandomString('StreetAdd'));
+		this.customerAddressOne.setCity('Bellevue');
+		this.customerAddressOne.setState('WA');
+		this.customerAddressOne.setZip('98000');
+		this.customerAddressOne.setCountry('USA');
+		this.customerAddressOne.setPhoneNumber('1232122122');
+		this.customerAddressOne.setFaxNumber('1232122122');    	    		
 		this.customerPaymentProfileOne = new ApiContracts.CustomerPaymentProfileType();
 		this.customerPaymentProfileOne.setCustomerType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
 		this.customerPaymentProfileOne.setPayment(this.paymentOne);
 
 		this.customerOne = new ApiContracts.CustomerType();
 		this.customerOne.setType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
-		this.customerOne.setId(utils.getRandomString("Id"));
-		this.customerOne.setEmail(utils.getRandomInt()+"@test.this.anet.net");
-		this.customerOne.setPhoneNumber("1232122122");
-		this.customerOne.setFaxNumber("1232122122");
+		this.customerOne.setId(utils.getRandomString('Id'));
+		this.customerOne.setEmail(utils.getRandomInt()+'@test.this.anet.net');
+		this.customerOne.setPhoneNumber('1232122122');
+		this.customerOne.setFaxNumber('1232122122');
 		this.customerOne.setDriversLicense(this.driversLicenseOne);
-		this.customerOne.setTaxId("911011011");//"123-45-6789");//TODO
+		this.customerOne.setTaxId('911011011');//'123-45-6789');//TODO
 
 		this.customerTwo = new ApiContracts.CustomerType();
 
@@ -88,28 +86,28 @@ class ARBSubscriptionTestData {
 		interval.setUnit(ApiContracts.ARBSubscriptionUnitEnum.MONTHS);
 		
 		this.orderType = new ApiContracts.OrderType();
-		this.orderType.setInvoiceNumber(utils.getRandomString("Inv:")); 
-		this.orderType.setDescription(utils.getRandomString("Description"));
+		this.orderType.setInvoiceNumber(utils.getRandomString('Inv:')); 
+		this.orderType.setDescription(utils.getRandomString('Description'));
 
 		this.nameAndAddressTypeOne = new ApiContracts.NameAndAddressType();
-		this.nameAndAddressTypeOne.setFirstName(utils.getRandomString("FName"));
-		this.nameAndAddressTypeOne.setLastName(utils.getRandomString("LName"));
-		this.nameAndAddressTypeOne.setCompany(utils.getRandomString("Company"));
-		this.nameAndAddressTypeOne.setAddress(utils.getRandomString("Address"));
-		this.nameAndAddressTypeOne.setCity(utils.getRandomString("City"));
-		this.nameAndAddressTypeOne.setState(utils.getRandomString("State"));
-		this.nameAndAddressTypeOne.setZip("98004");
-		this.nameAndAddressTypeOne.setCountry("USA");
+		this.nameAndAddressTypeOne.setFirstName(utils.getRandomString('FName'));
+		this.nameAndAddressTypeOne.setLastName(utils.getRandomString('LName'));
+		this.nameAndAddressTypeOne.setCompany(utils.getRandomString('Company'));
+		this.nameAndAddressTypeOne.setAddress(utils.getRandomString('Address'));
+		this.nameAndAddressTypeOne.setCity(utils.getRandomString('City'));
+		this.nameAndAddressTypeOne.setState(utils.getRandomString('State'));
+		this.nameAndAddressTypeOne.setZip('98004');
+		this.nameAndAddressTypeOne.setCountry('USA');
 		
 		this.nameAndAddressTypeTwo = new ApiContracts.NameAndAddressType();
-		this.nameAndAddressTypeTwo.setFirstName(utils.getRandomString("FName"));
-		this.nameAndAddressTypeTwo.setLastName(utils.getRandomString("LName"));
-		this.nameAndAddressTypeTwo.setCompany(utils.getRandomString("Company"));
-		this.nameAndAddressTypeTwo.setAddress(utils.getRandomString("Address"));
-		this.nameAndAddressTypeTwo.setCity(utils.getRandomString("City"));
-		this.nameAndAddressTypeTwo.setState(utils.getRandomString("State"));
-		this.nameAndAddressTypeTwo.setZip("98004");
-		this.nameAndAddressTypeTwo.setCountry("USA");
+		this.nameAndAddressTypeTwo.setFirstName(utils.getRandomString('FName'));
+		this.nameAndAddressTypeTwo.setLastName(utils.getRandomString('LName'));
+		this.nameAndAddressTypeTwo.setCompany(utils.getRandomString('Company'));
+		this.nameAndAddressTypeTwo.setAddress(utils.getRandomString('Address'));
+		this.nameAndAddressTypeTwo.setCity(utils.getRandomString('City'));
+		this.nameAndAddressTypeTwo.setState(utils.getRandomString('State'));
+		this.nameAndAddressTypeTwo.setZip('98004');
+		this.nameAndAddressTypeTwo.setCountry('USA');
 		
 		this.paymentScheduleTypeOne = new ApiContracts.PaymentScheduleType();
 		this.paymentScheduleTypeOne.setInterval(interval);
@@ -118,7 +116,7 @@ class ARBSubscriptionTestData {
 		this.paymentScheduleTypeOne.setTrialOccurrences(0);
 		
 		this.arbSubscriptionOne = new ApiContracts.ARBSubscriptionType();
-		this.arbSubscriptionOne.setName(utils.getRandomString("Name"));
+		this.arbSubscriptionOne.setName(utils.getRandomString('Name'));
 		this.arbSubscriptionOne.setPaymentSchedule(this.paymentScheduleTypeOne);
 		this.arbSubscriptionOne.setAmount(utils.getRandomAmount());
 		this.arbSubscriptionOne.setTrialAmount(utils.getRandomAmount());
@@ -145,9 +143,9 @@ class ARBSubscriptionTestData {
 		this.paging.setOffset(1);
 		this.paging.setLimit(100);
 
-        this.orderTypeTwo = new ApiContracts.OrderType();
-		this.orderTypeTwo.setInvoiceNumber(utils.getRandomString("Inv:")); 
-		this.orderTypeTwo.setDescription(utils.getRandomString("Description"));
+		this.orderTypeTwo = new ApiContracts.OrderType();
+		this.orderTypeTwo.setInvoiceNumber(utils.getRandomString('Inv:')); 
+		this.orderTypeTwo.setDescription(utils.getRandomString('Description'));
 	}
 }
 
@@ -179,8 +177,7 @@ describe('Recurring Billing', function() {
 				//console.log(JSON.stringify(response, null, 2));
 
 				subscriptionId = response.getSubscriptionId();
-
-			    done();
+				done();
 			});
 		});
 
@@ -216,8 +213,7 @@ describe('Recurring Billing', function() {
 				response = new ApiContracts.ARBGetSubscriptionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -262,8 +258,7 @@ describe('Recurring Billing', function() {
 				response = new ApiContracts.ARBGetSubscriptionStatusResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -304,8 +299,7 @@ describe('Recurring Billing', function() {
 					response = new ApiContracts.ARBGetSubscriptionListResponse(apiResponse);
 
 					//console.log(JSON.stringify(response, null, 2));
-
-				    done();
+					done();
 				});
 			}, 10000);
 		});
@@ -345,13 +339,13 @@ describe('Recurring Billing', function() {
 
 		before(function(done){
 
-	        var arbSubscriptionType = new ApiContracts.ARBSubscriptionType();
-	        arbSubscriptionType.setOrder(testData.orderTypeTwo);
+			var arbSubscriptionType = new ApiContracts.ARBSubscriptionType();
+			arbSubscriptionType.setOrder(testData.orderTypeTwo);
 
 			var updateRequest = new ApiContracts.ARBUpdateSubscriptionRequest();
 			updateRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			updateRequest.setSubscriptionId(subscriptionId);
-	        updateRequest.setSubscription(arbSubscriptionType);
+			updateRequest.setSubscription(arbSubscriptionType);
 
 			//console.log(JSON.stringify(updateRequest.getJSON(), null, 2));
 				
@@ -364,8 +358,7 @@ describe('Recurring Billing', function() {
 				response = new ApiContracts.ARBUpdateSubscriptionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -395,8 +388,7 @@ describe('Recurring Billing', function() {
 				response = new ApiContracts.ARBGetSubscriptionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -446,8 +438,7 @@ describe('Recurring Billing', function() {
 				response = new ApiContracts.ARBCancelSubscriptionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 

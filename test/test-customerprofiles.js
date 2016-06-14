@@ -1,15 +1,13 @@
-"use strict";
+'use strict';
 
 var assert = require('chai').assert;
-
 var utils = require('./utils.js');
-
+var constants = require('./constants.js');
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
+var apiLoginKey = constants.apiLoginKey;
+var transactionKey = constants.transactionKey;
 
 class CustomerProfilesTestData {
 
@@ -19,22 +17,21 @@ class CustomerProfilesTestData {
 		this.merchantAuthenticationType.setName(apiLoginKey);
 		this.merchantAuthenticationType.setTransactionKey(transactionKey);
 
-        this.creditCard = new ApiContracts.CreditCardType();
-        this.creditCard.setCardNumber("4242424242424242");
-        this.creditCard.setExpirationDate("0822");
+		this.creditCard = new ApiContracts.CreditCardType();
+		this.creditCard.setCardNumber('4242424242424242');
+		this.creditCard.setExpirationDate('0822');
 
-        this.paymentType = new ApiContracts.PaymentType();
-        this.paymentType.setCreditCard(this.creditCard);
+		this.paymentType = new ApiContracts.PaymentType();
+		this.paymentType.setCreditCard(this.creditCard);
 
 		this.customerPaymentProfileType = new ApiContracts.CustomerPaymentProfileType();
 		this.customerPaymentProfileType.setCustomerType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
 		this.customerPaymentProfileType.setPayment(this.paymentType);
 
-
 		this.customerProfileType = new ApiContracts.CustomerProfileType();
-		this.customerProfileType.setMerchantCustomerId("M_" + utils.getRandomString("cust"));
-		this.customerProfileType.setDescription("Profile description here");
-		this.customerProfileType.setEmail(utils.getRandomString("cust")+"@anet.net");
+		this.customerProfileType.setMerchantCustomerId('M_' + utils.getRandomString('cust'));
+		this.customerProfileType.setDescription('Profile description here');
+		this.customerProfileType.setEmail(utils.getRandomString('cust')+'@anet.net');
 
 		var paymentProfilesList = [];
 		paymentProfilesList.push(this.customerPaymentProfileType);
@@ -42,41 +39,41 @@ class CustomerProfilesTestData {
 		this.customerProfileType.setPaymentProfiles(paymentProfilesList);
 
 		this.customerAddress = new ApiContracts.CustomerAddressType();
-		this.customerAddress.setFirstName("test");
-		this.customerAddress.setLastName("scenario");
-		this.customerAddress.setAddress("123 Main Street");
-		this.customerAddress.setCity("Bellevue");
-		this.customerAddress.setState("WA");
-		this.customerAddress.setZip("98004");
-		this.customerAddress.setCountry("USA");
-		this.customerAddress.setPhoneNumber("000-000-0000");
+		this.customerAddress.setFirstName('test');
+		this.customerAddress.setLastName('scenario');
+		this.customerAddress.setAddress('123 Main Street');
+		this.customerAddress.setCity('Bellevue');
+		this.customerAddress.setState('WA');
+		this.customerAddress.setZip('98004');
+		this.customerAddress.setCountry('USA');
+		this.customerAddress.setPhoneNumber('000-000-0000');
 
 		this.customerAddressForUpdate = new ApiContracts.CustomerAddressType();
-		this.customerAddressForUpdate.setFirstName("John");
-		this.customerAddressForUpdate.setLastName("Doe");
-		this.customerAddressForUpdate.setAddress("123 Main Street");
-		this.customerAddressForUpdate.setCity("Bellevue");
-		this.customerAddressForUpdate.setState("WA");
-		this.customerAddressForUpdate.setZip("98004");
-		this.customerAddressForUpdate.setCountry("USA");
-		this.customerAddressForUpdate.setPhoneNumber("111-111-1111");
+		this.customerAddressForUpdate.setFirstName('John');
+		this.customerAddressForUpdate.setLastName('Doe');
+		this.customerAddressForUpdate.setAddress('123 Main Street');
+		this.customerAddressForUpdate.setCity('Bellevue');
+		this.customerAddressForUpdate.setState('WA');
+		this.customerAddressForUpdate.setZip('98004');
+		this.customerAddressForUpdate.setCountry('USA');
+		this.customerAddressForUpdate.setPhoneNumber('111-111-1111');
 		
 		//credit card details
 		this.creditCardForUpdate = new ApiContracts.CreditCardType();
-		this.creditCardForUpdate.setCardNumber("4111111111111111");
-		this.creditCardForUpdate.setExpirationDate("2023-12");
+		this.creditCardForUpdate.setCardNumber('4111111111111111');
+		this.creditCardForUpdate.setExpirationDate('2023-12');
 
 		this.customerAddressType = new ApiContracts.CustomerAddressType();
-        this.customerAddressType.setFirstName("Johny");
-        this.customerAddressType.setLastName("Bravo");
-        this.customerAddressType.setAddress("123 Main St.");
-        this.customerAddressType.setCity("Seattle");
-        this.customerAddressType.setState("WA");
-        this.customerAddressType.setZip("98004");
-        this.customerAddressType.setCountry("USA");
-        this.customerAddressType.setPhoneNumber("222-222-2222");
+		this.customerAddressType.setFirstName('Johny');
+		this.customerAddressType.setLastName('Bravo');
+		this.customerAddressType.setAddress('123 Main St.');
+		this.customerAddressType.setCity('Seattle');
+		this.customerAddressType.setState('WA');
+		this.customerAddressType.setZip('98004');
+		this.customerAddressType.setCountry('USA');
+		this.customerAddressType.setPhoneNumber('222-222-2222');
 
-		this.refId = "123456";
+		this.refId = '123456';
 	}
 }
 
@@ -113,8 +110,7 @@ describe('Customer Profiles', function() {
 				createCustomerProfileResponse = response;
 
 				// console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -159,8 +155,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -199,8 +194,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerProfileIdsResponse(apiResponse);
 
 				// console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -222,9 +216,9 @@ describe('Customer Profiles', function() {
 		before(function(done){
 
 			customerDataForUpdate = new ApiContracts.CustomerProfileExType();
-			customerDataForUpdate.setMerchantCustomerId("custId123");
-			customerDataForUpdate.setDescription("some description");
-			customerDataForUpdate.setEmail("newaddress@example.com");
+			customerDataForUpdate.setMerchantCustomerId('custId123');
+			customerDataForUpdate.setDescription('some description');
+			customerDataForUpdate.setEmail('newaddress@example.com');
 			customerDataForUpdate.setCustomerProfileId(createCustomerProfileResponse.getCustomerProfileId());
 
 			var updateRequest = new ApiContracts.UpdateCustomerProfileRequest();
@@ -242,8 +236,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.UpdateCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -273,8 +266,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -327,8 +319,7 @@ describe('Customer Profiles', function() {
 				createCustomerPaymentProfileResponse = response;
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -370,8 +361,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -415,7 +405,7 @@ describe('Customer Profiles', function() {
 			getRequest.setPaging(paging);
 			getRequest.setSearchType(ApiContracts.CustomerPaymentProfileSearchTypeEnum.CARDSEXPIRINGINMONTH);
 			getRequest.setSorting(sorting);
-			getRequest.setMonth("2020-12");
+			getRequest.setMonth('2020-12');
 
 			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
 				
@@ -428,8 +418,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerPaymentProfileListResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -450,7 +439,7 @@ describe('Customer Profiles', function() {
 			validateRequest.setCustomerProfileId(createCustomerProfileResponse.getCustomerProfileId());	
 			validateRequest.setCustomerPaymentProfileId(createCustomerPaymentProfileResponse.getCustomerPaymentProfileId());
 			validateRequest.setValidationMode(ApiContracts.ValidationModeEnum.LIVEMODE);
-			validateRequest.setCardCode("122");
+			validateRequest.setCardCode('122');
 		
 			//console.log(JSON.stringify(validateRequest.getJSON(), null, 2));
 				
@@ -463,8 +452,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.ValidateCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -505,8 +493,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.UpdateCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -538,8 +525,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -588,8 +574,7 @@ describe('Customer Profiles', function() {
 				createCustomerShippingAddressResponse = response;
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -631,8 +616,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerShippingAddressResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -662,14 +646,14 @@ describe('Customer Profiles', function() {
 			paymentType.setCreditCard(testData.creditCardForUpdate);
 
 			customerShippingAddressForUpdate = new ApiContracts.CustomerAddressExType();
-			customerShippingAddressForUpdate.setFirstName("Will");
-			customerShippingAddressForUpdate.setLastName("Smith");
-			customerShippingAddressForUpdate.setAddress("345 Main St.");
-			customerShippingAddressForUpdate.setCity("Bellevue");
-			customerShippingAddressForUpdate.setState("WA");
-			customerShippingAddressForUpdate.setZip("98004");
-			customerShippingAddressForUpdate.setCountry("USA");
-			customerShippingAddressForUpdate.setPhoneNumber("333-333-3333");
+			customerShippingAddressForUpdate.setFirstName('Will');
+			customerShippingAddressForUpdate.setLastName('Smith');
+			customerShippingAddressForUpdate.setAddress('345 Main St.');
+			customerShippingAddressForUpdate.setCity('Bellevue');
+			customerShippingAddressForUpdate.setState('WA');
+			customerShippingAddressForUpdate.setZip('98004');
+			customerShippingAddressForUpdate.setCountry('USA');
+			customerShippingAddressForUpdate.setPhoneNumber('333-333-3333');
 			customerShippingAddressForUpdate.setCustomerAddressId(createCustomerShippingAddressResponse.getCustomerAddressId());
 
 			var updateRequest = new ApiContracts.UpdateCustomerShippingAddressRequest();
@@ -688,8 +672,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.UpdateCustomerShippingAddressResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -721,8 +704,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerShippingAddressResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -749,8 +731,8 @@ describe('Customer Profiles', function() {
 		before(function(done){
 
 			var setting = new ApiContracts.SettingType();
-			setting.setSettingName("hostedProfileReturnUrl");
-			setting.setSettingValue("https://returnurl.com/return/");
+			setting.setSettingName('hostedProfileReturnUrl');
+			setting.setSettingValue('https://returnurl.com/return/');
 
 			var settingList = [];
 			settingList.push(setting);
@@ -774,8 +756,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetHostedProfilePageResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -818,8 +799,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.DeleteCustomerShippingAddressResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -851,8 +831,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerShippingAddressResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -889,14 +868,12 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.DeleteCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
 
 		it('should return resultcode Ok when successful', function () {
-
 			assert.equal(response.getMessages().getResultCode(), ApiContracts.MessageTypeEnum.OK);
 		});
 	});
@@ -922,8 +899,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerPaymentProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -959,8 +935,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.DeleteCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -991,8 +966,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.GetCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 
 		});
@@ -1014,7 +988,7 @@ describe('Customer Profiles', function() {
 		before(function(done){
 
 			var customer = new ApiContracts.CustomerDataType();
-			customer.setEmail(utils.getRandomString("test") + "@anet.net");
+			customer.setEmail(utils.getRandomString('test') + '@anet.net');
 
 			var requestInternal = new ApiContracts.TransactionRequestType();
 			requestInternal.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHONLYTRANSACTION);
@@ -1039,13 +1013,11 @@ describe('Customer Profiles', function() {
 				createTransactionResponse = response;
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
 		it('should return resultcode Ok when successful', function () {
-
 			assert.equal(response.getMessages().getResultCode(), ApiContracts.MessageTypeEnum.OK);
 		});
 	});
@@ -1070,8 +1042,7 @@ describe('Customer Profiles', function() {
 				response = new ApiContracts.CreateCustomerProfileResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 

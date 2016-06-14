@@ -1,15 +1,13 @@
-"use strict";
+'use strict';
 
 var assert = require('chai').assert;
-
 var utils = require('./utils.js');
-
+var constants = require('./constants.js');
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
+var apiLoginKey = constants.apiLoginKey;
+var transactionKey = constants.transactionKey;
 
 class PaypalTestData {
 
@@ -20,12 +18,12 @@ class PaypalTestData {
 		this.merchantAuthenticationType.setTransactionKey(transactionKey);
 
 		this.payPal = new ApiContracts.PayPalType();
-        this.payPal.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-        this.payPal.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
+		this.payPal.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+		this.payPal.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
 
-        //standard api call to retrieve response
-        this.paymentType = new ApiContracts.PaymentType();
-        this.paymentType.setPayPal(this.payPal);
+		//standard api call to retrieve response
+		this.paymentType = new ApiContracts.PaymentType();
+		this.paymentType.setPayPal(this.payPal);
 	}
 }
 
@@ -62,8 +60,7 @@ describe('Paypal Express Checkout', function() {
 				transactionId = response.getTransactionResponse().getTransId();
 
 				// console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -114,8 +111,7 @@ describe('Paypal Express Checkout', function() {
 				authAndCaptureTransactionId = response.getTransactionResponse().getTransId();
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -164,8 +160,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				// console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -184,7 +179,7 @@ describe('Paypal Express Checkout', function() {
 
 		it('should return account type as paypal when successful', function () {
 
-			assert.equal(response.getTransactionResponse().getAccountType(), "PayPal");
+			assert.equal(response.getTransactionResponse().getAccountType(), 'PayPal');
 		});
 	});
 
@@ -193,19 +188,19 @@ describe('Paypal Express Checkout', function() {
 
 		before(function(done){
 
-	        var payPalType = new ApiContracts.PayPalType();
-	        payPalType.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setPayerID("B2LA5T27DMX7G");
-	                
-	        var paymentType = new ApiContracts.PaymentType();
-	        paymentType.setPayPal(payPalType);
+			var payPalType = new ApiContracts.PayPalType();
+			payPalType.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setPayerID('B2LA5T27DMX7G');
+					
+			var paymentType = new ApiContracts.PaymentType();
+			paymentType.setPayPal(payPalType);
 
-	        var txnRequest = new ApiContracts.TransactionRequestType();
-	        txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHONLYCONTINUETRANSACTION);
-	        txnRequest.setPayment(paymentType);
-	        txnRequest.setAmount(utils.getRandomAmount());
-	        txnRequest.setRefTransId("2251413967");
+			var txnRequest = new ApiContracts.TransactionRequestType();
+			txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHONLYCONTINUETRANSACTION);
+			txnRequest.setPayment(paymentType);
+			txnRequest.setAmount(utils.getRandomAmount());
+			txnRequest.setRefTransId('2251413967');
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
@@ -222,8 +217,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -238,18 +232,18 @@ describe('Paypal Express Checkout', function() {
 
 		before(function(done){
 
-	        var payPalType = new ApiContracts.PayPalType();
-	        payPalType.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	                
-	        var paymentType = new ApiContracts.PaymentType();
-	        paymentType.setPayPal(payPalType);
+			var payPalType = new ApiContracts.PayPalType();
+			payPalType.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+					
+			var paymentType = new ApiContracts.PaymentType();
+			paymentType.setPayPal(payPalType);
 
-	        var txnRequest = new ApiContracts.TransactionRequestType();
-	        txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.PRIORAUTHCAPTURETRANSACTION);
-	        txnRequest.setPayment(paymentType);
-	        txnRequest.setAmount(utils.getRandomAmount());
-	        txnRequest.setRefTransId(transactionId);
+			var txnRequest = new ApiContracts.TransactionRequestType();
+			txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.PRIORAUTHCAPTURETRANSACTION);
+			txnRequest.setPayment(paymentType);
+			txnRequest.setAmount(utils.getRandomAmount());
+			txnRequest.setRefTransId(transactionId);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
@@ -266,8 +260,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -282,19 +275,19 @@ describe('Paypal Express Checkout', function() {
 
 		before(function(done){
 
-	        var payPalType = new ApiContracts.PayPalType();
-	        payPalType.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setPayerID("B2LA5T27DMX7G");
+			var payPalType = new ApiContracts.PayPalType();
+			payPalType.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setPayerID('B2LA5T27DMX7G');
 
-	        var paymentType = new ApiContracts.PaymentType();
-	        paymentType.setPayPal(payPalType);
+			var paymentType = new ApiContracts.PaymentType();
+			paymentType.setPayPal(payPalType);
 
-	        var txnRequest = new ApiContracts.TransactionRequestType();
-	        txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHCAPTURECONTINUETRANSACTION);
-	        txnRequest.setPayment(paymentType);
-	        txnRequest.setAmount(utils.getRandomAmount());
-	        txnRequest.setRefTransId(authAndCaptureTransactionId);
+			var txnRequest = new ApiContracts.TransactionRequestType();
+			txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHCAPTURECONTINUETRANSACTION);
+			txnRequest.setPayment(paymentType);
+			txnRequest.setAmount(utils.getRandomAmount());
+			txnRequest.setRefTransId(authAndCaptureTransactionId);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
@@ -311,8 +304,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -335,17 +327,17 @@ describe('Paypal Express Checkout', function() {
 
 		before(function(done){
 
-	        var payPalType = new ApiContracts.PayPalType();
-	        payPalType.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
+			var payPalType = new ApiContracts.PayPalType();
+			payPalType.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
 
-	        var paymentType = new ApiContracts.PaymentType();
-	        paymentType.setPayPal(payPalType);
+			var paymentType = new ApiContracts.PaymentType();
+			paymentType.setPayPal(payPalType);
 
-	        var txnRequest = new ApiContracts.TransactionRequestType();
-	        txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.VOIDTRANSACTION);
-	        txnRequest.setPayment(paymentType);
-	        txnRequest.setRefTransId(authAndCaptureTransactionId);
+			var txnRequest = new ApiContracts.TransactionRequestType();
+			txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.VOIDTRANSACTION);
+			txnRequest.setPayment(paymentType);
+			txnRequest.setRefTransId(authAndCaptureTransactionId);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
@@ -362,8 +354,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -386,18 +377,18 @@ describe('Paypal Express Checkout', function() {
 
 		before(function(done){
 
-	        var payPalType = new ApiContracts.PayPalType();
-	        payPalType.setCancelUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
-	        payPalType.setSuccessUrl("http://www.merchanteCommerceSite.com/Success/TC25262");
+			var payPalType = new ApiContracts.PayPalType();
+			payPalType.setCancelUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
+			payPalType.setSuccessUrl('http://www.merchanteCommerceSite.com/Success/TC25262');
 
-	        var paymentType = new ApiContracts.PaymentType();
-	        paymentType.setPayPal(payPalType);
+			var paymentType = new ApiContracts.PaymentType();
+			paymentType.setPayPal(payPalType);
 
-	        var txnRequest = new ApiContracts.TransactionRequestType();
-	        txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.REFUNDTRANSACTION);
-	        txnRequest.setPayment(paymentType);
-	        txnRequest.setAmount(utils.getRandomAmount());
-	        txnRequest.setRefTransId(authAndCaptureTransactionId);
+			var txnRequest = new ApiContracts.TransactionRequestType();
+			txnRequest.setTransactionType(ApiContracts.TransactionTypeEnum.REFUNDTRANSACTION);
+			txnRequest.setPayment(paymentType);
+			txnRequest.setAmount(utils.getRandomAmount());
+			txnRequest.setRefTransId(authAndCaptureTransactionId);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
@@ -414,8 +405,7 @@ describe('Paypal Express Checkout', function() {
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 

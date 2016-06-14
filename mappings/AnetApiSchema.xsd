@@ -736,8 +736,9 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
-        <xs:element name="impersonationAuthentication" minOccurs="0" maxOccurs="1" type="anet:impersonationAuthenticationType"/>
-        <xs:element name="fingerPrint" minOccurs="0" maxOccurs="1" type="anet:fingerPrintType"/>
+				<xs:element name="impersonationAuthentication" minOccurs="0" maxOccurs="1" type="anet:impersonationAuthenticationType"/>
+				<xs:element name="fingerPrint" minOccurs="0" maxOccurs="1" type="anet:fingerPrintType"/>
+				<xs:element name="clientKey" type="xs:string" minOccurs="0" maxOccurs="1" />
 			</xs:choice>
 			<xs:element name="mobileDeviceId" minOccurs="0" maxOccurs="1">
 				<xs:simpleType>
@@ -814,6 +815,98 @@
   </xs:element>
   <!-- ===========Decryption End ========================== -->
 
+  <!-- ===========Encryption Start ========================== -->
+  <xs:element name="securePaymentContainerRequest">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiRequest">
+          <xs:sequence>
+            <xs:element name="data" type="anet:webCheckOutDataType" minOccurs="1" maxOccurs="1" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="securePaymentContainerResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiResponse">
+          <xs:sequence>
+            <xs:element name="opaqueData" type="anet:opaqueDataType" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="webCheckOutDataType">
+    <xs:sequence>
+      <xs:element name="type" type="anet:webCheckOutTypeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="id" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="64" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="token" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cardNumber" minOccurs="1" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="4" />
+                  <xs:maxLength value="16" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="expirationDate" minOccurs="1" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="4" />
+                  <xs:maxLength value="7" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="cardCode" type="anet:cardCode" minOccurs="0" maxOccurs="1" />
+            <xs:element name="zip" minOccurs="0" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="1" />
+                  <xs:maxLength value="20" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="fullName" minOccurs="0" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="1" />
+                  <xs:maxLength value="64" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="securePaymentContainerErrorType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="webCheckOutTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PAN" />
+      <xs:enumeration value="TOKEN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- ===========Encryption End ========================== -->
 
   <!-- ===========META CREDENTIALS========================== -->
   <xs:complexType name="impersonationAuthenticationType">
@@ -1236,6 +1329,25 @@
           <xs:documentation>true/false. If true, sets the Card Code field as required in order for a payment profile to be created or updated within a hosted CIM form.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="hostedProfileBillingAddressOptions">
+        <xs:annotation>
+          <xs:documentation>
+              showBillingAddress/showNone
+              showBillingAddress: Allow merchant to show billing address.
+              showNone : Hide billing address and billing name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="hostedProfileManageOptions">
+        <xs:annotation>
+          <xs:documentation>
+            showAll/showPayment/ShowShipping
+            showAll: Shipping and Payment profiles are shown on the manage page, this is the default. 
+            showPayment : Only Payment profiles are shown on the manage page.
+            showShipping : Only Shippiung profiles are shown on the manage page.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- ===================================================== -->
@@ -1650,103 +1762,119 @@
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ===================================================== -->
-	<xs:complexType name="transactionDetailsType">
-		<xs:sequence>
-			<xs:element name="transId" type="anet:numericString" />
-			<xs:element name="refTransId" type="anet:numericString" minOccurs="0" />
-			<xs:element name="splitTenderId" type="anet:numericString" minOccurs="0" />
-			<xs:element name="submitTimeUTC" type="xs:dateTime" />
-			<xs:element name="submitTimeLocal" type="xs:dateTime" />
-			<xs:element name="transactionType" type="xs:string" /> <!-- anet:transactionTypeEnum -->
-			<xs:element name="transactionStatus" type="xs:string" /> <!-- anet:transactionStatusEnum -->
-			<xs:element name="responseCode" type="xs:int" />
-			<xs:element name="responseReasonCode" type="xs:int" />
-			<xs:element name="subscription" type="anet:subscriptionPaymentType" minOccurs="0"/>
-			<xs:element name="responseReasonDescription" type="xs:string" />
-      <xs:element name="authCode" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="6" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="AVSResponse" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="1" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="cardCodeResponse" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="1" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="CAVVResponse" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="1" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="FDSFilterAction" type="xs:string" minOccurs="0" /> <!-- anet:FDSFilterActionEnum -->
-			<xs:element name="FDSFilters" type="anet:ArrayOfFDSFilter" minOccurs="0" />
-			<xs:element name="batch" type="anet:batchDetailsType" minOccurs="0" />
-			<xs:element name="order" type="anet:orderExType" minOccurs="0" />
-			<xs:element name="requestedAmount" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:decimal">
-						<xs:minInclusive value="0.00" />
-						<xs:fractionDigits value="4" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="authAmount" >
-				<xs:simpleType>
-					<xs:restriction base="xs:decimal">
-						<xs:minInclusive value="0.00" />
-						<xs:fractionDigits value="4" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="settleAmount">
-				<xs:simpleType>
-					<xs:restriction base="xs:decimal">
-						<xs:minInclusive value="0.00" />
-						<xs:fractionDigits value="4" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="tax" type="anet:extendedAmountType" minOccurs="0" />
-			<xs:element name="shipping" type="anet:extendedAmountType" minOccurs="0" />
-			<xs:element name="duty" type="anet:extendedAmountType" minOccurs="0" />
-			<xs:element name="lineItems" type="anet:ArrayOfLineItem" minOccurs="0" />
-			<xs:element name="prepaidBalanceRemaining" minOccurs="0" >
-				<xs:simpleType>
-					<xs:restriction base="xs:decimal">
-						<xs:fractionDigits value="4" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>		
-			<xs:element name="taxExempt" type="xs:boolean" minOccurs="0" />
-			<xs:element name="payment" type="anet:paymentMaskedType" />
-			<xs:element name="customer" type="anet:customerDataType" minOccurs="0" />
-			<xs:element name="billTo" type="anet:customerAddressType" minOccurs="0" />
-			<xs:element name="shipTo" type="anet:nameAndAddressType" minOccurs="0" />
-			<xs:element name="recurringBilling" type="xs:boolean" minOccurs="0" />
-			<xs:element name="customerIP" type="xs:string" minOccurs="0" />
-			<xs:element name="product" type="xs:string" minOccurs="0" />
-            <xs:element name="entryMethod" type="xs:string" minOccurs="0" />
-			<xs:element name="marketType" type="xs:string" minOccurs="0" />
-			<xs:element name="mobileDeviceId" type="xs:string" minOccurs="0" />
+    <xs:complexType name="transactionDetailsType">
+        <xs:sequence>
+            <xs:element name="transId" type="anet:numericString" />
+            <xs:element name="refTransId" type="anet:numericString" minOccurs="0" />
+            <xs:element name="splitTenderId" type="anet:numericString" minOccurs="0" />
+            <xs:element name="submitTimeUTC" type="xs:dateTime" />
+            <xs:element name="submitTimeLocal" type="xs:dateTime" />
+            <xs:element name="transactionType" type="xs:string" />
+            <!-- anet:transactionTypeEnum -->
+            <xs:element name="transactionStatus" type="xs:string" />
+            <!-- anet:transactionStatusEnum -->
+            <xs:element name="responseCode" type="xs:int" />
+            <xs:element name="responseReasonCode" type="xs:int" />
+            <xs:element name="subscription" type="anet:subscriptionPaymentType" minOccurs="0"/>
+            <xs:element name="responseReasonDescription" type="xs:string" />
+            <xs:element name="authCode" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="6" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AVSResponse" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="cardCodeResponse" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CAVVResponse" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="FDSFilterAction" type="xs:string" minOccurs="0" />
+            <!-- anet:FDSFilterActionEnum -->
+            <xs:element name="FDSFilters" type="anet:ArrayOfFDSFilter" minOccurs="0" />
+            <xs:element name="batch" type="anet:batchDetailsType" minOccurs="0" />
+            <xs:element name="order" type="anet:orderExType" minOccurs="0" />
+            <xs:element name="requestedAmount" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0.00" />
+                        <xs:fractionDigits value="4" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="authAmount" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0.00" />
+                        <xs:fractionDigits value="4" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="settleAmount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0.00" />
+                        <xs:fractionDigits value="4" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="tax" type="anet:extendedAmountType" minOccurs="0" />
+            <xs:element name="shipping" type="anet:extendedAmountType" minOccurs="0" />
+            <xs:element name="duty" type="anet:extendedAmountType" minOccurs="0" />
+            <xs:element name="lineItems" type="anet:ArrayOfLineItem" minOccurs="0" />
+            <xs:element name="prepaidBalanceRemaining" minOccurs="0" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:fractionDigits value="4" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="taxExempt" type="xs:boolean" minOccurs="0" />
+            <xs:element name="payment" type="anet:paymentMaskedType" />
+            <xs:element name="customer" type="anet:customerDataType" minOccurs="0" />
+            <xs:element name="billTo" type="anet:customerAddressType" minOccurs="0" />
+            <xs:element name="shipTo" type="anet:nameAndAddressType" minOccurs="0" />
+            <xs:element name="recurringBilling" type="xs:boolean" minOccurs="0" />
+            <xs:element name="customerIP" type="xs:string" minOccurs="0" />
+            <xs:element name="product" type="xs:string" minOccurs="0" />
+            <xs:element name="entryMode" type="xs:string" minOccurs="0" />
+            <xs:element name="marketType" type="xs:string" minOccurs="0" />
+            <xs:element name="mobileDeviceId" type="xs:string" minOccurs="0" />
             <xs:element name="customerSignature" type="xs:string" minOccurs="0" />
-      <xs:element name="returnedItems" type="anet:ArrayOfReturnedItem" minOccurs="0" />
-      <xs:element name="solution" type="anet:solutionType" minOccurs="0" />
-            <xs:element name="emvDetails" type="anet:ArrayOfEmvDetailType" minOccurs="0" maxOccurs="unbounded" />
-		</xs:sequence>
-	</xs:complexType>
+            <xs:element name="returnedItems" type="anet:ArrayOfReturnedItem" minOccurs="0" />
+            <xs:element name="solution" type="anet:solutionType" minOccurs="0" />
+            <xs:element name="emvDetails" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tag" maxOccurs="unbounded" minOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element type="xs:string" name="tagId"/>
+                                    <xs:element type="xs:string" name="data"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
   <!-- ===================================================== -->
   <xs:complexType name="solutionType">
     <xs:sequence>
@@ -1755,19 +1883,6 @@
       <xs:element name="vendorName" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
   </xs:complexType>
-    <!-- ===================================================== -->
-    <xs:complexType name="emvDetailType">
-        <xs:sequence>
-            <xs:element name="tagId" type="xs:string" minOccurs="1" maxOccurs="1" />
-            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
-        </xs:sequence>
-    </xs:complexType>
-    <!-- ===================================================== -->
-    <xs:complexType name="ArrayOfEmvDetailType">
-        <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="tags" type="anet:emvDetailType" />
-        </xs:sequence>
-    </xs:complexType>
   <!-- ===================================================== -->
   <xs:complexType name="ArrayOfReturnedItem">
     <xs:sequence>
@@ -1831,106 +1946,113 @@
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ===================================================== -->
-	<xs:complexType name="transactionResponse">
-		<xs:sequence>
-			<xs:element name="responseCode" type="xs:string" minOccurs="0" />
-			<xs:element name="rawResponseCode" type="xs:string" minOccurs="0" />
-			<xs:element name="authCode" type="xs:string" minOccurs="0" />
-			<xs:element name="avsResultCode" type="xs:string" minOccurs="0" />
-			<xs:element name="cvvResultCode" type="xs:string" minOccurs="0" />
-			<xs:element name="cavvResultCode" type="xs:string" minOccurs="0" />
-			<xs:element name="transId" type="xs:string" minOccurs="0" />
-			<xs:element name="refTransID" type="xs:string" minOccurs="0" />
-			<xs:element name="transHash" type="xs:string" minOccurs="0" />
-			<xs:element name="testRequest" type="xs:string" minOccurs="0" />
-			<xs:element name="accountNumber" type="xs:string" minOccurs="0" />
-			<xs:element name="accountType" type="xs:string" minOccurs="0" />
+    <xs:complexType name="transactionResponse">
+        <xs:sequence>
+            <xs:element name="responseCode" type="xs:string" minOccurs="0" />
+            <xs:element name="rawResponseCode" type="xs:string" minOccurs="0" />
+            <xs:element name="authCode" type="xs:string" minOccurs="0" />
+            <xs:element name="avsResultCode" type="xs:string" minOccurs="0" />
+            <xs:element name="cvvResultCode" type="xs:string" minOccurs="0" />
+            <xs:element name="cavvResultCode" type="xs:string" minOccurs="0" />
+            <xs:element name="transId" type="xs:string" minOccurs="0" />
+            <xs:element name="refTransID" type="xs:string" minOccurs="0" />
+            <xs:element name="transHash" type="xs:string" minOccurs="0" />
+            <xs:element name="testRequest" type="xs:string" minOccurs="0" />
+            <xs:element name="accountNumber" type="xs:string" minOccurs="0" />
             <xs:element name="entryMode" type="xs:string" minOccurs="0" />
-			<xs:element name="splitTenderId" type="xs:string" minOccurs="0" />
-			<xs:element name="prePaidCard" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="requestedAmount" type="xs:string" minOccurs="0" />
-						<xs:element name="approvedAmount" type="xs:string" minOccurs="0" />
-						<xs:element name="balanceOnCard" type="xs:string" minOccurs="0" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="messages" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="message" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="code" type="xs:string" minOccurs="0" />
-									<xs:element name="description" type="xs:string" minOccurs="0" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="errors" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="error" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="errorCode" type="xs:string" minOccurs="0" />
-									<xs:element name="errorText" type="xs:string" minOccurs="0" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="splitTenderPayments" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="splitTenderPayment" minOccurs="0" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="transId" type="xs:string" minOccurs="0" />
-									<xs:element name="responseCode" type="xs:string" minOccurs="0" />
-									<xs:element name="responseToCustomer" type="xs:string" minOccurs="0" />
-									<xs:element name="authCode" type="xs:string" minOccurs="0" />
-									<xs:element name="accountNumber" type="xs:string" minOccurs="0" />
-									<xs:element name="accountType" type="xs:string" minOccurs="0" />
-									<xs:element name="requestedAmount" type="xs:string" minOccurs="0" />
-									<xs:element name="approvedAmount" type="xs:string" minOccurs="0" />
-									<xs:element name="balanceOnCard" type="xs:string" minOccurs="0" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>		
-			<xs:element name="userFields" minOccurs="0">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="userField" type="anet:userField" minOccurs="0" maxOccurs="20" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-      <xs:element name="shipTo" type="anet:nameAndAddressType" minOccurs="0" />
-      <xs:element name="secureAcceptance" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="SecureAcceptanceUrl" type="xs:string" minOccurs="0" />
-            <xs:element name="PayerID" type="xs:string" minOccurs="0" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+            <xs:element name="accountType" type="xs:string" minOccurs="0" />
+            <xs:element name="splitTenderId" type="xs:string" minOccurs="0" />
+            <xs:element name="prePaidCard" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="requestedAmount" type="xs:string" minOccurs="0" />
+                        <xs:element name="approvedAmount" type="xs:string" minOccurs="0" />
+                        <xs:element name="balanceOnCard" type="xs:string" minOccurs="0" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="messages" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="message" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="code" type="xs:string" minOccurs="0" />
+                                    <xs:element name="description" type="xs:string" minOccurs="0" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="errors" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="error" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="errorCode" type="xs:string" minOccurs="0" />
+                                    <xs:element name="errorText" type="xs:string" minOccurs="0" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="splitTenderPayments" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="splitTenderPayment" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="transId" type="xs:string" minOccurs="0" />
+                                    <xs:element name="responseCode" type="xs:string" minOccurs="0" />
+                                    <xs:element name="responseToCustomer" type="xs:string" minOccurs="0" />
+                                    <xs:element name="authCode" type="xs:string" minOccurs="0" />
+                                    <xs:element name="accountNumber" type="xs:string" minOccurs="0" />
+                                    <xs:element name="accountType" type="xs:string" minOccurs="0" />
+                                    <xs:element name="requestedAmount" type="xs:string" minOccurs="0" />
+                                    <xs:element name="approvedAmount" type="xs:string" minOccurs="0" />
+                                    <xs:element name="balanceOnCard" type="xs:string" minOccurs="0" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="userFields" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="userField" type="anet:userField" minOccurs="0" maxOccurs="20" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="shipTo" type="anet:nameAndAddressType" minOccurs="0" />
+            <xs:element name="secureAcceptance" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="SecureAcceptanceUrl" type="xs:string" minOccurs="0" />
+                        <xs:element name="PayerID" type="xs:string" minOccurs="0" />
+                        <xs:element name="PayerEmail" type="xs:string" minOccurs="0" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="emvResponse" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="tlvData" type="xs:string" minOccurs="0" maxOccurs="1" />
-                        <xs:element name="tag" type="anet:emvTag" minOccurs="0" maxOccurs="unbounded" />
+                        <xs:element name="tags" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="tag" type="anet:emvTag" minOccurs="1" maxOccurs="unbounded" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-    </xs:sequence>
-	</xs:complexType>
+        </xs:sequence>
+    </xs:complexType>
 	<!-- 
 	=================================================================== 
 	The ANetApiRequest defines elements common to all API method
@@ -3066,7 +3188,7 @@
 						<xs:element name="customerProfileId" type="anet:numericString" />
 						<xs:element name="hostedProfileSettings" type="anet:ArrayOfSetting" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Allowed values for settingName are: hostedProfileReturnUrl, hostedProfileReturnUrlText, hostedProfilePageBorderVisible, hostedProfileIFrameCommunicatorUrl, hostedProfileHeadingBgColor, hostedProfileBillingAddressRequired, hostedProfileCardCodeRequired.</xs:documentation>
+								<xs:documentation>Allowed values for settingName are: hostedProfileReturnUrl, hostedProfileReturnUrlText, hostedProfilePageBorderVisible, hostedProfileIFrameCommunicatorUrl, hostedProfileHeadingBgColor, hostedProfileBillingAddressRequired, hostedProfileCardCodeRequired, hostedProfileBillingAddressOptions, hostedProfileManageOptions.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -3571,5 +3693,154 @@ Get ARBSubscription Response
       <xs:element minOccurs="0" maxOccurs="1" name="customerAddressId" type="anet:numericString" />
     </xs:sequence>
   </xs:complexType>
+ <!--  
+  ===================================================================
+  Get AUJobSummary Request
+  This method is used to get summary of jobs done by Account Updater.
+  ===================================================================
+  -->
+  <xs:element name="getAUJobSummaryRequest">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiRequest">
+          <xs:sequence>
+            <xs:element name="month" minOccurs="1" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="4" />
+                  <xs:maxLength value="7" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+  ===================================================================
+  Get AUJobSummary Response
+  ===================================================================
+  -->
+  <xs:element name="getAUJobSummaryResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiResponse">
+          <xs:sequence>
+            <xs:element name="auSummary" type="anet:ArrayOfAUResponseType" minOccurs="0" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- ===================================================== -->
+  <xs:complexType name="ArrayOfAUResponseType">
+    <xs:sequence>
+      <xs:element name="auResponse" type="anet:auResponseType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ===================================================== -->
+  <xs:complexType name="auResponseType">
+    <xs:sequence>
+      <xs:element name="auReasonCode" type="xs:string" />      
+      <xs:element name="profileCount" type="xs:long" />
+      <xs:element name="reasonDescription" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
 
+  <!--  
+  ===================================================================
+	Get AUJobDetails Request
+	This method is used to get summary of jobs done by Account Updater.
+	===================================================================
+	-->
+  <xs:element name="getAUJobDetailsRequest">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiRequest">
+          <xs:sequence>
+            <xs:element name="month" minOccurs="1" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="4" />
+                  <xs:maxLength value="7" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="modifiedTypeFilter" type="anet:AUJobTypeEnum" minOccurs="0" maxOccurs="1" />
+            <xs:element name="paging" type="anet:Paging" minOccurs="0" maxOccurs="1" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- =========================================================== -->
+  <xs:simpleType name="AUJobTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <!-- All Entries -->      
+      <xs:enumeration value="updates"/>
+      <!-- Only Updated Entries -->
+      <xs:enumeration value="deletes"/>
+      <!-- Only Deleted Entries -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--
+  ===================================================================
+  Get AUJobDetails Response
+  ===================================================================
+  -->
+  <xs:element name="getAUJobDetailsResponse">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="anet:ANetApiResponse">
+          <xs:sequence>
+            <xs:element name="totalNumInResultSet" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="auDetails" type="anet:ListOfAUDetailsType" minOccurs="0" />
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- ===================================================== -->
+  <xs:complexType name="ListOfAUDetailsType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="auUpdate" type="anet:auUpdateType" minOccurs="0" />
+      <xs:element name="auDelete" type="anet:auDeleteType" minOccurs="0" />
+    </xs:choice>
+  </xs:complexType>  
+  <!-- ===================================================== -->
+  <xs:complexType name="auUpdateType">
+    <xs:complexContent>
+      <xs:extension base="anet:auDetailsType">
+        <xs:sequence>
+          <xs:element name="newCreditCard" type="anet:creditCardMaskedType" />
+          <xs:element name="oldCreditCard" type="anet:creditCardMaskedType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- ===================================================== -->
+  <xs:complexType name="auDeleteType">
+    <xs:complexContent>
+      <xs:extension base="anet:auDetailsType">
+        <xs:sequence>
+          <xs:element name="creditCard" type="anet:creditCardMaskedType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- ===================================================== -->
+  <xs:complexType name="auDetailsType">
+    <xs:sequence>
+      <xs:element name="customerProfileID" type="xs:long"/>
+      <xs:element name="customerPaymentProfileID" type="xs:long"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0" />
+      <xs:element name="lastName" type="xs:string" minOccurs="0" />      
+      <xs:element name="updateTimeUTC" type="xs:string"/>
+      <xs:element name="auReasonCode" type="xs:string" />
+      <xs:element name="reasonDescription" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

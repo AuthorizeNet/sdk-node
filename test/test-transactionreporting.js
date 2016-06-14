@@ -1,20 +1,15 @@
-"use strict";
+'use strict';
 
 var assert = require('chai').assert;
-
-var utils = require('./utils.js');
-
+var constants = require('./constants.js');
 var ApiControllers = require('../lib/apicontrollers.js');
-
 var ApiContracts = require('../lib/apicontracts.js');
 
-var apiLoginKey = "5KP3u95bQpv";
-var transactionKey = "4Ktq966gC55GAX7S";
+var apiLoginKey = constants.apiLoginKey;
+var transactionKey = constants.transactionKey;
 
 class TransactionReportingTestData {
-
 	constructor(){
-
 		this.merchantAuthenticationType = new ApiContracts.MerchantAuthenticationType();
 		this.merchantAuthenticationType.setName(apiLoginKey);
 		this.merchantAuthenticationType.setTransactionKey(transactionKey);
@@ -49,8 +44,7 @@ describe('Transaction Reporting', function() {
 				response = new ApiContracts.GetSettledBatchListResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -105,8 +99,7 @@ describe('Transaction Reporting', function() {
 				response = new ApiContracts.GetTransactionListResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -152,8 +145,7 @@ describe('Transaction Reporting', function() {
 				response = new ApiContracts.GetTransactionDetailsResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -193,8 +185,7 @@ describe('Transaction Reporting', function() {
 				response = new ApiContracts.GetUnsettledTransactionListResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
@@ -240,8 +231,7 @@ describe('Transaction Reporting', function() {
 				response = new ApiContracts.GetBatchStatisticsResponse(apiResponse);
 
 				//console.log(JSON.stringify(response, null, 2));
-
-			    done();
+				done();
 			});
 		});
 
