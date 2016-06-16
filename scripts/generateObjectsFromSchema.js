@@ -204,8 +204,8 @@ for(i=0;i<schema.typeInfos.length;i++) {
 
 			var getter = new String(tab.repeat(tabcount) + 'get');
 			getter += name.charAt(0).toUpperCase() + name.slice(1);
-			getter += '() { ';
-			getter += 'return this.' + name + ';';
+			getter += '() { if(\'' + name + '\' in this) {';
+			getter += 'return this.' + name + ';}';
 			getter += ' }';
 
 			classDefinition += newline + setter;
