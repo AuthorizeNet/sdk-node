@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script to generate objects from the xsd file
-# to be executed from root folder of sdk
+# master update script to update sdk for new API changes.
+# to be executed from root folder of sdk.
 
 currdir=`pwd`
 

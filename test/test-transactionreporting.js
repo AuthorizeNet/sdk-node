@@ -88,7 +88,7 @@ describe('Transaction Reporting', function() {
 			getRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			getRequest.setBatchId(batchId);
 
-			//console.log(JSON.stringify(createRequest.getJSON(), null, 2));
+			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
 				
 			var ctrl = new ApiControllers.GetTransactionListController(getRequest.getJSON());
 
@@ -134,7 +134,7 @@ describe('Transaction Reporting', function() {
 			getRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			getRequest.setTransId(transactionId);
 
-			//console.log(JSON.stringify(createRequest.getJSON(), null, 2));
+			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
 				
 			var ctrl = new ApiControllers.GetTransactionDetailsController(getRequest.getJSON());
 
