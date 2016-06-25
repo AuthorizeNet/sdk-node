@@ -1,4 +1,4 @@
-# sdk-node
+# Authorize.Net Node.js SDK 
 Node.js bindings
 
 
