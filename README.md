@@ -2,6 +2,10 @@
 Node.js bindings
 
 
+## Prerequisites
+Node.js version 4.1.2 or higher
+
+
 ## Setup Development Environment
 `npm install`
 
