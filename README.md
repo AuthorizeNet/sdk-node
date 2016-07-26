@@ -1,5 +1,5 @@
 # Authorize.Net Node.js SDK 
-** NOTE this SDK is currently in Beta and should be used for testing/investigation/trial purposes only **
+** NOTE this SDK is currently in pre-release and should be used for testing/investigation/trial purposes only **
 
 
 
