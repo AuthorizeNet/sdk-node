@@ -3,15 +3,17 @@
 var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
 
 var ApiContracts = require('../lib/apicontracts.js');
+var Constants = require('../lib/constants.js').constants;
 
 var merchant = new ApiContracts.MerchantAuthenticationType();
 merchant.setName('5KP3u95bQpv');
-merchant.setTransactionKey('4Ktq966gC55GAX7S');
+merchant.setTransactionKey('346HZ32z3fP4hTG2');
 
 var request = new ApiContracts.AuthenticateTestRequest();
 request.setMerchantAuthentication(merchant);
 
 var ctrl = new AuthenticateTestController(request.getJSON());
+//ctrl.setEnvironment(Constants.endpoint.sandbox);
 
 ctrl.execute(function() {
 
