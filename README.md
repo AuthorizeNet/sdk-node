@@ -1,4 +1,4 @@
-[![Travis](https://img.shields.io/travis/sunnyrajrathod/sdk-node/master.svg)](https://travis-ci.org/sunnyrajrathod/sdk-node)
+[![Travis](https://img.shields.io/travis/AuthorizeNet/sdk-node/master.svg)](https://travis-ci.org/AuthorizeNet/sdk-node)
 [![NPM version](https://badge.fury.io/js/authorizenet.png)](http://badge.fury.io/js/authorizenet)
 
 # Authorize.Net Node.js SDK 
