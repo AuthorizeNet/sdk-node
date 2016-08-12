@@ -1,0 +1,23 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Test
+test
+sample
+
+# Scripts
+scripts
+
+# json mappings
+mappings
+
+#Eslint
+.eslintrc.yml
+
+# Dependency directory
+node_modules
+
+# Git Ignore
+.gitignore

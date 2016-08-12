@@ -22,7 +22,7 @@ for(var i=0;i<schema.elementInfos.length;i++){
 	}
 }
 
-controllerSet.forEach(function(value) {
+Array.from(controllerSet).sort().forEach(function(value) {
 	console.log(value);
 });
 

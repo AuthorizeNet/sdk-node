@@ -250,32 +250,32 @@ for(i=0;i<schema.typeInfos.length;i++) {
 		classes.push(classDefinition);
 }
 
-classes.forEach(function(item) {
+classes.sort().forEach(function(item) {
 	console.log(item);
 	//console.log('classes');
 });
 
-level1InnerClasses.forEach(function(item) {
+level1InnerClasses.sort().forEach(function(item) {
 	console.log(item);
 	//console.log('level1InnerClasses');
 });
 
-level2InnerClasses.forEach(function(item) {
+level2InnerClasses.sort().forEach(function(item) {
 	console.log(item);
 	// console.log('level2InnerClasses');
 });
 
-level1ExtendedClasses.forEach(function(item) {
+level1ExtendedClasses.sort().forEach(function(item) {
 	console.log(item);
 	// console.log('level1ExtendedClasses');
 });
 
-level2ExtendedClasses.forEach(function(item) {
+level2ExtendedClasses.sort().forEach(function(item) {
 	console.log(item);
 	// console.log('level2ExtendedClasses');
 });
 
-enums.forEach(function(item) {
+enums.sort().forEach(function(item) {
 	console.log(item);
 	// console.log('level2ExtendedClasses');
 });
