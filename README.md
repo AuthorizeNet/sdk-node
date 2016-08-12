@@ -112,12 +112,10 @@ module.exports.chargeCreditCard = chargeCreditCard;
 ````
 
 ### Setting Production or Sandbox Environments  
-To set the environment, update the lib/config.js configuration endpoint value
+To set the environment, call setEnvironment on controller variable before execute. Environment defaults to sandbox.
 ````node
-// SANDBOX
-'endpoint': 'https://apitest.authorize.net/xml/v1/request.api'
 // For PRODUCTION use
-// 'endpoint': 'https://api2.authorize.net/xml/v1/request.api'
+ctrl.setEnvironment(SDKConstants.endpoint.production);
 ````
 
 ## Building and Testing Source Code
