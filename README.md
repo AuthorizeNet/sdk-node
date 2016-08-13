@@ -2,8 +2,6 @@
 [![NPM version](https://badge.fury.io/js/authorizenet.png)](http://badge.fury.io/js/authorizenet)
 
 # Authorize.Net Node.js SDK 
-** NOTE this SDK is currently in pre-release and should be used for testing/investigation/trial purposes only **
-
 
 
 ## Prerequisites  
