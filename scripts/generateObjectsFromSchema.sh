@@ -19,7 +19,7 @@ XSD=${PROTOCOL}://${HOST}/xml/v1/schema/AnetApiSchema.xsd
 
 echo Get Latest XSD from path - ${XSD}
 
-wget -O ${LOCALXSD} ${XSD}
+#wget -O ${LOCALXSD} ${XSD}
 
 ERRORCODE=$?
 
