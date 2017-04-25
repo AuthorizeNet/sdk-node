@@ -124,6 +124,52 @@ describe('Transaction Reporting', function() {
 			});
 		});
 	});
+	
+	describe('get Transaction List For Customer', function () {
+		var response;
+
+		before(function(done){
+
+			var getRequest = new ApiContracts.GetTransactionListForCustomerRequest();
+			getRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
+			getRequest.setCustomerProfileId('1811474252');
+
+			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
+				
+			var ctrl = new ApiControllers.GetTransactionListForCustomerController(getRequest.getJSON());
+
+			ctrl.execute(function(){
+
+				var apiResponse = ctrl.getResponse();
+
+				response = new ApiContracts.GetTransactionListResponse(apiResponse);
+
+				//console.log(JSON.stringify(response, null, 2));
+				done();
+			});
+		});
+
+		it('should return resultcode Ok when successful', function () {
+
+			assert.equal(response.getMessages().getResultCode(), ApiContracts.MessageTypeEnum.OK);
+		});
+
+		it('should return not null transaction list when successful', function () {
+
+			assert.isNotNull(response.getTransactions());
+			assert.isDefined(response.getTransactions());
+		});
+
+		it('should return not null transaction ids when successful', function () {
+
+			var transactionArray = response.getTransactions().getTransaction();
+			transactionArray.forEach(function(transaction) {
+				transactionId = transaction.getTransId();
+				assert.isNotNull(transaction.getTransId());
+				assert.isDefined(transaction.getTransId());
+			});
+		});
+	});
 
 	describe('get Transaction Details', function () {
 		var response;
