@@ -1,8 +1,9 @@
 language: node_js
 
 node_js:
-    - "4.1.2"
-    - "6.0.0"
+    - "4"
+    - "6"
+    - "8"
 
 before_install:
     # execute all of the commands which need to be executed 
