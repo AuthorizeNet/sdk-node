@@ -1,11 +1,11 @@
 # Authorize.Net Node.js SDK 
 
-[![Travis](https://img.shields.io/travis/AuthorizeNet/sdk-node/master.svg)](https://travis-ci.org/AuthorizeNet/sdk-node)
+[![Travis CI Status](https://travis-ci.org/AuthorizeNet/sdk-node.svg?branch=master)](https://travis-ci.org/AuthorizeNet/sdk-node)
 [![NPM version](https://badge.fury.io/js/authorizenet.png)](http://badge.fury.io/js/authorizenet)
 
 
 ## Requirements  
-* Node.js version 4.1.2 or higher
+* Node.js version 4.8.4 or higher
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 
 ### TLS 1.2
