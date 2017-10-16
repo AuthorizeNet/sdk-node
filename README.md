@@ -5,7 +5,7 @@
 
 
 ## Requirements  
-* Node.js version 4.1.2 or higher
+* Node.js version 4.8.4 or higher
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 
 ### TLS 1.2
