@@ -1,11 +1,25 @@
 language: node_js
 
 node_js:
-  - "4.1.2"
-  - "6.0.0"
+    - "4.1.2"
+    - "6.0.0"
+
+before_install:
+    # execute all of the commands which need to be executed 
+    # before installing dependencies
 
 install:
- - npm install
+    # install all of the dependencies we need here
+    - npm install
+
+before_script:
+    # execute all of the commands which need to be executed 
+    # before running actual tests
+    - git submodule update --remote --recursive
 
 script:
- - mocha
+    # execute all of the tests or other commands to determine
+    # whether the build will pass or fail
+    - mocha
+
+after_script:
