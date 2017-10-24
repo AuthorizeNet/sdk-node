@@ -383,6 +383,8 @@ describe('Payment Transactions', function() {
 			bankAccountType.setRoutingNumber('121042882');
 			bankAccountType.setAccountNumber('123456789');
 			bankAccountType.setNameOnAccount('John Doe');
+			bankAccountType.setEcheckType('WEB');
+			bankAccountType.setBankName('Wells Fargo Bank NA');
 			paymentType.setBankAccount(bankAccountType);
 
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
