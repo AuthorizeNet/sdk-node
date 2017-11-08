@@ -301,7 +301,7 @@ describe('Recurring Billing', function() {
 					//console.log(JSON.stringify(response, null, 2));
 					done();
 				});
-			}, 10000);
+			}, 20000);
 		});
 
 		it('should return resultcode Ok when successful', function () {
