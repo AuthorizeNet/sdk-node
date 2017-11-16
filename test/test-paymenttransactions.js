@@ -381,7 +381,7 @@ describe('Payment Transactions', function() {
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
 			bankAccountType.setRoutingNumber('121042882');
-			bankAccountType.setAccountNumber('123456789');
+			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			bankAccountType.setEcheckType('WEB');
 			bankAccountType.setBankName('Wells Fargo Bank NA');
@@ -443,7 +443,7 @@ describe('Payment Transactions', function() {
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
 			bankAccountType.setRoutingNumber('121042882');
-			bankAccountType.setAccountNumber('123456789');
+			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			paymentType.setBankAccount(bankAccountType);
 
