@@ -1,0 +1,1 @@
+'use strict';var pkg=require('../package.json'),config={timeout:1.2e5,clientId:'sdk-node-'+pkg.version,logger:{enabled:!1,location:'./',level:'debug'},proxy:{setProxy:!1,proxyUrl:'http://proxy.yourcompany.com:80'}};module.exports.config=config;
