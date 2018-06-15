@@ -380,7 +380,7 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber('121042882');
+			bankAccountType.setRoutingNumber('125008547');
 			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			bankAccountType.setEcheckType('WEB');
@@ -433,7 +433,7 @@ describe('Payment Transactions', function() {
 		});
 	});
 	
-	describe.skip('Credit a Bank Account', function () {
+	describe('Credit a Bank Account', function () {
 		var response;
 
 		before(function(done){
@@ -442,7 +442,7 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber('121042882');
+			bankAccountType.setRoutingNumber('125008547');
 			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			paymentType.setBankAccount(bankAccountType);
