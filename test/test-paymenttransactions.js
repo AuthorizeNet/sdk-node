@@ -36,6 +36,7 @@ describe('Payment Transactions', function() {
 	var authOnlyTransactionIdForVoid;
 	var authAndCaptureTransactionId;
 	var debitTransactionId;
+	var debitTransactionAmount;
 	var createCustomerProfileResponse;
 	var testData = new PaymentTransactionsTestData();
 
@@ -387,10 +388,11 @@ describe('Payment Transactions', function() {
 			bankAccountType.setBankName('Wells Fargo Bank NA');
 			paymentType.setBankAccount(bankAccountType);
 
+			debitTransactionAmount = utils.getRandomAmount();
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
 			transactionRequestType.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHCAPTURETRANSACTION);
 			transactionRequestType.setPayment(paymentType);
-			transactionRequestType.setAmount(utils.getRandomAmount());
+			transactionRequestType.setAmount(debitTransactionAmount);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setRefId(testData.refId);
@@ -451,7 +453,7 @@ describe('Payment Transactions', function() {
 			transactionRequestType.setTransactionType(ApiContracts.TransactionTypeEnum.REFUNDTRANSACTION);
 			transactionRequestType.setPayment(paymentType);
 			transactionRequestType.setRefTransId(debitTransactionId);
-			transactionRequestType.setAmount(utils.getRandomAmount());
+			transactionRequestType.setAmount(debitTransactionAmount);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
