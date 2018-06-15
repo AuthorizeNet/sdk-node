@@ -36,6 +36,7 @@ describe('Payment Transactions', function() {
 	var authOnlyTransactionIdForVoid;
 	var authAndCaptureTransactionId;
 	var debitTransactionId;
+	var debitTransactionAmount;
 	var createCustomerProfileResponse;
 	var testData = new PaymentTransactionsTestData();
 
@@ -380,17 +381,18 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber('121042882');
+			bankAccountType.setRoutingNumber('125008547');
 			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			bankAccountType.setEcheckType('WEB');
 			bankAccountType.setBankName('Wells Fargo Bank NA');
 			paymentType.setBankAccount(bankAccountType);
 
+			debitTransactionAmount = utils.getRandomAmount();
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
 			transactionRequestType.setTransactionType(ApiContracts.TransactionTypeEnum.AUTHCAPTURETRANSACTION);
 			transactionRequestType.setPayment(paymentType);
-			transactionRequestType.setAmount(utils.getRandomAmount());
+			transactionRequestType.setAmount(debitTransactionAmount);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setRefId(testData.refId);
@@ -433,7 +435,7 @@ describe('Payment Transactions', function() {
 		});
 	});
 	
-	describe.skip('Credit a Bank Account', function () {
+	describe('Credit a Bank Account', function () {
 		var response;
 
 		before(function(done){
@@ -442,7 +444,7 @@ describe('Payment Transactions', function() {
 
 			var bankAccountType = new ApiContracts.BankAccountType();
 			bankAccountType.setAccountType(ApiContracts.BankAccountTypeEnum.CHECKING);
-			bankAccountType.setRoutingNumber('121042882');
+			bankAccountType.setRoutingNumber('125008547');
 			bankAccountType.setAccountNumber('1234567890');
 			bankAccountType.setNameOnAccount('John Doe');
 			paymentType.setBankAccount(bankAccountType);
@@ -450,14 +452,15 @@ describe('Payment Transactions', function() {
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
 			transactionRequestType.setTransactionType(ApiContracts.TransactionTypeEnum.REFUNDTRANSACTION);
 			transactionRequestType.setPayment(paymentType);
-			transactionRequestType.setRefTransId(debitTransactionId);
-			transactionRequestType.setAmount(utils.getRandomAmount());
+			// Transaction is can be used only in case of trnsaction is settled.
+			// transactionRequestType.setRefTransId(debitTransactionId);
+			transactionRequestType.setAmount(debitTransactionAmount);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			createRequest.setTransactionRequest(transactionRequestType);
 
-			//console.log(JSON.stringify(createRequest.getJSON(), null, 2));
+			// console.log(JSON.stringify(createRequest.getJSON(), null, 2));
 				
 			var ctrl = new ApiControllers.CreateTransactionController(createRequest.getJSON());
 
@@ -467,7 +470,7 @@ describe('Payment Transactions', function() {
 
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
-				//console.log(JSON.stringify(response, null, 2));
+				// console.log(JSON.stringify(response, null, 2));
 				done();
 			});
 		});

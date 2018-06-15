@@ -30,8 +30,11 @@ describe('Transaction Reporting', function() {
 			var createRequest = new ApiContracts.GetSettledBatchListRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			createRequest.setIncludeStatistics(true);
-			createRequest.setFirstSettlementDate('2015-05-01T16:00:00Z');
-			createRequest.setLastSettlementDate('2015-05-31T16:00:00Z');
+			// createRequest.setFirstSettlementDate('2015-05-01T16:00:00Z');
+			// createRequest.setLastSettlementDate('2015-05-31T16:00:00Z');
+
+			createRequest.setFirstSettlementDate(new Date(new Date().setDate(new Date().getDate()-30)));
+			createRequest.setLastSettlementDate(new Date());
 
 			//console.log(JSON.stringify(createRequest.getJSON(), null, 2));
 				
