@@ -452,14 +452,15 @@ describe('Payment Transactions', function() {
 			var transactionRequestType = new ApiContracts.TransactionRequestType();
 			transactionRequestType.setTransactionType(ApiContracts.TransactionTypeEnum.REFUNDTRANSACTION);
 			transactionRequestType.setPayment(paymentType);
-			transactionRequestType.setRefTransId(debitTransactionId);
+			// Transaction is can be used only in case of trnsaction is settled.
+			// transactionRequestType.setRefTransId(debitTransactionId);
 			transactionRequestType.setAmount(debitTransactionAmount);
 
 			var createRequest = new ApiContracts.CreateTransactionRequest();
 			createRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
 			createRequest.setTransactionRequest(transactionRequestType);
 
-			//console.log(JSON.stringify(createRequest.getJSON(), null, 2));
+			// console.log(JSON.stringify(createRequest.getJSON(), null, 2));
 				
 			var ctrl = new ApiControllers.CreateTransactionController(createRequest.getJSON());
 
@@ -469,7 +470,7 @@ describe('Payment Transactions', function() {
 
 				response = new ApiContracts.CreateTransactionResponse(apiResponse);
 
-				//console.log(JSON.stringify(response, null, 2));
+				// console.log(JSON.stringify(response, null, 2));
 				done();
 			});
 		});
