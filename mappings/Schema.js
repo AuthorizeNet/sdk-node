@@ -3,1981 +3,37 @@ var Schema_Module_Factory = function () {
     name: 'Schema',
     defaultElementNamespaceURI: 'AnetApi\/xml\/v1\/schema\/AnetApiSchema.xsd',
     typeInfos: [{
-        localName: 'DriversLicenseType',
-        typeName: 'driversLicenseType',
-        propertyInfos: [{
-            name: 'number',
-            required: true
-          }, {
-            name: 'state',
-            required: true
-          }, {
-            name: 'dateOfBirth',
-            required: true
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileBaseType',
-        typeName: 'customerPaymentProfileBaseType',
-        propertyInfos: [{
-            name: 'customerType'
-          }, {
-            name: 'billTo',
-            typeInfo: '.CustomerAddressType'
-          }]
-      }, {
-        localName: 'MessagesType.Message',
-        typeName: null,
-        propertyInfos: [{
-            name: 'code',
-            required: true
-          }, {
-            name: 'text',
-            required: true
-          }]
-      }, {
-        localName: 'DriversLicenseMaskedType',
-        typeName: 'driversLicenseMaskedType',
-        propertyInfos: [{
-            name: 'number',
-            required: true
-          }, {
-            name: 'state',
-            required: true
-          }, {
-            name: 'dateOfBirth',
-            required: true
-          }]
-      }, {
-        localName: 'ArrayOfCustomerPaymentProfileListItemType',
-        typeName: 'arrayOfCustomerPaymentProfileListItemType',
-        propertyInfos: [{
-            name: 'paymentProfile',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.CustomerPaymentProfileListItemType'
-          }]
-      }, {
-        localName: 'DeleteCustomerShippingAddressRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'customerAddressId',
-            required: true
-          }]
-      }, {
-        localName: 'SecurePaymentContainerErrorType',
-        typeName: 'securePaymentContainerErrorType',
-        propertyInfos: [{
-            name: 'code',
-            required: true
-          }, {
-            name: 'description',
-            required: true
-          }]
-      }, {
-        localName: 'PaymentType',
-        typeName: 'paymentType',
+        localName: 'PaymentMaskedType',
+        typeName: 'paymentMaskedType',
         propertyInfos: [{
             name: 'creditCard',
             required: true,
-            typeInfo: '.CreditCardType'
+            typeInfo: '.CreditCardMaskedType'
           }, {
             name: 'bankAccount',
             required: true,
-            typeInfo: '.BankAccountType'
+            typeInfo: '.BankAccountMaskedType'
           }, {
-            name: 'trackData',
+            name: 'tokenInformation',
             required: true,
-            typeInfo: '.CreditCardTrackType'
-          }, {
-            name: 'encryptedTrackData',
-            required: true,
-            typeInfo: '.EncryptedTrackDataType'
-          }, {
-            name: 'payPal',
-            required: true,
-            typeInfo: '.PayPalType'
-          }, {
-            name: 'opaqueData',
-            required: true,
-            typeInfo: '.OpaqueDataType'
-          }, {
-            name: 'emv',
-            required: true,
-            typeInfo: '.PaymentEmvType'
+            typeInfo: '.TokenMaskedType'
           }]
       }, {
-        localName: 'ARBGetSubscriptionStatusResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'status'
-          }]
-      }, {
-        localName: 'ProfileTransRefundType',
-        typeName: 'profileTransRefundType',
-        baseTypeInfo: '.ProfileTransAmountType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileId'
-          }, {
-            name: 'customerShippingAddressId'
-          }, {
-            name: 'creditCardNumberMasked'
-          }, {
-            name: 'bankRoutingNumberMasked'
-          }, {
-            name: 'bankAccountNumberMasked'
-          }, {
-            name: 'order',
-            typeInfo: '.OrderExType'
-          }, {
-            name: 'transId'
-          }]
-      }, {
-        localName: 'TransactionResponse.Errors.Error',
-        typeName: null,
-        propertyInfos: [{
-            name: 'errorCode'
-          }, {
-            name: 'errorText'
-          }]
-      }, {
-        localName: 'CreateCustomerProfileTransactionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'transactionResponse',
-            typeInfo: '.TransactionResponse'
-          }, {
-            name: 'directResponse'
-          }]
-      }, {
-        localName: 'PaymentProfile',
-        typeName: 'paymentProfile',
-        propertyInfos: [{
-            name: 'paymentProfileId',
-            required: true
-          }, {
-            name: 'cardCode'
-          }]
-      }, {
-        localName: 'GetCustomerShippingAddressResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'defaultShippingAddress',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'address',
-            typeInfo: '.CustomerAddressExType'
-          }, {
-            name: 'subscriptionIds',
-            typeInfo: '.SubscriptionIdList'
-          }]
-      }, {
-        localName: 'SubscriptionCustomerProfileType',
-        typeName: 'subscriptionCustomerProfileType',
+        localName: 'CustomerProfileMaskedType',
+        typeName: 'customerProfileMaskedType',
         baseTypeInfo: '.CustomerProfileExType',
         propertyInfos: [{
-            name: 'paymentProfile',
+            name: 'paymentProfiles',
+            minOccurs: 0,
+            collection: true,
             typeInfo: '.CustomerPaymentProfileMaskedType'
-          }, {
-            name: 'shippingProfile',
-            typeInfo: '.CustomerAddressExType'
-          }]
-      }, {
-        localName: 'TransactionResponse.UserFields',
-        typeName: null,
-        propertyInfos: [{
-            name: 'userField',
-            minOccurs: 0,
-            maxOccurs: 20,
-            collection: true,
-            typeInfo: '.UserField'
-          }]
-      }, {
-        localName: 'TransactionResponse.EmvResponse.Tags',
-        typeName: null,
-        propertyInfos: [{
-            name: 'tag',
-            required: true,
-            collection: true,
-            typeInfo: '.EmvTag'
-          }]
-      }, {
-        localName: 'KeyValue',
-        propertyInfos: [{
-            name: 'encoding',
-            required: true,
-            elementName: 'Encoding'
-          }, {
-            name: 'encryptionAlgorithm',
-            required: true,
-            elementName: 'EncryptionAlgorithm'
-          }, {
-            name: 'scheme',
-            required: true,
-            elementName: 'Scheme',
-            typeInfo: '.KeyManagementScheme'
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileSorting',
-        propertyInfos: [{
-            name: 'orderBy',
-            required: true
-          }, {
-            name: 'orderDescending',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'EncryptedTrackDataType',
-        typeName: 'encryptedTrackDataType',
-        propertyInfos: [{
-            name: 'formOfPayment',
-            required: true,
-            elementName: 'FormOfPayment',
-            typeInfo: '.KeyBlock'
-          }]
-      }, {
-        localName: 'ProfileTransCaptureOnlyType',
-        typeName: 'profileTransCaptureOnlyType',
-        baseTypeInfo: '.ProfileTransOrderType',
-        propertyInfos: [{
-            name: 'approvalCode',
-            required: true
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionListRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'searchType',
-            required: true
-          }, {
-            name: 'sorting',
-            typeInfo: '.ARBGetSubscriptionListSorting'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
-          }]
-      }, {
-        localName: 'CreateCustomerPaymentProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'paymentProfile',
-            required: true,
-            typeInfo: '.CustomerPaymentProfileType'
-          }, {
-            name: 'validationMode'
-          }]
-      }, {
-        localName: 'PaymentEmvType',
-        typeName: 'paymentEmvType',
-        propertyInfos: [{
-            name: 'emvData',
-            required: true,
-            typeInfo: 'AnyType'
-          }, {
-            name: 'emvDescriptor',
-            required: true,
-            typeInfo: 'AnyType'
-          }, {
-            name: 'emvVersion',
-            required: true,
-            typeInfo: 'AnyType'
-          }]
-      }, {
-        localName: 'UpdateHeldTransactionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'transactionResponse',
-            typeInfo: '.TransactionResponse'
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionListSorting',
-        propertyInfos: [{
-            name: 'orderBy',
-            required: true
-          }, {
-            name: 'orderDescending',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'GetHostedPaymentPageRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transactionRequest',
-            required: true,
-            typeInfo: '.TransactionRequestType'
-          }, {
-            name: 'hostedPaymentSettings',
-            typeInfo: '.ArrayOfSetting'
-          }]
-      }, {
-        localName: 'MobileDeviceRegistrationResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'GetCustomerProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'profile',
-            typeInfo: '.CustomerProfileMaskedType'
-          }, {
-            name: 'subscriptionIds',
-            typeInfo: '.SubscriptionIdList'
-          }]
-      }, {
-        localName: 'ArrayOfFDSFilter',
-        propertyInfos: [{
-            name: 'fdsFilter',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'FDSFilter',
-            typeInfo: '.FDSFilterType'
-          }]
-      }, {
-        localName: 'CreateCustomerPaymentProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileId'
-          }, {
-            name: 'validationDirectResponse'
-          }]
-      }, {
-        localName: 'TransactionResponse.SplitTenderPayments',
-        typeName: null,
-        propertyInfos: [{
-            name: 'splitTenderPayment',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.TransactionResponse.SplitTenderPayments.SplitTenderPayment'
-          }]
-      }, {
-        localName: 'ArrayOfLong',
-        propertyInfos: [{
-            name: '_long',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'long',
-            typeInfo: 'Long'
-          }]
-      }, {
-        localName: 'EmvTag',
-        typeName: 'emvTag',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'value'
-          }, {
-            name: 'formatted'
-          }]
-      }, {
-        localName: 'IsAliveResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'CreditCardTrackType',
-        typeName: 'creditCardTrackType',
-        propertyInfos: [{
-            name: 'track1',
-            required: true
-          }, {
-            name: 'track2',
-            required: true
-          }]
-      }, {
-        localName: 'SecurePaymentContainerResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'opaqueData',
-            required: true,
-            typeInfo: '.OpaqueDataType'
-          }]
-      }, {
-        localName: 'ANetApiRequest',
-        propertyInfos: [{
-            name: 'merchantAuthentication',
-            required: true,
-            typeInfo: '.MerchantAuthenticationType'
-          }, {
-            name: 'clientId'
-          }, {
-            name: 'refId'
-          }]
-      }, {
-        localName: 'CreateCustomerProfileFromTransactionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transId',
-            required: true
-          }, {
-            name: 'customer',
-            typeInfo: '.CustomerProfileBaseType'
-          }, {
-            name: 'customerProfileId'
-          }, {
-            name: 'defaultPaymentProfile',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'defaultShippingAddress',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'MessagesType',
-        typeName: 'messagesType',
-        propertyInfos: [{
-            name: 'resultCode',
-            required: true
-          }, {
-            name: 'message',
-            required: true,
-            collection: true,
-            typeInfo: '.MessagesType.Message'
-          }]
-      }, {
-        localName: 'ProfileTransOrderType',
-        typeName: 'profileTransOrderType',
-        baseTypeInfo: '.ProfileTransAmountType',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'customerPaymentProfileId',
-            required: true
-          }, {
-            name: 'customerShippingAddressId'
-          }, {
-            name: 'order',
-            typeInfo: '.OrderExType'
-          }, {
-            name: 'taxExempt',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'recurringBilling',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'cardCode'
-          }, {
-            name: 'splitTenderId'
-          }]
-      }, {
-        localName: 'CustomerProfilePaymentType',
-        typeName: 'customerProfilePaymentType',
-        propertyInfos: [{
-            name: 'createProfile',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'customerProfileId'
-          }, {
-            name: 'paymentProfile',
-            typeInfo: '.PaymentProfile'
-          }, {
-            name: 'shippingProfileId'
-          }]
-      }, {
-        localName: 'TransactionResponse.SplitTenderPayments.SplitTenderPayment',
-        typeName: null,
-        propertyInfos: [{
-            name: 'transId'
-          }, {
-            name: 'responseCode'
-          }, {
-            name: 'responseToCustomer'
-          }, {
-            name: 'authCode'
-          }, {
-            name: 'accountNumber'
-          }, {
-            name: 'accountType'
-          }, {
-            name: 'requestedAmount'
-          }, {
-            name: 'approvedAmount'
-          }, {
-            name: 'balanceOnCard'
-          }]
-      }, {
-        localName: 'Paging',
-        propertyInfos: [{
-            name: 'limit',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'offset',
-            required: true,
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'TransactionResponse.SecureAcceptance',
-        typeName: null,
-        propertyInfos: [{
-            name: 'secureAcceptanceUrl',
-            elementName: 'SecureAcceptanceUrl'
-          }, {
-            name: 'payerID',
-            elementName: 'PayerID'
-          }, {
-            name: 'payerEmail',
-            elementName: 'PayerEmail'
-          }]
-      }, {
-        localName: 'ArrayOfReturnedItem',
-        propertyInfos: [{
-            name: 'returnedItem',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.ReturnedItemType'
-          }]
-      }, {
-        localName: 'PaymentScheduleType',
-        typeName: 'paymentScheduleType',
-        propertyInfos: [{
-            name: 'interval',
-            typeInfo: '.PaymentScheduleType.Interval'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'totalOccurrences',
-            typeInfo: 'Short'
-          }, {
-            name: 'trialOccurrences',
-            typeInfo: 'Short'
-          }]
-      }, {
-        localName: 'CustomerProfileExType',
-        typeName: 'customerProfileExType',
-        baseTypeInfo: '.CustomerProfileBaseType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }]
-      }, {
-        localName: 'UpdateCustomerShippingAddressResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'ARBCreateSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'subscriptionId'
-          }, {
-            name: 'profile',
-            typeInfo: '.CustomerProfileIdType'
-          }]
-      }, {
-        localName: 'GetCustomerShippingAddressRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'customerAddressId'
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'subscription',
-            required: true,
-            typeInfo: '.ARBSubscriptionMaskedType'
-          }]
-      }, {
-        localName: 'AuDeleteType',
-        typeName: 'auDeleteType',
-        baseTypeInfo: '.AuDetailsType',
-        propertyInfos: [{
-            name: 'creditCard',
-            required: true,
-            typeInfo: '.CreditCardMaskedType'
-          }]
-      }, {
-        localName: 'AuDetailsType',
-        typeName: 'auDetailsType',
-        propertyInfos: [{
-            name: 'customerProfileID',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'customerPaymentProfileID',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'firstName'
-          }, {
-            name: 'lastName'
-          }, {
-            name: 'updateTimeUTC',
-            required: true
-          }, {
-            name: 'auReasonCode',
-            required: true
-          }, {
-            name: 'reasonDescription',
-            required: true
-          }]
-      }, {
-        localName: 'AuthenticateTestRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest'
-      }, {
-        localName: 'GetMerchantDetailsResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'isTestMode',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'processors',
-            required: true,
-            typeInfo: '.ArrayOfProcessorType'
-          }, {
-            name: 'merchantName',
-            required: true
-          }, {
-            name: 'gatewayId',
-            required: true
-          }, {
-            name: 'marketTypes',
-            required: true,
-            typeInfo: '.ArrayOfMarketType'
-          }, {
-            name: 'productCodes',
-            required: true,
-            typeInfo: '.ArrayOfProductCode'
-          }, {
-            name: 'paymentMethods',
-            required: true,
-            typeInfo: '.ArrayOfPaymentMethod'
-          }, {
-            name: 'currencies',
-            required: true,
-            typeInfo: '.ArrayOfCurrencyCode'
-          }]
-      }, {
-        localName: 'GetCustomerProfileIdsRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest'
-      }, {
-        localName: 'SolutionType',
-        typeName: 'solutionType',
-        propertyInfos: [{
-            name: 'id',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'vendorName'
-          }]
-      }, {
-        localName: 'GetAUJobSummaryResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'auSummary',
-            typeInfo: '.ArrayOfAUResponseType'
-          }]
-      }, {
-        localName: 'FingerPrintType',
-        typeName: 'fingerPrintType',
-        propertyInfos: [{
-            name: 'hashValue',
-            required: true
-          }, {
-            name: 'sequence'
-          }, {
-            name: 'timestamp',
-            required: true
-          }, {
-            name: 'currencyCode'
-          }, {
-            name: 'amount'
-          }]
-      }, {
-        localName: 'OrderExType',
-        typeName: 'orderExType',
-        baseTypeInfo: '.OrderType',
-        propertyInfos: [{
-            name: 'purchaseOrderNumber'
-          }]
-      }, {
-        localName: 'CreateTransactionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transactionRequest',
-            required: true,
-            typeInfo: '.TransactionRequestType'
-          }]
-      }, {
-        localName: 'DecryptPaymentDataResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'shippingInfo',
-            typeInfo: '.CustomerAddressType'
-          }, {
-            name: 'billingInfo',
-            typeInfo: '.CustomerAddressType'
-          }, {
-            name: 'cardInfo',
-            typeInfo: '.CreditCardMaskedType'
-          }, {
-            name: 'paymentDetails',
-            typeInfo: '.PaymentDetails'
-          }]
-      }, {
-        localName: 'SecurePaymentContainerRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'data',
-            required: true,
-            typeInfo: '.WebCheckOutDataType'
-          }]
-      }, {
-        localName: 'ARBSubscriptionType',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'paymentSchedule',
-            typeInfo: '.PaymentScheduleType'
-          }, {
-            name: 'amount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'trialAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'payment',
-            typeInfo: '.PaymentType'
-          }, {
-            name: 'order',
-            typeInfo: '.OrderType'
-          }, {
-            name: 'customer',
-            typeInfo: '.CustomerType'
-          }, {
-            name: 'billTo',
-            typeInfo: '.NameAndAddressType'
-          }, {
-            name: 'shipTo',
-            typeInfo: '.NameAndAddressType'
-          }, {
-            name: 'profile',
-            typeInfo: '.CustomerProfileIdType'
-          }]
-      }, {
-        localName: 'GetTransactionListRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'batchId'
-          }, {
-            name: 'sorting',
-            typeInfo: '.TransactionListSorting'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
-          }]
-      }, {
-        localName: 'CustomerDataType',
-        typeName: 'customerDataType',
-        propertyInfos: [{
-            name: 'type'
-          }, {
-            name: 'id'
-          }, {
-            name: 'email'
-          }, {
-            name: 'driversLicense',
-            typeInfo: '.DriversLicenseType'
-          }, {
-            name: 'taxId'
-          }]
-      }, {
-        localName: 'GetUnsettledTransactionListResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'transactions',
-            typeInfo: '.ArrayOfTransactionSummaryType'
-          }, {
-            name: 'totalNumInResultSet',
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'CustomerAddressType',
-        typeName: 'customerAddressType',
-        baseTypeInfo: '.NameAndAddressType',
-        propertyInfos: [{
-            name: 'phoneNumber'
-          }, {
-            name: 'faxNumber'
-          }, {
-            name: 'email'
-          }]
-      }, {
-        localName: 'TransactionRequestType',
-        typeName: 'transactionRequestType',
-        propertyInfos: [{
-            name: 'transactionType',
-            required: true
-          }, {
-            name: 'amount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'currencyCode'
-          }, {
-            name: 'payment',
-            typeInfo: '.PaymentType'
-          }, {
-            name: 'profile',
-            typeInfo: '.CustomerProfilePaymentType'
-          }, {
-            name: 'solution',
-            typeInfo: '.SolutionType'
-          }, {
-            name: 'callId'
-          }, {
-            name: 'terminalNumber'
-          }, {
-            name: 'authCode'
-          }, {
-            name: 'refTransId'
-          }, {
-            name: 'splitTenderId'
-          }, {
-            name: 'order',
-            typeInfo: '.OrderType'
-          }, {
-            name: 'lineItems',
-            typeInfo: '.ArrayOfLineItem'
-          }, {
-            name: 'tax',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'duty',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'shipping',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'taxExempt',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'poNumber'
-          }, {
-            name: 'customer',
-            typeInfo: '.CustomerDataType'
-          }, {
-            name: 'billTo',
-            typeInfo: '.CustomerAddressType'
-          }, {
-            name: 'shipTo',
-            typeInfo: '.NameAndAddressType'
-          }, {
-            name: 'customerIP'
-          }, {
-            name: 'cardholderAuthentication',
-            typeInfo: '.CcAuthenticationType'
-          }, {
-            name: 'retail',
-            typeInfo: '.TransRetailInfoType'
-          }, {
-            name: 'employeeId'
-          }, {
-            name: 'transactionSettings',
-            typeInfo: '.ArrayOfSetting'
-          }, {
-            name: 'userFields',
-            typeInfo: '.TransactionRequestType.UserFields'
-          }]
-      }, {
-        localName: 'ProfileTransPriorAuthCaptureType',
-        typeName: 'profileTransPriorAuthCaptureType',
-        baseTypeInfo: '.ProfileTransAmountType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileId'
-          }, {
-            name: 'customerShippingAddressId'
-          }, {
-            name: 'transId',
-            required: true
-          }]
-      }, {
-        localName: 'ArrayOfString',
-        propertyInfos: [{
-            name: 'string',
-            minOccurs: 0,
-            collection: true
-          }]
-      }, {
-        localName: 'CreateCustomerProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'profile',
-            required: true,
-            typeInfo: '.CustomerProfileType'
-          }, {
-            name: 'validationMode'
-          }]
-      }, {
-        localName: 'UpdateCustomerShippingAddressRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'address',
-            required: true,
-            typeInfo: '.CustomerAddressExType'
-          }, {
-            name: 'defaultShippingAddress',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'DeleteCustomerShippingAddressResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'BatchDetailsType',
-        typeName: 'batchDetailsType',
-        propertyInfos: [{
-            name: 'batchId',
-            required: true
-          }, {
-            name: 'settlementTimeUTC',
-            typeInfo: 'DateTime'
-          }, {
-            name: 'settlementTimeLocal',
-            typeInfo: 'DateTime'
-          }, {
-            name: 'settlementState',
-            required: true
-          }, {
-            name: 'paymentMethod'
-          }, {
-            name: 'marketType'
-          }, {
-            name: 'product'
-          }, {
-            name: 'statistics',
-            typeInfo: '.ArrayOfBatchStatisticType'
-          }]
-      }, {
-        localName: 'ProcessorType',
-        typeName: 'processorType',
-        propertyInfos: [{
-            name: 'name',
-            required: true
-          }]
-      }, {
-        localName: 'GetTransactionListResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'transactions',
-            typeInfo: '.ArrayOfTransactionSummaryType'
-          }, {
-            name: 'totalNumInResultSet',
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'LogoutResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'GetCustomerPaymentProfileListResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'totalNumInResultSet',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'paymentProfiles',
-            typeInfo: '.ArrayOfCustomerPaymentProfileListItemType'
-          }]
-      }, {
-        localName: 'ImpersonationAuthenticationType',
-        typeName: 'impersonationAuthenticationType',
-        propertyInfos: [{
-            name: 'partnerLoginId',
-            required: true
-          }, {
-            name: 'partnerTransactionKey',
-            required: true
-          }]
-      }, {
-        localName: 'MobileDeviceLoginRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest'
-      }, {
-        localName: 'SendCustomerTransactionReceiptRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transId',
-            required: true
-          }, {
-            name: 'customerEmail',
-            required: true
-          }, {
-            name: 'emailSettings',
-            typeInfo: '.EmailSettingsType'
-          }]
-      }, {
-        localName: 'CustomerProfileType',
-        typeName: 'customerProfileType',
-        baseTypeInfo: '.CustomerProfileBaseType',
-        propertyInfos: [{
-            name: 'paymentProfiles',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.CustomerPaymentProfileType'
           }, {
             name: 'shipToList',
             minOccurs: 0,
             collection: true,
-            typeInfo: '.CustomerAddressType'
-          }]
-      }, {
-        localName: 'ARBUpdateSubscriptionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
+            typeInfo: '.CustomerAddressExType'
           }, {
-            name: 'subscription',
-            required: true,
-            typeInfo: '.ARBSubscriptionType'
-          }]
-      }, {
-        localName: 'CreateCustomerProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileIdList',
-            required: true,
-            typeInfo: '.ArrayOfNumericString'
-          }, {
-            name: 'customerShippingAddressIdList',
-            required: true,
-            typeInfo: '.ArrayOfNumericString'
-          }, {
-            name: 'validationDirectResponseList',
-            required: true,
-            typeInfo: '.ArrayOfString'
-          }]
-      }, {
-        localName: 'ExtendedAmountType',
-        typeName: 'extendedAmountType',
-        propertyInfos: [{
-            name: 'amount',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'name'
-          }, {
-            name: 'description'
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileListItemType',
-        typeName: 'customerPaymentProfileListItemType',
-        propertyInfos: [{
-            name: 'defaultPaymentProfile',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'customerPaymentProfileId',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'customerProfileId',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'billTo',
-            required: true,
-            typeInfo: '.CustomerAddressType'
-          }, {
-            name: 'payment',
-            required: true,
-            typeInfo: '.PaymentMaskedType'
-          }]
-      }, {
-        localName: 'TransactionListSorting',
-        propertyInfos: [{
-            name: 'orderBy',
-            required: true
-          }, {
-            name: 'orderDescending',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'GetCustomerPaymentProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'paymentProfile',
-            typeInfo: '.CustomerPaymentProfileMaskedType'
-          }]
-      }, {
-        localName: 'GetBatchStatisticsRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'batchId',
-            required: true
-          }]
-      }, {
-        localName: 'ArrayOfSubscription',
-        propertyInfos: [{
-            name: 'subscriptionDetail',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.SubscriptionDetail'
-          }]
-      }, {
-        localName: 'EmailSettingsType',
-        typeName: 'emailSettingsType',
-        baseTypeInfo: '.ArrayOfSetting',
-        propertyInfos: [{
-            name: 'version',
-            typeInfo: 'Integer',
-            attributeName: {
-              localPart: 'version'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'ArrayOfBatchStatisticType',
-        propertyInfos: [{
-            name: 'statistic',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.BatchStatisticType'
-          }]
-      }, {
-        localName: 'SubscriptionDetail',
-        propertyInfos: [{
-            name: 'id',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'name'
-          }, {
-            name: 'status',
-            required: true
-          }, {
-            name: 'createTimeStampUTC',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'firstName'
-          }, {
-            name: 'lastName'
-          }, {
-            name: 'totalOccurrences',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'pastOccurrences',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'paymentMethod',
-            required: true
-          }, {
-            name: 'accountNumber'
-          }, {
-            name: 'invoice'
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'currencyCode'
-          }, {
-            name: 'customerProfileId',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'customerPaymentProfileId',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'customerShippingProfileId',
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'ArrayOfFraudFilterType',
-        propertyInfos: [{
-            name: 'fraudFilter',
-            required: true,
-            maxOccurs: 1000,
-            collection: true
-          }]
-      }, {
-        localName: 'ProfileTransactionType',
-        typeName: 'profileTransactionType',
-        propertyInfos: [{
-            name: 'profileTransAuthCapture',
-            required: true,
-            typeInfo: '.ProfileTransAuthCaptureType'
-          }, {
-            name: 'profileTransAuthOnly',
-            required: true,
-            typeInfo: '.ProfileTransAuthOnlyType'
-          }, {
-            name: 'profileTransPriorAuthCapture',
-            required: true,
-            typeInfo: '.ProfileTransPriorAuthCaptureType'
-          }, {
-            name: 'profileTransCaptureOnly',
-            required: true,
-            typeInfo: '.ProfileTransCaptureOnlyType'
-          }, {
-            name: 'profileTransRefund',
-            required: true,
-            typeInfo: '.ProfileTransRefundType'
-          }, {
-            name: 'profileTransVoid',
-            required: true,
-            typeInfo: '.ProfileTransVoidType'
-          }]
-      }, {
-        localName: 'TransactionDetailsType.EmvDetails',
-        typeName: null,
-        propertyInfos: [{
-            name: 'tag',
-            required: true,
-            collection: true,
-            typeInfo: '.TransactionDetailsType.EmvDetails.Tag'
-          }]
-      }, {
-        localName: 'KeyManagementScheme.DUKPT.DeviceInfo',
-        typeName: null,
-        propertyInfos: [{
-            name: 'description',
-            required: true,
-            elementName: 'Description'
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }]
-      }, {
-        localName: 'AuUpdateType',
-        typeName: 'auUpdateType',
-        baseTypeInfo: '.AuDetailsType',
-        propertyInfos: [{
-            name: 'newCreditCard',
-            required: true,
-            typeInfo: '.CreditCardMaskedType'
-          }, {
-            name: 'oldCreditCard',
-            required: true,
-            typeInfo: '.CreditCardMaskedType'
-          }]
-      }, {
-        localName: 'ArrayOfNumericString',
-        propertyInfos: [{
-            name: 'numericString',
-            minOccurs: 0,
-            collection: true
-          }]
-      }, {
-        localName: 'GetCustomerProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'merchantCustomerId'
-          }, {
-            name: 'email'
-          }, {
-            name: 'unmaskExpirationDate',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'ProfileTransAmountType',
-        typeName: 'profileTransAmountType',
-        propertyInfos: [{
-            name: 'amount',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'tax',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'shipping',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'duty',
-            typeInfo: '.ExtendedAmountType'
-          }, {
-            name: 'lineItems',
-            minOccurs: 0,
-            maxOccurs: 30,
-            collection: true,
-            typeInfo: '.LineItemType'
-          }]
-      }, {
-        localName: 'AuResponseType',
-        typeName: 'auResponseType',
-        propertyInfos: [{
-            name: 'auReasonCode',
-            required: true
-          }, {
-            name: 'profileCount',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'reasonDescription',
-            required: true
-          }]
-      }, {
-        localName: 'KeyBlock',
-        propertyInfos: [{
-            name: 'value',
-            required: true,
-            elementName: 'Value',
-            typeInfo: '.KeyValue'
-          }]
-      }, {
-        localName: 'TransRetailInfoType',
-        typeName: 'transRetailInfoType',
-        propertyInfos: [{
-            name: 'marketType'
-          }, {
-            name: 'deviceType'
-          }, {
-            name: 'customerSignature'
-          }]
-      }, {
-        localName: 'LogoutRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest'
-      }, {
-        localName: 'CreateProfileResponse',
-        typeName: 'createProfileResponse',
-        propertyInfos: [{
-            name: 'messages',
-            required: true,
-            typeInfo: '.MessagesType'
-          }, {
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileIdList',
-            typeInfo: '.ArrayOfNumericString'
-          }, {
-            name: 'customerShippingAddressIdList',
-            typeInfo: '.ArrayOfNumericString'
-          }]
-      }, {
-        localName: 'UpdateHeldTransactionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'heldTransactionRequest',
-            required: true,
-            typeInfo: '.HeldTransactionRequestType'
-          }]
-      }, {
-        localName: 'CreateCustomerShippingAddressRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'address',
-            required: true,
-            typeInfo: '.CustomerAddressType'
-          }, {
-            name: 'defaultShippingAddress',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'HeldTransactionRequestType',
-        typeName: 'heldTransactionRequestType',
-        propertyInfos: [{
-            name: 'action',
-            required: true
-          }, {
-            name: 'refTransId',
-            required: true
-          }]
-      }, {
-        localName: 'ListOfAUDetailsType',
-        propertyInfos: [{
-            name: 'auUpdateOrAuDelete',
-            minOccurs: 0,
-            collection: true,
-            elementTypeInfos: [{
-                elementName: 'auUpdate',
-                typeInfo: '.AuUpdateType'
-              }, {
-                elementName: 'auDelete',
-                typeInfo: '.AuDeleteType'
-              }],
-            type: 'elements'
-          }]
-      }, {
-        localName: 'GetSettledBatchListRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'includeStatistics',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'firstSettlementDate',
-            typeInfo: 'DateTime'
-          }, {
-            name: 'lastSettlementDate',
-            typeInfo: 'DateTime'
-          }]
-      }, {
-        localName: 'ArrayOfPermissionType',
-        propertyInfos: [{
-            name: 'permission',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.PermissionType'
-          }]
-      }, {
-        localName: 'ArrayOfLineItem',
-        propertyInfos: [{
-            name: 'lineItem',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.LineItemType'
-          }]
-      }, {
-        localName: 'OrderType',
-        typeName: 'orderType',
-        propertyInfos: [{
-            name: 'invoiceNumber'
-          }, {
-            name: 'description'
-          }]
-      }, {
-        localName: 'DeleteCustomerProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'GetMerchantDetailsRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest'
-      }, {
-        localName: 'TransactionResponse.Errors',
-        typeName: null,
-        propertyInfos: [{
-            name: 'error',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.TransactionResponse.Errors.Error'
-          }]
-      }, {
-        localName: 'PaymentSimpleType',
-        typeName: 'paymentSimpleType',
-        propertyInfos: [{
-            name: 'creditCard',
-            required: true,
-            typeInfo: '.CreditCardSimpleType'
-          }, {
-            name: 'bankAccount',
-            required: true,
-            typeInfo: '.BankAccountType'
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileExType',
-        typeName: 'customerPaymentProfileExType',
-        baseTypeInfo: '.CustomerPaymentProfileType',
-        propertyInfos: [{
-            name: 'customerPaymentProfileId'
-          }]
-      }, {
-        localName: 'CreditCardMaskedType',
-        typeName: 'creditCardMaskedType',
-        propertyInfos: [{
-            name: 'cardNumber',
-            required: true
-          }, {
-            name: 'expirationDate',
-            required: true
-          }, {
-            name: 'cardType'
-          }, {
-            name: 'cardArt',
-            typeInfo: '.CardArt'
-          }]
-      }, {
-        localName: 'ARBUpdateSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'profile',
-            typeInfo: '.CustomerProfileIdType'
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionStatusRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }]
-      }, {
-        localName: 'TokenMaskedType',
-        typeName: 'tokenMaskedType',
-        propertyInfos: [{
-            name: 'tokenSource'
-          }, {
-            name: 'tokenNumber',
-            required: true
-          }, {
-            name: 'expirationDate',
-            required: true
-          }]
-      }, {
-        localName: 'KeyManagementScheme.DUKPT',
-        typeName: null,
-        propertyInfos: [{
-            name: 'operation',
-            required: true,
-            elementName: 'Operation'
-          }, {
-            name: 'mode',
-            required: true,
-            elementName: 'Mode',
-            typeInfo: '.KeyManagementScheme.DUKPT.Mode'
-          }, {
-            name: 'deviceInfo',
-            required: true,
-            elementName: 'DeviceInfo',
-            typeInfo: '.KeyManagementScheme.DUKPT.DeviceInfo'
-          }, {
-            name: 'encryptedData',
-            required: true,
-            elementName: 'EncryptedData',
-            typeInfo: '.KeyManagementScheme.DUKPT.EncryptedData'
-          }]
-      }, {
-        localName: 'DeleteCustomerPaymentProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'customerPaymentProfileId',
-            required: true
-          }]
-      }, {
-        localName: 'ARBSubscriptionMaskedType',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'paymentSchedule',
-            typeInfo: '.PaymentScheduleType'
-          }, {
-            name: 'amount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'trialAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'status'
-          }, {
-            name: 'profile',
-            typeInfo: '.SubscriptionCustomerProfileType'
-          }, {
-            name: 'order',
-            typeInfo: '.OrderType'
-          }]
-      }, {
-        localName: 'SubscriptionPaymentType',
-        typeName: 'subscriptionPaymentType',
-        propertyInfos: [{
-            name: 'id',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'payNum',
-            required: true,
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileType',
-        typeName: 'customerPaymentProfileType',
-        baseTypeInfo: '.CustomerPaymentProfileBaseType',
-        propertyInfos: [{
-            name: 'payment',
-            typeInfo: '.PaymentType'
-          }, {
-            name: 'driversLicense',
-            typeInfo: '.DriversLicenseType'
-          }, {
-            name: 'taxId'
-          }, {
-            name: 'defaultPaymentProfile',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'UpdateCustomerProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'ArrayOfCurrencyCode',
-        propertyInfos: [{
-            name: 'currency',
-            minOccurs: 0,
-            collection: true
-          }]
-      }, {
-        localName: 'PaymentScheduleType.Interval',
-        typeName: null,
-        propertyInfos: [{
-            name: 'length',
-            required: true,
-            typeInfo: 'Short'
-          }, {
-            name: 'unit',
-            required: true
-          }]
-      }, {
-        localName: 'KeyManagementScheme',
-        propertyInfos: [{
-            name: 'dukpt',
-            required: true,
-            elementName: 'DUKPT',
-            typeInfo: '.KeyManagementScheme.DUKPT'
-          }]
-      }, {
-        localName: 'BatchStatisticType',
-        typeName: 'batchStatisticType',
-        propertyInfos: [{
-            name: 'accountType',
-            required: true
-          }, {
-            name: 'chargeAmount',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'chargeCount',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'refundAmount',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'refundCount',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'voidCount',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'declineCount',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'errorCount',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'returnedItemAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'returnedItemCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'chargebackAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'chargebackCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'correctionNoticeCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'chargeChargeBackAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'chargeChargeBackCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'refundChargeBackAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'refundChargeBackCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'chargeReturnedItemsAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'chargeReturnedItemsCount',
-            typeInfo: 'Int'
-          }, {
-            name: 'refundReturnedItemsAmount',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'refundReturnedItemsCount',
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'ARBGetSubscriptionListResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'totalNumInResultSet',
-            typeInfo: 'Int'
-          }, {
-            name: 'subscriptionDetails',
-            typeInfo: '.ArrayOfSubscription'
-          }]
-      }, {
-        localName: 'TransactionDetailsType.EmvDetails.Tag',
-        typeName: null,
-        propertyInfos: [{
-            name: 'tagId',
-            required: true
-          }, {
-            name: 'data',
-            required: true
-          }]
-      }, {
-        localName: 'ARBCreateSubscriptionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'subscription',
-            required: true,
-            typeInfo: '.ARBSubscriptionType'
-          }]
-      }, {
-        localName: 'TransactionResponse.Messages',
-        typeName: null,
-        propertyInfos: [{
-            name: 'message',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.TransactionResponse.Messages.Message'
-          }]
-      }, {
-        localName: 'CustomerPaymentProfileMaskedType',
-        typeName: 'customerPaymentProfileMaskedType',
-        baseTypeInfo: '.CustomerPaymentProfileBaseType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileId',
-            required: true
-          }, {
-            name: 'defaultPaymentProfile',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'payment',
-            typeInfo: '.PaymentMaskedType'
-          }, {
-            name: 'driversLicense',
-            typeInfo: '.DriversLicenseMaskedType'
-          }, {
-            name: 'taxId'
-          }, {
-            name: 'subscriptionIds',
-            typeInfo: '.SubscriptionIdList'
-          }]
-      }, {
-        localName: 'MobileDeviceRegistrationRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'mobileDevice',
-            required: true,
-            typeInfo: '.MobileDeviceType'
-          }]
-      }, {
-        localName: 'IsAliveRequest',
-        typeName: null,
-        propertyInfos: [{
-            name: 'refId'
-          }]
-      }, {
-        localName: 'MerchantAuthenticationType',
-        typeName: 'merchantAuthenticationType',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'transactionKey',
-            required: true
-          }, {
-            name: 'sessionToken'
-          }, {
-            name: 'password',
-            required: true
-          }, {
-            name: 'impersonationAuthentication',
-            typeInfo: '.ImpersonationAuthenticationType'
-          }, {
-            name: 'fingerPrint',
-            typeInfo: '.FingerPrintType'
-          }, {
-            name: 'clientKey'
-          }, {
-            name: 'mobileDeviceId'
-          }]
-      }, {
-        localName: 'ArrayOfTransactionSummaryType',
-        propertyInfos: [{
-            name: 'transaction',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.TransactionSummaryType'
-          }]
-      }, {
-        localName: 'ProfileTransVoidType',
-        typeName: 'profileTransVoidType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'customerPaymentProfileId'
-          }, {
-            name: 'customerShippingAddressId'
-          }, {
-            name: 'transId',
-            required: true
-          }]
-      }, {
-        localName: 'CreditCardType',
-        typeName: 'creditCardType',
-        baseTypeInfo: '.CreditCardSimpleType',
-        propertyInfos: [{
-            name: 'cardCode'
-          }, {
-            name: 'isPaymentToken',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'cryptogram'
-          }]
-      }, {
-        localName: 'BankAccountType',
-        typeName: 'bankAccountType',
-        propertyInfos: [{
-            name: 'accountType'
-          }, {
-            name: 'routingNumber',
-            required: true
-          }, {
-            name: 'accountNumber',
-            required: true
-          }, {
-            name: 'nameOnAccount',
-            required: true
-          }, {
-            name: 'echeckType'
-          }, {
-            name: 'bankName'
-          }, {
-            name: 'checkNumber'
-          }]
-      }, {
-        localName: 'UpdateCustomerProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'profile',
-            required: true,
-            typeInfo: '.CustomerProfileExType'
-          }]
-      }, {
-        localName: 'GetAUJobSummaryRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'month',
-            required: true
-          }]
-      }, {
-        localName: 'GetCustomerProfileIdsResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'ids',
-            required: true,
-            typeInfo: '.ArrayOfNumericString'
-          }]
-      }, {
-        localName: 'GetAUJobDetailsResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'totalNumInResultSet',
-            typeInfo: 'Int'
-          }, {
-            name: 'auDetails',
-            typeInfo: '.ListOfAUDetailsType'
-          }]
-      }, {
-        localName: 'ArrayOfBatchDetailsType',
-        propertyInfos: [{
-            name: 'batch',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.BatchDetailsType'
-          }]
-      }, {
-        localName: 'WebCheckOutDataType',
-        typeName: 'webCheckOutDataType',
-        propertyInfos: [{
-            name: 'type',
-            required: true
-          }, {
-            name: 'id',
-            required: true
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.WebCheckOutDataType.Token'
+            name: 'profileType'
           }]
       }, {
         localName: 'TransactionResponse',
@@ -2039,293 +95,8 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'profile',
             typeInfo: '.CustomerProfileIdType'
-          }]
-      }, {
-        localName: 'CardArt',
-        typeName: 'cardArt',
-        propertyInfos: [{
-            name: 'cardBrand'
           }, {
-            name: 'cardImageHeight'
-          }, {
-            name: 'cardImageUrl'
-          }, {
-            name: 'cardImageWidth'
-          }, {
-            name: 'cardType'
-          }]
-      }, {
-        localName: 'GetTransactionDetailsRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transId',
-            required: true
-          }]
-      }, {
-        localName: 'AuthenticateTestResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'GetUnsettledTransactionListRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'status'
-          }, {
-            name: 'sorting',
-            typeInfo: '.TransactionListSorting'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
-          }]
-      }, {
-        localName: 'ArrayOfProductCode',
-        propertyInfos: [{
-            name: 'productCode',
-            minOccurs: 0,
-            collection: true
-          }]
-      }, {
-        localName: 'TransactionRequestType.UserFields',
-        typeName: null,
-        propertyInfos: [{
-            name: 'userField',
-            minOccurs: 0,
-            maxOccurs: 20,
-            collection: true,
-            typeInfo: '.UserField'
-          }]
-      }, {
-        localName: 'CustomerProfileSummaryType',
-        typeName: 'customerProfileSummaryType',
-        propertyInfos: [{
-            name: 'customerProfileId'
-          }, {
-            name: 'description'
-          }, {
-            name: 'merchantCustomerId',
-            required: true
-          }, {
-            name: 'email'
-          }, {
-            name: 'createdDate',
-            required: true,
-            typeInfo: 'DateTime'
-          }]
-      }, {
-        localName: 'TransactionResponse.Messages.Message',
-        typeName: null,
-        propertyInfos: [{
-            name: 'code'
-          }, {
-            name: 'description'
-          }]
-      }, {
-        localName: 'CreditCardSimpleType',
-        typeName: 'creditCardSimpleType',
-        propertyInfos: [{
-            name: 'cardNumber',
-            required: true
-          }, {
-            name: 'expirationDate',
-            required: true
-          }]
-      }, {
-        localName: 'KeyManagementScheme.DUKPT.Mode',
-        typeName: null,
-        propertyInfos: [{
-            name: 'pin',
-            elementName: 'PIN'
-          }, {
-            name: 'data',
-            elementName: 'Data'
-          }]
-      }, {
-        localName: 'MobileDeviceLoginResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'merchantContact',
-            required: true,
-            typeInfo: '.MerchantContactType'
-          }, {
-            name: 'userPermissions',
-            required: true,
-            typeInfo: '.ArrayOfPermissionType'
-          }, {
-            name: 'merchantAccount',
-            typeInfo: '.TransRetailInfoType'
-          }]
-      }, {
-        localName: 'CreateCustomerProfileTransactionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'transaction',
-            required: true,
-            typeInfo: '.ProfileTransactionType'
-          }, {
-            name: 'extraOptions'
-          }]
-      }, {
-        localName: 'ArrayOfProcessorType',
-        propertyInfos: [{
-            name: 'processor',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.ProcessorType'
-          }]
-      }, {
-        localName: 'MerchantContactType',
-        typeName: 'merchantContactType',
-        propertyInfos: [{
-            name: 'merchantName'
-          }, {
-            name: 'merchantAddress'
-          }, {
-            name: 'merchantCity'
-          }, {
-            name: 'merchantState'
-          }, {
-            name: 'merchantZip'
-          }, {
-            name: 'merchantPhone'
-          }]
-      }, {
-        localName: 'UpdateSplitTenderGroupResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'CustomerAddressExType',
-        typeName: 'customerAddressExType',
-        baseTypeInfo: '.CustomerAddressType',
-        propertyInfos: [{
-            name: 'customerAddressId'
-          }]
-      }, {
-        localName: 'MobileDeviceType',
-        typeName: 'mobileDeviceType',
-        propertyInfos: [{
-            name: 'mobileDeviceId',
-            required: true
-          }, {
-            name: 'description'
-          }, {
-            name: 'phoneNumber'
-          }, {
-            name: 'devicePlatform'
-          }, {
-            name: 'deviceActivation'
-          }]
-      }, {
-        localName: 'UserField',
-        typeName: 'userField',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'value'
-          }]
-      }, {
-        localName: 'ProfileTransAuthOnlyType',
-        typeName: 'profileTransAuthOnlyType',
-        baseTypeInfo: '.ProfileTransOrderType'
-      }, {
-        localName: 'PaymentDetails',
-        typeName: 'paymentDetails',
-        propertyInfos: [{
-            name: 'currency'
-          }, {
-            name: 'promoCode'
-          }, {
-            name: 'misc'
-          }, {
-            name: 'giftWrap'
-          }, {
-            name: 'discount'
-          }, {
-            name: 'tax'
-          }, {
-            name: 'shippingHandling'
-          }, {
-            name: 'subTotal'
-          }, {
-            name: 'orderID'
-          }, {
-            name: 'amount'
-          }]
-      }, {
-        localName: 'CustomerProfileBaseType',
-        typeName: 'customerProfileBaseType',
-        propertyInfos: [{
-            name: 'merchantCustomerId'
-          }, {
-            name: 'description'
-          }, {
-            name: 'email'
-          }]
-      }, {
-        localName: 'CreateTransactionResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'transactionResponse',
-            required: true,
-            typeInfo: '.TransactionResponse'
-          }, {
-            name: 'profileResponse',
-            typeInfo: '.CreateProfileResponse'
-          }]
-      }, {
-        localName: 'PayPalType',
-        typeName: 'payPalType',
-        propertyInfos: [{
-            name: 'successUrl'
-          }, {
-            name: 'cancelUrl'
-          }, {
-            name: 'paypalLc'
-          }, {
-            name: 'paypalHdrImg'
-          }, {
-            name: 'paypalPayflowcolor'
-          }, {
-            name: 'payerID'
-          }]
-      }, {
-        localName: 'ANetApiResponse',
-        propertyInfos: [{
-            name: 'refId'
-          }, {
-            name: 'messages',
-            required: true,
-            typeInfo: '.MessagesType'
-          }, {
-            name: 'sessionToken'
-          }]
-      }, {
-        localName: 'GetHostedProfilePageResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'token',
-            required: true
-          }]
-      }, {
-        localName: 'GetTransactionListForCustomerRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }, {
-            name: 'customerPaymentProfileId'
-          }, {
-            name: 'sorting',
-            typeInfo: '.TransactionListSorting'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
+            name: 'networkTransId'
           }]
       }, {
         localName: 'ValidateCustomerPaymentProfileRequest',
@@ -2346,115 +117,338 @@ var Schema_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'SettingType',
-        typeName: 'settingType',
+        localName: 'NameAndAddressType',
+        typeName: 'nameAndAddressType',
         propertyInfos: [{
-            name: 'settingName'
-          }, {
-            name: 'settingValue'
-          }]
-      }, {
-        localName: 'TransactionSummaryType',
-        typeName: 'transactionSummaryType',
-        propertyInfos: [{
-            name: 'transId',
-            required: true
-          }, {
-            name: 'submitTimeUTC',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'submitTimeLocal',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'transactionStatus',
-            required: true
-          }, {
-            name: 'invoiceNumber'
-          }, {
             name: 'firstName'
           }, {
             name: 'lastName'
           }, {
-            name: 'accountType',
-            required: true
+            name: 'company'
           }, {
-            name: 'accountNumber',
-            required: true
+            name: 'address'
           }, {
-            name: 'settleAmount',
+            name: 'city'
+          }, {
+            name: 'state'
+          }, {
+            name: 'zip'
+          }, {
+            name: 'country'
+          }]
+      }, {
+        localName: 'ProfileTransAuthCaptureType',
+        typeName: 'profileTransAuthCaptureType',
+        baseTypeInfo: '.ProfileTransOrderType'
+      }, {
+        localName: 'GetUnsettledTransactionListResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'transactions',
+            typeInfo: '.ArrayOfTransactionSummaryType'
+          }, {
+            name: 'totalNumInResultSet',
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'IsAliveRequest',
+        typeName: null,
+        propertyInfos: [{
+            name: 'refId'
+          }]
+      }, {
+        localName: 'PaymentEmvType',
+        typeName: 'paymentEmvType',
+        propertyInfos: [{
+            name: 'emvData',
             required: true,
-            typeInfo: 'Decimal'
+            typeInfo: 'AnyType'
           }, {
-            name: 'marketType'
+            name: 'emvDescriptor',
+            required: true,
+            typeInfo: 'AnyType'
           }, {
-            name: 'product'
-          }, {
-            name: 'mobileDeviceId'
-          }, {
-            name: 'subscription',
-            typeInfo: '.SubscriptionPaymentType'
-          }, {
-            name: 'hasReturnedItems',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'fraudInformation',
-            typeInfo: '.FraudInformationType'
-          }, {
-            name: 'profile',
-            typeInfo: '.CustomerProfileIdType'
+            name: 'emvVersion',
+            required: true,
+            typeInfo: 'AnyType'
           }]
       }, {
-        localName: 'DeleteCustomerProfileRequest',
+        localName: 'ProcessorType',
+        typeName: 'processorType',
+        propertyInfos: [{
+            name: 'name',
+            required: true
+          }, {
+            name: 'id',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'cardTypes',
+            typeInfo: '.ArrayOfCardType'
+          }]
+      }, {
+        localName: 'GetHostedPaymentPageRequest',
         typeName: null,
         baseTypeInfo: '.ANetApiRequest',
         propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
-          }]
-      }, {
-        localName: 'GetBatchStatisticsResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'batch',
-            typeInfo: '.BatchDetailsType'
-          }]
-      }, {
-        localName: 'GetHostedPaymentPageResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'token',
-            required: true
-          }]
-      }, {
-        localName: 'GetHostedProfilePageRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
-            required: true
+            name: 'transactionRequest',
+            required: true,
+            typeInfo: '.TransactionRequestType'
           }, {
-            name: 'hostedProfileSettings',
+            name: 'hostedPaymentSettings',
             typeInfo: '.ArrayOfSetting'
           }]
       }, {
-        localName: 'PaymentMaskedType',
-        typeName: 'paymentMaskedType',
+        localName: 'TransactionResponse.Errors.Error',
+        typeName: null,
         propertyInfos: [{
-            name: 'creditCard',
-            required: true,
-            typeInfo: '.CreditCardMaskedType'
+            name: 'errorCode'
           }, {
-            name: 'bankAccount',
-            required: true,
-            typeInfo: '.BankAccountMaskedType'
+            name: 'errorText'
+          }]
+      }, {
+        localName: 'ProcessingOptions',
+        typeName: 'processingOptions',
+        propertyInfos: [{
+            name: 'isFirstRecurringPayment',
+            typeInfo: 'Boolean'
           }, {
-            name: 'tokenInformation',
+            name: 'isFirstSubsequentAuth',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'isSubsequentAuth',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'isStoredCredentials',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'GetCustomerPaymentProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'unmaskExpirationDate',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'includeIssuerInfo',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'CreateTransactionResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'transactionResponse',
             required: true,
-            typeInfo: '.TokenMaskedType'
+            typeInfo: '.TransactionResponse'
+          }, {
+            name: 'profileResponse',
+            typeInfo: '.CreateProfileResponse'
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileBaseType',
+        typeName: 'customerPaymentProfileBaseType',
+        propertyInfos: [{
+            name: 'customerType'
+          }, {
+            name: 'billTo',
+            typeInfo: '.CustomerAddressType'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true
+          }, {
+            name: 'includeTransactions',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'GetMerchantDetailsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'isTestMode',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'processors',
+            required: true,
+            typeInfo: '.ArrayOfProcessorType'
+          }, {
+            name: 'merchantName',
+            required: true
+          }, {
+            name: 'gatewayId',
+            required: true
+          }, {
+            name: 'marketTypes',
+            required: true,
+            typeInfo: '.ArrayOfMarketType'
+          }, {
+            name: 'productCodes',
+            required: true,
+            typeInfo: '.ArrayOfProductCode'
+          }, {
+            name: 'paymentMethods',
+            required: true,
+            typeInfo: '.ArrayOfPaymentMethod'
+          }, {
+            name: 'currencies',
+            required: true,
+            typeInfo: '.ArrayOfCurrencyCode'
+          }, {
+            name: 'publicClientKey'
+          }]
+      }, {
+        localName: 'SendCustomerTransactionReceiptResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'TransactionResponse.Errors',
+        typeName: null,
+        propertyInfos: [{
+            name: 'error',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.TransactionResponse.Errors.Error'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionListSorting',
+        propertyInfos: [{
+            name: 'orderBy',
+            required: true
+          }, {
+            name: 'orderDescending',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'ANetApiResponse',
+        propertyInfos: [{
+            name: 'refId'
+          }, {
+            name: 'messages',
+            required: true,
+            typeInfo: '.MessagesType'
+          }, {
+            name: 'sessionToken'
+          }]
+      }, {
+        localName: 'ProfileTransVoidType',
+        typeName: 'profileTransVoidType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'customerShippingAddressId'
+          }, {
+            name: 'transId',
+            required: true
+          }]
+      }, {
+        localName: 'CreditCardSimpleType',
+        typeName: 'creditCardSimpleType',
+        propertyInfos: [{
+            name: 'cardNumber',
+            required: true
+          }, {
+            name: 'expirationDate',
+            required: true
+          }]
+      }, {
+        localName: 'GetCustomerShippingAddressResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'defaultShippingAddress',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'address',
+            typeInfo: '.CustomerAddressExType'
+          }, {
+            name: 'subscriptionIds',
+            typeInfo: '.SubscriptionIdList'
+          }]
+      }, {
+        localName: 'EncryptedTrackDataType',
+        typeName: 'encryptedTrackDataType',
+        propertyInfos: [{
+            name: 'formOfPayment',
+            required: true,
+            elementName: 'FormOfPayment',
+            typeInfo: '.KeyBlock'
+          }]
+      }, {
+        localName: 'CreateCustomerProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileIdList',
+            required: true,
+            typeInfo: '.ArrayOfNumericString'
+          }, {
+            name: 'customerShippingAddressIdList',
+            required: true,
+            typeInfo: '.ArrayOfNumericString'
+          }, {
+            name: 'validationDirectResponseList',
+            required: true,
+            typeInfo: '.ArrayOfString'
+          }]
+      }, {
+        localName: 'KeyManagementScheme.DUKPT.DeviceInfo',
+        typeName: null,
+        propertyInfos: [{
+            name: 'description',
+            required: true,
+            elementName: 'Description'
+          }]
+      }, {
+        localName: 'GetAUJobSummaryRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'month',
+            required: true
+          }]
+      }, {
+        localName: 'GetTransactionListForCustomerRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'sorting',
+            typeInfo: '.TransactionListSorting'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'EmailSettingsType',
+        typeName: 'emailSettingsType',
+        baseTypeInfo: '.ArrayOfSetting',
+        propertyInfos: [{
+            name: 'version',
+            typeInfo: 'Integer',
+            attributeName: {
+              localPart: 'version'
+            },
+            type: 'attribute'
           }]
       }, {
         localName: 'UpdateCustomerPaymentProfileRequest',
@@ -2471,19 +465,1020 @@ var Schema_Module_Factory = function () {
             name: 'validationMode'
           }]
       }, {
-        localName: 'CustomerProfileMaskedType',
-        typeName: 'customerProfileMaskedType',
-        baseTypeInfo: '.CustomerProfileExType',
+        localName: 'UpdateCustomerProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
         propertyInfos: [{
-            name: 'paymentProfiles',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.CustomerPaymentProfileMaskedType'
+            name: 'profile',
+            required: true,
+            typeInfo: '.CustomerProfileInfoExType'
+          }]
+      }, {
+        localName: 'SubsequentAuthInformation',
+        typeName: 'subsequentAuthInformation',
+        propertyInfos: [{
+            name: 'originalNetworkTransId'
           }, {
-            name: 'shipToList',
+            name: 'reason'
+          }]
+      }, {
+        localName: 'GetBatchStatisticsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'batchId',
+            required: true
+          }]
+      }, {
+        localName: 'SubscriptionPaymentType',
+        typeName: 'subscriptionPaymentType',
+        propertyInfos: [{
+            name: 'id',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'payNum',
+            required: true,
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'ANetApiRequest',
+        propertyInfos: [{
+            name: 'merchantAuthentication',
+            required: true,
+            typeInfo: '.MerchantAuthenticationType'
+          }, {
+            name: 'clientId'
+          }, {
+            name: 'refId'
+          }]
+      }, {
+        localName: 'GetCustomerPaymentProfileListRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'searchType',
+            required: true
+          }, {
+            name: 'month',
+            required: true
+          }, {
+            name: 'sorting',
+            typeInfo: '.CustomerPaymentProfileSorting'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'TokenMaskedType',
+        typeName: 'tokenMaskedType',
+        propertyInfos: [{
+            name: 'tokenSource'
+          }, {
+            name: 'tokenNumber',
+            required: true
+          }, {
+            name: 'expirationDate',
+            required: true
+          }, {
+            name: 'tokenRequestorId'
+          }]
+      }, {
+        localName: 'GetCustomerPaymentProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'paymentProfile',
+            typeInfo: '.CustomerPaymentProfileMaskedType'
+          }]
+      }, {
+        localName: 'AuUpdateType',
+        typeName: 'auUpdateType',
+        baseTypeInfo: '.AuDetailsType',
+        propertyInfos: [{
+            name: 'newCreditCard',
+            required: true,
+            typeInfo: '.CreditCardMaskedType'
+          }, {
+            name: 'oldCreditCard',
+            required: true,
+            typeInfo: '.CreditCardMaskedType'
+          }]
+      }, {
+        localName: 'ArrayOfSubscription',
+        propertyInfos: [{
+            name: 'subscriptionDetail',
             minOccurs: 0,
             collection: true,
-            typeInfo: '.CustomerAddressExType'
+            typeInfo: '.SubscriptionDetail'
+          }]
+      }, {
+        localName: 'CreateCustomerPaymentProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'validationDirectResponse'
+          }]
+      }, {
+        localName: 'AuthenticateTestResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'BankAccountMaskedType',
+        typeName: 'bankAccountMaskedType',
+        propertyInfos: [{
+            name: 'accountType'
+          }, {
+            name: 'routingNumber',
+            required: true
+          }, {
+            name: 'accountNumber',
+            required: true
+          }, {
+            name: 'nameOnAccount',
+            required: true
+          }, {
+            name: 'echeckType'
+          }, {
+            name: 'bankName'
+          }]
+      }, {
+        localName: 'MobileDeviceLoginResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'merchantContact',
+            required: true,
+            typeInfo: '.MerchantContactType'
+          }, {
+            name: 'userPermissions',
+            required: true,
+            typeInfo: '.ArrayOfPermissionType'
+          }, {
+            name: 'merchantAccount',
+            typeInfo: '.TransRetailInfoType'
+          }]
+      }, {
+        localName: 'ArrayOfBatchDetailsType',
+        propertyInfos: [{
+            name: 'batch',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.BatchDetailsType'
+          }]
+      }, {
+        localName: 'GetCustomerShippingAddressRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerAddressId'
+          }]
+      }, {
+        localName: 'GetHostedProfilePageRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'hostedProfileSettings',
+            typeInfo: '.ArrayOfSetting'
+          }]
+      }, {
+        localName: 'DeleteCustomerPaymentProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'ArrayOfFraudFilterType',
+        propertyInfos: [{
+            name: 'fraudFilter',
+            required: true,
+            maxOccurs: 1000,
+            collection: true
+          }]
+      }, {
+        localName: 'CreditCardType',
+        typeName: 'creditCardType',
+        baseTypeInfo: '.CreditCardSimpleType',
+        propertyInfos: [{
+            name: 'cardCode'
+          }, {
+            name: 'isPaymentToken',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'cryptogram'
+          }, {
+            name: 'tokenRequestorName'
+          }, {
+            name: 'tokenRequestorId'
+          }, {
+            name: 'tokenRequestorEci'
+          }]
+      }, {
+        localName: 'CustomerAddressExType',
+        typeName: 'customerAddressExType',
+        baseTypeInfo: '.CustomerAddressType',
+        propertyInfos: [{
+            name: 'customerAddressId'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionListRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'searchType',
+            required: true
+          }, {
+            name: 'sorting',
+            typeInfo: '.ARBGetSubscriptionListSorting'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'KeyManagementScheme.DUKPT.Mode',
+        typeName: null,
+        propertyInfos: [{
+            name: 'pin',
+            elementName: 'PIN'
+          }, {
+            name: 'data',
+            elementName: 'Data'
+          }]
+      }, {
+        localName: 'UpdateCustomerProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'GetTransactionDetailsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'transId',
+            required: true
+          }]
+      }, {
+        localName: 'GetCustomerProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'merchantCustomerId'
+          }, {
+            name: 'email'
+          }, {
+            name: 'unmaskExpirationDate',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'includeIssuerInfo',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'UpdateMerchantDetailsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'isTestMode',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'CcAuthenticationType',
+        typeName: 'ccAuthenticationType',
+        propertyInfos: [{
+            name: 'authenticationIndicator',
+            required: true
+          }, {
+            name: 'cardholderAuthenticationValue',
+            required: true
+          }]
+      }, {
+        localName: 'ArrayOfString',
+        propertyInfos: [{
+            name: 'string',
+            minOccurs: 0,
+            collection: true
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileType',
+        typeName: 'customerPaymentProfileType',
+        baseTypeInfo: '.CustomerPaymentProfileBaseType',
+        propertyInfos: [{
+            name: 'payment',
+            typeInfo: '.PaymentType'
+          }, {
+            name: 'driversLicense',
+            typeInfo: '.DriversLicenseType'
+          }, {
+            name: 'taxId'
+          }, {
+            name: 'defaultPaymentProfile',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'CreateCustomerProfileFromTransactionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'transId',
+            required: true
+          }, {
+            name: 'customer',
+            typeInfo: '.CustomerProfileBaseType'
+          }, {
+            name: 'customerProfileId'
+          }, {
+            name: 'defaultPaymentProfile',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'defaultShippingAddress',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'profileType'
+          }]
+      }, {
+        localName: 'GetHostedProfilePageResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'token',
+            required: true
+          }]
+      }, {
+        localName: 'GetAUJobSummaryResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'auSummary',
+            typeInfo: '.ArrayOfAUResponseType'
+          }]
+      }, {
+        localName: 'KeyBlock',
+        propertyInfos: [{
+            name: 'value',
+            required: true,
+            elementName: 'Value',
+            typeInfo: '.KeyValue'
+          }]
+      }, {
+        localName: 'CustomerProfileExType',
+        typeName: 'customerProfileExType',
+        baseTypeInfo: '.CustomerProfileBaseType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileSorting',
+        propertyInfos: [{
+            name: 'orderBy',
+            required: true
+          }, {
+            name: 'orderDescending',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'CreditCardTrackType',
+        typeName: 'creditCardTrackType',
+        propertyInfos: [{
+            name: 'track1',
+            required: true
+          }, {
+            name: 'track2',
+            required: true
+          }]
+      }, {
+        localName: 'FingerPrintType',
+        typeName: 'fingerPrintType',
+        propertyInfos: [{
+            name: 'hashValue',
+            required: true
+          }, {
+            name: 'sequence'
+          }, {
+            name: 'timestamp',
+            required: true
+          }, {
+            name: 'currencyCode'
+          }, {
+            name: 'amount'
+          }]
+      }, {
+        localName: 'TransactionResponse.PrePaidCard',
+        typeName: null,
+        propertyInfos: [{
+            name: 'requestedAmount'
+          }, {
+            name: 'approvedAmount'
+          }, {
+            name: 'balanceOnCard'
+          }]
+      }, {
+        localName: 'ImpersonationAuthenticationType',
+        typeName: 'impersonationAuthenticationType',
+        propertyInfos: [{
+            name: 'partnerLoginId',
+            required: true
+          }, {
+            name: 'partnerTransactionKey',
+            required: true
+          }]
+      }, {
+        localName: 'CreateCustomerShippingAddressResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerAddressId'
+          }]
+      }, {
+        localName: 'SecurePaymentContainerRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'data',
+            required: true,
+            typeInfo: '.WebCheckOutDataType'
+          }]
+      }, {
+        localName: 'DeleteCustomerProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }]
+      }, {
+        localName: 'GetTransactionDetailsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'transaction',
+            required: true,
+            typeInfo: '.TransactionDetailsType'
+          }, {
+            name: 'clientId'
+          }, {
+            name: 'transrefId'
+          }]
+      }, {
+        localName: 'ReturnedItemType',
+        typeName: 'returnedItemType',
+        propertyInfos: [{
+            name: 'id',
+            required: true
+          }, {
+            name: 'dateUTC',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'dateLocal',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'code',
+            required: true
+          }, {
+            name: 'description',
+            required: true
+          }]
+      }, {
+        localName: 'EmvTag',
+        typeName: 'emvTag',
+        propertyInfos: [{
+            name: 'name'
+          }, {
+            name: 'value'
+          }, {
+            name: 'formatted'
+          }]
+      }, {
+        localName: 'Paging',
+        propertyInfos: [{
+            name: 'limit',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'offset',
+            required: true,
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionStatusResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'status'
+          }]
+      }, {
+        localName: 'DriversLicenseMaskedType',
+        typeName: 'driversLicenseMaskedType',
+        propertyInfos: [{
+            name: 'number',
+            required: true
+          }, {
+            name: 'state',
+            required: true
+          }, {
+            name: 'dateOfBirth',
+            required: true
+          }]
+      }, {
+        localName: 'CustomerDataType',
+        typeName: 'customerDataType',
+        propertyInfos: [{
+            name: 'type'
+          }, {
+            name: 'id'
+          }, {
+            name: 'email'
+          }, {
+            name: 'driversLicense',
+            typeInfo: '.DriversLicenseType'
+          }, {
+            name: 'taxId'
+          }]
+      }, {
+        localName: 'SecurePaymentContainerErrorType',
+        typeName: 'securePaymentContainerErrorType',
+        propertyInfos: [{
+            name: 'code',
+            required: true
+          }, {
+            name: 'description',
+            required: true
+          }]
+      }, {
+        localName: 'ListOfAUDetailsType',
+        propertyInfos: [{
+            name: 'auUpdateOrAuDelete',
+            minOccurs: 0,
+            collection: true,
+            elementTypeInfos: [{
+                elementName: 'auUpdate',
+                typeInfo: '.AuUpdateType'
+              }, {
+                elementName: 'auDelete',
+                typeInfo: '.AuDeleteType'
+              }],
+            type: 'elements'
+          }]
+      }, {
+        localName: 'TransactionResponse.SplitTenderPayments.SplitTenderPayment',
+        typeName: null,
+        propertyInfos: [{
+            name: 'transId'
+          }, {
+            name: 'responseCode'
+          }, {
+            name: 'responseToCustomer'
+          }, {
+            name: 'authCode'
+          }, {
+            name: 'accountNumber'
+          }, {
+            name: 'accountType'
+          }, {
+            name: 'requestedAmount'
+          }, {
+            name: 'approvedAmount'
+          }, {
+            name: 'balanceOnCard'
+          }]
+      }, {
+        localName: 'IsAliveResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'HeldTransactionRequestType',
+        typeName: 'heldTransactionRequestType',
+        propertyInfos: [{
+            name: 'action',
+            required: true
+          }, {
+            name: 'refTransId',
+            required: true
+          }]
+      }, {
+        localName: 'GetAUJobDetailsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'month',
+            required: true
+          }, {
+            name: 'modifiedTypeFilter'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'UpdateHeldTransactionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'heldTransactionRequest',
+            required: true,
+            typeInfo: '.HeldTransactionRequestType'
+          }]
+      }, {
+        localName: 'FraudInformationType',
+        typeName: 'fraudInformationType',
+        propertyInfos: [{
+            name: 'fraudFilterList',
+            required: true,
+            typeInfo: '.ArrayOfFraudFilterType'
+          }, {
+            name: 'fraudAction',
+            required: true
+          }]
+      }, {
+        localName: 'PaymentSimpleType',
+        typeName: 'paymentSimpleType',
+        propertyInfos: [{
+            name: 'creditCard',
+            required: true,
+            typeInfo: '.CreditCardSimpleType'
+          }, {
+            name: 'bankAccount',
+            required: true,
+            typeInfo: '.BankAccountType'
+          }]
+      }, {
+        localName: 'KeyManagementScheme',
+        propertyInfos: [{
+            name: 'dukpt',
+            required: true,
+            elementName: 'DUKPT',
+            typeInfo: '.KeyManagementScheme.DUKPT'
+          }]
+      }, {
+        localName: 'GetHostedPaymentPageResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'token',
+            required: true
+          }]
+      }, {
+        localName: 'CardArt',
+        typeName: 'cardArt',
+        propertyInfos: [{
+            name: 'cardBrand'
+          }, {
+            name: 'cardImageHeight'
+          }, {
+            name: 'cardImageUrl'
+          }, {
+            name: 'cardImageWidth'
+          }, {
+            name: 'cardType'
+          }]
+      }, {
+        localName: 'ArrayOfLineItem',
+        propertyInfos: [{
+            name: 'lineItem',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.LineItemType'
+          }]
+      }, {
+        localName: 'ProfileTransRefundType',
+        typeName: 'profileTransRefundType',
+        baseTypeInfo: '.ProfileTransAmountType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'customerShippingAddressId'
+          }, {
+            name: 'creditCardNumberMasked'
+          }, {
+            name: 'bankRoutingNumberMasked'
+          }, {
+            name: 'bankAccountNumberMasked'
+          }, {
+            name: 'order',
+            typeInfo: '.OrderExType'
+          }, {
+            name: 'transId'
+          }]
+      }, {
+        localName: 'DecryptPaymentDataRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'opaqueData',
+            required: true,
+            typeInfo: '.OpaqueDataType'
+          }, {
+            name: 'callId'
+          }]
+      }, {
+        localName: 'AuthenticateTestRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest'
+      }, {
+        localName: 'TransactionResponse.EmvResponse.Tags',
+        typeName: null,
+        propertyInfos: [{
+            name: 'tag',
+            required: true,
+            collection: true,
+            typeInfo: '.EmvTag'
+          }]
+      }, {
+        localName: 'PermissionType',
+        typeName: 'permissionType',
+        propertyInfos: [{
+            name: 'permissionName'
+          }]
+      }, {
+        localName: 'PayPalType',
+        typeName: 'payPalType',
+        propertyInfos: [{
+            name: 'successUrl'
+          }, {
+            name: 'cancelUrl'
+          }, {
+            name: 'paypalLc'
+          }, {
+            name: 'paypalHdrImg'
+          }, {
+            name: 'paypalPayflowcolor'
+          }, {
+            name: 'payerID'
+          }]
+      }, {
+        localName: 'OpaqueDataType',
+        typeName: 'opaqueDataType',
+        propertyInfos: [{
+            name: 'dataDescriptor',
+            required: true
+          }, {
+            name: 'dataValue',
+            required: true
+          }, {
+            name: 'dataKey'
+          }]
+      }, {
+        localName: 'TransactionResponse.UserFields',
+        typeName: null,
+        propertyInfos: [{
+            name: 'userField',
+            minOccurs: 0,
+            maxOccurs: 20,
+            collection: true,
+            typeInfo: '.UserField'
+          }]
+      }, {
+        localName: 'CustomerProfilePaymentType',
+        typeName: 'customerProfilePaymentType',
+        propertyInfos: [{
+            name: 'createProfile',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'customerProfileId'
+          }, {
+            name: 'paymentProfile',
+            typeInfo: '.PaymentProfile'
+          }, {
+            name: 'shippingProfileId'
+          }]
+      }, {
+        localName: 'ProfileTransCaptureOnlyType',
+        typeName: 'profileTransCaptureOnlyType',
+        baseTypeInfo: '.ProfileTransOrderType',
+        propertyInfos: [{
+            name: 'approvalCode',
+            required: true
+          }]
+      }, {
+        localName: 'SubscriptionDetail',
+        propertyInfos: [{
+            name: 'id',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'name'
+          }, {
+            name: 'status',
+            required: true
+          }, {
+            name: 'createTimeStampUTC',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'firstName'
+          }, {
+            name: 'lastName'
+          }, {
+            name: 'totalOccurrences',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'pastOccurrences',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'paymentMethod',
+            required: true
+          }, {
+            name: 'accountNumber'
+          }, {
+            name: 'invoice'
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'currencyCode'
+          }, {
+            name: 'customerProfileId',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'customerShippingProfileId',
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'UpdateSplitTenderGroupRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'splitTenderId',
+            required: true
+          }, {
+            name: 'splitTenderStatus',
+            required: true
+          }]
+      }, {
+        localName: 'GetAUJobDetailsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'totalNumInResultSet',
+            typeInfo: 'Int'
+          }, {
+            name: 'auDetails',
+            typeInfo: '.ListOfAUDetailsType'
+          }]
+      }, {
+        localName: 'ArrayOfProcessorType',
+        propertyInfos: [{
+            name: 'processor',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.ProcessorType'
+          }]
+      }, {
+        localName: 'GetBatchStatisticsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'batch',
+            typeInfo: '.BatchDetailsType'
+          }]
+      }, {
+        localName: 'ARBSubscriptionMaskedType',
+        propertyInfos: [{
+            name: 'name'
+          }, {
+            name: 'paymentSchedule',
+            typeInfo: '.PaymentScheduleType'
+          }, {
+            name: 'amount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'trialAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'status'
+          }, {
+            name: 'profile',
+            typeInfo: '.SubscriptionCustomerProfileType'
+          }, {
+            name: 'order',
+            typeInfo: '.OrderType'
+          }, {
+            name: 'arbTransactions',
+            typeInfo: '.ARBTransactionList'
+          }]
+      }, {
+        localName: 'SubMerchantType',
+        typeName: 'subMerchantType',
+        propertyInfos: [{
+            name: 'identifier',
+            required: true
+          }, {
+            name: 'doingBusinessAs'
+          }, {
+            name: 'paymentServiceProviderName'
+          }, {
+            name: 'paymentServiceFacilitator'
+          }, {
+            name: 'streetAddress'
+          }, {
+            name: 'phone'
+          }, {
+            name: 'email'
+          }, {
+            name: 'postalCode'
+          }, {
+            name: 'city'
+          }, {
+            name: 'regionCode'
+          }, {
+            name: 'countryCode'
+          }]
+      }, {
+        localName: 'LineItemType',
+        typeName: 'lineItemType',
+        propertyInfos: [{
+            name: 'itemId',
+            required: true
+          }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'description'
+          }, {
+            name: 'quantity',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'unitPrice',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxable',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'unitOfMeasure'
+          }, {
+            name: 'typeOfSupply'
+          }, {
+            name: 'taxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'nationalTax',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'localTax',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'vatRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxId'
+          }, {
+            name: 'alternateTaxType'
+          }, {
+            name: 'alternateTaxTypeApplied'
+          }, {
+            name: 'alternateTaxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'totalAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'commodityCode'
+          }, {
+            name: 'productCode'
+          }, {
+            name: 'productSKU'
+          }, {
+            name: 'discountRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'discountAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxIncludedInTotal',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'taxIsAfterDiscount',
+            typeInfo: 'Boolean'
           }]
       }, {
         localName: 'TransactionDetailsType',
@@ -2615,176 +1610,64 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'profile',
             typeInfo: '.CustomerProfileIdType'
+          }, {
+            name: 'surcharge',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'employeeId'
+          }, {
+            name: 'tip',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'otherTax',
+            typeInfo: '.OtherTaxType'
+          }, {
+            name: 'shipFrom',
+            typeInfo: '.NameAndAddressType'
           }]
       }, {
-        localName: 'DecryptPaymentDataRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
+        localName: 'ArrayOfMarketType',
         propertyInfos: [{
-            name: 'opaqueData',
-            required: true,
-            typeInfo: '.OpaqueDataType'
-          }, {
-            name: 'callId'
-          }]
-      }, {
-        localName: 'KeyManagementScheme.DUKPT.EncryptedData',
-        typeName: null,
-        propertyInfos: [{
-            name: 'value',
-            required: true,
-            elementName: 'Value'
-          }]
-      }, {
-        localName: 'ArrayOfSetting',
-        propertyInfos: [{
-            name: 'setting',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.SettingType'
-          }]
-      }, {
-        localName: 'LineItemType',
-        typeName: 'lineItemType',
-        propertyInfos: [{
-            name: 'itemId',
-            required: true
-          }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'description'
-          }, {
-            name: 'quantity',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'unitPrice',
-            required: true,
-            typeInfo: 'Decimal'
-          }, {
-            name: 'taxable',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'CcAuthenticationType',
-        typeName: 'ccAuthenticationType',
-        propertyInfos: [{
-            name: 'authenticationIndicator',
-            required: true
-          }, {
-            name: 'cardholderAuthenticationValue',
-            required: true
-          }]
-      }, {
-        localName: 'PermissionType',
-        typeName: 'permissionType',
-        propertyInfos: [{
-            name: 'permissionName'
-          }]
-      }, {
-        localName: 'ProfileTransAuthCaptureType',
-        typeName: 'profileTransAuthCaptureType',
-        baseTypeInfo: '.ProfileTransOrderType'
-      }, {
-        localName: 'TransactionResponse.EmvResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'tlvData'
-          }, {
-            name: 'tags',
-            typeInfo: '.TransactionResponse.EmvResponse.Tags'
-          }]
-      }, {
-        localName: 'ValidateCustomerPaymentProfileResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'directResponse'
-          }]
-      }, {
-        localName: 'UpdateSplitTenderGroupRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'splitTenderId',
-            required: true
-          }, {
-            name: 'splitTenderStatus',
-            required: true
-          }]
-      }, {
-        localName: 'ArrayOfAUResponseType',
-        propertyInfos: [{
-            name: 'auResponse',
-            minOccurs: 0,
-            collection: true,
-            typeInfo: '.AuResponseType'
-          }]
-      }, {
-        localName: 'ARBCancelSubscriptionRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }]
-      }, {
-        localName: 'ReturnedItemType',
-        typeName: 'returnedItemType',
-        propertyInfos: [{
-            name: 'id',
-            required: true
-          }, {
-            name: 'dateUTC',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'dateLocal',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'code',
-            required: true
-          }, {
-            name: 'description',
-            required: true
-          }]
-      }, {
-        localName: 'OpaqueDataType',
-        typeName: 'opaqueDataType',
-        propertyInfos: [{
-            name: 'dataDescriptor',
-            required: true
-          }, {
-            name: 'dataValue',
-            required: true
-          }, {
-            name: 'dataKey'
-          }]
-      }, {
-        localName: 'GetAUJobDetailsRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'month',
-            required: true
-          }, {
-            name: 'modifiedTypeFilter'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
-          }]
-      }, {
-        localName: 'ArrayOfPaymentMethod',
-        propertyInfos: [{
-            name: 'paymentMethod',
+            name: 'marketType',
             minOccurs: 0,
             collection: true
           }]
       }, {
-        localName: 'WebCheckOutDataType.Token',
+        localName: 'MobileDeviceType',
+        typeName: 'mobileDeviceType',
+        propertyInfos: [{
+            name: 'mobileDeviceId',
+            required: true
+          }, {
+            name: 'description'
+          }, {
+            name: 'phoneNumber'
+          }, {
+            name: 'devicePlatform'
+          }, {
+            name: 'deviceActivation'
+          }]
+      }, {
+        localName: 'ARBTransactionList',
+        propertyInfos: [{
+            name: 'arbTransaction',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.ArbTransaction'
+          }]
+      }, {
+        localName: 'TransactionRequestType.UserFields',
         typeName: null,
+        propertyInfos: [{
+            name: 'userField',
+            minOccurs: 0,
+            maxOccurs: 20,
+            collection: true,
+            typeInfo: '.UserField'
+          }]
+      }, {
+        localName: 'WebCheckOutDataTypeToken',
+        typeName: 'webCheckOutDataTypeToken',
         propertyInfos: [{
             name: 'cardNumber',
             required: true
@@ -2799,93 +1682,88 @@ var Schema_Module_Factory = function () {
             name: 'fullName'
           }]
       }, {
-        localName: 'FDSFilterType',
+        localName: 'CreateProfileResponse',
+        typeName: 'createProfileResponse',
         propertyInfos: [{
-            name: 'name',
-            required: true
+            name: 'messages',
+            required: true,
+            typeInfo: '.MessagesType'
           }, {
-            name: 'action',
-            required: true
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileIdList',
+            typeInfo: '.ArrayOfNumericString'
+          }, {
+            name: 'customerShippingAddressIdList',
+            typeInfo: '.ArrayOfNumericString'
           }]
       }, {
-        localName: 'GetCustomerPaymentProfileListRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'searchType',
-            required: true
-          }, {
-            name: 'month',
-            required: true
-          }, {
-            name: 'sorting',
-            typeInfo: '.CustomerPaymentProfileSorting'
-          }, {
-            name: 'paging',
-            typeInfo: '.Paging'
-          }]
-      }, {
-        localName: 'ArrayOfMarketType',
-        propertyInfos: [{
-            name: 'marketType',
-            minOccurs: 0,
-            collection: true
-          }]
-      }, {
-        localName: 'TransactionResponse.PrePaidCard',
-        typeName: null,
-        propertyInfos: [{
-            name: 'requestedAmount'
-          }, {
-            name: 'approvedAmount'
-          }, {
-            name: 'balanceOnCard'
-          }]
-      }, {
-        localName: 'NameAndAddressType',
-        typeName: 'nameAndAddressType',
-        propertyInfos: [{
-            name: 'firstName'
-          }, {
-            name: 'lastName'
-          }, {
-            name: 'company'
-          }, {
-            name: 'address'
-          }, {
-            name: 'city'
-          }, {
-            name: 'state'
-          }, {
-            name: 'zip'
-          }, {
-            name: 'country'
-          }]
-      }, {
-        localName: 'UpdateCustomerPaymentProfileResponse',
+        localName: 'GetTransactionListResponse',
         typeName: null,
         baseTypeInfo: '.ANetApiResponse',
         propertyInfos: [{
-            name: 'validationDirectResponse'
+            name: 'transactions',
+            typeInfo: '.ArrayOfTransactionSummaryType'
+          }, {
+            name: 'totalNumInResultSet',
+            typeInfo: 'Int'
           }]
       }, {
-        localName: 'BankAccountMaskedType',
-        typeName: 'bankAccountMaskedType',
+        localName: 'CreateCustomerShippingAddressRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
         propertyInfos: [{
-            name: 'accountType'
-          }, {
-            name: 'routingNumber',
+            name: 'customerProfileId',
             required: true
           }, {
-            name: 'accountNumber',
+            name: 'address',
+            required: true,
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'defaultShippingAddress',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'CustomerProfileSummaryType',
+        typeName: 'customerProfileSummaryType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'description'
+          }, {
+            name: 'merchantCustomerId',
             required: true
           }, {
-            name: 'nameOnAccount',
+            name: 'email'
+          }, {
+            name: 'createdDate',
+            required: true,
+            typeInfo: 'DateTime'
+          }]
+      }, {
+        localName: 'MessagesType.Message',
+        typeName: null,
+        propertyInfos: [{
+            name: 'code',
             required: true
           }, {
-            name: 'echeckType'
+            name: 'text',
+            required: true
+          }]
+      }, {
+        localName: 'UpdateCustomerShippingAddressRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
           }, {
-            name: 'bankName'
+            name: 'address',
+            required: true,
+            typeInfo: '.CustomerAddressExType'
+          }, {
+            name: 'defaultShippingAddress',
+            typeInfo: 'Boolean'
           }]
       }, {
         localName: 'CustomerType',
@@ -2907,26 +1785,528 @@ var Schema_Module_Factory = function () {
             name: 'taxId'
           }]
       }, {
-        localName: 'DeleteCustomerPaymentProfileResponse',
+        localName: 'GetSettledBatchListRequest',
         typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'FraudInformationType',
-        typeName: 'fraudInformationType',
+        baseTypeInfo: '.ANetApiRequest',
         propertyInfos: [{
-            name: 'fraudFilterList',
-            required: true,
-            typeInfo: '.ArrayOfFraudFilterType'
+            name: 'includeStatistics',
+            typeInfo: 'Boolean'
           }, {
-            name: 'fraudAction',
+            name: 'firstSettlementDate',
+            typeInfo: 'DateTime'
+          }, {
+            name: 'lastSettlementDate',
+            typeInfo: 'DateTime'
+          }]
+      }, {
+        localName: 'SolutionType',
+        typeName: 'solutionType',
+        propertyInfos: [{
+            name: 'id',
+            required: true
+          }, {
+            name: 'name'
+          }, {
+            name: 'vendorName'
+          }]
+      }, {
+        localName: 'TransactionResponse.SplitTenderPayments',
+        typeName: null,
+        propertyInfos: [{
+            name: 'splitTenderPayment',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.TransactionResponse.SplitTenderPayments.SplitTenderPayment'
+          }]
+      }, {
+        localName: 'GetCustomerProfileIdsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'ids',
+            required: true,
+            typeInfo: '.ArrayOfNumericString'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionListResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'totalNumInResultSet',
+            typeInfo: 'Int'
+          }, {
+            name: 'subscriptionDetails',
+            typeInfo: '.ArrayOfSubscription'
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileMaskedType',
+        typeName: 'customerPaymentProfileMaskedType',
+        baseTypeInfo: '.CustomerPaymentProfileBaseType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true
+          }, {
+            name: 'defaultPaymentProfile',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'payment',
+            typeInfo: '.PaymentMaskedType'
+          }, {
+            name: 'driversLicense',
+            typeInfo: '.DriversLicenseMaskedType'
+          }, {
+            name: 'taxId'
+          }, {
+            name: 'subscriptionIds',
+            typeInfo: '.SubscriptionIdList'
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileExType',
+        typeName: 'customerPaymentProfileExType',
+        baseTypeInfo: '.CustomerPaymentProfileType',
+        propertyInfos: [{
+            name: 'customerPaymentProfileId'
+          }]
+      }, {
+        localName: 'TransactionRequestType',
+        typeName: 'transactionRequestType',
+        propertyInfos: [{
+            name: 'transactionType',
+            required: true
+          }, {
+            name: 'amount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'currencyCode'
+          }, {
+            name: 'payment',
+            typeInfo: '.PaymentType'
+          }, {
+            name: 'profile',
+            typeInfo: '.CustomerProfilePaymentType'
+          }, {
+            name: 'solution',
+            typeInfo: '.SolutionType'
+          }, {
+            name: 'callId'
+          }, {
+            name: 'terminalNumber'
+          }, {
+            name: 'authCode'
+          }, {
+            name: 'refTransId'
+          }, {
+            name: 'splitTenderId'
+          }, {
+            name: 'order',
+            typeInfo: '.OrderType'
+          }, {
+            name: 'lineItems',
+            typeInfo: '.ArrayOfLineItem'
+          }, {
+            name: 'tax',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'duty',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'shipping',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'taxExempt',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'poNumber'
+          }, {
+            name: 'customer',
+            typeInfo: '.CustomerDataType'
+          }, {
+            name: 'billTo',
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'shipTo',
+            typeInfo: '.NameAndAddressType'
+          }, {
+            name: 'customerIP'
+          }, {
+            name: 'cardholderAuthentication',
+            typeInfo: '.CcAuthenticationType'
+          }, {
+            name: 'retail',
+            typeInfo: '.TransRetailInfoType'
+          }, {
+            name: 'employeeId'
+          }, {
+            name: 'transactionSettings',
+            typeInfo: '.ArrayOfSetting'
+          }, {
+            name: 'userFields',
+            typeInfo: '.TransactionRequestType.UserFields'
+          }, {
+            name: 'surcharge',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'merchantDescriptor'
+          }, {
+            name: 'subMerchant',
+            typeInfo: '.SubMerchantType'
+          }, {
+            name: 'tip',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'processingOptions',
+            typeInfo: '.ProcessingOptions'
+          }, {
+            name: 'subsequentAuthInformation',
+            typeInfo: '.SubsequentAuthInformation'
+          }, {
+            name: 'otherTax',
+            typeInfo: '.OtherTaxType'
+          }, {
+            name: 'shipFrom',
+            typeInfo: '.NameAndAddressType'
+          }]
+      }, {
+        localName: 'DeleteCustomerShippingAddressRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerAddressId',
             required: true
           }]
       }, {
-        localName: 'SubscriptionIdList',
+        localName: 'SettingType',
+        typeName: 'settingType',
+        propertyInfos: [{
+            name: 'settingName'
+          }, {
+            name: 'settingValue'
+          }]
+      }, {
+        localName: 'DecryptPaymentDataResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'shippingInfo',
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'billingInfo',
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'cardInfo',
+            typeInfo: '.CreditCardMaskedType'
+          }, {
+            name: 'paymentDetails',
+            typeInfo: '.PaymentDetails'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'subscription',
+            required: true,
+            typeInfo: '.ARBSubscriptionMaskedType'
+          }]
+      }, {
+        localName: 'UpdateSplitTenderGroupResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'BatchStatisticType',
+        typeName: 'batchStatisticType',
+        propertyInfos: [{
+            name: 'accountType',
+            required: true
+          }, {
+            name: 'chargeAmount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'chargeCount',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'refundAmount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'refundCount',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'voidCount',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'declineCount',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'errorCount',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'returnedItemAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'returnedItemCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'chargebackAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'chargebackCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'correctionNoticeCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'chargeChargeBackAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'chargeChargeBackCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'refundChargeBackAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'refundChargeBackCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'chargeReturnedItemsAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'chargeReturnedItemsCount',
+            typeInfo: 'Int'
+          }, {
+            name: 'refundReturnedItemsAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'refundReturnedItemsCount',
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'UpdateCustomerPaymentProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'validationDirectResponse'
+          }]
+      }, {
+        localName: 'KeyManagementScheme.DUKPT.EncryptedData',
+        typeName: null,
+        propertyInfos: [{
+            name: 'value',
+            required: true,
+            elementName: 'Value'
+          }]
+      }, {
+        localName: 'CreateCustomerProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'profile',
+            required: true,
+            typeInfo: '.CustomerProfileType'
+          }, {
+            name: 'validationMode'
+          }]
+      }, {
+        localName: 'OrderType',
+        typeName: 'orderType',
+        propertyInfos: [{
+            name: 'invoiceNumber'
+          }, {
+            name: 'description'
+          }, {
+            name: 'discountAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxIsAfterDiscount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'totalTaxTypeCode'
+          }, {
+            name: 'purchaserVATRegistrationNumber'
+          }, {
+            name: 'merchantVATRegistrationNumber'
+          }, {
+            name: 'vatInvoiceReferenceNumber'
+          }, {
+            name: 'purchaserCode'
+          }, {
+            name: 'summaryCommodityCode'
+          }, {
+            name: 'purchaseOrderDateUTC',
+            typeInfo: 'Date'
+          }, {
+            name: 'supplierOrderReference'
+          }, {
+            name: 'authorizedContactName'
+          }, {
+            name: 'cardAcceptorRefNumber'
+          }, {
+            name: 'amexDataTAA1'
+          }, {
+            name: 'amexDataTAA2'
+          }, {
+            name: 'amexDataTAA3'
+          }, {
+            name: 'amexDataTAA4'
+          }]
+      }, {
+        localName: 'ARBGetSubscriptionStatusRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
         propertyInfos: [{
             name: 'subscriptionId',
+            required: true
+          }]
+      }, {
+        localName: 'OrderExType',
+        typeName: 'orderExType',
+        baseTypeInfo: '.OrderType',
+        propertyInfos: [{
+            name: 'purchaseOrderNumber'
+          }]
+      }, {
+        localName: 'TransactionDetailsType.EmvDetails',
+        typeName: null,
+        propertyInfos: [{
+            name: 'tag',
+            required: true,
+            collection: true,
+            typeInfo: '.TransactionDetailsType.EmvDetails.Tag'
+          }]
+      }, {
+        localName: 'SubscriptionCustomerProfileType',
+        typeName: 'subscriptionCustomerProfileType',
+        baseTypeInfo: '.CustomerProfileExType',
+        propertyInfos: [{
+            name: 'paymentProfile',
+            typeInfo: '.CustomerPaymentProfileMaskedType'
+          }, {
+            name: 'shippingProfile',
+            typeInfo: '.CustomerAddressExType'
+          }]
+      }, {
+        localName: 'LogoutRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest'
+      }, {
+        localName: 'ArrayOfPaymentMethod',
+        propertyInfos: [{
+            name: 'paymentMethod',
             minOccurs: 0,
             collection: true
+          }]
+      }, {
+        localName: 'ArrayOfLong',
+        propertyInfos: [{
+            name: '_long',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'long',
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'UserField',
+        typeName: 'userField',
+        propertyInfos: [{
+            name: 'name'
+          }, {
+            name: 'value'
+          }]
+      }, {
+        localName: 'TransactionDetailsType.EmvDetails.Tag',
+        typeName: null,
+        propertyInfos: [{
+            name: 'tagId',
+            required: true
+          }, {
+            name: 'data',
+            required: true
+          }]
+      }, {
+        localName: 'BankAccountType',
+        typeName: 'bankAccountType',
+        propertyInfos: [{
+            name: 'accountType'
+          }, {
+            name: 'routingNumber',
+            required: true
+          }, {
+            name: 'accountNumber',
+            required: true
+          }, {
+            name: 'nameOnAccount',
+            required: true
+          }, {
+            name: 'echeckType'
+          }, {
+            name: 'bankName'
+          }, {
+            name: 'checkNumber'
+          }]
+      }, {
+        localName: 'ARBCreateSubscriptionResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'subscriptionId'
+          }, {
+            name: 'profile',
+            typeInfo: '.CustomerProfileIdType'
+          }]
+      }, {
+        localName: 'GetCustomerProfileIdsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest'
+      }, {
+        localName: 'ArrayOfCurrencyCode',
+        propertyInfos: [{
+            name: 'currency',
+            minOccurs: 0,
+            collection: true
+          }]
+      }, {
+        localName: 'WebCheckOutDataType',
+        typeName: 'webCheckOutDataType',
+        propertyInfos: [{
+            name: 'type',
+            required: true
+          }, {
+            name: 'id',
+            required: true
+          }, {
+            name: 'token',
+            typeInfo: '.WebCheckOutDataTypeToken'
+          }, {
+            name: 'bankToken',
+            typeInfo: '.BankAccountType'
+          }]
+      }, {
+        localName: 'UpdateMerchantDetailsResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'TransactionResponse.SecureAcceptance',
+        typeName: null,
+        propertyInfos: [{
+            name: 'secureAcceptanceUrl',
+            elementName: 'SecureAcceptanceUrl'
+          }, {
+            name: 'payerID',
+            elementName: 'PayerID'
+          }, {
+            name: 'payerEmail',
+            elementName: 'PayerEmail'
           }]
       }, {
         localName: 'EnumCollection',
@@ -2966,55 +2346,555 @@ var Schema_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'GetTransactionDetailsResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
+        localName: 'FDSFilterType',
         propertyInfos: [{
-            name: 'transaction',
-            required: true,
-            typeInfo: '.TransactionDetailsType'
-          }, {
-            name: 'clientId'
-          }, {
-            name: 'transrefId'
-          }]
-      }, {
-        localName: 'GetSettledBatchListResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse',
-        propertyInfos: [{
-            name: 'batchList',
-            typeInfo: '.ArrayOfBatchDetailsType'
-          }]
-      }, {
-        localName: 'SendCustomerTransactionReceiptResponse',
-        typeName: null,
-        baseTypeInfo: '.ANetApiResponse'
-      }, {
-        localName: 'GetCustomerPaymentProfileRequest',
-        typeName: null,
-        baseTypeInfo: '.ANetApiRequest',
-        propertyInfos: [{
-            name: 'customerProfileId',
+            name: 'name',
             required: true
           }, {
-            name: 'customerPaymentProfileId'
+            name: 'action',
+            required: true
+          }]
+      }, {
+        localName: 'ArrayOfSetting',
+        propertyInfos: [{
+            name: 'setting',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.SettingType'
+          }]
+      }, {
+        localName: 'PaymentDetails',
+        typeName: 'paymentDetails',
+        propertyInfos: [{
+            name: 'currency'
           }, {
-            name: 'unmaskExpirationDate',
-            typeInfo: 'Boolean'
+            name: 'promoCode'
+          }, {
+            name: 'misc'
+          }, {
+            name: 'giftWrap'
+          }, {
+            name: 'discount'
+          }, {
+            name: 'tax'
+          }, {
+            name: 'shippingHandling'
+          }, {
+            name: 'subTotal'
+          }, {
+            name: 'orderID'
+          }, {
+            name: 'amount'
           }]
       }, {
         localName: 'ARBCancelSubscriptionResponse',
         typeName: null,
         baseTypeInfo: '.ANetApiResponse'
       }, {
-        localName: 'CreateCustomerShippingAddressResponse',
+        localName: 'AuDetailsType',
+        typeName: 'auDetailsType',
+        propertyInfos: [{
+            name: 'customerProfileID',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'customerPaymentProfileID',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'firstName'
+          }, {
+            name: 'lastName'
+          }, {
+            name: 'updateTimeUTC',
+            required: true
+          }, {
+            name: 'auReasonCode',
+            required: true
+          }, {
+            name: 'reasonDescription',
+            required: true
+          }]
+      }, {
+        localName: 'ARBUpdateSubscriptionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true
+          }, {
+            name: 'subscription',
+            required: true,
+            typeInfo: '.ARBSubscriptionType'
+          }]
+      }, {
+        localName: 'LogoutResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'CreateCustomerPaymentProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'paymentProfile',
+            required: true,
+            typeInfo: '.CustomerPaymentProfileType'
+          }, {
+            name: 'validationMode'
+          }]
+      }, {
+        localName: 'TransactionResponse.EmvResponse',
+        typeName: null,
+        propertyInfos: [{
+            name: 'tlvData'
+          }, {
+            name: 'tags',
+            typeInfo: '.TransactionResponse.EmvResponse.Tags'
+          }]
+      }, {
+        localName: 'ArrayOfAUResponseType',
+        propertyInfos: [{
+            name: 'auResponse',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.AuResponseType'
+          }]
+      }, {
+        localName: 'DeleteCustomerProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'ArrayOfPermissionType',
+        propertyInfos: [{
+            name: 'permission',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.PermissionType'
+          }]
+      }, {
+        localName: 'ExtendedAmountType',
+        typeName: 'extendedAmountType',
+        propertyInfos: [{
+            name: 'amount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'name'
+          }, {
+            name: 'description'
+          }]
+      }, {
+        localName: 'PaymentType',
+        typeName: 'paymentType',
+        propertyInfos: [{
+            name: 'creditCard',
+            required: true,
+            typeInfo: '.CreditCardType'
+          }, {
+            name: 'bankAccount',
+            required: true,
+            typeInfo: '.BankAccountType'
+          }, {
+            name: 'trackData',
+            required: true,
+            typeInfo: '.CreditCardTrackType'
+          }, {
+            name: 'encryptedTrackData',
+            required: true,
+            typeInfo: '.EncryptedTrackDataType'
+          }, {
+            name: 'payPal',
+            required: true,
+            typeInfo: '.PayPalType'
+          }, {
+            name: 'opaqueData',
+            required: true,
+            typeInfo: '.OpaqueDataType'
+          }, {
+            name: 'emv',
+            required: true,
+            typeInfo: '.PaymentEmvType'
+          }, {
+            name: 'dataSource'
+          }]
+      }, {
+        localName: 'ArrayOfFDSFilter',
+        propertyInfos: [{
+            name: 'fdsFilter',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'FDSFilter',
+            typeInfo: '.FDSFilterType'
+          }]
+      }, {
+        localName: 'OtherTaxType',
+        typeName: 'otherTaxType',
+        propertyInfos: [{
+            name: 'nationalTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'localTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxId'
+          }, {
+            name: 'vatTaxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'vatTaxAmount',
+            typeInfo: 'Decimal'
+          }]
+      }, {
+        localName: 'MobileDeviceLoginRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest'
+      }, {
+        localName: 'PaymentScheduleType.Interval',
+        typeName: null,
+        propertyInfos: [{
+            name: 'length',
+            required: true,
+            typeInfo: 'Short'
+          }, {
+            name: 'unit',
+            required: true
+          }]
+      }, {
+        localName: 'CustomerProfileInfoExType',
+        typeName: 'customerProfileInfoExType',
+        baseTypeInfo: '.CustomerProfileExType',
+        propertyInfos: [{
+            name: 'profileType'
+          }]
+      }, {
+        localName: 'MobileDeviceRegistrationResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'SendCustomerTransactionReceiptRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'transId',
+            required: true
+          }, {
+            name: 'customerEmail',
+            required: true
+          }, {
+            name: 'emailSettings',
+            typeInfo: '.EmailSettingsType'
+          }]
+      }, {
+        localName: 'ArrayOfCardType',
+        propertyInfos: [{
+            name: 'cardType',
+            minOccurs: 0,
+            maxOccurs: 30,
+            collection: true
+          }]
+      }, {
+        localName: 'TransactionResponse.Messages.Message',
+        typeName: null,
+        propertyInfos: [{
+            name: 'code'
+          }, {
+            name: 'description'
+          }]
+      }, {
+        localName: 'MerchantAuthenticationType',
+        typeName: 'merchantAuthenticationType',
+        propertyInfos: [{
+            name: 'name'
+          }, {
+            name: 'transactionKey',
+            required: true
+          }, {
+            name: 'sessionToken'
+          }, {
+            name: 'password',
+            required: true
+          }, {
+            name: 'impersonationAuthentication',
+            typeInfo: '.ImpersonationAuthenticationType'
+          }, {
+            name: 'fingerPrint',
+            typeInfo: '.FingerPrintType'
+          }, {
+            name: 'clientKey'
+          }, {
+            name: 'accessToken'
+          }, {
+            name: 'mobileDeviceId'
+          }]
+      }, {
+        localName: 'ARBUpdateSubscriptionResponse',
         typeName: null,
         baseTypeInfo: '.ANetApiResponse',
         propertyInfos: [{
-            name: 'customerProfileId'
+            name: 'profile',
+            typeInfo: '.CustomerProfileIdType'
+          }]
+      }, {
+        localName: 'GetTransactionListRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'batchId'
           }, {
-            name: 'customerAddressId'
+            name: 'sorting',
+            typeInfo: '.TransactionListSorting'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'PaymentProfile',
+        typeName: 'paymentProfile',
+        propertyInfos: [{
+            name: 'paymentProfileId',
+            required: true
+          }, {
+            name: 'cardCode'
+          }]
+      }, {
+        localName: 'PaymentScheduleType',
+        typeName: 'paymentScheduleType',
+        propertyInfos: [{
+            name: 'interval',
+            typeInfo: '.PaymentScheduleType.Interval'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'totalOccurrences',
+            typeInfo: 'Short'
+          }, {
+            name: 'trialOccurrences',
+            typeInfo: 'Short'
+          }]
+      }, {
+        localName: 'KeyManagementScheme.DUKPT',
+        typeName: null,
+        propertyInfos: [{
+            name: 'operation',
+            required: true,
+            elementName: 'Operation'
+          }, {
+            name: 'mode',
+            required: true,
+            elementName: 'Mode',
+            typeInfo: '.KeyManagementScheme.DUKPT.Mode'
+          }, {
+            name: 'deviceInfo',
+            required: true,
+            elementName: 'DeviceInfo',
+            typeInfo: '.KeyManagementScheme.DUKPT.DeviceInfo'
+          }, {
+            name: 'encryptedData',
+            required: true,
+            elementName: 'EncryptedData',
+            typeInfo: '.KeyManagementScheme.DUKPT.EncryptedData'
+          }]
+      }, {
+        localName: 'AuResponseType',
+        typeName: 'auResponseType',
+        propertyInfos: [{
+            name: 'auReasonCode',
+            required: true
+          }, {
+            name: 'profileCount',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'reasonDescription',
+            required: true
+          }]
+      }, {
+        localName: 'ProfileTransAmountType',
+        typeName: 'profileTransAmountType',
+        propertyInfos: [{
+            name: 'amount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'tax',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'shipping',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'duty',
+            typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'lineItems',
+            minOccurs: 0,
+            maxOccurs: 30,
+            collection: true,
+            typeInfo: '.LineItemType'
+          }]
+      }, {
+        localName: 'TransactionResponse.Messages',
+        typeName: null,
+        propertyInfos: [{
+            name: 'message',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.TransactionResponse.Messages.Message'
+          }]
+      }, {
+        localName: 'DriversLicenseType',
+        typeName: 'driversLicenseType',
+        propertyInfos: [{
+            name: 'number',
+            required: true
+          }, {
+            name: 'state',
+            required: true
+          }, {
+            name: 'dateOfBirth',
+            required: true
+          }]
+      }, {
+        localName: 'SubscriptionIdList',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            minOccurs: 0,
+            collection: true
+          }]
+      }, {
+        localName: 'ArrayOfBatchStatisticType',
+        propertyInfos: [{
+            name: 'statistic',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.BatchStatisticType'
+          }]
+      }, {
+        localName: 'ValidateCustomerPaymentProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'directResponse'
+          }]
+      }, {
+        localName: 'ArrayOfReturnedItem',
+        propertyInfos: [{
+            name: 'returnedItem',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.ReturnedItemType'
+          }]
+      }, {
+        localName: 'MobileDeviceRegistrationRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'mobileDevice',
+            required: true,
+            typeInfo: '.MobileDeviceType'
+          }]
+      }, {
+        localName: 'ArrayOfCustomerPaymentProfileListItemType',
+        typeName: 'arrayOfCustomerPaymentProfileListItemType',
+        propertyInfos: [{
+            name: 'paymentProfile',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.CustomerPaymentProfileListItemType'
+          }]
+      }, {
+        localName: 'ArrayOfProductCode',
+        propertyInfos: [{
+            name: 'productCode',
+            minOccurs: 0,
+            collection: true
+          }]
+      }, {
+        localName: 'CreateTransactionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'transactionRequest',
+            required: true,
+            typeInfo: '.TransactionRequestType'
+          }]
+      }, {
+        localName: 'GetUnsettledTransactionListRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'status'
+          }, {
+            name: 'sorting',
+            typeInfo: '.TransactionListSorting'
+          }, {
+            name: 'paging',
+            typeInfo: '.Paging'
+          }]
+      }, {
+        localName: 'MessagesType',
+        typeName: 'messagesType',
+        propertyInfos: [{
+            name: 'resultCode',
+            required: true
+          }, {
+            name: 'message',
+            required: true,
+            collection: true,
+            typeInfo: '.MessagesType.Message'
+          }]
+      }, {
+        localName: 'ArrayOfTransactionSummaryType',
+        propertyInfos: [{
+            name: 'transaction',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.TransactionSummaryType'
+          }]
+      }, {
+        localName: 'TransactionListSorting',
+        propertyInfos: [{
+            name: 'orderBy',
+            required: true
+          }, {
+            name: 'orderDescending',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'GetCustomerPaymentProfileListResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'totalNumInResultSet',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'paymentProfiles',
+            typeInfo: '.ArrayOfCustomerPaymentProfileListItemType'
+          }]
+      }, {
+        localName: 'ArbTransaction',
+        typeName: 'arbTransaction',
+        propertyInfos: [{
+            name: 'transId'
+          }, {
+            name: 'response'
+          }, {
+            name: 'submitTimeUTC',
+            typeInfo: 'DateTime'
+          }, {
+            name: 'payNum',
+            typeInfo: 'Int'
+          }, {
+            name: 'attemptNum',
+            typeInfo: 'Int'
           }]
       }, {
         localName: 'CustomerProfileIdType',
@@ -3028,17 +2908,494 @@ var Schema_Module_Factory = function () {
             name: 'customerAddressId'
           }]
       }, {
-        type: 'enumInfo',
-        localName: 'BankAccountTypeEnum',
-        values: ['checking', 'savings', 'businessChecking']
+        localName: 'ProfileTransactionType',
+        typeName: 'profileTransactionType',
+        propertyInfos: [{
+            name: 'profileTransAuthCapture',
+            required: true,
+            typeInfo: '.ProfileTransAuthCaptureType'
+          }, {
+            name: 'profileTransAuthOnly',
+            required: true,
+            typeInfo: '.ProfileTransAuthOnlyType'
+          }, {
+            name: 'profileTransPriorAuthCapture',
+            required: true,
+            typeInfo: '.ProfileTransPriorAuthCaptureType'
+          }, {
+            name: 'profileTransCaptureOnly',
+            required: true,
+            typeInfo: '.ProfileTransCaptureOnlyType'
+          }, {
+            name: 'profileTransRefund',
+            required: true,
+            typeInfo: '.ProfileTransRefundType'
+          }, {
+            name: 'profileTransVoid',
+            required: true,
+            typeInfo: '.ProfileTransVoidType'
+          }]
+      }, {
+        localName: 'CreateCustomerProfileTransactionResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'transactionResponse',
+            typeInfo: '.TransactionResponse'
+          }, {
+            name: 'directResponse'
+          }]
+      }, {
+        localName: 'CustomerProfileBaseType',
+        typeName: 'customerProfileBaseType',
+        propertyInfos: [{
+            name: 'merchantCustomerId'
+          }, {
+            name: 'description'
+          }, {
+            name: 'email'
+          }]
+      }, {
+        localName: 'MerchantContactType',
+        typeName: 'merchantContactType',
+        propertyInfos: [{
+            name: 'merchantName'
+          }, {
+            name: 'merchantAddress'
+          }, {
+            name: 'merchantCity'
+          }, {
+            name: 'merchantState'
+          }, {
+            name: 'merchantZip'
+          }, {
+            name: 'merchantPhone'
+          }]
+      }, {
+        localName: 'DeleteCustomerShippingAddressResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'BatchDetailsType',
+        typeName: 'batchDetailsType',
+        propertyInfos: [{
+            name: 'batchId',
+            required: true
+          }, {
+            name: 'settlementTimeUTC',
+            typeInfo: 'DateTime'
+          }, {
+            name: 'settlementTimeLocal',
+            typeInfo: 'DateTime'
+          }, {
+            name: 'settlementState',
+            required: true
+          }, {
+            name: 'paymentMethod'
+          }, {
+            name: 'marketType'
+          }, {
+            name: 'product'
+          }, {
+            name: 'statistics',
+            typeInfo: '.ArrayOfBatchStatisticType'
+          }]
+      }, {
+        localName: 'CustomerPaymentProfileListItemType',
+        typeName: 'customerPaymentProfileListItemType',
+        propertyInfos: [{
+            name: 'defaultPaymentProfile',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'customerProfileId',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'billTo',
+            required: true,
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'payment',
+            required: true,
+            typeInfo: '.PaymentMaskedType'
+          }]
+      }, {
+        localName: 'KeyValue',
+        propertyInfos: [{
+            name: 'encoding',
+            required: true,
+            elementName: 'Encoding'
+          }, {
+            name: 'encryptionAlgorithm',
+            required: true,
+            elementName: 'EncryptionAlgorithm'
+          }, {
+            name: 'scheme',
+            required: true,
+            elementName: 'Scheme',
+            typeInfo: '.KeyManagementScheme'
+          }]
+      }, {
+        localName: 'ARBCancelSubscriptionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true
+          }]
+      }, {
+        localName: 'ProfileTransOrderType',
+        typeName: 'profileTransOrderType',
+        baseTypeInfo: '.ProfileTransAmountType',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true
+          }, {
+            name: 'customerShippingAddressId'
+          }, {
+            name: 'order',
+            typeInfo: '.OrderExType'
+          }, {
+            name: 'taxExempt',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'recurringBilling',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'cardCode'
+          }, {
+            name: 'splitTenderId'
+          }, {
+            name: 'processingOptions',
+            typeInfo: '.ProcessingOptions'
+          }, {
+            name: 'subsequentAuthInformation',
+            typeInfo: '.SubsequentAuthInformation'
+          }]
+      }, {
+        localName: 'TransactionSummaryType',
+        typeName: 'transactionSummaryType',
+        propertyInfos: [{
+            name: 'transId',
+            required: true
+          }, {
+            name: 'submitTimeUTC',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'submitTimeLocal',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'transactionStatus',
+            required: true
+          }, {
+            name: 'invoiceNumber'
+          }, {
+            name: 'firstName'
+          }, {
+            name: 'lastName'
+          }, {
+            name: 'accountType',
+            required: true
+          }, {
+            name: 'accountNumber',
+            required: true
+          }, {
+            name: 'settleAmount',
+            required: true,
+            typeInfo: 'Decimal'
+          }, {
+            name: 'marketType'
+          }, {
+            name: 'product'
+          }, {
+            name: 'mobileDeviceId'
+          }, {
+            name: 'subscription',
+            typeInfo: '.SubscriptionPaymentType'
+          }, {
+            name: 'hasReturnedItems',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'fraudInformation',
+            typeInfo: '.FraudInformationType'
+          }, {
+            name: 'profile',
+            typeInfo: '.CustomerProfileIdType'
+          }]
+      }, {
+        localName: 'GetMerchantDetailsRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest'
+      }, {
+        localName: 'UpdateCustomerShippingAddressResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse'
+      }, {
+        localName: 'SecurePaymentContainerResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'opaqueData',
+            required: true,
+            typeInfo: '.OpaqueDataType'
+          }]
+      }, {
+        localName: 'UpdateHeldTransactionResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'transactionResponse',
+            typeInfo: '.TransactionResponse'
+          }]
+      }, {
+        localName: 'ProfileTransPriorAuthCaptureType',
+        typeName: 'profileTransPriorAuthCaptureType',
+        baseTypeInfo: '.ProfileTransAmountType',
+        propertyInfos: [{
+            name: 'customerProfileId'
+          }, {
+            name: 'customerPaymentProfileId'
+          }, {
+            name: 'customerShippingAddressId'
+          }, {
+            name: 'transId',
+            required: true
+          }]
+      }, {
+        localName: 'TransRetailInfoType',
+        typeName: 'transRetailInfoType',
+        propertyInfos: [{
+            name: 'marketType'
+          }, {
+            name: 'deviceType'
+          }, {
+            name: 'customerSignature'
+          }, {
+            name: 'terminalNumber'
+          }]
+      }, {
+        localName: 'GetSettledBatchListResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'batchList',
+            typeInfo: '.ArrayOfBatchDetailsType'
+          }]
+      }, {
+        localName: 'ProfileTransAuthOnlyType',
+        typeName: 'profileTransAuthOnlyType',
+        baseTypeInfo: '.ProfileTransOrderType'
+      }, {
+        localName: 'GetCustomerProfileResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'profile',
+            typeInfo: '.CustomerProfileMaskedType'
+          }, {
+            name: 'subscriptionIds',
+            typeInfo: '.SubscriptionIdList'
+          }]
+      }, {
+        localName: 'ARBCreateSubscriptionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'subscription',
+            required: true,
+            typeInfo: '.ARBSubscriptionType'
+          }]
+      }, {
+        localName: 'AuDeleteType',
+        typeName: 'auDeleteType',
+        baseTypeInfo: '.AuDetailsType',
+        propertyInfos: [{
+            name: 'creditCard',
+            required: true,
+            typeInfo: '.CreditCardMaskedType'
+          }]
+      }, {
+        localName: 'DeleteCustomerPaymentProfileRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true
+          }]
+      }, {
+        localName: 'CustomerAddressType',
+        typeName: 'customerAddressType',
+        baseTypeInfo: '.NameAndAddressType',
+        propertyInfos: [{
+            name: 'phoneNumber'
+          }, {
+            name: 'faxNumber'
+          }, {
+            name: 'email'
+          }]
+      }, {
+        localName: 'CustomerProfileType',
+        typeName: 'customerProfileType',
+        baseTypeInfo: '.CustomerProfileBaseType',
+        propertyInfos: [{
+            name: 'paymentProfiles',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.CustomerPaymentProfileType'
+          }, {
+            name: 'shipToList',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'profileType'
+          }]
+      }, {
+        localName: 'CreateCustomerProfileTransactionRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'transaction',
+            required: true,
+            typeInfo: '.ProfileTransactionType'
+          }, {
+            name: 'extraOptions'
+          }]
+      }, {
+        localName: 'ARBSubscriptionType',
+        propertyInfos: [{
+            name: 'name'
+          }, {
+            name: 'paymentSchedule',
+            typeInfo: '.PaymentScheduleType'
+          }, {
+            name: 'amount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'trialAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'payment',
+            typeInfo: '.PaymentType'
+          }, {
+            name: 'order',
+            typeInfo: '.OrderType'
+          }, {
+            name: 'customer',
+            typeInfo: '.CustomerType'
+          }, {
+            name: 'billTo',
+            typeInfo: '.NameAndAddressType'
+          }, {
+            name: 'shipTo',
+            typeInfo: '.NameAndAddressType'
+          }, {
+            name: 'profile',
+            typeInfo: '.CustomerProfileIdType'
+          }]
+      }, {
+        localName: 'CreditCardMaskedType',
+        typeName: 'creditCardMaskedType',
+        propertyInfos: [{
+            name: 'cardNumber',
+            required: true
+          }, {
+            name: 'expirationDate',
+            required: true
+          }, {
+            name: 'cardType'
+          }, {
+            name: 'cardArt',
+            typeInfo: '.CardArt'
+          }, {
+            name: 'issuerNumber'
+          }, {
+            name: 'isPaymentToken',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'ArrayOfNumericString',
+        propertyInfos: [{
+            name: 'numericString',
+            minOccurs: 0,
+            collection: true
+          }]
       }, {
         type: 'enumInfo',
         localName: 'CustomerTypeEnum',
         values: ['individual', 'business']
       }, {
         type: 'enumInfo',
+        localName: 'TransactionListOrderFieldEnum',
+        values: ['id', 'submitTimeUTC']
+      }, {
+        type: 'enumInfo',
+        localName: 'ARBGetSubscriptionListSearchTypeEnum',
+        values: ['cardExpiringThisMonth', 'subscriptionActive', 'subscriptionExpiringThisMonth', 'subscriptionInactive']
+      }, {
+        type: 'enumInfo',
+        localName: 'FDSFilterActionEnum',
+        values: ['reject', 'decline', 'hold', 'authAndHold', 'report']
+      }, {
+        type: 'enumInfo',
+        localName: 'PaymentMethodsTypeEnum',
+        values: ['Visa', 'MasterCard', 'Discover', 'AmericanExpress', 'DinersClub', 'JCB', 'EnRoute', 'Echeck', 'Paypal', 'VisaCheckout', 'ApplePay', 'AndroidPay']
+      }, {
+        type: 'enumInfo',
+        localName: 'MessageTypeEnum',
+        values: ['Ok', 'Error']
+      }, {
+        type: 'enumInfo',
+        localName: 'MerchantInitTransReasonEnum',
+        values: ['resubmission', 'delayedCharge', 'reauthorization', 'noShow']
+      }, {
+        type: 'enumInfo',
+        localName: 'BankAccountTypeEnum',
+        values: ['checking', 'savings', 'businessChecking']
+      }, {
+        type: 'enumInfo',
+        localName: 'ARBGetSubscriptionListOrderFieldEnum',
+        values: ['id', 'name', 'status', 'createTimeStampUTC', 'lastName', 'firstName', 'accountNumber', 'amount', 'pastOccurrences']
+      }, {
+        type: 'enumInfo',
         localName: 'SettlementStateEnum',
         values: ['settledSuccessfully', 'settlementError', 'pendingSettlement']
+      }, {
+        type: 'enumInfo',
+        localName: 'CustomerPaymentProfileOrderFieldEnum',
+        values: ['id']
+      }, {
+        type: 'enumInfo',
+        localName: 'CardTypeEnum',
+        values: ['Visa', 'MasterCard', 'AmericanExpress', 'Discover', 'JCB', 'DinersClub']
+      }, {
+        type: 'enumInfo',
+        localName: 'SettingNameEnum',
+        values: ['emailCustomer', 'merchantEmail', 'allowPartialAuth', 'headerEmailReceipt', 'footerEmailReceipt', 'recurringBilling', 'duplicateWindow', 'testRequest', 'hostedProfileReturnUrl', 'hostedProfileReturnUrlText', 'hostedProfilePageBorderVisible', 'hostedProfileIFrameCommunicatorUrl', 'hostedProfileHeadingBgColor', 'hostedProfileValidationMode', 'hostedProfileBillingAddressRequired', 'hostedProfileCardCodeRequired', 'hostedProfileBillingAddressOptions', 'hostedProfileManageOptions', 'hostedPaymentIFrameCommunicatorUrl', 'hostedPaymentButtonOptions', 'hostedPaymentReturnOptions', 'hostedPaymentOrderOptions', 'hostedPaymentPaymentOptions', 'hostedPaymentBillingAddressOptions', 'hostedPaymentShippingAddressOptions', 'hostedPaymentSecurityOptions', 'hostedPaymentCustomerOptions', 'hostedPaymentStyleOptions', 'typeEmailReceipt', 'hostedProfilePaymentOptions', 'hostedProfileSaveButtonText']
+      }, {
+        type: 'enumInfo',
+        localName: 'PaymentMethodEnum',
+        values: ['creditCard', 'eCheck', 'payPal']
+      }, {
+        type: 'enumInfo',
+        localName: 'CustomerPaymentProfileSearchTypeEnum',
+        values: ['cardsExpiringInMonth']
+      }, {
+        type: 'enumInfo',
+        localName: 'EncryptionAlgorithmType',
+        values: ['TDES', 'AES', 'RSA']
       }, {
         type: 'enumInfo',
         localName: 'ARBSubscriptionStatusEnum',
@@ -3049,196 +3406,173 @@ var Schema_Module_Factory = function () {
         values: ['none', 'testMode', 'liveMode', 'oldLiveMode']
       }, {
         type: 'enumInfo',
-        localName: 'AccountTypeEnum',
-        values: ['Visa', 'MasterCard', 'AmericanExpress', 'Discover', 'JCB', 'DinersClub', 'eCheck']
-      }, {
-        type: 'enumInfo',
-        localName: 'EcheckTypeEnum',
-        values: ['PPD', 'WEB', 'CCD', 'TEL', 'ARC', 'BOC']
-      }, {
-        type: 'enumInfo',
         localName: 'SplitTenderStatusEnum',
         values: ['completed', 'held', 'voided']
-      }, {
-        type: 'enumInfo',
-        localName: 'WebCheckOutTypeEnum',
-        values: ['PAN', 'TOKEN']
-      }, {
-        type: 'enumInfo',
-        localName: 'ARBGetSubscriptionListSearchTypeEnum',
-        values: ['cardExpiringThisMonth', 'subscriptionActive', 'subscriptionExpiringThisMonth', 'subscriptionInactive']
-      }, {
-        type: 'enumInfo',
-        localName: 'TransactionTypeEnum',
-        values: ['authOnlyTransaction', 'authCaptureTransaction', 'captureOnlyTransaction', 'refundTransaction', 'priorAuthCaptureTransaction', 'voidTransaction', 'getDetailsTransaction', 'authOnlyContinueTransaction', 'authCaptureContinueTransaction']
-      }, {
-        type: 'enumInfo',
-        localName: 'EncryptionAlgorithmType',
-        values: ['TDES', 'AES', 'RSA']
-      }, {
-        type: 'enumInfo',
-        localName: 'ARBGetSubscriptionListOrderFieldEnum',
-        values: ['id', 'name', 'status', 'createTimeStampUTC', 'lastName', 'firstName', 'accountNumber', 'amount', 'pastOccurrences']
-      }, {
-        type: 'enumInfo',
-        localName: 'EncodingType',
-        values: ['Base64', 'Hex']
-      }, {
-        type: 'enumInfo',
-        localName: 'OperationType',
-        values: ['DECRYPT']
-      }, {
-        type: 'enumInfo',
-        localName: 'PaymentMethodEnum',
-        values: ['creditCard', 'eCheck', 'payPal']
-      }, {
-        type: 'enumInfo',
-        localName: 'CustomerPaymentProfileOrderFieldEnum',
-        values: ['id']
-      }, {
-        type: 'enumInfo',
-        localName: 'PaymentMethodsTypeEnum',
-        values: ['Visa', 'MasterCard', 'Discover', 'AmericanExpress', 'DinersClub', 'JCB', 'EnRoute', 'Echeck', 'Paypal', 'VisaCheckout', 'ApplePay', 'AndroidPay']
-      }, {
-        type: 'enumInfo',
-        localName: 'DeviceActivationEnum',
-        values: ['Activate', 'Disable']
-      }, {
-        type: 'enumInfo',
-        localName: 'PermissionsEnum',
-        values: ['API_Merchant_BasicReporting', 'Submit_Charge', 'Submit_Refund', 'Submit_Update', 'Mobile_Admin']
-      }, {
-        type: 'enumInfo',
-        localName: 'MessageTypeEnum',
-        values: ['Ok', 'Error']
-      }, {
-        type: 'enumInfo',
-        localName: 'FDSFilterActionEnum',
-        values: ['reject', 'decline', 'hold', 'authAndHold', 'report']
-      }, {
-        type: 'enumInfo',
-        localName: 'CardTypeEnum',
-        values: ['Visa', 'MasterCard', 'AmericanExpress', 'Discover', 'JCB', 'DinersClub']
-      }, {
-        type: 'enumInfo',
-        localName: 'SettingNameEnum',
-        values: ['emailCustomer', 'merchantEmail', 'allowPartialAuth', 'headerEmailReceipt', 'footerEmailReceipt', 'recurringBilling', 'duplicateWindow', 'testRequest', 'hostedProfileReturnUrl', 'hostedProfileReturnUrlText', 'hostedProfilePageBorderVisible', 'hostedProfileIFrameCommunicatorUrl', 'hostedProfileHeadingBgColor', 'hostedProfileValidationMode', 'hostedProfileBillingAddressRequired', 'hostedProfileCardCodeRequired', 'hostedProfileBillingAddressOptions', 'hostedProfileManageOptions', 'hostedPaymentIFrameCommunicatorUrl', 'hostedPaymentButtonOptions', 'hostedPaymentReturnOptions', 'hostedPaymentOrderOptions', 'hostedPaymentPaymentOptions', 'hostedPaymentBillingAddressOptions', 'hostedPaymentShippingAddressOptions', 'hostedPaymentSecurityOptions', 'hostedPaymentCustomerOptions', 'hostedPaymentStyleOptions']
       }, {
         type: 'enumInfo',
         localName: 'AfdsTransactionEnum',
         values: ['approve', 'decline']
       }, {
         type: 'enumInfo',
-        localName: 'TransactionListOrderFieldEnum',
-        values: ['id', 'submitTimeUTC']
+        localName: 'AccountTypeEnum',
+        values: ['Visa', 'MasterCard', 'AmericanExpress', 'Discover', 'JCB', 'DinersClub', 'eCheck']
       }, {
         type: 'enumInfo',
-        localName: 'TransactionGroupStatusEnum',
-        values: ['any', 'pendingApproval']
+        localName: 'PermissionsEnum',
+        values: ['API_Merchant_BasicReporting', 'Submit_Charge', 'Submit_Refund', 'Submit_Update', 'Mobile_Admin']
       }, {
         type: 'enumInfo',
-        localName: 'CustomerPaymentProfileSearchTypeEnum',
-        values: ['cardsExpiringInMonth']
+        localName: 'OperationType',
+        values: ['DECRYPT']
+      }, {
+        type: 'enumInfo',
+        localName: 'TransactionStatusEnum',
+        values: ['authorizedPendingCapture', 'capturedPendingSettlement', 'communicationError', 'refundSettledSuccessfully', 'refundPendingSettlement', 'approvedReview', 'declined', 'couldNotVoid', 'expired', 'generalError', 'pendingFinalSettlement', 'pendingSettlement', 'failedReview', 'settledSuccessfully', 'settlementError', 'underReview', 'updatingSettlement', 'voided', 'FDSPendingReview', 'FDSAuthorizedPendingReview', 'returnedItem', 'chargeback', 'chargebackReversal', 'authorizedPendingRelease']
+      }, {
+        type: 'enumInfo',
+        localName: 'TransactionTypeEnum',
+        values: ['authOnlyTransaction', 'authCaptureTransaction', 'captureOnlyTransaction', 'refundTransaction', 'priorAuthCaptureTransaction', 'voidTransaction', 'getDetailsTransaction', 'authOnlyContinueTransaction', 'authCaptureContinueTransaction']
+      }, {
+        type: 'enumInfo',
+        localName: 'DeviceActivationEnum',
+        values: ['Activate', 'Disable']
+      }, {
+        type: 'enumInfo',
+        localName: 'CustomerProfileTypeEnum',
+        values: ['regular', 'guest']
+      }, {
+        type: 'enumInfo',
+        localName: 'WebCheckOutTypeEnum',
+        values: ['PAN', 'TOKEN']
+      }, {
+        type: 'enumInfo',
+        localName: 'EcheckTypeEnum',
+        values: ['PPD', 'WEB', 'CCD', 'TEL', 'ARC', 'BOC']
       }, {
         type: 'enumInfo',
         localName: 'AUJobTypeEnum',
         values: ['all', 'updates', 'deletes']
       }, {
         type: 'enumInfo',
-        localName: 'ARBSubscriptionUnitEnum',
-        values: ['days', 'months']
+        localName: 'EncodingType',
+        values: ['Base64', 'Hex']
       }, {
         type: 'enumInfo',
-        localName: 'TransactionStatusEnum',
-        values: ['authorizedPendingCapture', 'capturedPendingSettlement', 'communicationError', 'refundSettledSuccessfully', 'refundPendingSettlement', 'approvedReview', 'declined', 'couldNotVoid', 'expired', 'generalError', 'pendingFinalSettlement', 'pendingSettlement', 'failedReview', 'settledSuccessfully', 'settlementError', 'underReview', 'updatingSettlement', 'voided', 'FDSPendingReview', 'FDSAuthorizedPendingReview', 'returnedItem', 'chargeback', 'chargebackReversal', 'authorizedPendingRelease']
+        localName: 'TransactionGroupStatusEnum',
+        values: ['any', 'pendingApproval']
+      }, {
+        type: 'enumInfo',
+        localName: 'ARBSubscriptionUnitEnum',
+        values: ['days', 'months']
       }],
     elementInfos: [{
-        elementName: 'getCustomerPaymentProfileRequest',
-        typeInfo: '.GetCustomerPaymentProfileRequest'
+        elementName: 'getCustomerProfileIdsRequest',
+        typeInfo: '.GetCustomerProfileIdsRequest'
       }, {
-        elementName: 'getTransactionListForCustomerRequest',
-        typeInfo: '.GetTransactionListForCustomerRequest'
+        elementName: 'getCustomerPaymentProfileResponse',
+        typeInfo: '.GetCustomerPaymentProfileResponse'
       }, {
-        elementName: 'authenticateTestRequest',
-        typeInfo: '.AuthenticateTestRequest'
-      }, {
-        elementName: 'ARBUpdateSubscriptionRequest',
-        typeInfo: '.ARBUpdateSubscriptionRequest'
-      }, {
-        elementName: 'ARBCancelSubscriptionResponse',
-        typeInfo: '.ARBCancelSubscriptionResponse'
-      }, {
-        elementName: 'getTransactionDetailsResponse',
-        typeInfo: '.GetTransactionDetailsResponse'
-      }, {
-        elementName: 'updateCustomerProfileRequest',
-        typeInfo: '.UpdateCustomerProfileRequest'
-      }, {
-        elementName: 'updateCustomerShippingAddressResponse',
-        typeInfo: '.UpdateCustomerShippingAddressResponse'
-      }, {
-        elementName: 'deleteCustomerShippingAddressRequest',
-        typeInfo: '.DeleteCustomerShippingAddressRequest'
-      }, {
-        elementName: 'createCustomerProfileRequest',
-        typeInfo: '.CreateCustomerProfileRequest'
-      }, {
-        elementName: 'getHostedProfilePageRequest',
-        typeInfo: '.GetHostedProfilePageRequest'
-      }, {
-        elementName: 'ARBGetSubscriptionStatusResponse',
-        typeInfo: '.ARBGetSubscriptionStatusResponse'
-      }, {
-        elementName: 'logoutRequest',
-        typeInfo: '.LogoutRequest'
-      }, {
-        elementName: 'logoutResponse',
-        typeInfo: '.LogoutResponse'
-      }, {
-        elementName: 'ARBGetSubscriptionStatusRequest',
-        typeInfo: '.ARBGetSubscriptionStatusRequest'
-      }, {
-        elementName: 'updateSplitTenderGroupRequest',
-        typeInfo: '.UpdateSplitTenderGroupRequest'
-      }, {
-        elementName: 'getCustomerPaymentProfileListRequest',
-        typeInfo: '.GetCustomerPaymentProfileListRequest'
-      }, {
-        elementName: 'createCustomerShippingAddressRequest',
-        typeInfo: '.CreateCustomerShippingAddressRequest'
-      }, {
-        elementName: 'updateHeldTransactionRequest',
-        typeInfo: '.UpdateHeldTransactionRequest'
-      }, {
-        elementName: 'getHostedProfilePageResponse',
-        typeInfo: '.GetHostedProfilePageResponse'
-      }, {
-        elementName: 'createCustomerPaymentProfileRequest',
-        typeInfo: '.CreateCustomerPaymentProfileRequest'
+        elementName: 'updateCustomerProfileResponse',
+        typeInfo: '.UpdateCustomerProfileResponse'
       }, {
         elementName: 'sendCustomerTransactionReceiptResponse',
         typeInfo: '.SendCustomerTransactionReceiptResponse'
       }, {
-        elementName: 'ARBGetSubscriptionListResponse',
-        typeInfo: '.ARBGetSubscriptionListResponse'
+        elementName: 'createCustomerPaymentProfileRequest',
+        typeInfo: '.CreateCustomerPaymentProfileRequest'
       }, {
-        elementName: 'isAliveResponse',
-        typeInfo: '.IsAliveResponse'
+        elementName: 'getCustomerShippingAddressResponse',
+        typeInfo: '.GetCustomerShippingAddressResponse'
+      }, {
+        elementName: 'getTransactionListForCustomerRequest',
+        typeInfo: '.GetTransactionListForCustomerRequest'
+      }, {
+        elementName: 'updateCustomerShippingAddressResponse',
+        typeInfo: '.UpdateCustomerShippingAddressResponse'
+      }, {
+        elementName: 'ARBGetSubscriptionStatusResponse',
+        typeInfo: '.ARBGetSubscriptionStatusResponse'
+      }, {
+        elementName: 'createCustomerProfileTransactionResponse',
+        typeInfo: '.CreateCustomerProfileTransactionResponse'
+      }, {
+        elementName: 'createTransactionResponse',
+        typeInfo: '.CreateTransactionResponse'
+      }, {
+        elementName: 'mobileDeviceRegistrationRequest',
+        typeInfo: '.MobileDeviceRegistrationRequest'
       }, {
         elementName: 'mobileDeviceRegistrationResponse',
         typeInfo: '.MobileDeviceRegistrationResponse'
       }, {
-        elementName: 'ARBCreateSubscriptionRequest',
-        typeInfo: '.ARBCreateSubscriptionRequest'
+        elementName: 'getHostedPaymentPageRequest',
+        typeInfo: '.GetHostedPaymentPageRequest'
       }, {
-        elementName: 'updateCustomerPaymentProfileRequest',
-        typeInfo: '.UpdateCustomerPaymentProfileRequest'
+        elementName: 'authenticateTestResponse',
+        typeInfo: '.AuthenticateTestResponse'
       }, {
-        elementName: 'getUnsettledTransactionListRequest',
-        typeInfo: '.GetUnsettledTransactionListRequest'
+        elementName: 'createCustomerProfileTransactionRequest',
+        typeInfo: '.CreateCustomerProfileTransactionRequest'
+      }, {
+        elementName: 'EnumCollection',
+        typeInfo: '.EnumCollection'
+      }, {
+        elementName: 'ErrorResponse',
+        typeInfo: '.ANetApiResponse'
       }, {
         elementName: 'securePaymentContainerResponse',
         typeInfo: '.SecurePaymentContainerResponse'
+      }, {
+        elementName: 'createCustomerProfileFromTransactionRequest',
+        typeInfo: '.CreateCustomerProfileFromTransactionRequest'
+      }, {
+        elementName: 'getTransactionListResponse',
+        typeInfo: '.GetTransactionListResponse'
+      }, {
+        elementName: 'ARBGetSubscriptionResponse',
+        typeInfo: '.ARBGetSubscriptionResponse'
+      }, {
+        elementName: 'ARBCreateSubscriptionRequest',
+        typeInfo: '.ARBCreateSubscriptionRequest'
+      }, {
+        elementName: 'ARBGetSubscriptionListResponse',
+        typeInfo: '.ARBGetSubscriptionListResponse'
+      }, {
+        elementName: 'ARBCancelSubscriptionResponse',
+        typeInfo: '.ARBCancelSubscriptionResponse'
+      }, {
+        elementName: 'updateCustomerShippingAddressRequest',
+        typeInfo: '.UpdateCustomerShippingAddressRequest'
+      }, {
+        elementName: 'createCustomerPaymentProfileResponse',
+        typeInfo: '.CreateCustomerPaymentProfileResponse'
+      }, {
+        elementName: 'getCustomerPaymentProfileRequest',
+        typeInfo: '.GetCustomerPaymentProfileRequest'
+      }, {
+        elementName: 'deleteCustomerShippingAddressRequest',
+        typeInfo: '.DeleteCustomerShippingAddressRequest'
+      }, {
+        elementName: 'ARBUpdateSubscriptionResponse',
+        typeInfo: '.ARBUpdateSubscriptionResponse'
+      }, {
+        elementName: 'ARBGetSubscriptionStatusRequest',
+        typeInfo: '.ARBGetSubscriptionStatusRequest'
+      }, {
+        elementName: 'decryptPaymentDataResponse',
+        typeInfo: '.DecryptPaymentDataResponse'
+      }, {
+        elementName: 'createCustomerProfileResponse',
+        typeInfo: '.CreateCustomerProfileResponse'
+      }, {
+        elementName: 'getUnsettledTransactionListResponse',
+        typeInfo: '.GetUnsettledTransactionListResponse'
+      }, {
+        elementName: 'deleteCustomerShippingAddressResponse',
+        typeInfo: '.DeleteCustomerShippingAddressResponse'
+      }, {
+        elementName: 'validateCustomerPaymentProfileResponse',
+        typeInfo: '.ValidateCustomerPaymentProfileResponse'
       }, {
         elementName: 'ARBCreateSubscriptionResponse',
         typeInfo: '.ARBCreateSubscriptionResponse'
@@ -3246,182 +3580,167 @@ var Schema_Module_Factory = function () {
         elementName: 'getCustomerProfileRequest',
         typeInfo: '.GetCustomerProfileRequest'
       }, {
-        elementName: 'createCustomerShippingAddressResponse',
-        typeInfo: '.CreateCustomerShippingAddressResponse'
-      }, {
-        elementName: 'getBatchStatisticsRequest',
-        typeInfo: '.GetBatchStatisticsRequest'
-      }, {
-        elementName: 'getUnsettledTransactionListResponse',
-        typeInfo: '.GetUnsettledTransactionListResponse'
-      }, {
-        elementName: 'getHostedPaymentPageResponse',
-        typeInfo: '.GetHostedPaymentPageResponse'
-      }, {
-        elementName: 'updateCustomerProfileResponse',
-        typeInfo: '.UpdateCustomerProfileResponse'
-      }, {
-        elementName: 'decryptPaymentDataResponse',
-        typeInfo: '.DecryptPaymentDataResponse'
-      }, {
-        elementName: 'getCustomerShippingAddressRequest',
-        typeInfo: '.GetCustomerShippingAddressRequest'
-      }, {
-        elementName: 'updateSplitTenderGroupResponse',
-        typeInfo: '.UpdateSplitTenderGroupResponse'
-      }, {
-        elementName: 'updateHeldTransactionResponse',
-        typeInfo: '.UpdateHeldTransactionResponse'
-      }, {
-        elementName: 'mobileDeviceRegistrationRequest',
-        typeInfo: '.MobileDeviceRegistrationRequest'
-      }, {
-        elementName: 'securePaymentContainerRequest',
-        typeInfo: '.SecurePaymentContainerRequest'
-      }, {
         elementName: 'getSettledBatchListRequest',
         typeInfo: '.GetSettledBatchListRequest'
       }, {
-        elementName: 'deleteCustomerProfileResponse',
-        typeInfo: '.DeleteCustomerProfileResponse'
-      }, {
-        elementName: 'validateCustomerPaymentProfileRequest',
-        typeInfo: '.ValidateCustomerPaymentProfileRequest'
-      }, {
-        elementName: 'mobileDeviceLoginResponse',
-        typeInfo: '.MobileDeviceLoginResponse'
-      }, {
-        elementName: 'ARBUpdateSubscriptionResponse',
-        typeInfo: '.ARBUpdateSubscriptionResponse'
-      }, {
-        elementName: 'deleteCustomerShippingAddressResponse',
-        typeInfo: '.DeleteCustomerShippingAddressResponse'
-      }, {
-        elementName: 'ARBGetSubscriptionRequest',
-        typeInfo: '.ARBGetSubscriptionRequest'
-      }, {
-        elementName: 'getAUJobDetailsRequest',
-        typeInfo: '.GetAUJobDetailsRequest'
-      }, {
-        elementName: 'isAliveRequest',
-        typeInfo: '.IsAliveRequest'
-      }, {
-        elementName: 'deleteCustomerPaymentProfileRequest',
-        typeInfo: '.DeleteCustomerPaymentProfileRequest'
-      }, {
-        elementName: 'getAUJobSummaryResponse',
-        typeInfo: '.GetAUJobSummaryResponse'
-      }, {
-        elementName: 'getCustomerShippingAddressResponse',
-        typeInfo: '.GetCustomerShippingAddressResponse'
-      }, {
-        elementName: 'sendCustomerTransactionReceiptRequest',
-        typeInfo: '.SendCustomerTransactionReceiptRequest'
-      }, {
-        elementName: 'getCustomerPaymentProfileResponse',
-        typeInfo: '.GetCustomerPaymentProfileResponse'
-      }, {
-        elementName: 'deleteCustomerProfileRequest',
-        typeInfo: '.DeleteCustomerProfileRequest'
-      }, {
-        elementName: 'authenticateTestResponse',
-        typeInfo: '.AuthenticateTestResponse'
-      }, {
-        elementName: 'deleteCustomerPaymentProfileResponse',
-        typeInfo: '.DeleteCustomerPaymentProfileResponse'
-      }, {
-        elementName: 'createCustomerProfileTransactionResponse',
-        typeInfo: '.CreateCustomerProfileTransactionResponse'
+        elementName: 'logoutResponse',
+        typeInfo: '.LogoutResponse'
       }, {
         elementName: 'getBatchStatisticsResponse',
         typeInfo: '.GetBatchStatisticsResponse'
       }, {
-        elementName: 'createCustomerProfileResponse',
-        typeInfo: '.CreateCustomerProfileResponse'
+        elementName: 'mobileDeviceLoginResponse',
+        typeInfo: '.MobileDeviceLoginResponse'
       }, {
-        elementName: 'createCustomerPaymentProfileResponse',
-        typeInfo: '.CreateCustomerPaymentProfileResponse'
-      }, {
-        elementName: 'getSettledBatchListResponse',
-        typeInfo: '.GetSettledBatchListResponse'
-      }, {
-        elementName: 'getTransactionListRequest',
-        typeInfo: '.GetTransactionListRequest'
-      }, {
-        elementName: 'EnumCollection',
-        typeInfo: '.EnumCollection'
-      }, {
-        elementName: 'updateCustomerShippingAddressRequest',
-        typeInfo: '.UpdateCustomerShippingAddressRequest'
-      }, {
-        elementName: 'getMerchantDetailsResponse',
-        typeInfo: '.GetMerchantDetailsResponse'
-      }, {
-        elementName: 'ARBCancelSubscriptionRequest',
-        typeInfo: '.ARBCancelSubscriptionRequest'
-      }, {
-        elementName: 'getTransactionDetailsRequest',
-        typeInfo: '.GetTransactionDetailsRequest'
-      }, {
-        elementName: 'ErrorResponse',
-        typeInfo: '.ANetApiResponse'
-      }, {
-        elementName: 'validateCustomerPaymentProfileResponse',
-        typeInfo: '.ValidateCustomerPaymentProfileResponse'
-      }, {
-        elementName: 'getAUJobDetailsResponse',
-        typeInfo: '.GetAUJobDetailsResponse'
-      }, {
-        elementName: 'getAUJobSummaryRequest',
-        typeInfo: '.GetAUJobSummaryRequest'
-      }, {
-        elementName: 'createTransactionRequest',
-        typeInfo: '.CreateTransactionRequest'
-      }, {
-        elementName: 'getCustomerProfileResponse',
-        typeInfo: '.GetCustomerProfileResponse'
-      }, {
-        elementName: 'getHostedPaymentPageRequest',
-        typeInfo: '.GetHostedPaymentPageRequest'
-      }, {
-        elementName: 'ARBGetSubscriptionResponse',
-        typeInfo: '.ARBGetSubscriptionResponse'
-      }, {
-        elementName: 'getCustomerProfileIdsResponse',
-        typeInfo: '.GetCustomerProfileIdsResponse'
-      }, {
-        elementName: 'createCustomerProfileTransactionRequest',
-        typeInfo: '.CreateCustomerProfileTransactionRequest'
-      }, {
-        elementName: 'ARBGetSubscriptionListRequest',
-        typeInfo: '.ARBGetSubscriptionListRequest'
-      }, {
-        elementName: 'getCustomerPaymentProfileListResponse',
-        typeInfo: '.GetCustomerPaymentProfileListResponse'
-      }, {
-        elementName: 'getTransactionListResponse',
-        typeInfo: '.GetTransactionListResponse'
+        elementName: 'getCustomerPaymentProfileListRequest',
+        typeInfo: '.GetCustomerPaymentProfileListRequest'
       }, {
         elementName: 'updateCustomerPaymentProfileResponse',
         typeInfo: '.UpdateCustomerPaymentProfileResponse'
       }, {
-        elementName: 'getCustomerProfileIdsRequest',
-        typeInfo: '.GetCustomerProfileIdsRequest'
+        elementName: 'ARBCancelSubscriptionRequest',
+        typeInfo: '.ARBCancelSubscriptionRequest'
       }, {
-        elementName: 'mobileDeviceLoginRequest',
-        typeInfo: '.MobileDeviceLoginRequest'
+        elementName: 'getAUJobSummaryResponse',
+        typeInfo: '.GetAUJobSummaryResponse'
       }, {
-        elementName: 'getMerchantDetailsRequest',
-        typeInfo: '.GetMerchantDetailsRequest'
+        elementName: 'getCustomerPaymentProfileListResponse',
+        typeInfo: '.GetCustomerPaymentProfileListResponse'
+      }, {
+        elementName: 'getCustomerProfileResponse',
+        typeInfo: '.GetCustomerProfileResponse'
+      }, {
+        elementName: 'getHostedProfilePageRequest',
+        typeInfo: '.GetHostedProfilePageRequest'
+      }, {
+        elementName: 'isAliveResponse',
+        typeInfo: '.IsAliveResponse'
+      }, {
+        elementName: 'ARBGetSubscriptionListRequest',
+        typeInfo: '.ARBGetSubscriptionListRequest'
+      }, {
+        elementName: 'ARBUpdateSubscriptionRequest',
+        typeInfo: '.ARBUpdateSubscriptionRequest'
+      }, {
+        elementName: 'getTransactionDetailsRequest',
+        typeInfo: '.GetTransactionDetailsRequest'
+      }, {
+        elementName: 'updateHeldTransactionResponse',
+        typeInfo: '.UpdateHeldTransactionResponse'
+      }, {
+        elementName: 'getAUJobDetailsResponse',
+        typeInfo: '.GetAUJobDetailsResponse'
       }, {
         elementName: 'decryptPaymentDataRequest',
         typeInfo: '.DecryptPaymentDataRequest'
       }, {
-        elementName: 'createCustomerProfileFromTransactionRequest',
-        typeInfo: '.CreateCustomerProfileFromTransactionRequest'
+        elementName: 'getBatchStatisticsRequest',
+        typeInfo: '.GetBatchStatisticsRequest'
       }, {
-        elementName: 'createTransactionResponse',
-        typeInfo: '.CreateTransactionResponse'
+        elementName: 'getSettledBatchListResponse',
+        typeInfo: '.GetSettledBatchListResponse'
+      }, {
+        elementName: 'getTransactionDetailsResponse',
+        typeInfo: '.GetTransactionDetailsResponse'
+      }, {
+        elementName: 'updateCustomerProfileRequest',
+        typeInfo: '.UpdateCustomerProfileRequest'
+      }, {
+        elementName: 'sendCustomerTransactionReceiptRequest',
+        typeInfo: '.SendCustomerTransactionReceiptRequest'
+      }, {
+        elementName: 'validateCustomerPaymentProfileRequest',
+        typeInfo: '.ValidateCustomerPaymentProfileRequest'
+      }, {
+        elementName: 'updateHeldTransactionRequest',
+        typeInfo: '.UpdateHeldTransactionRequest'
+      }, {
+        elementName: 'getCustomerShippingAddressRequest',
+        typeInfo: '.GetCustomerShippingAddressRequest'
+      }, {
+        elementName: 'deleteCustomerProfileRequest',
+        typeInfo: '.DeleteCustomerProfileRequest'
+      }, {
+        elementName: 'updateMerchantDetailsResponse',
+        typeInfo: '.UpdateMerchantDetailsResponse'
+      }, {
+        elementName: 'ARBGetSubscriptionRequest',
+        typeInfo: '.ARBGetSubscriptionRequest'
+      }, {
+        elementName: 'deleteCustomerPaymentProfileRequest',
+        typeInfo: '.DeleteCustomerPaymentProfileRequest'
+      }, {
+        elementName: 'getAUJobSummaryRequest',
+        typeInfo: '.GetAUJobSummaryRequest'
+      }, {
+        elementName: 'getUnsettledTransactionListRequest',
+        typeInfo: '.GetUnsettledTransactionListRequest'
+      }, {
+        elementName: 'updateCustomerPaymentProfileRequest',
+        typeInfo: '.UpdateCustomerPaymentProfileRequest'
+      }, {
+        elementName: 'isAliveRequest',
+        typeInfo: '.IsAliveRequest'
+      }, {
+        elementName: 'mobileDeviceLoginRequest',
+        typeInfo: '.MobileDeviceLoginRequest'
+      }, {
+        elementName: 'updateSplitTenderGroupRequest',
+        typeInfo: '.UpdateSplitTenderGroupRequest'
+      }, {
+        elementName: 'logoutRequest',
+        typeInfo: '.LogoutRequest'
+      }, {
+        elementName: 'authenticateTestRequest',
+        typeInfo: '.AuthenticateTestRequest'
+      }, {
+        elementName: 'getHostedProfilePageResponse',
+        typeInfo: '.GetHostedProfilePageResponse'
+      }, {
+        elementName: 'createCustomerShippingAddressRequest',
+        typeInfo: '.CreateCustomerShippingAddressRequest'
+      }, {
+        elementName: 'updateSplitTenderGroupResponse',
+        typeInfo: '.UpdateSplitTenderGroupResponse'
+      }, {
+        elementName: 'getHostedPaymentPageResponse',
+        typeInfo: '.GetHostedPaymentPageResponse'
+      }, {
+        elementName: 'getTransactionListRequest',
+        typeInfo: '.GetTransactionListRequest'
+      }, {
+        elementName: 'getCustomerProfileIdsResponse',
+        typeInfo: '.GetCustomerProfileIdsResponse'
+      }, {
+        elementName: 'deleteCustomerProfileResponse',
+        typeInfo: '.DeleteCustomerProfileResponse'
+      }, {
+        elementName: 'deleteCustomerPaymentProfileResponse',
+        typeInfo: '.DeleteCustomerPaymentProfileResponse'
+      }, {
+        elementName: 'getMerchantDetailsRequest',
+        typeInfo: '.GetMerchantDetailsRequest'
+      }, {
+        elementName: 'getMerchantDetailsResponse',
+        typeInfo: '.GetMerchantDetailsResponse'
+      }, {
+        elementName: 'createTransactionRequest',
+        typeInfo: '.CreateTransactionRequest'
+      }, {
+        elementName: 'createCustomerProfileRequest',
+        typeInfo: '.CreateCustomerProfileRequest'
+      }, {
+        elementName: 'createCustomerShippingAddressResponse',
+        typeInfo: '.CreateCustomerShippingAddressResponse'
+      }, {
+        elementName: 'updateMerchantDetailsRequest',
+        typeInfo: '.UpdateMerchantDetailsRequest'
+      }, {
+        elementName: 'securePaymentContainerRequest',
+        typeInfo: '.SecurePaymentContainerRequest'
+      }, {
+        elementName: 'getAUJobDetailsRequest',
+        typeInfo: '.GetAUJobDetailsRequest'
       }]
   };
   return {
