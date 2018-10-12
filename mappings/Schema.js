@@ -564,6 +564,8 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'expirationDate',
             required: true
+          }, {
+            name: 'tokenRequestorId'
           }]
       }, {
         localName: 'UpdateCustomerProfileRequest',
@@ -838,6 +840,12 @@ var Schema_Module_Factory = function () {
             typeInfo: 'Boolean'
           }, {
             name: 'cryptogram'
+          }, {
+            name: 'tokenRequestorName'
+          }, {
+            name: 'tokenRequestorId'
+          }, {
+            name: 'tokenRequestorEci'
           }]
       }, {
         localName: 'ArrayOfTransactionSummaryType',
