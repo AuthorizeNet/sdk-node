@@ -126,28 +126,92 @@ for(i=0;i<schema.typeInfos.length;i++) {
 
 			if((prop['collection'] != null) && (prop['collection'] == true))
 			{
-				if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
+				
+				// if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
+					// propname = 'obj';
+				// var listname = name + 'List';
+
+				// copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
+				// tabcount++;
+
+				// copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline;
+				
+				if((prop['elementTypeInfos'] != null) && (prop['elementTypeInfos'] != undefined))
+				{
+					if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
 					propname = 'obj';
-				var listname = name + 'List';
+					copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
+					for(var k=0;k<prop['elementTypeInfos'].length;k++){
+						
+						var propType = prop['elementTypeInfos'][k];
+						var auName = propType['elementName'];
+						var listname = propType['elementName'] + 'List';
+						
+						tabcount++;
+						copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline
+						if(listname == "auUpdateList")
+						{
+						copyCtor += tab.repeat(tabcount) + propname +'.forEach(function(item){if(item.newCreditCard != null) {' + listname + '.push(new ';
+						}
+						else if(listname == "auDeleteList")
+						{
+							copyCtor += tab.repeat(tabcount) + propname +'.forEach(function(item){if(item.creditCard != null) {' + listname + '.push(new ';
+						}
+						
+						if(propType['typeInfo'] != null) {
+					      if(propType['typeInfo'][0] == '.') {
+						copyCtor += propType['typeInfo'].slice(1);
+					     }
+				       }
+					    copyCtor += '(item));}}); ' + newline;
+						copyCtor += tab.repeat(tabcount) + 'this.set' + auName.charAt(0).toUpperCase() + auName.slice(1) + '(' + listname + ');';
+						copyCtor += newline;
+						tabcount--;
+						
+					}
+					copyCtor += tab.repeat(tabcount) + '}' + newline;
+				}
+				else if(prop['typeInfo'] != null) {
+					if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
+					propname = 'obj';
+					var listname = name + 'List';
 
-				copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
-				tabcount++;
+					copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
+					tabcount++;
 
-				copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline;
-				copyCtor += tab.repeat(tabcount) + propname +'.forEach(function(item) {' + listname + '.push(new ';
-				if(prop['typeInfo'] != null) {
+					copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline;
+					copyCtor += tab.repeat(tabcount) + propname +'.forEach(function(item) {' + listname + '.push(new ';
 					if(prop['typeInfo'][0] == '.') {
 						copyCtor += prop['typeInfo'].slice(1);
 					}
+					copyCtor += '(item));}); ' + newline;
+					copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(' + listname + ');';
+					copyCtor += newline;
+					tabcount--;
+					copyCtor += tab.repeat(tabcount) + '}' + newline;
 				}
 				else {
+					if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
+					propname = 'obj';
+					var listname = name + 'List';
+
+					copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
+					tabcount++;
+
+					copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline;
+					copyCtor += tab.repeat(tabcount) + propname +'.forEach(function(item) {' + listname + '.push(new ';
 					copyCtor += 'String';
+					copyCtor += '(item));}); ' + newline;
+					copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(' + listname + ');';
+					copyCtor += newline;
+					tabcount--;
+					copyCtor += tab.repeat(tabcount) + '}' + newline;
 				}
-				copyCtor += '(item));}); ' + newline;
-				copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(' + listname + ');';
-				copyCtor += newline;
-				tabcount--;
-				copyCtor += tab.repeat(tabcount) + '}' + newline;
+				// copyCtor += '(item));}); ' + newline;
+				// copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(' + listname + ');';
+				// copyCtor += newline;
+				// tabcount--;
+				// copyCtor += tab.repeat(tabcount) + '}' + newline;
 			}
 			else if((prop['typeInfo'] != null) && (prop['typeInfo'][0] == '.'))
 			{
@@ -175,8 +239,21 @@ for(i=0;i<schema.typeInfos.length;i++) {
 
 		for(var j=0;j<obj.propertyInfos.length;++j) {
 			var prop = obj.propertyInfos[j];
-			var name = (prop['elementName'] != null ? prop['elementName'] : prop['name']);
-			copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(null);' + newline;
+			if((prop['elementTypeInfos'] != null) && (prop['elementTypeInfos'] != undefined))
+				{
+					for(var k=0;k<prop['elementTypeInfos'].length;k++){
+					   var propType = prop['elementTypeInfos'][k];
+						var auName = propType['elementName'];
+						copyCtor += tab.repeat(tabcount) + 'this.set' + auName.charAt(0).toUpperCase() + auName.slice(1) + '(null);' + newline;	
+					}
+				}
+				else
+				{
+					
+					var name = (prop['elementName'] != null ? prop['elementName'] : prop['name']);
+					copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(null);' + newline;
+				}
+			
 		}
 
 		tabcount--;
@@ -193,23 +270,49 @@ for(i=0;i<schema.typeInfos.length;i++) {
 
 		for(var j=0;j<obj.propertyInfos.length;++j) {
 			var prop = obj.propertyInfos[j];
-			var name = (prop['elementName'] != null ? prop['elementName'] : prop['name']);
-			var propname = 'p_' + name;
+			if((prop['elementTypeInfos'] != null) && (prop['elementTypeInfos'] != undefined))
+				{
+					for(var k=0;k<prop['elementTypeInfos'].length;k++){
+					   var propType = prop['elementTypeInfos'][k];
+						var auName = propType['elementName'];
+						var propname = 'p_' + auName;
 
-			var setter = new String(tab.repeat(tabcount) + 'set');
-			setter += name.charAt(0).toUpperCase() + name.slice(1);
-			setter += '(' + propname + ') { ';
-			setter += 'this.' + name + ' = ' + propname + ';';
-			setter += ' }';
+						var setter = new String(tab.repeat(tabcount) + 'set');
+						setter += auName.charAt(0).toUpperCase() + auName.slice(1);
+						setter += '(' + propname + ') { ';
+						setter += 'this.' + auName + ' = ' + propname + ';';
+						setter += ' }';
 
-			var getter = new String(tab.repeat(tabcount) + 'get');
-			getter += name.charAt(0).toUpperCase() + name.slice(1);
-			getter += '() { if(\'' + name + '\' in this) {';
-			getter += 'return this.' + name + ';}';
-			getter += ' }';
+						var getter = new String(tab.repeat(tabcount) + 'get');
+						getter += auName.charAt(0).toUpperCase() + auName.slice(1);
+						getter += '() { if(\'' + auName + '\' in this) {';
+						getter += 'return this.' + auName + ';}';
+						getter += ' }';
 
-			classDefinition += newline + setter;
-			classDefinition += newline + getter;
+						classDefinition += newline + setter;
+						classDefinition += newline + getter;	
+					}
+				}
+				else{
+					var name = (prop['elementName'] != null ? prop['elementName'] : prop['name']);
+					var propname = 'p_' + name;
+
+					var setter = new String(tab.repeat(tabcount) + 'set');
+					setter += name.charAt(0).toUpperCase() + name.slice(1);
+					setter += '(' + propname + ') { ';
+					setter += 'this.' + name + ' = ' + propname + ';';
+					setter += ' }';
+
+					var getter = new String(tab.repeat(tabcount) + 'get');
+					getter += name.charAt(0).toUpperCase() + name.slice(1);
+					getter += '() { if(\'' + name + '\' in this) {';
+					getter += 'return this.' + name + ';}';
+					getter += ' }';
+
+					classDefinition += newline + setter;
+					classDefinition += newline + getter;
+				}
+			
 		}
 	}
 	else {
