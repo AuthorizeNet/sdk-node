@@ -126,17 +126,7 @@ for(i=0;i<schema.typeInfos.length;i++) {
 
 			if((prop['collection'] != null) && (prop['collection'] == true))
 			{
-				
-				// if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
-					// propname = 'obj';
-				// var listname = name + 'List';
-
-				// copyCtor += tab.repeat(tabcount) + 'if((' + propname + ' != undefined) && (' +  propname + ' != null)) {' + newline;
-				// tabcount++;
-
-				// copyCtor += tab.repeat(tabcount) + 'var ' + listname + ' = [];' + newline;
-				
-				if((prop['elementTypeInfos'] != null) && (prop['elementTypeInfos'] != undefined))
+			    if((prop['elementTypeInfos'] != null) && (prop['elementTypeInfos'] != undefined))
 				{
 					if(obj['localName'].startsWith('ArrayOf') || obj.propertyInfos.length == 1)
 					propname = 'obj';
@@ -207,11 +197,7 @@ for(i=0;i<schema.typeInfos.length;i++) {
 					tabcount--;
 					copyCtor += tab.repeat(tabcount) + '}' + newline;
 				}
-				// copyCtor += '(item));}); ' + newline;
-				// copyCtor += tab.repeat(tabcount) + 'this.set' + name.charAt(0).toUpperCase() + name.slice(1) + '(' + listname + ');';
-				// copyCtor += newline;
-				// tabcount--;
-				// copyCtor += tab.repeat(tabcount) + '}' + newline;
+				
 			}
 			else if((prop['typeInfo'] != null) && (prop['typeInfo'][0] == '.'))
 			{
