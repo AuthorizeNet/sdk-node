@@ -383,6 +383,14 @@ var Schema_Module_Factory = function () {
             typeInfo: '.EmailSettingsType'
           }]
       }, {
+        localName: 'ArrayOfContactDetail',
+        propertyInfos: [{
+            name: 'contactDetail',
+            minOccurs: 0,
+            collection: true,
+            typeInfo: '.ContactDetailType'
+          }]
+      }, {
         localName: 'TransactionDetailsType.EmvDetails',
         typeName: null,
         propertyInfos: [{
@@ -544,6 +552,12 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'tip',
             typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'otherTax',
+            typeInfo: '.OtherTaxType'
+          }, {
+            name: 'shipFrom',
+            typeInfo: '.NameAndAddressType'
           }]
       }, {
         localName: 'ARBTransactionList',
@@ -656,6 +670,14 @@ var Schema_Module_Factory = function () {
             typeInfo: '.TokenMaskedType'
           }]
       }, {
+        localName: 'GetCustomerPaymentProfileNonceResponse',
+        typeName: null,
+        baseTypeInfo: '.ANetApiResponse',
+        propertyInfos: [{
+            name: 'opaqueData',
+            typeInfo: '.OpaqueDataType'
+          }]
+      },{
         localName: 'CustomerProfilePaymentType',
         typeName: 'customerProfilePaymentType',
         propertyInfos: [{
@@ -755,6 +777,9 @@ var Schema_Module_Factory = function () {
             required: true
           }, {
             name: 'dataKey'
+          }, {
+            name: 'expirationTimeStamp',
+            typeInfo: 'DateTime'
           }]
       }, {
         localName: 'ProfileTransAuthOnlyType',
@@ -821,6 +846,14 @@ var Schema_Module_Factory = function () {
             typeInfo: '.ArrayOfCurrencyCode'
           }, {
             name: 'publicClientKey'
+          }, {
+            name: 'businessInformation',
+            typeInfo: '.CustomerAddressType'
+          }, {
+            name: 'merchantTimeZone'
+          }, {
+            name: 'contactDetails',
+            typeInfo: '.ArrayOfContactDetail'
           }]
       }, {
         localName: 'ARBGetSubscriptionStatusResponse',
@@ -1230,6 +1263,20 @@ var Schema_Module_Factory = function () {
             typeInfo: '.SubscriptionDetail'
           }]
       }, {
+        localName: 'GetCustomerPaymentProfileNonceRequest',
+        typeName: null,
+        baseTypeInfo: '.ANetApiRequest',
+        propertyInfos: [{
+            name: 'connectedAccessToken',
+            required: true
+          }, {
+            name: 'customerProfileId',
+            required: true
+          }, {
+            name: 'customerPaymentProfileId',
+            required: true
+          }]
+      },{
         localName: 'ValidateCustomerPaymentProfileResponse',
         typeName: null,
         baseTypeInfo: '.ANetApiResponse',
@@ -1302,6 +1349,22 @@ var Schema_Module_Factory = function () {
             required: true,
             maxOccurs: 1000,
             collection: true
+          }]
+      },{
+        localName: 'ProcessingOptions',
+        typeName: 'processingOptions',
+        propertyInfos: [{
+            name: 'isFirstRecurringPayment',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'isFirstSubsequentAuth',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'isSubsequentAuth',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'isStoredCredentials',
+            typeInfo: 'Boolean'
           }]
       }, {
         localName: 'LogoutRequest',
@@ -1411,6 +1474,58 @@ var Schema_Module_Factory = function () {
             typeInfo: 'Decimal'
           }, {
             name: 'taxable',
+            typeInfo: 'Boolean'
+          },{
+            name: 'unitOfMeasure'
+          }, {
+            name: 'typeOfSupply'
+          }, {
+            name: 'taxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'nationalTax',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'localTax',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'vatRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxId'
+          }, {
+            name: 'alternateTaxType'
+          }, {
+            name: 'alternateTaxTypeApplied'
+          }, {
+            name: 'alternateTaxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'totalAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'commodityCode'
+          }, {
+            name: 'productCode'
+          }, {
+            name: 'productSKU'
+          }, {
+            name: 'discountRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'discountAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxIncludedInTotal',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'taxIsAfterDiscount',
             typeInfo: 'Boolean'
           }]
       }, {
@@ -1789,6 +1904,15 @@ var Schema_Module_Factory = function () {
             typeInfo: '.PermissionType'
           }]
       }, {
+        localName: 'ContactDetailType',
+        propertyInfos: [{
+            name: 'email'
+          }, {
+            name: 'firstName'
+          }, {
+            name: 'lastName'
+          }]
+      }, {
         localName: 'SolutionType',
         typeName: 'solutionType',
         propertyInfos: [{
@@ -2058,6 +2182,8 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'profile',
             typeInfo: '.CustomerProfileIdType'
+          }, {
+            name: 'networkTransId'
           }]
       }, {
         localName: 'CustomerDataType',
@@ -2660,8 +2786,20 @@ var Schema_Module_Factory = function () {
           }, {
             name: 'tip',
             typeInfo: '.ExtendedAmountType'
+          }, {
+            name: 'processingOptions',
+            typeInfo: '.ProcessingOptions'
+          }, {
+            name: 'subsequentAuthInformation',
+            typeInfo: '.SubsequentAuthInformation'
+          }, {
+            name: 'otherTax',
+            typeInfo: '.OtherTaxType'
+          }, {
+            name: 'shipFrom',
+            typeInfo: '.NameAndAddressType'
           }]
-      }, {
+         }, {
         localName: 'KeyValue',
         propertyInfos: [{
             name: 'encoding',
@@ -2737,6 +2875,12 @@ var Schema_Module_Factory = function () {
             name: 'cardCode'
           }, {
             name: 'splitTenderId'
+          }, {
+            name: 'processingOptions',
+            typeInfo: '.ProcessingOptions'
+          }, {
+            name: 'subsequentAuthInformation',
+            typeInfo: '.SubsequentAuthInformation'
           }]
       }, {
         localName: 'CustomerPaymentProfileListItemType',
@@ -2781,6 +2925,27 @@ var Schema_Module_Factory = function () {
             name: 'name'
           }, {
             name: 'description'
+          }]
+      }, {
+        localName: 'OtherTaxType',
+        typeName: 'otherTaxType',
+        propertyInfos: [{
+            name: 'nationalTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'localTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'alternateTaxId'
+          }, {
+            name: 'vatTaxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'vatTaxAmount',
+            typeInfo: 'Decimal'
           }]
       }, {
         localName: 'ProfileTransVoidType',
@@ -3112,6 +3277,14 @@ var Schema_Module_Factory = function () {
             name: 'fraudAction',
             required: true
           }]
+      },{
+        localName: 'SubsequentAuthInformation',
+        typeName: 'subsequentAuthInformation',
+        propertyInfos: [{
+            name: 'originalNetworkTransId'
+          }, {
+            name: 'reason'
+          }]
       }, {
         localName: 'TransactionResponse.Messages.Message',
         typeName: null,
@@ -3136,6 +3309,41 @@ var Schema_Module_Factory = function () {
             name: 'invoiceNumber'
           }, {
             name: 'description'
+          }, {
+            name: 'discountAmount',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxIsAfterDiscount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'totalTaxTypeCode'
+          }, {
+            name: 'purchaserVATRegistrationNumber'
+          }, {
+            name: 'merchantVATRegistrationNumber'
+          }, {
+            name: 'vatInvoiceReferenceNumber'
+          }, {
+            name: 'purchaserCode'
+          }, {
+            name: 'summaryCommodityCode'
+          }, {
+            name: 'purchaseOrderDateUTC',
+            typeInfo: 'Date'
+          }, {
+            name: 'supplierOrderReference'
+          }, {
+            name: 'authorizedContactName'
+          }, {
+            name: 'cardAcceptorRefNumber'
+          }, {
+            name: 'amexDataTAA1'
+          }, {
+            name: 'amexDataTAA2'
+          }, {
+            name: 'amexDataTAA3'
+          }, {
+            name: 'amexDataTAA4'
           }]
       }, {
         localName: 'ReturnedItemType',
@@ -3182,6 +3390,10 @@ var Schema_Module_Factory = function () {
         type: 'enumInfo',
         localName: 'CustomerProfileTypeEnum',
         values: ['regular', 'guest']
+      }, {
+        type: 'enumInfo',
+        localName: 'MerchantInitTransReasonEnum',
+        values: ['resubmission', 'delayedCharge', 'reauthorization', 'noShow']
       }, {
         type: 'enumInfo',
         localName: 'AfdsTransactionEnum',
