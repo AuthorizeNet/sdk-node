@@ -748,7 +748,10 @@ var Schema_Module_Factory = function () {
             name: 'oldCreditCard',
             required: true,
             typeInfo: '.CreditCardMaskedType'
-          }]
+          },{
+            name: 'subscriptionIdList',
+            typeInfo: '.SubscriptionIdList'
+		  }]
       }, {
         localName: 'CustomerProfileType',
         typeName: 'customerProfileType',
@@ -1581,6 +1584,9 @@ var Schema_Module_Factory = function () {
             name: 'creditCard',
             required: true,
             typeInfo: '.CreditCardMaskedType'
+          }, {
+            name: 'subscriptionIdList',
+            typeInfo: '.SubscriptionIdList'
           }]
       }, {
         localName: 'CustomerProfileInfoExType',
