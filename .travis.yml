@@ -21,6 +21,6 @@ before_script:
 script:
     # execute all of the tests or other commands to determine
     # whether the build will pass or fail
-    - mocha
+    - npm test
 
 after_script:
