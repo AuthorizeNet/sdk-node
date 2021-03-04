@@ -1,9 +1,9 @@
-var schema = require('../mappings/Schema.js').Schema;
+import Schema from '../mappings/Schema';
 
 var controllerSet = new Set();
 
-for(var i=0;i<schema.elementInfos.length;i++){
-	var obj = schema.elementInfos[i];
+for(var i=0;i<Schema.elementInfos.length;i++){
+	var obj = Schema.elementInfos[i];
 	if(obj['typeInfo'] != null)
 	{
 		var objName = '';

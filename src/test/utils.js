@@ -16,8 +16,9 @@ function getDate(){
 	return (new Date()).toISOString().substring(0, 10) ;
 }
 
-
-module.exports.getRandomString = getRandomString;
-module.exports.getRandomInt = getRandomInt;
-module.exports.getRandomAmount = getRandomAmount;
-module.exports.getDate = getDate;
+export default {
+	getRandomString,
+	getRandomInt,
+	getRandomAmount,
+	getDate
+}

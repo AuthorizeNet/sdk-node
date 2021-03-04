@@ -1,11 +1,11 @@
-var winston = require('winston');
-var config = require('./config').config;
+import winston from "winston"
+import {config} from "./config"
 
-var logger;
+let logger: winston.LoggerInstance | undefined;
 
-var sensitiveFields = ['cardCode', 'cardNumber', 'expirationDate', 'accountNumber', 'nameOnAccount', 'transactionKey', 'email', 'phoneNumber', 'faxNumber', 'dateOfBirth'];
+const sensitiveFields = ['cardCode', 'cardNumber', 'expirationDate', 'accountNumber', 'nameOnAccount', 'transactionKey', 'email', 'phoneNumber', 'faxNumber', 'dateOfBirth'];
 
-function isJson(str) {
+function isJson(str: string): boolean {
     try {
         JSON.parse(str);
     } catch (e) {
@@ -22,7 +22,7 @@ if(config.logger.enabled === true) {
 	});
 
 	//Adding filter for sensitive fields that should not be logged.
-	logger.filters.push(function(level, msg, timestamp){
+	logger.filters.push(function(level, msg, timestamp): string {
 		if(isJson(msg))
 		{
 			try{
@@ -43,14 +43,14 @@ else {
 	});
 }
 
-function maskSensitiveFields(jsonMsg){
+function maskSensitiveFields(jsonMsg: any): string {
 
 	if (jsonMsg instanceof Object) {
 
-		var prop;
+		let prop: string;
 
 		for (prop in jsonMsg){
-			var isFieldSensitive = (sensitiveFields.indexOf(prop) > -1);
+			const isFieldSensitive = (sensitiveFields.indexOf(prop) > -1);
 
 			if(isFieldSensitive === true)
 			{
@@ -65,4 +65,6 @@ function maskSensitiveFields(jsonMsg){
     return JSON.stringify(jsonMsg);
 }
 
-module.exports.logger = logger;
+export {
+	logger
+}

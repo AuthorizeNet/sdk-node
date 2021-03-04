@@ -1,9 +1,8 @@
 'use strict';
 
-var AuthenticateTestController = require('../lib/apicontrollers.js').AuthenticateTestController;
+import { AuthenticateTestController } from '../src/lib/apicontrollers';
 
-var ApiContracts = require('../lib/apicontracts.js');
-var Constants = require('../lib/constants.js').constants;
+import ApiContracts from '../src/lib/apicontracts';
 
 var merchant = new ApiContracts.MerchantAuthenticationType();
 merchant.setName('5KP3u95bQpv');

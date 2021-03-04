@@ -1,7 +1,6 @@
-'use strict';
-var pkg = require('../package.json');
+import pkg from '../../package.json';
 
-var config = {
+const config = {
 	'timeout': 120000,
 	'clientId': 'sdk-node-' + pkg.version,
 	'logger': {
@@ -16,4 +15,6 @@ var config = {
 	}
 };
 
-module.exports.config = config;
+export {
+	config
+}

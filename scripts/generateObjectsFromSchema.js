@@ -1,12 +1,12 @@
-var schema = require('../mappings/Schema.js').Schema;
+import Schema from '../mappings/Schema';
 
 var newline = '\n';
 var tabcount = 1;
 var tab = '\t';
 
-console.log('\'use strict\';' + newline);
-console.log('var utils = require(\'./utils.js\');' + newline);
-console.log('var logger = require(\'./logger.js\').logger;' + newline);
+// console.log('\'use strict\';' + newline);
+// console.log('var utils = require(\'./utils.js\');' + newline);
+// console.log('var logger = require(\'./logger.js\').logger;' + newline);
 
 
 var elementInfo = {};
@@ -20,21 +20,21 @@ var level2ExtendedClasses = [];
 var enums = [];
 
 var i = 0;
-for(i=0;i<schema.elementInfos.length;i++) {
-	var info = schema.elementInfos[i];
+for(i=0;i<Schema.elementInfos.length;i++) {
+	var info = Schema.elementInfos[i];
 	elementInfo[info['typeInfo'].slice(1)] = info['elementName'];
 }
 
-for(i=0;i<schema.typeInfos.length;i++) {
-	var info = schema.typeInfos[i];
+for(i=0;i<Schema.typeInfos.length;i++) {
+	var info = Schema.typeInfos[i];
 	if(info['baseTypeInfo'] != null)
 		baseInfo[info['localName']] = info['baseTypeInfo'].slice(1);
 	else
 		baseInfo[info['localName']] = null;
 }
 
-for(i=0;i<schema.typeInfos.length;i++) {
-	var obj = schema.typeInfos[i];
+for(i=0;i<Schema.typeInfos.length;i++) {
+	var obj = Schema.typeInfos[i];
 	tabcount = 1;
 	
 	var classDefinition = new String();

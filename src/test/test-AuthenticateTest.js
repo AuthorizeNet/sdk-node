@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('assert');
-var ApiContracts = require('../lib/apicontracts.js');
-var ApiControllers = require('../lib/apicontrollers.js');
-var constants = require('./constants.js');
+import assert from 'assert';
+import ApiContracts from '../lib/apicontracts';
+import ApiControllers from '../lib/apicontrollers';
+import constants from './constants';
 
 var apiLoginKey = constants.apiLoginKey;
 var transactionKey = constants.transactionKey;

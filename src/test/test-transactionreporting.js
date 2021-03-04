@@ -1,9 +1,9 @@
 'use strict';
 
-var assert = require('chai').assert;
-var constants = require('./constants.js');
-var ApiControllers = require('../lib/apicontrollers.js');
-var ApiContracts = require('../lib/apicontracts.js');
+import { assert } from 'chai';
+import constants from './constants';
+import ApiControllers from '../lib/apicontrollers';
+import ApiContracts from '../lib/apicontracts';
 
 var apiLoginKey = constants.apiLoginKey;
 var transactionKey = constants.transactionKey;
@@ -135,9 +135,9 @@ describe('Transaction Reporting', function() {
 
 			var getRequest = new ApiContracts.GetTransactionListForCustomerRequest();
 			getRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
-			getRequest.setCustomerProfileId('1811474252');
+			getRequest.setCustomerProfileId('36596285');
 
-			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
+			// console.log(JSON.stringify(getRequest.getJSON(), null, 2));
 				
 			var ctrl = new ApiControllers.GetTransactionListForCustomerController(getRequest.getJSON());
 
@@ -147,7 +147,7 @@ describe('Transaction Reporting', function() {
 
 				response = new ApiContracts.GetTransactionListResponse(apiResponse);
 
-				//console.log(JSON.stringify(response, null, 2));
+				// console.log(JSON.stringify(response, null, 2));
 				done();
 			});
 		});

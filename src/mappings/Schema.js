@@ -1,4 +1,4 @@
-var Schema_Module_Factory = function () {
+export default function Schema_Module_Factory() {
   var Schema = {
     name: 'Schema',
     defaultElementNamespaceURI: 'AnetApi\/xml\/v1\/schema\/AnetApiSchema.xsd',

@@ -1,8 +1,5 @@
-'use strict';
-
-var utils = require('./utils.js');
-
-var logger = require('./logger.js').logger;
+import utils from './utils';
+import {logger} from './logger';
 
 class ANetApiRequest {
 	constructor(obj) {
@@ -31,7 +28,7 @@ class ANetApiRequest {
 	getRefId() { if('refId' in this) {return this.refId;} }
 }
 
-module.exports.ANetApiRequest = ANetApiRequest;
+
 
 class ANetApiResponse {
 	getJSON() { 
@@ -65,7 +62,7 @@ class ANetApiResponse {
 	getSessionToken() { if('sessionToken' in this) {return this.sessionToken;} }
 }
 
-module.exports.ANetApiResponse = ANetApiResponse;
+
 
 class ARBGetSubscriptionListSorting {
 	constructor(obj) {
@@ -87,7 +84,7 @@ class ARBGetSubscriptionListSorting {
 	getOrderDescending() { if('orderDescending' in this) {return this.orderDescending;} }
 }
 
-module.exports.ARBGetSubscriptionListSorting = ARBGetSubscriptionListSorting;
+
 
 class ARBSubscriptionMaskedType {
 	constructor(obj) {
@@ -133,7 +130,7 @@ class ARBSubscriptionMaskedType {
 	getArbTransactions() { if('arbTransactions' in this) {return this.arbTransactions;} }
 }
 
-module.exports.ARBSubscriptionMaskedType = ARBSubscriptionMaskedType;
+
 
 class ARBSubscriptionType {
 	constructor(obj) {
@@ -187,7 +184,7 @@ class ARBSubscriptionType {
 	getProfile() { if('profile' in this) {return this.profile;} }
 }
 
-module.exports.ARBSubscriptionType = ARBSubscriptionType;
+
 
 class ARBTransactionList {
 	constructor(obj) {
@@ -209,7 +206,7 @@ class ARBTransactionList {
 	getArbTransaction() { if('arbTransaction' in this) {return this.arbTransaction;} }
 }
 
-module.exports.ARBTransactionList = ARBTransactionList;
+
 
 class ArbTransaction {
 	constructor(obj) {
@@ -243,7 +240,7 @@ class ArbTransaction {
 	getAttemptNum() { if('attemptNum' in this) {return this.attemptNum;} }
 }
 
-module.exports.ArbTransaction = ArbTransaction;
+
 
 class ArrayOfAUResponseType {
 	constructor(obj) {
@@ -265,7 +262,7 @@ class ArrayOfAUResponseType {
 	getAuResponse() { if('auResponse' in this) {return this.auResponse;} }
 }
 
-module.exports.ArrayOfAUResponseType = ArrayOfAUResponseType;
+
 
 class ArrayOfBatchDetailsType {
 	constructor(obj) {
@@ -287,7 +284,7 @@ class ArrayOfBatchDetailsType {
 	getBatch() { if('batch' in this) {return this.batch;} }
 }
 
-module.exports.ArrayOfBatchDetailsType = ArrayOfBatchDetailsType;
+
 
 class ArrayOfBatchStatisticType {
 	constructor(obj) {
@@ -309,7 +306,7 @@ class ArrayOfBatchStatisticType {
 	getStatistic() { if('statistic' in this) {return this.statistic;} }
 }
 
-module.exports.ArrayOfBatchStatisticType = ArrayOfBatchStatisticType;
+
 
 class ArrayOfCardType {
 	constructor(obj) {
@@ -331,7 +328,7 @@ class ArrayOfCardType {
 	getCardType() { if('cardType' in this) {return this.cardType;} }
 }
 
-module.exports.ArrayOfCardType = ArrayOfCardType;
+
 
 class ArrayOfContactDetail {
 	constructor(obj) {
@@ -353,7 +350,7 @@ class ArrayOfContactDetail {
 	getContactDetail() { if('contactDetail' in this) {return this.contactDetail;} }
 }
 
-module.exports.ArrayOfContactDetail = ArrayOfContactDetail;
+
 
 class ArrayOfCurrencyCode {
 	constructor(obj) {
@@ -375,7 +372,7 @@ class ArrayOfCurrencyCode {
 	getCurrency() { if('currency' in this) {return this.currency;} }
 }
 
-module.exports.ArrayOfCurrencyCode = ArrayOfCurrencyCode;
+
 
 class ArrayOfCustomerPaymentProfileListItemType {
 	constructor(obj) {
@@ -397,7 +394,7 @@ class ArrayOfCustomerPaymentProfileListItemType {
 	getPaymentProfile() { if('paymentProfile' in this) {return this.paymentProfile;} }
 }
 
-module.exports.ArrayOfCustomerPaymentProfileListItemType = ArrayOfCustomerPaymentProfileListItemType;
+
 
 class ArrayOfFDSFilter {
 	constructor(obj) {
@@ -419,7 +416,7 @@ class ArrayOfFDSFilter {
 	getFDSFilter() { if('FDSFilter' in this) {return this.FDSFilter;} }
 }
 
-module.exports.ArrayOfFDSFilter = ArrayOfFDSFilter;
+
 
 class ArrayOfFraudFilterType {
 	constructor(obj) {
@@ -441,7 +438,7 @@ class ArrayOfFraudFilterType {
 	getFraudFilter() { if('fraudFilter' in this) {return this.fraudFilter;} }
 }
 
-module.exports.ArrayOfFraudFilterType = ArrayOfFraudFilterType;
+
 
 class ArrayOfLineItem {
 	constructor(obj) {
@@ -463,7 +460,7 @@ class ArrayOfLineItem {
 	getLineItem() { if('lineItem' in this) {return this.lineItem;} }
 }
 
-module.exports.ArrayOfLineItem = ArrayOfLineItem;
+
 
 class ArrayOfLong {
 	constructor(obj) {
@@ -485,7 +482,7 @@ class ArrayOfLong {
 	getLong() { if('long' in this) {return this.long;} }
 }
 
-module.exports.ArrayOfLong = ArrayOfLong;
+
 
 class ArrayOfMarketType {
 	constructor(obj) {
@@ -507,7 +504,7 @@ class ArrayOfMarketType {
 	getMarketType() { if('marketType' in this) {return this.marketType;} }
 }
 
-module.exports.ArrayOfMarketType = ArrayOfMarketType;
+
 
 class ArrayOfNumericString {
 	constructor(obj) {
@@ -529,7 +526,7 @@ class ArrayOfNumericString {
 	getNumericString() { if('numericString' in this) {return this.numericString;} }
 }
 
-module.exports.ArrayOfNumericString = ArrayOfNumericString;
+
 
 class ArrayOfPaymentMethod {
 	constructor(obj) {
@@ -551,7 +548,7 @@ class ArrayOfPaymentMethod {
 	getPaymentMethod() { if('paymentMethod' in this) {return this.paymentMethod;} }
 }
 
-module.exports.ArrayOfPaymentMethod = ArrayOfPaymentMethod;
+
 
 class ArrayOfPermissionType {
 	constructor(obj) {
@@ -573,7 +570,7 @@ class ArrayOfPermissionType {
 	getPermission() { if('permission' in this) {return this.permission;} }
 }
 
-module.exports.ArrayOfPermissionType = ArrayOfPermissionType;
+
 
 class ArrayOfProcessorType {
 	constructor(obj) {
@@ -595,7 +592,7 @@ class ArrayOfProcessorType {
 	getProcessor() { if('processor' in this) {return this.processor;} }
 }
 
-module.exports.ArrayOfProcessorType = ArrayOfProcessorType;
+
 
 class ArrayOfProductCode {
 	constructor(obj) {
@@ -617,7 +614,7 @@ class ArrayOfProductCode {
 	getProductCode() { if('productCode' in this) {return this.productCode;} }
 }
 
-module.exports.ArrayOfProductCode = ArrayOfProductCode;
+
 
 class ArrayOfReturnedItem {
 	constructor(obj) {
@@ -639,7 +636,7 @@ class ArrayOfReturnedItem {
 	getReturnedItem() { if('returnedItem' in this) {return this.returnedItem;} }
 }
 
-module.exports.ArrayOfReturnedItem = ArrayOfReturnedItem;
+
 
 class ArrayOfSetting {
 	constructor(obj) {
@@ -661,7 +658,7 @@ class ArrayOfSetting {
 	getSetting() { if('setting' in this) {return this.setting;} }
 }
 
-module.exports.ArrayOfSetting = ArrayOfSetting;
+
 
 class ArrayOfString {
 	constructor(obj) {
@@ -683,7 +680,7 @@ class ArrayOfString {
 	getString() { if('string' in this) {return this.string;} }
 }
 
-module.exports.ArrayOfString = ArrayOfString;
+
 
 class ArrayOfSubscription {
 	constructor(obj) {
@@ -705,7 +702,7 @@ class ArrayOfSubscription {
 	getSubscriptionDetail() { if('subscriptionDetail' in this) {return this.subscriptionDetail;} }
 }
 
-module.exports.ArrayOfSubscription = ArrayOfSubscription;
+
 
 class ArrayOfTransactionSummaryType {
 	constructor(obj) {
@@ -727,7 +724,7 @@ class ArrayOfTransactionSummaryType {
 	getTransaction() { if('transaction' in this) {return this.transaction;} }
 }
 
-module.exports.ArrayOfTransactionSummaryType = ArrayOfTransactionSummaryType;
+
 
 class AuDetailsType {
 	constructor(obj) {
@@ -769,7 +766,7 @@ class AuDetailsType {
 	getReasonDescription() { if('reasonDescription' in this) {return this.reasonDescription;} }
 }
 
-module.exports.AuDetailsType = AuDetailsType;
+
 
 class AuResponseType {
 	constructor(obj) {
@@ -795,7 +792,7 @@ class AuResponseType {
 	getReasonDescription() { if('reasonDescription' in this) {return this.reasonDescription;} }
 }
 
-module.exports.AuResponseType = AuResponseType;
+
 
 class BankAccountMaskedType {
 	constructor(obj) {
@@ -833,7 +830,7 @@ class BankAccountMaskedType {
 	getBankName() { if('bankName' in this) {return this.bankName;} }
 }
 
-module.exports.BankAccountMaskedType = BankAccountMaskedType;
+
 
 class BankAccountType {
 	constructor(obj) {
@@ -875,7 +872,7 @@ class BankAccountType {
 	getCheckNumber() { if('checkNumber' in this) {return this.checkNumber;} }
 }
 
-module.exports.BankAccountType = BankAccountType;
+
 
 class BatchDetailsType {
 	constructor(obj) {
@@ -921,7 +918,7 @@ class BatchDetailsType {
 	getStatistics() { if('statistics' in this) {return this.statistics;} }
 }
 
-module.exports.BatchDetailsType = BatchDetailsType;
+
 
 class BatchStatisticType {
 	constructor(obj) {
@@ -1019,7 +1016,7 @@ class BatchStatisticType {
 	getRefundReturnedItemsCount() { if('refundReturnedItemsCount' in this) {return this.refundReturnedItemsCount;} }
 }
 
-module.exports.BatchStatisticType = BatchStatisticType;
+
 
 class CardArt {
 	constructor(obj) {
@@ -1053,7 +1050,7 @@ class CardArt {
 	getCardType() { if('cardType' in this) {return this.cardType;} }
 }
 
-module.exports.CardArt = CardArt;
+
 
 class CcAuthenticationType {
 	constructor(obj) {
@@ -1075,7 +1072,7 @@ class CcAuthenticationType {
 	getCardholderAuthenticationValue() { if('cardholderAuthenticationValue' in this) {return this.cardholderAuthenticationValue;} }
 }
 
-module.exports.CcAuthenticationType = CcAuthenticationType;
+
 
 class ContactDetailType {
 	constructor(obj) {
@@ -1101,7 +1098,7 @@ class ContactDetailType {
 	getLastName() { if('lastName' in this) {return this.lastName;} }
 }
 
-module.exports.ContactDetailType = ContactDetailType;
+
 
 class CreateProfileResponse {
 	constructor(obj) {
@@ -1131,7 +1128,7 @@ class CreateProfileResponse {
 	getCustomerShippingAddressIdList() { if('customerShippingAddressIdList' in this) {return this.customerShippingAddressIdList;} }
 }
 
-module.exports.CreateProfileResponse = CreateProfileResponse;
+
 
 class CreditCardMaskedType {
 	constructor(obj) {
@@ -1169,7 +1166,7 @@ class CreditCardMaskedType {
 	getIsPaymentToken() { if('isPaymentToken' in this) {return this.isPaymentToken;} }
 }
 
-module.exports.CreditCardMaskedType = CreditCardMaskedType;
+
 
 class CreditCardSimpleType {
 	constructor(obj) {
@@ -1191,7 +1188,7 @@ class CreditCardSimpleType {
 	getExpirationDate() { if('expirationDate' in this) {return this.expirationDate;} }
 }
 
-module.exports.CreditCardSimpleType = CreditCardSimpleType;
+
 
 class CreditCardTrackType {
 	constructor(obj) {
@@ -1213,7 +1210,7 @@ class CreditCardTrackType {
 	getTrack2() { if('track2' in this) {return this.track2;} }
 }
 
-module.exports.CreditCardTrackType = CreditCardTrackType;
+
 
 class CustomerDataType {
 	constructor(obj) {
@@ -1247,7 +1244,7 @@ class CustomerDataType {
 	getTaxId() { if('taxId' in this) {return this.taxId;} }
 }
 
-module.exports.CustomerDataType = CustomerDataType;
+
 
 class CustomerPaymentProfileBaseType {
 	constructor(obj) {
@@ -1269,7 +1266,7 @@ class CustomerPaymentProfileBaseType {
 	getBillTo() { if('billTo' in this) {return this.billTo;} }
 }
 
-module.exports.CustomerPaymentProfileBaseType = CustomerPaymentProfileBaseType;
+
 
 class CustomerPaymentProfileListItemType {
 	constructor(obj) {
@@ -1303,7 +1300,7 @@ class CustomerPaymentProfileListItemType {
 	getPayment() { if('payment' in this) {return this.payment;} }
 }
 
-module.exports.CustomerPaymentProfileListItemType = CustomerPaymentProfileListItemType;
+
 
 class CustomerPaymentProfileSorting {
 	constructor(obj) {
@@ -1325,7 +1322,7 @@ class CustomerPaymentProfileSorting {
 	getOrderDescending() { if('orderDescending' in this) {return this.orderDescending;} }
 }
 
-module.exports.CustomerPaymentProfileSorting = CustomerPaymentProfileSorting;
+
 
 class CustomerProfileBaseType {
 	constructor(obj) {
@@ -1351,7 +1348,7 @@ class CustomerProfileBaseType {
 	getEmail() { if('email' in this) {return this.email;} }
 }
 
-module.exports.CustomerProfileBaseType = CustomerProfileBaseType;
+
 
 class CustomerProfileIdType {
 	constructor(obj) {
@@ -1377,7 +1374,7 @@ class CustomerProfileIdType {
 	getCustomerAddressId() { if('customerAddressId' in this) {return this.customerAddressId;} }
 }
 
-module.exports.CustomerProfileIdType = CustomerProfileIdType;
+
 
 class CustomerProfilePaymentType {
 	constructor(obj) {
@@ -1407,7 +1404,7 @@ class CustomerProfilePaymentType {
 	getShippingProfileId() { if('shippingProfileId' in this) {return this.shippingProfileId;} }
 }
 
-module.exports.CustomerProfilePaymentType = CustomerProfilePaymentType;
+
 
 class CustomerProfileSummaryType {
 	constructor(obj) {
@@ -1441,7 +1438,7 @@ class CustomerProfileSummaryType {
 	getCreatedDate() { if('createdDate' in this) {return this.createdDate;} }
 }
 
-module.exports.CustomerProfileSummaryType = CustomerProfileSummaryType;
+
 
 class CustomerType {
 	constructor(obj) {
@@ -1483,7 +1480,7 @@ class CustomerType {
 	getTaxId() { if('taxId' in this) {return this.taxId;} }
 }
 
-module.exports.CustomerType = CustomerType;
+
 
 class DriversLicenseMaskedType {
 	constructor(obj) {
@@ -1509,7 +1506,7 @@ class DriversLicenseMaskedType {
 	getDateOfBirth() { if('dateOfBirth' in this) {return this.dateOfBirth;} }
 }
 
-module.exports.DriversLicenseMaskedType = DriversLicenseMaskedType;
+
 
 class DriversLicenseType {
 	constructor(obj) {
@@ -1535,7 +1532,7 @@ class DriversLicenseType {
 	getDateOfBirth() { if('dateOfBirth' in this) {return this.dateOfBirth;} }
 }
 
-module.exports.DriversLicenseType = DriversLicenseType;
+
 
 class EmvTag {
 	constructor(obj) {
@@ -1561,7 +1558,7 @@ class EmvTag {
 	getFormatted() { if('formatted' in this) {return this.formatted;} }
 }
 
-module.exports.EmvTag = EmvTag;
+
 
 class EncryptedTrackDataType {
 	constructor(obj) {
@@ -1579,7 +1576,7 @@ class EncryptedTrackDataType {
 	getFormOfPayment() { if('FormOfPayment' in this) {return this.FormOfPayment;} }
 }
 
-module.exports.EncryptedTrackDataType = EncryptedTrackDataType;
+
 
 class EnumCollection {
 	constructor(obj) {
@@ -1633,7 +1630,7 @@ class EnumCollection {
 	getTransactionTypeEnum() { if('transactionTypeEnum' in this) {return this.transactionTypeEnum;} }
 }
 
-module.exports.EnumCollection = EnumCollection;
+
 
 class ExtendedAmountType {
 	constructor(obj) {
@@ -1659,7 +1656,7 @@ class ExtendedAmountType {
 	getDescription() { if('description' in this) {return this.description;} }
 }
 
-module.exports.ExtendedAmountType = ExtendedAmountType;
+
 
 class FDSFilterType {
 	constructor(obj) {
@@ -1681,7 +1678,7 @@ class FDSFilterType {
 	getAction() { if('action' in this) {return this.action;} }
 }
 
-module.exports.FDSFilterType = FDSFilterType;
+
 
 class FingerPrintType {
 	constructor(obj) {
@@ -1715,7 +1712,7 @@ class FingerPrintType {
 	getAmount() { if('amount' in this) {return this.amount;} }
 }
 
-module.exports.FingerPrintType = FingerPrintType;
+
 
 class FraudInformationType {
 	constructor(obj) {
@@ -1737,7 +1734,7 @@ class FraudInformationType {
 	getFraudAction() { if('fraudAction' in this) {return this.fraudAction;} }
 }
 
-module.exports.FraudInformationType = FraudInformationType;
+
 
 class HeldTransactionRequestType {
 	constructor(obj) {
@@ -1759,7 +1756,7 @@ class HeldTransactionRequestType {
 	getRefTransId() { if('refTransId' in this) {return this.refTransId;} }
 }
 
-module.exports.HeldTransactionRequestType = HeldTransactionRequestType;
+
 
 class ImpersonationAuthenticationType {
 	constructor(obj) {
@@ -1781,7 +1778,7 @@ class ImpersonationAuthenticationType {
 	getPartnerTransactionKey() { if('partnerTransactionKey' in this) {return this.partnerTransactionKey;} }
 }
 
-module.exports.ImpersonationAuthenticationType = ImpersonationAuthenticationType;
+
 
 class IsAliveRequest {
 	getJSON() { 
@@ -1807,7 +1804,7 @@ class IsAliveRequest {
 	getRefId() { if('refId' in this) {return this.refId;} }
 }
 
-module.exports.IsAliveRequest = IsAliveRequest;
+
 
 class KeyBlock {
 	constructor(obj) {
@@ -1825,7 +1822,7 @@ class KeyBlock {
 	getValue() { if('Value' in this) {return this.Value;} }
 }
 
-module.exports.KeyBlock = KeyBlock;
+
 
 class KeyManagementScheme {
 	constructor(obj) {
@@ -1843,7 +1840,7 @@ class KeyManagementScheme {
 	getDUKPT() { if('DUKPT' in this) {return this.DUKPT;} }
 }
 
-module.exports.KeyManagementScheme = KeyManagementScheme;
+
 
 class KeyValue {
 	constructor(obj) {
@@ -1869,7 +1866,7 @@ class KeyValue {
 	getScheme() { if('Scheme' in this) {return this.Scheme;} }
 }
 
-module.exports.KeyValue = KeyValue;
+
 
 class LineItemType {
 	constructor(obj) {
@@ -1987,7 +1984,7 @@ class LineItemType {
 	getTaxIsAfterDiscount() { if('taxIsAfterDiscount' in this) {return this.taxIsAfterDiscount;} }
 }
 
-module.exports.LineItemType = LineItemType;
+
 
 class ListOfAUDetailsType {
 	constructor(obj) {
@@ -2009,7 +2006,7 @@ class ListOfAUDetailsType {
 	getAuUpdateOrAuDelete() { if('auUpdateOrAuDelete' in this) {return this.auUpdateOrAuDelete;} }
 }
 
-module.exports.ListOfAUDetailsType = ListOfAUDetailsType;
+
 
 class MerchantAuthenticationType {
 	constructor(obj) {
@@ -2059,7 +2056,7 @@ class MerchantAuthenticationType {
 	getMobileDeviceId() { if('mobileDeviceId' in this) {return this.mobileDeviceId;} }
 }
 
-module.exports.MerchantAuthenticationType = MerchantAuthenticationType;
+
 
 class MerchantContactType {
 	constructor(obj) {
@@ -2097,7 +2094,7 @@ class MerchantContactType {
 	getMerchantPhone() { if('merchantPhone' in this) {return this.merchantPhone;} }
 }
 
-module.exports.MerchantContactType = MerchantContactType;
+
 
 class MessagesType {
 	constructor(obj) {
@@ -2123,7 +2120,7 @@ class MessagesType {
 	getMessage() { if('message' in this) {return this.message;} }
 }
 
-module.exports.MessagesType = MessagesType;
+
 
 class MobileDeviceType {
 	constructor(obj) {
@@ -2157,7 +2154,7 @@ class MobileDeviceType {
 	getDeviceActivation() { if('deviceActivation' in this) {return this.deviceActivation;} }
 }
 
-module.exports.MobileDeviceType = MobileDeviceType;
+
 
 class NameAndAddressType {
 	constructor(obj) {
@@ -2203,7 +2200,7 @@ class NameAndAddressType {
 	getCountry() { if('country' in this) {return this.country;} }
 }
 
-module.exports.NameAndAddressType = NameAndAddressType;
+
 
 class OpaqueDataType {
 	constructor(obj) {
@@ -2233,7 +2230,7 @@ class OpaqueDataType {
 	getExpirationTimeStamp() { if('expirationTimeStamp' in this) {return this.expirationTimeStamp;} }
 }
 
-module.exports.OpaqueDataType = OpaqueDataType;
+
 
 class OrderType {
 	constructor(obj) {
@@ -2319,7 +2316,7 @@ class OrderType {
 	getAmexDataTAA4() { if('amexDataTAA4' in this) {return this.amexDataTAA4;} }
 }
 
-module.exports.OrderType = OrderType;
+
 
 class OtherTaxType {
 	constructor(obj) {
@@ -2357,7 +2354,7 @@ class OtherTaxType {
 	getVatTaxAmount() { if('vatTaxAmount' in this) {return this.vatTaxAmount;} }
 }
 
-module.exports.OtherTaxType = OtherTaxType;
+
 
 class Paging {
 	constructor(obj) {
@@ -2379,7 +2376,7 @@ class Paging {
 	getOffset() { if('offset' in this) {return this.offset;} }
 }
 
-module.exports.Paging = Paging;
+
 
 class PayPalType {
 	constructor(obj) {
@@ -2417,7 +2414,7 @@ class PayPalType {
 	getPayerID() { if('payerID' in this) {return this.payerID;} }
 }
 
-module.exports.PayPalType = PayPalType;
+
 
 class PaymentDetails {
 	constructor(obj) {
@@ -2471,7 +2468,7 @@ class PaymentDetails {
 	getAmount() { if('amount' in this) {return this.amount;} }
 }
 
-module.exports.PaymentDetails = PaymentDetails;
+
 
 class PaymentEmvType {
 	constructor(obj) {
@@ -2497,7 +2494,7 @@ class PaymentEmvType {
 	getEmvVersion() { if('emvVersion' in this) {return this.emvVersion;} }
 }
 
-module.exports.PaymentEmvType = PaymentEmvType;
+
 
 class PaymentMaskedType {
 	constructor(obj) {
@@ -2523,7 +2520,7 @@ class PaymentMaskedType {
 	getTokenInformation() { if('tokenInformation' in this) {return this.tokenInformation;} }
 }
 
-module.exports.PaymentMaskedType = PaymentMaskedType;
+
 
 class PaymentProfile {
 	constructor(obj) {
@@ -2545,7 +2542,7 @@ class PaymentProfile {
 	getCardCode() { if('cardCode' in this) {return this.cardCode;} }
 }
 
-module.exports.PaymentProfile = PaymentProfile;
+
 
 class PaymentScheduleType {
 	constructor(obj) {
@@ -2575,7 +2572,7 @@ class PaymentScheduleType {
 	getTrialOccurrences() { if('trialOccurrences' in this) {return this.trialOccurrences;} }
 }
 
-module.exports.PaymentScheduleType = PaymentScheduleType;
+
 
 class PaymentSimpleType {
 	constructor(obj) {
@@ -2597,7 +2594,7 @@ class PaymentSimpleType {
 	getBankAccount() { if('bankAccount' in this) {return this.bankAccount;} }
 }
 
-module.exports.PaymentSimpleType = PaymentSimpleType;
+
 
 class PaymentType {
 	constructor(obj) {
@@ -2643,7 +2640,7 @@ class PaymentType {
 	getDataSource() { if('dataSource' in this) {return this.dataSource;} }
 }
 
-module.exports.PaymentType = PaymentType;
+
 
 class PermissionType {
 	constructor(obj) {
@@ -2661,7 +2658,7 @@ class PermissionType {
 	getPermissionName() { if('permissionName' in this) {return this.permissionName;} }
 }
 
-module.exports.PermissionType = PermissionType;
+
 
 class ProcessingOptions {
 	constructor(obj) {
@@ -2691,7 +2688,7 @@ class ProcessingOptions {
 	getIsStoredCredentials() { if('isStoredCredentials' in this) {return this.isStoredCredentials;} }
 }
 
-module.exports.ProcessingOptions = ProcessingOptions;
+
 
 class ProcessorType {
 	constructor(obj) {
@@ -2717,7 +2714,7 @@ class ProcessorType {
 	getCardTypes() { if('cardTypes' in this) {return this.cardTypes;} }
 }
 
-module.exports.ProcessorType = ProcessorType;
+
 
 class ProfileTransAmountType {
 	constructor(obj) {
@@ -2755,7 +2752,7 @@ class ProfileTransAmountType {
 	getLineItems() { if('lineItems' in this) {return this.lineItems;} }
 }
 
-module.exports.ProfileTransAmountType = ProfileTransAmountType;
+
 
 class ProfileTransVoidType {
 	constructor(obj) {
@@ -2785,7 +2782,7 @@ class ProfileTransVoidType {
 	getTransId() { if('transId' in this) {return this.transId;} }
 }
 
-module.exports.ProfileTransVoidType = ProfileTransVoidType;
+
 
 class ProfileTransactionType {
 	constructor(obj) {
@@ -2823,7 +2820,7 @@ class ProfileTransactionType {
 	getProfileTransVoid() { if('profileTransVoid' in this) {return this.profileTransVoid;} }
 }
 
-module.exports.ProfileTransactionType = ProfileTransactionType;
+
 
 class ReturnedItemType {
 	constructor(obj) {
@@ -2857,7 +2854,7 @@ class ReturnedItemType {
 	getDescription() { if('description' in this) {return this.description;} }
 }
 
-module.exports.ReturnedItemType = ReturnedItemType;
+
 
 class SecurePaymentContainerErrorType {
 	constructor(obj) {
@@ -2879,7 +2876,7 @@ class SecurePaymentContainerErrorType {
 	getDescription() { if('description' in this) {return this.description;} }
 }
 
-module.exports.SecurePaymentContainerErrorType = SecurePaymentContainerErrorType;
+
 
 class SettingType {
 	constructor(obj) {
@@ -2901,7 +2898,7 @@ class SettingType {
 	getSettingValue() { if('settingValue' in this) {return this.settingValue;} }
 }
 
-module.exports.SettingType = SettingType;
+
 
 class SolutionType {
 	constructor(obj) {
@@ -2927,7 +2924,7 @@ class SolutionType {
 	getVendorName() { if('vendorName' in this) {return this.vendorName;} }
 }
 
-module.exports.SolutionType = SolutionType;
+
 
 class SubMerchantType {
 	constructor(obj) {
@@ -2985,7 +2982,7 @@ class SubMerchantType {
 	getCountryCode() { if('countryCode' in this) {return this.countryCode;} }
 }
 
-module.exports.SubMerchantType = SubMerchantType;
+
 
 class SubscriptionDetail {
 	constructor(obj) {
@@ -3063,7 +3060,7 @@ class SubscriptionDetail {
 	getCustomerShippingProfileId() { if('customerShippingProfileId' in this) {return this.customerShippingProfileId;} }
 }
 
-module.exports.SubscriptionDetail = SubscriptionDetail;
+
 
 class SubscriptionIdList {
 	constructor(obj) {
@@ -3085,7 +3082,7 @@ class SubscriptionIdList {
 	getSubscriptionId() { if('subscriptionId' in this) {return this.subscriptionId;} }
 }
 
-module.exports.SubscriptionIdList = SubscriptionIdList;
+
 
 class SubscriptionPaymentType {
 	constructor(obj) {
@@ -3107,7 +3104,7 @@ class SubscriptionPaymentType {
 	getPayNum() { if('payNum' in this) {return this.payNum;} }
 }
 
-module.exports.SubscriptionPaymentType = SubscriptionPaymentType;
+
 
 class SubsequentAuthInformation {
 	constructor(obj) {
@@ -3129,7 +3126,7 @@ class SubsequentAuthInformation {
 	getReason() { if('reason' in this) {return this.reason;} }
 }
 
-module.exports.SubsequentAuthInformation = SubsequentAuthInformation;
+
 
 class TokenMaskedType {
 	constructor(obj) {
@@ -3159,7 +3156,7 @@ class TokenMaskedType {
 	getTokenRequestorId() { if('tokenRequestorId' in this) {return this.tokenRequestorId;} }
 }
 
-module.exports.TokenMaskedType = TokenMaskedType;
+
 
 class TransRetailInfoType {
 	constructor(obj) {
@@ -3189,7 +3186,7 @@ class TransRetailInfoType {
 	getTerminalNumber() { if('terminalNumber' in this) {return this.terminalNumber;} }
 }
 
-module.exports.TransRetailInfoType = TransRetailInfoType;
+
 
 class TransactionDetailsType {
 	constructor(obj) {
@@ -3395,7 +3392,7 @@ class TransactionDetailsType {
 	getShipFrom() { if('shipFrom' in this) {return this.shipFrom;} }
 }
 
-module.exports.TransactionDetailsType = TransactionDetailsType;
+
 
 class TransactionListSorting {
 	constructor(obj) {
@@ -3417,7 +3414,7 @@ class TransactionListSorting {
 	getOrderDescending() { if('orderDescending' in this) {return this.orderDescending;} }
 }
 
-module.exports.TransactionListSorting = TransactionListSorting;
+
 
 class TransactionRequestType {
 	constructor(obj) {
@@ -3571,7 +3568,7 @@ class TransactionRequestType {
 	getShipFrom() { if('shipFrom' in this) {return this.shipFrom;} }
 }
 
-module.exports.TransactionRequestType = TransactionRequestType;
+
 
 class TransactionResponse {
 	constructor(obj) {
@@ -3685,7 +3682,7 @@ class TransactionResponse {
 	getNetworkTransId() { if('networkTransId' in this) {return this.networkTransId;} }
 }
 
-module.exports.TransactionResponse = TransactionResponse;
+
 
 class TransactionSummaryType {
 	constructor(obj) {
@@ -3767,7 +3764,7 @@ class TransactionSummaryType {
 	getProfile() { if('profile' in this) {return this.profile;} }
 }
 
-module.exports.TransactionSummaryType = TransactionSummaryType;
+
 
 class UserField {
 	constructor(obj) {
@@ -3789,7 +3786,7 @@ class UserField {
 	getValue() { if('value' in this) {return this.value;} }
 }
 
-module.exports.UserField = UserField;
+
 
 class WebCheckOutDataType {
 	constructor(obj) {
@@ -3819,7 +3816,7 @@ class WebCheckOutDataType {
 	getBankToken() { if('bankToken' in this) {return this.bankToken;} }
 }
 
-module.exports.WebCheckOutDataType = WebCheckOutDataType;
+
 
 class WebCheckOutDataTypeToken {
 	constructor(obj) {
@@ -3853,7 +3850,7 @@ class WebCheckOutDataTypeToken {
 	getFullName() { if('fullName' in this) {return this.fullName;} }
 }
 
-module.exports.WebCheckOutDataTypeToken = WebCheckOutDataTypeToken;
+
 
 KeyManagementScheme.DUKPT = class {
 	constructor(obj) {
@@ -3883,7 +3880,7 @@ KeyManagementScheme.DUKPT = class {
 	getEncryptedData() { if('EncryptedData' in this) {return this.EncryptedData;} }
 };
 
-module.exports.KeyManagementScheme.DUKPT = KeyManagementScheme.DUKPT;
+
 
 MessagesType.Message = class {
 	constructor(obj) {
@@ -3905,7 +3902,7 @@ MessagesType.Message = class {
 	getText() { if('text' in this) {return this.text;} }
 };
 
-module.exports.MessagesType.Message = MessagesType.Message;
+
 
 PaymentScheduleType.Interval = class {
 	constructor(obj) {
@@ -3927,7 +3924,7 @@ PaymentScheduleType.Interval = class {
 	getUnit() { if('unit' in this) {return this.unit;} }
 };
 
-module.exports.PaymentScheduleType.Interval = PaymentScheduleType.Interval;
+
 
 TransactionDetailsType.EmvDetails = class {
 	constructor(obj) {
@@ -3949,7 +3946,7 @@ TransactionDetailsType.EmvDetails = class {
 	getTag() { if('tag' in this) {return this.tag;} }
 };
 
-module.exports.TransactionDetailsType.EmvDetails = TransactionDetailsType.EmvDetails;
+
 
 TransactionRequestType.UserFields = class {
 	constructor(obj) {
@@ -3971,7 +3968,7 @@ TransactionRequestType.UserFields = class {
 	getUserField() { if('userField' in this) {return this.userField;} }
 };
 
-module.exports.TransactionRequestType.UserFields = TransactionRequestType.UserFields;
+
 
 TransactionResponse.EmvResponse = class {
 	constructor(obj) {
@@ -3993,7 +3990,7 @@ TransactionResponse.EmvResponse = class {
 	getTags() { if('tags' in this) {return this.tags;} }
 };
 
-module.exports.TransactionResponse.EmvResponse = TransactionResponse.EmvResponse;
+
 
 TransactionResponse.Errors = class {
 	constructor(obj) {
@@ -4015,7 +4012,7 @@ TransactionResponse.Errors = class {
 	getError() { if('error' in this) {return this.error;} }
 };
 
-module.exports.TransactionResponse.Errors = TransactionResponse.Errors;
+
 
 TransactionResponse.Messages = class {
 	constructor(obj) {
@@ -4037,7 +4034,7 @@ TransactionResponse.Messages = class {
 	getMessage() { if('message' in this) {return this.message;} }
 };
 
-module.exports.TransactionResponse.Messages = TransactionResponse.Messages;
+
 
 TransactionResponse.PrePaidCard = class {
 	constructor(obj) {
@@ -4063,7 +4060,7 @@ TransactionResponse.PrePaidCard = class {
 	getBalanceOnCard() { if('balanceOnCard' in this) {return this.balanceOnCard;} }
 };
 
-module.exports.TransactionResponse.PrePaidCard = TransactionResponse.PrePaidCard;
+
 
 TransactionResponse.SecureAcceptance = class {
 	constructor(obj) {
@@ -4089,7 +4086,7 @@ TransactionResponse.SecureAcceptance = class {
 	getPayerEmail() { if('PayerEmail' in this) {return this.PayerEmail;} }
 };
 
-module.exports.TransactionResponse.SecureAcceptance = TransactionResponse.SecureAcceptance;
+
 
 TransactionResponse.SplitTenderPayments = class {
 	constructor(obj) {
@@ -4111,7 +4108,7 @@ TransactionResponse.SplitTenderPayments = class {
 	getSplitTenderPayment() { if('splitTenderPayment' in this) {return this.splitTenderPayment;} }
 };
 
-module.exports.TransactionResponse.SplitTenderPayments = TransactionResponse.SplitTenderPayments;
+
 
 TransactionResponse.UserFields = class {
 	constructor(obj) {
@@ -4133,7 +4130,7 @@ TransactionResponse.UserFields = class {
 	getUserField() { if('userField' in this) {return this.userField;} }
 };
 
-module.exports.TransactionResponse.UserFields = TransactionResponse.UserFields;
+
 
 KeyManagementScheme.DUKPT.DeviceInfo = class {
 	constructor(obj) {
@@ -4151,7 +4148,7 @@ KeyManagementScheme.DUKPT.DeviceInfo = class {
 	getDescription() { if('Description' in this) {return this.Description;} }
 };
 
-module.exports.KeyManagementScheme.DUKPT.DeviceInfo = KeyManagementScheme.DUKPT.DeviceInfo;
+
 
 KeyManagementScheme.DUKPT.EncryptedData = class {
 	constructor(obj) {
@@ -4169,7 +4166,7 @@ KeyManagementScheme.DUKPT.EncryptedData = class {
 	getValue() { if('Value' in this) {return this.Value;} }
 };
 
-module.exports.KeyManagementScheme.DUKPT.EncryptedData = KeyManagementScheme.DUKPT.EncryptedData;
+
 
 KeyManagementScheme.DUKPT.Mode = class {
 	constructor(obj) {
@@ -4191,7 +4188,7 @@ KeyManagementScheme.DUKPT.Mode = class {
 	getData() { if('Data' in this) {return this.Data;} }
 };
 
-module.exports.KeyManagementScheme.DUKPT.Mode = KeyManagementScheme.DUKPT.Mode;
+
 
 TransactionDetailsType.EmvDetails.Tag = class {
 	constructor(obj) {
@@ -4213,7 +4210,7 @@ TransactionDetailsType.EmvDetails.Tag = class {
 	getData() { if('data' in this) {return this.data;} }
 };
 
-module.exports.TransactionDetailsType.EmvDetails.Tag = TransactionDetailsType.EmvDetails.Tag;
+
 
 TransactionResponse.EmvResponse.Tags = class {
 	constructor(obj) {
@@ -4235,7 +4232,7 @@ TransactionResponse.EmvResponse.Tags = class {
 	getTag() { if('tag' in this) {return this.tag;} }
 };
 
-module.exports.TransactionResponse.EmvResponse.Tags = TransactionResponse.EmvResponse.Tags;
+
 
 TransactionResponse.Errors.Error = class {
 	constructor(obj) {
@@ -4257,7 +4254,7 @@ TransactionResponse.Errors.Error = class {
 	getErrorText() { if('errorText' in this) {return this.errorText;} }
 };
 
-module.exports.TransactionResponse.Errors.Error = TransactionResponse.Errors.Error;
+
 
 TransactionResponse.Messages.Message = class {
 	constructor(obj) {
@@ -4279,7 +4276,7 @@ TransactionResponse.Messages.Message = class {
 	getDescription() { if('description' in this) {return this.description;} }
 };
 
-module.exports.TransactionResponse.Messages.Message = TransactionResponse.Messages.Message;
+
 
 TransactionResponse.SplitTenderPayments.SplitTenderPayment = class {
 	constructor(obj) {
@@ -4329,7 +4326,7 @@ TransactionResponse.SplitTenderPayments.SplitTenderPayment = class {
 	getBalanceOnCard() { if('balanceOnCard' in this) {return this.balanceOnCard;} }
 };
 
-module.exports.TransactionResponse.SplitTenderPayments.SplitTenderPayment = TransactionResponse.SplitTenderPayments.SplitTenderPayment;
+
 
 class ARBCancelSubscriptionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4357,7 +4354,7 @@ class ARBCancelSubscriptionRequest extends ANetApiRequest {
 	getSubscriptionId() { if('subscriptionId' in this) {return this.subscriptionId;} }
 }
 
-module.exports.ARBCancelSubscriptionRequest = ARBCancelSubscriptionRequest;
+
 
 class ARBCancelSubscriptionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4372,7 +4369,7 @@ class ARBCancelSubscriptionResponse extends ANetApiResponse {
 
 }
 
-module.exports.ARBCancelSubscriptionResponse = ARBCancelSubscriptionResponse;
+
 
 class ARBCreateSubscriptionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4400,7 +4397,7 @@ class ARBCreateSubscriptionRequest extends ANetApiRequest {
 	getSubscription() { if('subscription' in this) {return this.subscription;} }
 }
 
-module.exports.ARBCreateSubscriptionRequest = ARBCreateSubscriptionRequest;
+
 
 class ARBCreateSubscriptionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4432,7 +4429,7 @@ class ARBCreateSubscriptionResponse extends ANetApiResponse {
 	getProfile() { if('profile' in this) {return this.profile;} }
 }
 
-module.exports.ARBCreateSubscriptionResponse = ARBCreateSubscriptionResponse;
+
 
 class ARBGetSubscriptionListRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4468,7 +4465,7 @@ class ARBGetSubscriptionListRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.ARBGetSubscriptionListRequest = ARBGetSubscriptionListRequest;
+
 
 class ARBGetSubscriptionListResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4500,7 +4497,7 @@ class ARBGetSubscriptionListResponse extends ANetApiResponse {
 	getSubscriptionDetails() { if('subscriptionDetails' in this) {return this.subscriptionDetails;} }
 }
 
-module.exports.ARBGetSubscriptionListResponse = ARBGetSubscriptionListResponse;
+
 
 class ARBGetSubscriptionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4532,7 +4529,7 @@ class ARBGetSubscriptionRequest extends ANetApiRequest {
 	getIncludeTransactions() { if('includeTransactions' in this) {return this.includeTransactions;} }
 }
 
-module.exports.ARBGetSubscriptionRequest = ARBGetSubscriptionRequest;
+
 
 class ARBGetSubscriptionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4560,7 +4557,7 @@ class ARBGetSubscriptionResponse extends ANetApiResponse {
 	getSubscription() { if('subscription' in this) {return this.subscription;} }
 }
 
-module.exports.ARBGetSubscriptionResponse = ARBGetSubscriptionResponse;
+
 
 class ARBGetSubscriptionStatusRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4588,7 +4585,7 @@ class ARBGetSubscriptionStatusRequest extends ANetApiRequest {
 	getSubscriptionId() { if('subscriptionId' in this) {return this.subscriptionId;} }
 }
 
-module.exports.ARBGetSubscriptionStatusRequest = ARBGetSubscriptionStatusRequest;
+
 
 class ARBGetSubscriptionStatusResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4616,7 +4613,7 @@ class ARBGetSubscriptionStatusResponse extends ANetApiResponse {
 	getStatus() { if('status' in this) {return this.status;} }
 }
 
-module.exports.ARBGetSubscriptionStatusResponse = ARBGetSubscriptionStatusResponse;
+
 
 class ARBUpdateSubscriptionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4648,7 +4645,7 @@ class ARBUpdateSubscriptionRequest extends ANetApiRequest {
 	getSubscription() { if('subscription' in this) {return this.subscription;} }
 }
 
-module.exports.ARBUpdateSubscriptionRequest = ARBUpdateSubscriptionRequest;
+
 
 class ARBUpdateSubscriptionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4676,7 +4673,7 @@ class ARBUpdateSubscriptionResponse extends ANetApiResponse {
 	getProfile() { if('profile' in this) {return this.profile;} }
 }
 
-module.exports.ARBUpdateSubscriptionResponse = ARBUpdateSubscriptionResponse;
+
 
 class AuDeleteType extends AuDetailsType {
 	constructor(obj) {
@@ -4696,7 +4693,7 @@ class AuDeleteType extends AuDetailsType {
 	getCreditCard() { if('creditCard' in this) {return this.creditCard;} }
 }
 
-module.exports.AuDeleteType = AuDeleteType;
+
 
 class AuUpdateType extends AuDetailsType {
 	constructor(obj) {
@@ -4720,7 +4717,7 @@ class AuUpdateType extends AuDetailsType {
 	getOldCreditCard() { if('oldCreditCard' in this) {return this.oldCreditCard;} }
 }
 
-module.exports.AuUpdateType = AuUpdateType;
+
 
 class AuthenticateTestRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4735,7 +4732,7 @@ class AuthenticateTestRequest extends ANetApiRequest {
 
 }
 
-module.exports.AuthenticateTestRequest = AuthenticateTestRequest;
+
 
 class AuthenticateTestResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4750,7 +4747,7 @@ class AuthenticateTestResponse extends ANetApiResponse {
 
 }
 
-module.exports.AuthenticateTestResponse = AuthenticateTestResponse;
+
 
 class CreateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4786,7 +4783,7 @@ class CreateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getValidationMode() { if('validationMode' in this) {return this.validationMode;} }
 }
 
-module.exports.CreateCustomerPaymentProfileRequest = CreateCustomerPaymentProfileRequest;
+
 
 class CreateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4822,7 +4819,7 @@ class CreateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getValidationDirectResponse() { if('validationDirectResponse' in this) {return this.validationDirectResponse;} }
 }
 
-module.exports.CreateCustomerPaymentProfileResponse = CreateCustomerPaymentProfileResponse;
+
 
 class CreateCustomerProfileFromTransactionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4870,7 +4867,7 @@ class CreateCustomerProfileFromTransactionRequest extends ANetApiRequest {
 	getProfileType() { if('profileType' in this) {return this.profileType;} }
 }
 
-module.exports.CreateCustomerProfileFromTransactionRequest = CreateCustomerProfileFromTransactionRequest;
+
 
 class CreateCustomerProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4902,7 +4899,7 @@ class CreateCustomerProfileRequest extends ANetApiRequest {
 	getValidationMode() { if('validationMode' in this) {return this.validationMode;} }
 }
 
-module.exports.CreateCustomerProfileRequest = CreateCustomerProfileRequest;
+
 
 class CreateCustomerProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -4942,7 +4939,7 @@ class CreateCustomerProfileResponse extends ANetApiResponse {
 	getValidationDirectResponseList() { if('validationDirectResponseList' in this) {return this.validationDirectResponseList;} }
 }
 
-module.exports.CreateCustomerProfileResponse = CreateCustomerProfileResponse;
+
 
 class CreateCustomerProfileTransactionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -4974,7 +4971,7 @@ class CreateCustomerProfileTransactionRequest extends ANetApiRequest {
 	getExtraOptions() { if('extraOptions' in this) {return this.extraOptions;} }
 }
 
-module.exports.CreateCustomerProfileTransactionRequest = CreateCustomerProfileTransactionRequest;
+
 
 class CreateCustomerProfileTransactionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5006,7 +5003,7 @@ class CreateCustomerProfileTransactionResponse extends ANetApiResponse {
 	getDirectResponse() { if('directResponse' in this) {return this.directResponse;} }
 }
 
-module.exports.CreateCustomerProfileTransactionResponse = CreateCustomerProfileTransactionResponse;
+
 
 class CreateCustomerShippingAddressRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5042,7 +5039,7 @@ class CreateCustomerShippingAddressRequest extends ANetApiRequest {
 	getDefaultShippingAddress() { if('defaultShippingAddress' in this) {return this.defaultShippingAddress;} }
 }
 
-module.exports.CreateCustomerShippingAddressRequest = CreateCustomerShippingAddressRequest;
+
 
 class CreateCustomerShippingAddressResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5074,7 +5071,7 @@ class CreateCustomerShippingAddressResponse extends ANetApiResponse {
 	getCustomerAddressId() { if('customerAddressId' in this) {return this.customerAddressId;} }
 }
 
-module.exports.CreateCustomerShippingAddressResponse = CreateCustomerShippingAddressResponse;
+
 
 class CreateTransactionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5102,7 +5099,7 @@ class CreateTransactionRequest extends ANetApiRequest {
 	getTransactionRequest() { if('transactionRequest' in this) {return this.transactionRequest;} }
 }
 
-module.exports.CreateTransactionRequest = CreateTransactionRequest;
+
 
 class CreateTransactionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5134,7 +5131,7 @@ class CreateTransactionResponse extends ANetApiResponse {
 	getProfileResponse() { if('profileResponse' in this) {return this.profileResponse;} }
 }
 
-module.exports.CreateTransactionResponse = CreateTransactionResponse;
+
 
 class CreditCardType extends CreditCardSimpleType {
 	constructor(obj) {
@@ -5174,7 +5171,7 @@ class CreditCardType extends CreditCardSimpleType {
 	getTokenRequestorEci() { if('tokenRequestorEci' in this) {return this.tokenRequestorEci;} }
 }
 
-module.exports.CreditCardType = CreditCardType;
+
 
 class CustomerAddressType extends NameAndAddressType {
 	constructor(obj) {
@@ -5202,7 +5199,7 @@ class CustomerAddressType extends NameAndAddressType {
 	getEmail() { if('email' in this) {return this.email;} }
 }
 
-module.exports.CustomerAddressType = CustomerAddressType;
+
 
 class CustomerPaymentProfileMaskedType extends CustomerPaymentProfileBaseType {
 	constructor(obj) {
@@ -5246,7 +5243,7 @@ class CustomerPaymentProfileMaskedType extends CustomerPaymentProfileBaseType {
 	getSubscriptionIds() { if('subscriptionIds' in this) {return this.subscriptionIds;} }
 }
 
-module.exports.CustomerPaymentProfileMaskedType = CustomerPaymentProfileMaskedType;
+
 
 class CustomerPaymentProfileType extends CustomerPaymentProfileBaseType {
 	constructor(obj) {
@@ -5278,7 +5275,7 @@ class CustomerPaymentProfileType extends CustomerPaymentProfileBaseType {
 	getDefaultPaymentProfile() { if('defaultPaymentProfile' in this) {return this.defaultPaymentProfile;} }
 }
 
-module.exports.CustomerPaymentProfileType = CustomerPaymentProfileType;
+
 
 class CustomerProfileExType extends CustomerProfileBaseType {
 	constructor(obj) {
@@ -5298,7 +5295,7 @@ class CustomerProfileExType extends CustomerProfileBaseType {
 	getCustomerProfileId() { if('customerProfileId' in this) {return this.customerProfileId;} }
 }
 
-module.exports.CustomerProfileExType = CustomerProfileExType;
+
 
 class CustomerProfileType extends CustomerProfileBaseType {
 	constructor(obj) {
@@ -5334,7 +5331,7 @@ class CustomerProfileType extends CustomerProfileBaseType {
 	getProfileType() { if('profileType' in this) {return this.profileType;} }
 }
 
-module.exports.CustomerProfileType = CustomerProfileType;
+
 
 class DecryptPaymentDataRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5366,7 +5363,7 @@ class DecryptPaymentDataRequest extends ANetApiRequest {
 	getCallId() { if('callId' in this) {return this.callId;} }
 }
 
-module.exports.DecryptPaymentDataRequest = DecryptPaymentDataRequest;
+
 
 class DecryptPaymentDataResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5406,7 +5403,7 @@ class DecryptPaymentDataResponse extends ANetApiResponse {
 	getPaymentDetails() { if('paymentDetails' in this) {return this.paymentDetails;} }
 }
 
-module.exports.DecryptPaymentDataResponse = DecryptPaymentDataResponse;
+
 
 class DeleteCustomerPaymentProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5438,7 +5435,7 @@ class DeleteCustomerPaymentProfileRequest extends ANetApiRequest {
 	getCustomerPaymentProfileId() { if('customerPaymentProfileId' in this) {return this.customerPaymentProfileId;} }
 }
 
-module.exports.DeleteCustomerPaymentProfileRequest = DeleteCustomerPaymentProfileRequest;
+
 
 class DeleteCustomerPaymentProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5453,7 +5450,7 @@ class DeleteCustomerPaymentProfileResponse extends ANetApiResponse {
 
 }
 
-module.exports.DeleteCustomerPaymentProfileResponse = DeleteCustomerPaymentProfileResponse;
+
 
 class DeleteCustomerProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5481,7 +5478,7 @@ class DeleteCustomerProfileRequest extends ANetApiRequest {
 	getCustomerProfileId() { if('customerProfileId' in this) {return this.customerProfileId;} }
 }
 
-module.exports.DeleteCustomerProfileRequest = DeleteCustomerProfileRequest;
+
 
 class DeleteCustomerProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5496,7 +5493,7 @@ class DeleteCustomerProfileResponse extends ANetApiResponse {
 
 }
 
-module.exports.DeleteCustomerProfileResponse = DeleteCustomerProfileResponse;
+
 
 class DeleteCustomerShippingAddressRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5528,7 +5525,7 @@ class DeleteCustomerShippingAddressRequest extends ANetApiRequest {
 	getCustomerAddressId() { if('customerAddressId' in this) {return this.customerAddressId;} }
 }
 
-module.exports.DeleteCustomerShippingAddressRequest = DeleteCustomerShippingAddressRequest;
+
 
 class DeleteCustomerShippingAddressResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5543,7 +5540,7 @@ class DeleteCustomerShippingAddressResponse extends ANetApiResponse {
 
 }
 
-module.exports.DeleteCustomerShippingAddressResponse = DeleteCustomerShippingAddressResponse;
+
 
 class EmailSettingsType extends ArrayOfSetting {
 	constructor(obj) {
@@ -5563,7 +5560,7 @@ class EmailSettingsType extends ArrayOfSetting {
 	getVersion() { if('version' in this) {return this.version;} }
 }
 
-module.exports.EmailSettingsType = EmailSettingsType;
+
 
 class GetAUJobDetailsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5599,7 +5596,7 @@ class GetAUJobDetailsRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.GetAUJobDetailsRequest = GetAUJobDetailsRequest;
+
 
 class GetAUJobDetailsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5631,7 +5628,7 @@ class GetAUJobDetailsResponse extends ANetApiResponse {
 	getAuDetails() { if('auDetails' in this) {return this.auDetails;} }
 }
 
-module.exports.GetAUJobDetailsResponse = GetAUJobDetailsResponse;
+
 
 class GetAUJobSummaryRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5659,7 +5656,7 @@ class GetAUJobSummaryRequest extends ANetApiRequest {
 	getMonth() { if('month' in this) {return this.month;} }
 }
 
-module.exports.GetAUJobSummaryRequest = GetAUJobSummaryRequest;
+
 
 class GetAUJobSummaryResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5687,7 +5684,7 @@ class GetAUJobSummaryResponse extends ANetApiResponse {
 	getAuSummary() { if('auSummary' in this) {return this.auSummary;} }
 }
 
-module.exports.GetAUJobSummaryResponse = GetAUJobSummaryResponse;
+
 
 class GetBatchStatisticsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5715,7 +5712,7 @@ class GetBatchStatisticsRequest extends ANetApiRequest {
 	getBatchId() { if('batchId' in this) {return this.batchId;} }
 }
 
-module.exports.GetBatchStatisticsRequest = GetBatchStatisticsRequest;
+
 
 class GetBatchStatisticsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5743,7 +5740,7 @@ class GetBatchStatisticsResponse extends ANetApiResponse {
 	getBatch() { if('batch' in this) {return this.batch;} }
 }
 
-module.exports.GetBatchStatisticsResponse = GetBatchStatisticsResponse;
+
 
 class GetCustomerPaymentProfileListRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5783,7 +5780,7 @@ class GetCustomerPaymentProfileListRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.GetCustomerPaymentProfileListRequest = GetCustomerPaymentProfileListRequest;
+
 
 class GetCustomerPaymentProfileListResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5815,7 +5812,7 @@ class GetCustomerPaymentProfileListResponse extends ANetApiResponse {
 	getPaymentProfiles() { if('paymentProfiles' in this) {return this.paymentProfiles;} }
 }
 
-module.exports.GetCustomerPaymentProfileListResponse = GetCustomerPaymentProfileListResponse;
+
 
 class GetCustomerPaymentProfileNonceRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5851,7 +5848,7 @@ class GetCustomerPaymentProfileNonceRequest extends ANetApiRequest {
 	getCustomerPaymentProfileId() { if('customerPaymentProfileId' in this) {return this.customerPaymentProfileId;} }
 }
 
-module.exports.GetCustomerPaymentProfileNonceRequest = GetCustomerPaymentProfileNonceRequest;
+
 
 class GetCustomerPaymentProfileNonceResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5879,7 +5876,7 @@ class GetCustomerPaymentProfileNonceResponse extends ANetApiResponse {
 	getOpaqueData() { if('opaqueData' in this) {return this.opaqueData;} }
 }
 
-module.exports.GetCustomerPaymentProfileNonceResponse = GetCustomerPaymentProfileNonceResponse;
+
 
 class GetCustomerPaymentProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5919,7 +5916,7 @@ class GetCustomerPaymentProfileRequest extends ANetApiRequest {
 	getIncludeIssuerInfo() { if('includeIssuerInfo' in this) {return this.includeIssuerInfo;} }
 }
 
-module.exports.GetCustomerPaymentProfileRequest = GetCustomerPaymentProfileRequest;
+
 
 class GetCustomerPaymentProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5947,7 +5944,7 @@ class GetCustomerPaymentProfileResponse extends ANetApiResponse {
 	getPaymentProfile() { if('paymentProfile' in this) {return this.paymentProfile;} }
 }
 
-module.exports.GetCustomerPaymentProfileResponse = GetCustomerPaymentProfileResponse;
+
 
 class GetCustomerProfileIdsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -5962,7 +5959,7 @@ class GetCustomerProfileIdsRequest extends ANetApiRequest {
 
 }
 
-module.exports.GetCustomerProfileIdsRequest = GetCustomerProfileIdsRequest;
+
 
 class GetCustomerProfileIdsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -5990,7 +5987,7 @@ class GetCustomerProfileIdsResponse extends ANetApiResponse {
 	getIds() { if('ids' in this) {return this.ids;} }
 }
 
-module.exports.GetCustomerProfileIdsResponse = GetCustomerProfileIdsResponse;
+
 
 class GetCustomerProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6034,7 +6031,7 @@ class GetCustomerProfileRequest extends ANetApiRequest {
 	getIncludeIssuerInfo() { if('includeIssuerInfo' in this) {return this.includeIssuerInfo;} }
 }
 
-module.exports.GetCustomerProfileRequest = GetCustomerProfileRequest;
+
 
 class GetCustomerProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6066,7 +6063,7 @@ class GetCustomerProfileResponse extends ANetApiResponse {
 	getSubscriptionIds() { if('subscriptionIds' in this) {return this.subscriptionIds;} }
 }
 
-module.exports.GetCustomerProfileResponse = GetCustomerProfileResponse;
+
 
 class GetCustomerShippingAddressRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6098,7 +6095,7 @@ class GetCustomerShippingAddressRequest extends ANetApiRequest {
 	getCustomerAddressId() { if('customerAddressId' in this) {return this.customerAddressId;} }
 }
 
-module.exports.GetCustomerShippingAddressRequest = GetCustomerShippingAddressRequest;
+
 
 class GetCustomerShippingAddressResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6134,7 +6131,7 @@ class GetCustomerShippingAddressResponse extends ANetApiResponse {
 	getSubscriptionIds() { if('subscriptionIds' in this) {return this.subscriptionIds;} }
 }
 
-module.exports.GetCustomerShippingAddressResponse = GetCustomerShippingAddressResponse;
+
 
 class GetHostedPaymentPageRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6166,7 +6163,7 @@ class GetHostedPaymentPageRequest extends ANetApiRequest {
 	getHostedPaymentSettings() { if('hostedPaymentSettings' in this) {return this.hostedPaymentSettings;} }
 }
 
-module.exports.GetHostedPaymentPageRequest = GetHostedPaymentPageRequest;
+
 
 class GetHostedPaymentPageResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6194,7 +6191,7 @@ class GetHostedPaymentPageResponse extends ANetApiResponse {
 	getToken() { if('token' in this) {return this.token;} }
 }
 
-module.exports.GetHostedPaymentPageResponse = GetHostedPaymentPageResponse;
+
 
 class GetHostedProfilePageRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6226,7 +6223,7 @@ class GetHostedProfilePageRequest extends ANetApiRequest {
 	getHostedProfileSettings() { if('hostedProfileSettings' in this) {return this.hostedProfileSettings;} }
 }
 
-module.exports.GetHostedProfilePageRequest = GetHostedProfilePageRequest;
+
 
 class GetHostedProfilePageResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6254,7 +6251,7 @@ class GetHostedProfilePageResponse extends ANetApiResponse {
 	getToken() { if('token' in this) {return this.token;} }
 }
 
-module.exports.GetHostedProfilePageResponse = GetHostedProfilePageResponse;
+
 
 class GetMerchantDetailsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6269,7 +6266,7 @@ class GetMerchantDetailsRequest extends ANetApiRequest {
 
 }
 
-module.exports.GetMerchantDetailsRequest = GetMerchantDetailsRequest;
+
 
 class GetMerchantDetailsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6341,7 +6338,7 @@ class GetMerchantDetailsResponse extends ANetApiResponse {
 	getContactDetails() { if('contactDetails' in this) {return this.contactDetails;} }
 }
 
-module.exports.GetMerchantDetailsResponse = GetMerchantDetailsResponse;
+
 
 class GetSettledBatchListRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6377,7 +6374,7 @@ class GetSettledBatchListRequest extends ANetApiRequest {
 	getLastSettlementDate() { if('lastSettlementDate' in this) {return this.lastSettlementDate;} }
 }
 
-module.exports.GetSettledBatchListRequest = GetSettledBatchListRequest;
+
 
 class GetSettledBatchListResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6405,7 +6402,7 @@ class GetSettledBatchListResponse extends ANetApiResponse {
 	getBatchList() { if('batchList' in this) {return this.batchList;} }
 }
 
-module.exports.GetSettledBatchListResponse = GetSettledBatchListResponse;
+
 
 class GetTransactionDetailsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6433,7 +6430,7 @@ class GetTransactionDetailsRequest extends ANetApiRequest {
 	getTransId() { if('transId' in this) {return this.transId;} }
 }
 
-module.exports.GetTransactionDetailsRequest = GetTransactionDetailsRequest;
+
 
 class GetTransactionDetailsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6469,7 +6466,7 @@ class GetTransactionDetailsResponse extends ANetApiResponse {
 	getTransrefId() { if('transrefId' in this) {return this.transrefId;} }
 }
 
-module.exports.GetTransactionDetailsResponse = GetTransactionDetailsResponse;
+
 
 class GetTransactionListForCustomerRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6509,7 +6506,7 @@ class GetTransactionListForCustomerRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.GetTransactionListForCustomerRequest = GetTransactionListForCustomerRequest;
+
 
 class GetTransactionListRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6545,7 +6542,7 @@ class GetTransactionListRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.GetTransactionListRequest = GetTransactionListRequest;
+
 
 class GetTransactionListResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6577,7 +6574,7 @@ class GetTransactionListResponse extends ANetApiResponse {
 	getTotalNumInResultSet() { if('totalNumInResultSet' in this) {return this.totalNumInResultSet;} }
 }
 
-module.exports.GetTransactionListResponse = GetTransactionListResponse;
+
 
 class GetUnsettledTransactionListRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6613,7 +6610,7 @@ class GetUnsettledTransactionListRequest extends ANetApiRequest {
 	getPaging() { if('paging' in this) {return this.paging;} }
 }
 
-module.exports.GetUnsettledTransactionListRequest = GetUnsettledTransactionListRequest;
+
 
 class GetUnsettledTransactionListResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6645,7 +6642,7 @@ class GetUnsettledTransactionListResponse extends ANetApiResponse {
 	getTotalNumInResultSet() { if('totalNumInResultSet' in this) {return this.totalNumInResultSet;} }
 }
 
-module.exports.GetUnsettledTransactionListResponse = GetUnsettledTransactionListResponse;
+
 
 class IsAliveResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6660,7 +6657,7 @@ class IsAliveResponse extends ANetApiResponse {
 
 }
 
-module.exports.IsAliveResponse = IsAliveResponse;
+
 
 class LogoutRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6675,7 +6672,7 @@ class LogoutRequest extends ANetApiRequest {
 
 }
 
-module.exports.LogoutRequest = LogoutRequest;
+
 
 class LogoutResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6690,7 +6687,7 @@ class LogoutResponse extends ANetApiResponse {
 
 }
 
-module.exports.LogoutResponse = LogoutResponse;
+
 
 class MobileDeviceLoginRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6705,7 +6702,7 @@ class MobileDeviceLoginRequest extends ANetApiRequest {
 
 }
 
-module.exports.MobileDeviceLoginRequest = MobileDeviceLoginRequest;
+
 
 class MobileDeviceLoginResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6741,7 +6738,7 @@ class MobileDeviceLoginResponse extends ANetApiResponse {
 	getMerchantAccount() { if('merchantAccount' in this) {return this.merchantAccount;} }
 }
 
-module.exports.MobileDeviceLoginResponse = MobileDeviceLoginResponse;
+
 
 class MobileDeviceRegistrationRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6769,7 +6766,7 @@ class MobileDeviceRegistrationRequest extends ANetApiRequest {
 	getMobileDevice() { if('mobileDevice' in this) {return this.mobileDevice;} }
 }
 
-module.exports.MobileDeviceRegistrationRequest = MobileDeviceRegistrationRequest;
+
 
 class MobileDeviceRegistrationResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6784,7 +6781,7 @@ class MobileDeviceRegistrationResponse extends ANetApiResponse {
 
 }
 
-module.exports.MobileDeviceRegistrationResponse = MobileDeviceRegistrationResponse;
+
 
 class OrderExType extends OrderType {
 	constructor(obj) {
@@ -6804,7 +6801,7 @@ class OrderExType extends OrderType {
 	getPurchaseOrderNumber() { if('purchaseOrderNumber' in this) {return this.purchaseOrderNumber;} }
 }
 
-module.exports.OrderExType = OrderExType;
+
 
 class ProfileTransOrderType extends ProfileTransAmountType {
 	constructor(obj) {
@@ -6860,7 +6857,7 @@ class ProfileTransOrderType extends ProfileTransAmountType {
 	getSubsequentAuthInformation() { if('subsequentAuthInformation' in this) {return this.subsequentAuthInformation;} }
 }
 
-module.exports.ProfileTransOrderType = ProfileTransOrderType;
+
 
 class ProfileTransPriorAuthCaptureType extends ProfileTransAmountType {
 	constructor(obj) {
@@ -6892,7 +6889,7 @@ class ProfileTransPriorAuthCaptureType extends ProfileTransAmountType {
 	getTransId() { if('transId' in this) {return this.transId;} }
 }
 
-module.exports.ProfileTransPriorAuthCaptureType = ProfileTransPriorAuthCaptureType;
+
 
 class ProfileTransRefundType extends ProfileTransAmountType {
 	constructor(obj) {
@@ -6940,7 +6937,7 @@ class ProfileTransRefundType extends ProfileTransAmountType {
 	getTransId() { if('transId' in this) {return this.transId;} }
 }
 
-module.exports.ProfileTransRefundType = ProfileTransRefundType;
+
 
 class SecurePaymentContainerRequest extends ANetApiRequest {
 	getJSON() { 
@@ -6968,7 +6965,7 @@ class SecurePaymentContainerRequest extends ANetApiRequest {
 	getData() { if('data' in this) {return this.data;} }
 }
 
-module.exports.SecurePaymentContainerRequest = SecurePaymentContainerRequest;
+
 
 class SecurePaymentContainerResponse extends ANetApiResponse {
 	getJSON() { 
@@ -6996,7 +6993,7 @@ class SecurePaymentContainerResponse extends ANetApiResponse {
 	getOpaqueData() { if('opaqueData' in this) {return this.opaqueData;} }
 }
 
-module.exports.SecurePaymentContainerResponse = SecurePaymentContainerResponse;
+
 
 class SendCustomerTransactionReceiptRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7032,7 +7029,7 @@ class SendCustomerTransactionReceiptRequest extends ANetApiRequest {
 	getEmailSettings() { if('emailSettings' in this) {return this.emailSettings;} }
 }
 
-module.exports.SendCustomerTransactionReceiptRequest = SendCustomerTransactionReceiptRequest;
+
 
 class SendCustomerTransactionReceiptResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7047,7 +7044,7 @@ class SendCustomerTransactionReceiptResponse extends ANetApiResponse {
 
 }
 
-module.exports.SendCustomerTransactionReceiptResponse = SendCustomerTransactionReceiptResponse;
+
 
 class UpdateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7083,7 +7080,7 @@ class UpdateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getValidationMode() { if('validationMode' in this) {return this.validationMode;} }
 }
 
-module.exports.UpdateCustomerPaymentProfileRequest = UpdateCustomerPaymentProfileRequest;
+
 
 class UpdateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7111,7 +7108,7 @@ class UpdateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getValidationDirectResponse() { if('validationDirectResponse' in this) {return this.validationDirectResponse;} }
 }
 
-module.exports.UpdateCustomerPaymentProfileResponse = UpdateCustomerPaymentProfileResponse;
+
 
 class UpdateCustomerProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7139,7 +7136,7 @@ class UpdateCustomerProfileRequest extends ANetApiRequest {
 	getProfile() { if('profile' in this) {return this.profile;} }
 }
 
-module.exports.UpdateCustomerProfileRequest = UpdateCustomerProfileRequest;
+
 
 class UpdateCustomerProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7154,7 +7151,7 @@ class UpdateCustomerProfileResponse extends ANetApiResponse {
 
 }
 
-module.exports.UpdateCustomerProfileResponse = UpdateCustomerProfileResponse;
+
 
 class UpdateCustomerShippingAddressRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7190,7 +7187,7 @@ class UpdateCustomerShippingAddressRequest extends ANetApiRequest {
 	getDefaultShippingAddress() { if('defaultShippingAddress' in this) {return this.defaultShippingAddress;} }
 }
 
-module.exports.UpdateCustomerShippingAddressRequest = UpdateCustomerShippingAddressRequest;
+
 
 class UpdateCustomerShippingAddressResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7205,7 +7202,7 @@ class UpdateCustomerShippingAddressResponse extends ANetApiResponse {
 
 }
 
-module.exports.UpdateCustomerShippingAddressResponse = UpdateCustomerShippingAddressResponse;
+
 
 class UpdateHeldTransactionRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7233,7 +7230,7 @@ class UpdateHeldTransactionRequest extends ANetApiRequest {
 	getHeldTransactionRequest() { if('heldTransactionRequest' in this) {return this.heldTransactionRequest;} }
 }
 
-module.exports.UpdateHeldTransactionRequest = UpdateHeldTransactionRequest;
+
 
 class UpdateHeldTransactionResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7261,7 +7258,7 @@ class UpdateHeldTransactionResponse extends ANetApiResponse {
 	getTransactionResponse() { if('transactionResponse' in this) {return this.transactionResponse;} }
 }
 
-module.exports.UpdateHeldTransactionResponse = UpdateHeldTransactionResponse;
+
 
 class UpdateMerchantDetailsRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7289,7 +7286,7 @@ class UpdateMerchantDetailsRequest extends ANetApiRequest {
 	getIsTestMode() { if('isTestMode' in this) {return this.isTestMode;} }
 }
 
-module.exports.UpdateMerchantDetailsRequest = UpdateMerchantDetailsRequest;
+
 
 class UpdateMerchantDetailsResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7304,7 +7301,7 @@ class UpdateMerchantDetailsResponse extends ANetApiResponse {
 
 }
 
-module.exports.UpdateMerchantDetailsResponse = UpdateMerchantDetailsResponse;
+
 
 class UpdateSplitTenderGroupRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7336,7 +7333,7 @@ class UpdateSplitTenderGroupRequest extends ANetApiRequest {
 	getSplitTenderStatus() { if('splitTenderStatus' in this) {return this.splitTenderStatus;} }
 }
 
-module.exports.UpdateSplitTenderGroupRequest = UpdateSplitTenderGroupRequest;
+
 
 class UpdateSplitTenderGroupResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7351,7 +7348,7 @@ class UpdateSplitTenderGroupResponse extends ANetApiResponse {
 
 }
 
-module.exports.UpdateSplitTenderGroupResponse = UpdateSplitTenderGroupResponse;
+
 
 class ValidateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getJSON() { 
@@ -7395,7 +7392,7 @@ class ValidateCustomerPaymentProfileRequest extends ANetApiRequest {
 	getValidationMode() { if('validationMode' in this) {return this.validationMode;} }
 }
 
-module.exports.ValidateCustomerPaymentProfileRequest = ValidateCustomerPaymentProfileRequest;
+
 
 class ValidateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getJSON() { 
@@ -7423,7 +7420,7 @@ class ValidateCustomerPaymentProfileResponse extends ANetApiResponse {
 	getDirectResponse() { if('directResponse' in this) {return this.directResponse;} }
 }
 
-module.exports.ValidateCustomerPaymentProfileResponse = ValidateCustomerPaymentProfileResponse;
+
 
 class CustomerAddressExType extends CustomerAddressType {
 	constructor(obj) {
@@ -7443,7 +7440,7 @@ class CustomerAddressExType extends CustomerAddressType {
 	getCustomerAddressId() { if('customerAddressId' in this) {return this.customerAddressId;} }
 }
 
-module.exports.CustomerAddressExType = CustomerAddressExType;
+
 
 class CustomerPaymentProfileExType extends CustomerPaymentProfileType {
 	constructor(obj) {
@@ -7463,7 +7460,7 @@ class CustomerPaymentProfileExType extends CustomerPaymentProfileType {
 	getCustomerPaymentProfileId() { if('customerPaymentProfileId' in this) {return this.customerPaymentProfileId;} }
 }
 
-module.exports.CustomerPaymentProfileExType = CustomerPaymentProfileExType;
+
 
 class CustomerProfileInfoExType extends CustomerProfileExType {
 	constructor(obj) {
@@ -7483,7 +7480,7 @@ class CustomerProfileInfoExType extends CustomerProfileExType {
 	getProfileType() { if('profileType' in this) {return this.profileType;} }
 }
 
-module.exports.CustomerProfileInfoExType = CustomerProfileInfoExType;
+
 
 class CustomerProfileMaskedType extends CustomerProfileExType {
 	constructor(obj) {
@@ -7519,21 +7516,21 @@ class CustomerProfileMaskedType extends CustomerProfileExType {
 	getProfileType() { if('profileType' in this) {return this.profileType;} }
 }
 
-module.exports.CustomerProfileMaskedType = CustomerProfileMaskedType;
+
 
 class ProfileTransAuthCaptureType extends ProfileTransOrderType {
 	constructor(obj) { if(arguments.length == 1) {super(obj);} else {super();} }
 
 }
 
-module.exports.ProfileTransAuthCaptureType = ProfileTransAuthCaptureType;
+
 
 class ProfileTransAuthOnlyType extends ProfileTransOrderType {
 	constructor(obj) { if(arguments.length == 1) {super(obj);} else {super();} }
 
 }
 
-module.exports.ProfileTransAuthOnlyType = ProfileTransAuthOnlyType;
+
 
 class ProfileTransCaptureOnlyType extends ProfileTransOrderType {
 	constructor(obj) {
@@ -7553,7 +7550,7 @@ class ProfileTransCaptureOnlyType extends ProfileTransOrderType {
 	getApprovalCode() { if('approvalCode' in this) {return this.approvalCode;} }
 }
 
-module.exports.ProfileTransCaptureOnlyType = ProfileTransCaptureOnlyType;
+
 
 class SubscriptionCustomerProfileType extends CustomerProfileExType {
 	constructor(obj) {
@@ -7577,7 +7574,7 @@ class SubscriptionCustomerProfileType extends CustomerProfileExType {
 	getShippingProfile() { if('shippingProfile' in this) {return this.shippingProfile;} }
 }
 
-module.exports.SubscriptionCustomerProfileType = SubscriptionCustomerProfileType;
+
 
 const ARBGetSubscriptionListOrderFieldEnum = { 
 	ID : 'id',
@@ -7590,7 +7587,7 @@ const ARBGetSubscriptionListOrderFieldEnum = {
 	AMOUNT : 'amount',
 	PASTOCCURRENCES : 'pastOccurrences'
 };
-module.exports.ARBGetSubscriptionListOrderFieldEnum = ARBGetSubscriptionListOrderFieldEnum;
+
 
 const ARBGetSubscriptionListSearchTypeEnum = { 
 	CARDEXPIRINGTHISMONTH : 'cardExpiringThisMonth',
@@ -7598,7 +7595,7 @@ const ARBGetSubscriptionListSearchTypeEnum = {
 	SUBSCRIPTIONEXPIRINGTHISMONTH : 'subscriptionExpiringThisMonth',
 	SUBSCRIPTIONINACTIVE : 'subscriptionInactive'
 };
-module.exports.ARBGetSubscriptionListSearchTypeEnum = ARBGetSubscriptionListSearchTypeEnum;
+
 
 const ARBSubscriptionStatusEnum = { 
 	ACTIVE : 'active',
@@ -7607,20 +7604,20 @@ const ARBSubscriptionStatusEnum = {
 	CANCELED : 'canceled',
 	TERMINATED : 'terminated'
 };
-module.exports.ARBSubscriptionStatusEnum = ARBSubscriptionStatusEnum;
+
 
 const ARBSubscriptionUnitEnum = { 
 	DAYS : 'days',
 	MONTHS : 'months'
 };
-module.exports.ARBSubscriptionUnitEnum = ARBSubscriptionUnitEnum;
+
 
 const AUJobTypeEnum = { 
 	ALL : 'all',
 	UPDATES : 'updates',
 	DELETES : 'deletes'
 };
-module.exports.AUJobTypeEnum = AUJobTypeEnum;
+
 
 const AccountTypeEnum = { 
 	VISA : 'Visa',
@@ -7631,20 +7628,20 @@ const AccountTypeEnum = {
 	DINERSCLUB : 'DinersClub',
 	ECHECK : 'eCheck'
 };
-module.exports.AccountTypeEnum = AccountTypeEnum;
+
 
 const AfdsTransactionEnum = { 
 	APPROVE : 'approve',
 	DECLINE : 'decline'
 };
-module.exports.AfdsTransactionEnum = AfdsTransactionEnum;
+
 
 const BankAccountTypeEnum = { 
 	CHECKING : 'checking',
 	SAVINGS : 'savings',
 	BUSINESSCHECKING : 'businessChecking'
 };
-module.exports.BankAccountTypeEnum = BankAccountTypeEnum;
+
 
 const CardTypeEnum = { 
 	VISA : 'Visa',
@@ -7654,35 +7651,35 @@ const CardTypeEnum = {
 	JCB : 'JCB',
 	DINERSCLUB : 'DinersClub'
 };
-module.exports.CardTypeEnum = CardTypeEnum;
+
 
 const CustomerPaymentProfileOrderFieldEnum = { 
 	ID : 'id'
 };
-module.exports.CustomerPaymentProfileOrderFieldEnum = CustomerPaymentProfileOrderFieldEnum;
+
 
 const CustomerPaymentProfileSearchTypeEnum = { 
 	CARDSEXPIRINGINMONTH : 'cardsExpiringInMonth'
 };
-module.exports.CustomerPaymentProfileSearchTypeEnum = CustomerPaymentProfileSearchTypeEnum;
+
 
 const CustomerProfileTypeEnum = { 
 	REGULAR : 'regular',
 	GUEST : 'guest'
 };
-module.exports.CustomerProfileTypeEnum = CustomerProfileTypeEnum;
+
 
 const CustomerTypeEnum = { 
 	INDIVIDUAL : 'individual',
 	BUSINESS : 'business'
 };
-module.exports.CustomerTypeEnum = CustomerTypeEnum;
+
 
 const DeviceActivationEnum = { 
 	ACTIVATE : 'Activate',
 	DISABLE : 'Disable'
 };
-module.exports.DeviceActivationEnum = DeviceActivationEnum;
+
 
 const EcheckTypeEnum = { 
 	PPD : 'PPD',
@@ -7692,20 +7689,20 @@ const EcheckTypeEnum = {
 	ARC : 'ARC',
 	BOC : 'BOC'
 };
-module.exports.EcheckTypeEnum = EcheckTypeEnum;
+
 
 const EncodingType = { 
 	BASE64 : 'Base64',
 	HEX : 'Hex'
 };
-module.exports.EncodingType = EncodingType;
+
 
 const EncryptionAlgorithmType = { 
 	TDES : 'TDES',
 	AES : 'AES',
 	RSA : 'RSA'
 };
-module.exports.EncryptionAlgorithmType = EncryptionAlgorithmType;
+
 
 const FDSFilterActionEnum = { 
 	REJECT : 'reject',
@@ -7714,7 +7711,7 @@ const FDSFilterActionEnum = {
 	AUTHANDHOLD : 'authAndHold',
 	REPORT : 'report'
 };
-module.exports.FDSFilterActionEnum = FDSFilterActionEnum;
+
 
 const MerchantInitTransReasonEnum = { 
 	RESUBMISSION : 'resubmission',
@@ -7722,25 +7719,25 @@ const MerchantInitTransReasonEnum = {
 	REAUTHORIZATION : 'reauthorization',
 	NOSHOW : 'noShow'
 };
-module.exports.MerchantInitTransReasonEnum = MerchantInitTransReasonEnum;
+
 
 const MessageTypeEnum = { 
 	OK : 'Ok',
 	ERROR : 'Error'
 };
-module.exports.MessageTypeEnum = MessageTypeEnum;
+
 
 const OperationType = { 
 	DECRYPT : 'DECRYPT'
 };
-module.exports.OperationType = OperationType;
+
 
 const PaymentMethodEnum = { 
 	CREDITCARD : 'creditCard',
 	ECHECK : 'eCheck',
 	PAYPAL : 'payPal'
 };
-module.exports.PaymentMethodEnum = PaymentMethodEnum;
+
 
 const PaymentMethodsTypeEnum = { 
 	VISA : 'Visa',
@@ -7756,7 +7753,7 @@ const PaymentMethodsTypeEnum = {
 	APPLEPAY : 'ApplePay',
 	ANDROIDPAY : 'AndroidPay'
 };
-module.exports.PaymentMethodsTypeEnum = PaymentMethodsTypeEnum;
+
 
 const PermissionsEnum = { 
 	API_MERCHANT_BASICREPORTING : 'API_Merchant_BasicReporting',
@@ -7765,7 +7762,7 @@ const PermissionsEnum = {
 	SUBMIT_UPDATE : 'Submit_Update',
 	MOBILE_ADMIN : 'Mobile_Admin'
 };
-module.exports.PermissionsEnum = PermissionsEnum;
+
 
 const SettingNameEnum = { 
 	EMAILCUSTOMER : 'emailCustomer',
@@ -7800,33 +7797,33 @@ const SettingNameEnum = {
 	HOSTEDPROFILEPAYMENTOPTIONS : 'hostedProfilePaymentOptions',
 	HOSTEDPROFILESAVEBUTTONTEXT : 'hostedProfileSaveButtonText'
 };
-module.exports.SettingNameEnum = SettingNameEnum;
+
 
 const SettlementStateEnum = { 
 	SETTLEDSUCCESSFULLY : 'settledSuccessfully',
 	SETTLEMENTERROR : 'settlementError',
 	PENDINGSETTLEMENT : 'pendingSettlement'
 };
-module.exports.SettlementStateEnum = SettlementStateEnum;
+
 
 const SplitTenderStatusEnum = { 
 	COMPLETED : 'completed',
 	HELD : 'held',
 	VOIDED : 'voided'
 };
-module.exports.SplitTenderStatusEnum = SplitTenderStatusEnum;
+
 
 const TransactionGroupStatusEnum = { 
 	ANY : 'any',
 	PENDINGAPPROVAL : 'pendingApproval'
 };
-module.exports.TransactionGroupStatusEnum = TransactionGroupStatusEnum;
+
 
 const TransactionListOrderFieldEnum = { 
 	ID : 'id',
 	SUBMITTIMEUTC : 'submitTimeUTC'
 };
-module.exports.TransactionListOrderFieldEnum = TransactionListOrderFieldEnum;
+
 
 const TransactionStatusEnum = { 
 	AUTHORIZEDPENDINGCAPTURE : 'authorizedPendingCapture',
@@ -7854,7 +7851,7 @@ const TransactionStatusEnum = {
 	CHARGEBACKREVERSAL : 'chargebackReversal',
 	AUTHORIZEDPENDINGRELEASE : 'authorizedPendingRelease'
 };
-module.exports.TransactionStatusEnum = TransactionStatusEnum;
+
 
 const TransactionTypeEnum = { 
 	AUTHONLYTRANSACTION : 'authOnlyTransaction',
@@ -7867,7 +7864,7 @@ const TransactionTypeEnum = {
 	AUTHONLYCONTINUETRANSACTION : 'authOnlyContinueTransaction',
 	AUTHCAPTURECONTINUETRANSACTION : 'authCaptureContinueTransaction'
 };
-module.exports.TransactionTypeEnum = TransactionTypeEnum;
+
 
 const ValidationModeEnum = { 
 	NONE : 'none',
@@ -7875,11 +7872,290 @@ const ValidationModeEnum = {
 	LIVEMODE : 'liveMode',
 	OLDLIVEMODE : 'oldLiveMode'
 };
-module.exports.ValidationModeEnum = ValidationModeEnum;
+
 
 const WebCheckOutTypeEnum = { 
 	PAN : 'PAN',
 	TOKEN : 'TOKEN'
 };
-module.exports.WebCheckOutTypeEnum = WebCheckOutTypeEnum;
 
+
+export default {
+	ANetApiRequest,
+	ANetApiResponse,
+	ARBGetSubscriptionListSorting,
+	ARBSubscriptionMaskedType,
+	ARBSubscriptionType,
+	ARBTransactionList,
+	ArbTransaction,
+	ArrayOfAUResponseType,
+	ArrayOfBatchDetailsType,
+	ArrayOfBatchStatisticType,
+	ArrayOfCardType,
+	ArrayOfContactDetail,
+	ArrayOfCurrencyCode,
+	ArrayOfCustomerPaymentProfileListItemType,
+	ArrayOfFDSFilter,
+	ArrayOfFraudFilterType,
+	ArrayOfLineItem,
+	ArrayOfLong,
+	ArrayOfMarketType,
+	ArrayOfNumericString,
+	ArrayOfPaymentMethod,
+	ArrayOfPermissionType,
+	ArrayOfProcessorType,
+	ArrayOfProductCode,
+	ArrayOfReturnedItem,
+	ArrayOfSetting,
+	ArrayOfString,
+	ArrayOfSubscription,
+	ArrayOfTransactionSummaryType,
+	AuDetailsType,
+	AuResponseType,
+	BankAccountMaskedType,
+	BankAccountType,
+	BatchDetailsType,
+	BatchStatisticType,
+	CardArt,
+	CcAuthenticationType,
+	ContactDetailType,
+	CreateProfileResponse,
+	CreditCardMaskedType,
+	CreditCardSimpleType,
+	CreditCardTrackType,
+	CustomerDataType,
+	CustomerPaymentProfileBaseType,
+	CustomerPaymentProfileListItemType,
+	CustomerPaymentProfileSorting,
+	CustomerProfileBaseType,
+	CustomerProfileIdType,
+	CustomerProfilePaymentType,
+	CustomerProfileSummaryType,
+	CustomerType,
+	DriversLicenseMaskedType,
+	DriversLicenseType,
+	EmvTag,
+	EncryptedTrackDataType,
+	EnumCollection,
+	ExtendedAmountType,
+	FDSFilterType,
+	FingerPrintType,
+	FraudInformationType,
+	HeldTransactionRequestType,
+	ImpersonationAuthenticationType,
+	IsAliveRequest,
+	KeyBlock,
+	KeyManagementScheme,
+	KeyValue,
+	LineItemType,
+	ListOfAUDetailsType,
+	MerchantAuthenticationType,
+	MerchantContactType,
+	MessagesType,
+	MobileDeviceType,
+	NameAndAddressType,
+	OpaqueDataType,
+	OrderType,
+	OtherTaxType,
+	Paging,
+	PayPalType,
+	PaymentDetails,
+	PaymentEmvType,
+	PaymentMaskedType,
+	PaymentProfile,
+	PaymentScheduleType,
+	PaymentSimpleType,
+	PaymentType,
+	PermissionType,
+	ProcessingOptions,
+	ProcessorType,
+	ProfileTransAmountType,
+	ProfileTransVoidType,
+	ProfileTransactionType,
+	ReturnedItemType,
+	SecurePaymentContainerErrorType,
+	SettingType,
+	SolutionType,
+	SubMerchantType,
+	SubscriptionDetail,
+	SubscriptionIdList,
+	SubscriptionPaymentType,
+	SubsequentAuthInformation,
+	TokenMaskedType,
+	TransRetailInfoType,
+	TransactionDetailsType,
+	TransactionListSorting,
+	TransactionRequestType,
+	TransactionResponse,
+	TransactionSummaryType,
+	UserField,
+	WebCheckOutDataType,
+	WebCheckOutDataTypeToken,
+	ARBCancelSubscriptionRequest,
+	ARBCancelSubscriptionResponse,
+	ARBCreateSubscriptionRequest,
+	ARBCreateSubscriptionResponse,
+	ARBGetSubscriptionListRequest,
+	ARBGetSubscriptionListResponse,
+	ARBGetSubscriptionRequest,
+	ARBGetSubscriptionResponse,
+	ARBGetSubscriptionStatusRequest,
+	ARBGetSubscriptionStatusResponse,
+	ARBUpdateSubscriptionRequest,
+	ARBUpdateSubscriptionResponse,
+	AuDeleteType,
+	AuUpdateType,
+	AuthenticateTestRequest,
+	AuthenticateTestResponse,
+	CreateCustomerPaymentProfileRequest,
+	CreateCustomerPaymentProfileResponse,
+	CreateCustomerProfileFromTransactionRequest,
+	CreateCustomerProfileRequest,
+	CreateCustomerProfileResponse,
+	CreateCustomerProfileTransactionRequest,
+	CreateCustomerProfileTransactionResponse,
+	CreateCustomerShippingAddressRequest,
+	CreateCustomerShippingAddressResponse,
+	CreateTransactionRequest,
+	CreateTransactionResponse,
+	CreditCardType,
+	CustomerAddressType,
+	CustomerPaymentProfileMaskedType,
+	CustomerPaymentProfileType,
+	CustomerProfileExType,
+	CustomerProfileType,
+	DecryptPaymentDataRequest,
+	DecryptPaymentDataResponse,
+	DeleteCustomerPaymentProfileRequest,
+	DeleteCustomerPaymentProfileResponse,
+	DeleteCustomerProfileRequest,
+	DeleteCustomerProfileResponse,
+	DeleteCustomerShippingAddressRequest,
+	DeleteCustomerShippingAddressResponse,
+	EmailSettingsType,
+	GetAUJobDetailsRequest,
+	GetAUJobDetailsResponse,
+	GetAUJobSummaryRequest,
+	GetAUJobSummaryResponse,
+	GetBatchStatisticsRequest,
+	GetBatchStatisticsResponse,
+	GetCustomerPaymentProfileListRequest,
+	GetCustomerPaymentProfileListResponse,
+	GetCustomerPaymentProfileNonceRequest,
+	GetCustomerPaymentProfileNonceResponse,
+	GetCustomerPaymentProfileRequest,
+	GetCustomerPaymentProfileResponse,
+	GetCustomerProfileIdsRequest,
+	GetCustomerProfileIdsResponse,
+	GetCustomerProfileRequest,
+	GetCustomerProfileResponse,
+	GetCustomerShippingAddressRequest,
+	GetCustomerShippingAddressResponse,
+	GetHostedPaymentPageRequest,
+	GetHostedPaymentPageResponse,
+	GetHostedProfilePageRequest,
+	GetHostedProfilePageResponse,
+	GetMerchantDetailsRequest,
+	GetMerchantDetailsResponse,
+	GetSettledBatchListRequest,
+	GetSettledBatchListResponse,
+	GetTransactionDetailsRequest,
+	GetTransactionDetailsResponse,
+	GetTransactionListForCustomerRequest,
+	GetTransactionListRequest,
+	GetTransactionListResponse,
+	GetUnsettledTransactionListRequest,
+	GetUnsettledTransactionListResponse,
+	IsAliveResponse,
+	LogoutRequest,
+	LogoutResponse,
+	MobileDeviceLoginRequest,
+	MobileDeviceLoginResponse,
+	MobileDeviceRegistrationRequest,
+	MobileDeviceRegistrationResponse,
+	OrderExType,
+	ProfileTransOrderType,
+	ProfileTransPriorAuthCaptureType,
+	ProfileTransRefundType,
+	SecurePaymentContainerRequest,
+	SecurePaymentContainerResponse,
+	SendCustomerTransactionReceiptRequest,
+	SendCustomerTransactionReceiptResponse,
+	UpdateCustomerPaymentProfileRequest,
+	UpdateCustomerPaymentProfileResponse,
+	UpdateCustomerProfileRequest,
+	UpdateCustomerProfileResponse,
+	UpdateCustomerShippingAddressRequest,
+	UpdateCustomerShippingAddressResponse,
+	UpdateHeldTransactionRequest,
+	UpdateHeldTransactionResponse,
+	UpdateMerchantDetailsRequest,
+	UpdateMerchantDetailsResponse,
+	UpdateSplitTenderGroupRequest,
+	UpdateSplitTenderGroupResponse,
+	ValidateCustomerPaymentProfileRequest,
+	ValidateCustomerPaymentProfileResponse,
+	CustomerAddressExType,
+	CustomerPaymentProfileExType,
+	CustomerProfileInfoExType,
+	CustomerProfileMaskedType,
+	ProfileTransAuthCaptureType,
+	ProfileTransAuthOnlyType,
+	ProfileTransCaptureOnlyType,
+	SubscriptionCustomerProfileType,
+	ARBGetSubscriptionListOrderFieldEnum,
+	ARBGetSubscriptionListSearchTypeEnum,
+	ARBSubscriptionStatusEnum,
+	ARBSubscriptionUnitEnum,
+	AUJobTypeEnum,
+	AccountTypeEnum,
+	AfdsTransactionEnum,
+	BankAccountTypeEnum,
+	CardTypeEnum,
+	CustomerPaymentProfileOrderFieldEnum,
+	CustomerPaymentProfileSearchTypeEnum,
+	CustomerProfileTypeEnum,
+	CustomerTypeEnum,
+	DeviceActivationEnum,
+	EcheckTypeEnum,
+	EncodingType,
+	EncryptionAlgorithmType,
+	FDSFilterActionEnum,
+	MerchantInitTransReasonEnum,
+	MessageTypeEnum,
+	OperationType,
+	PaymentMethodEnum,
+	PaymentMethodsTypeEnum,
+	PermissionsEnum,
+	SettingNameEnum,
+	SettlementStateEnum,
+	SplitTenderStatusEnum,
+	TransactionGroupStatusEnum,
+	TransactionListOrderFieldEnum,
+	TransactionStatusEnum,
+	TransactionTypeEnum,
+	ValidationModeEnum,
+	WebCheckOutTypeEnum
+}
+
+
+// module.exports.KeyManagementScheme.DUKPT = KeyManagementScheme.DUKPT;
+// module.exports.MessagesType.Message = MessagesType.Message;
+// module.exports.PaymentScheduleType.Interval = PaymentScheduleType.Interval;
+// module.exports.TransactionDetailsType.EmvDetails = TransactionDetailsType.EmvDetails;
+// module.exports.TransactionRequestType.UserFields = TransactionRequestType.UserFields;
+// module.exports.TransactionResponse.EmvResponse = TransactionResponse.EmvResponse;
+// module.exports.TransactionResponse.Errors = TransactionResponse.Errors;
+// module.exports.TransactionResponse.Messages = TransactionResponse.Messages;
+// module.exports.TransactionResponse.PrePaidCard = TransactionResponse.PrePaidCard;
+// module.exports.TransactionResponse.SecureAcceptance = TransactionResponse.SecureAcceptance;
+// module.exports.TransactionResponse.SplitTenderPayments = TransactionResponse.SplitTenderPayments;
+// module.exports.TransactionResponse.UserFields = TransactionResponse.UserFields;
+// module.exports.KeyManagementScheme.DUKPT.DeviceInfo = KeyManagementScheme.DUKPT.DeviceInfo;
+// module.exports.KeyManagementScheme.DUKPT.EncryptedData = KeyManagementScheme.DUKPT.EncryptedData;
+// module.exports.KeyManagementScheme.DUKPT.Mode = KeyManagementScheme.DUKPT.Mode;
+// module.exports.TransactionDetailsType.EmvDetails.Tag = TransactionDetailsType.EmvDetails.Tag;
+// module.exports.TransactionResponse.EmvResponse.Tags = TransactionResponse.EmvResponse.Tags;
+// module.exports.TransactionResponse.Errors.Error = TransactionResponse.Errors.Error;
+// module.exports.TransactionResponse.Messages.Message = TransactionResponse.Messages.Message;
+// module.exports.TransactionResponse.SplitTenderPayments.SplitTenderPayment = TransactionResponse.SplitTenderPayments.SplitTenderPayment;

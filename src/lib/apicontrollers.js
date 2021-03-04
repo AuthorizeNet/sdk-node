@@ -1,7 +1,5 @@
-'use strict';
-
-var APIOperationBase = require('./apicontrollersbase.js').APIOperationBase;
-var logger = require('./logger.js').logger;
+import { APIOperationBase } from './apicontrollersbase';
+import {logger} from './logger';
 
 class ANetApiController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -22,7 +20,6 @@ class ANetApiController extends APIOperationBase {
 	}
 }
 
-module.exports.ANetApiController = ANetApiController;
 
 class ARBCancelSubscriptionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -43,7 +40,6 @@ class ARBCancelSubscriptionController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBCancelSubscriptionController = ARBCancelSubscriptionController;
 
 class ARBCreateSubscriptionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -64,7 +60,6 @@ class ARBCreateSubscriptionController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBCreateSubscriptionController = ARBCreateSubscriptionController;
 
 class ARBGetSubscriptionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -85,7 +80,6 @@ class ARBGetSubscriptionController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBGetSubscriptionController = ARBGetSubscriptionController;
 
 class ARBGetSubscriptionListController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -106,7 +100,6 @@ class ARBGetSubscriptionListController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBGetSubscriptionListController = ARBGetSubscriptionListController;
 
 class ARBGetSubscriptionStatusController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -127,7 +120,6 @@ class ARBGetSubscriptionStatusController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBGetSubscriptionStatusController = ARBGetSubscriptionStatusController;
 
 class ARBUpdateSubscriptionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -148,7 +140,6 @@ class ARBUpdateSubscriptionController extends APIOperationBase {
 	}
 }
 
-module.exports.ARBUpdateSubscriptionController = ARBUpdateSubscriptionController;
 
 class AuthenticateTestController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -169,7 +160,6 @@ class AuthenticateTestController extends APIOperationBase {
 	}
 }
 
-module.exports.AuthenticateTestController = AuthenticateTestController;
 
 class CreateCustomerPaymentProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -190,7 +180,6 @@ class CreateCustomerPaymentProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateCustomerPaymentProfileController = CreateCustomerPaymentProfileController;
 
 class CreateCustomerProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -211,7 +200,6 @@ class CreateCustomerProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateCustomerProfileController = CreateCustomerProfileController;
 
 class CreateCustomerProfileFromTransactionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -232,7 +220,6 @@ class CreateCustomerProfileFromTransactionController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateCustomerProfileFromTransactionController = CreateCustomerProfileFromTransactionController;
 
 class CreateCustomerProfileTransactionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -253,7 +240,6 @@ class CreateCustomerProfileTransactionController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateCustomerProfileTransactionController = CreateCustomerProfileTransactionController;
 
 class CreateCustomerShippingAddressController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -274,7 +260,6 @@ class CreateCustomerShippingAddressController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateCustomerShippingAddressController = CreateCustomerShippingAddressController;
 
 class CreateTransactionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -295,7 +280,6 @@ class CreateTransactionController extends APIOperationBase {
 	}
 }
 
-module.exports.CreateTransactionController = CreateTransactionController;
 
 class DecryptPaymentDataController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -316,7 +300,6 @@ class DecryptPaymentDataController extends APIOperationBase {
 	}
 }
 
-module.exports.DecryptPaymentDataController = DecryptPaymentDataController;
 
 class DeleteCustomerPaymentProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -337,7 +320,6 @@ class DeleteCustomerPaymentProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.DeleteCustomerPaymentProfileController = DeleteCustomerPaymentProfileController;
 
 class DeleteCustomerProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -358,7 +340,6 @@ class DeleteCustomerProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.DeleteCustomerProfileController = DeleteCustomerProfileController;
 
 class DeleteCustomerShippingAddressController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -379,7 +360,6 @@ class DeleteCustomerShippingAddressController extends APIOperationBase {
 	}
 }
 
-module.exports.DeleteCustomerShippingAddressController = DeleteCustomerShippingAddressController;
 
 class GetAUJobDetailsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -400,7 +380,6 @@ class GetAUJobDetailsController extends APIOperationBase {
 	}
 }
 
-module.exports.GetAUJobDetailsController = GetAUJobDetailsController;
 
 class GetAUJobSummaryController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -421,7 +400,6 @@ class GetAUJobSummaryController extends APIOperationBase {
 	}
 }
 
-module.exports.GetAUJobSummaryController = GetAUJobSummaryController;
 
 class GetBatchStatisticsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -442,7 +420,6 @@ class GetBatchStatisticsController extends APIOperationBase {
 	}
 }
 
-module.exports.GetBatchStatisticsController = GetBatchStatisticsController;
 
 class GetCustomerPaymentProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -463,7 +440,6 @@ class GetCustomerPaymentProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerPaymentProfileController = GetCustomerPaymentProfileController;
 
 class GetCustomerPaymentProfileListController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -484,7 +460,6 @@ class GetCustomerPaymentProfileListController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerPaymentProfileListController = GetCustomerPaymentProfileListController;
 
 class GetCustomerPaymentProfileNonceController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -505,7 +480,6 @@ class GetCustomerPaymentProfileNonceController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerPaymentProfileNonceController = GetCustomerPaymentProfileNonceController;
 class GetCustomerProfileController extends APIOperationBase {
 	constructor(apiRequest) {
 		logger.debug('Enter GetCustomerProfileController constructor');
@@ -525,7 +499,6 @@ class GetCustomerProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerProfileController = GetCustomerProfileController;
 
 class GetCustomerProfileIdsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -546,7 +519,6 @@ class GetCustomerProfileIdsController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerProfileIdsController = GetCustomerProfileIdsController;
 
 class GetCustomerShippingAddressController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -567,7 +539,6 @@ class GetCustomerShippingAddressController extends APIOperationBase {
 	}
 }
 
-module.exports.GetCustomerShippingAddressController = GetCustomerShippingAddressController;
 
 class GetHostedPaymentPageController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -588,7 +559,6 @@ class GetHostedPaymentPageController extends APIOperationBase {
 	}
 }
 
-module.exports.GetHostedPaymentPageController = GetHostedPaymentPageController;
 
 class GetHostedProfilePageController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -609,7 +579,6 @@ class GetHostedProfilePageController extends APIOperationBase {
 	}
 }
 
-module.exports.GetHostedProfilePageController = GetHostedProfilePageController;
 
 class GetMerchantDetailsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -630,7 +599,6 @@ class GetMerchantDetailsController extends APIOperationBase {
 	}
 }
 
-module.exports.GetMerchantDetailsController = GetMerchantDetailsController;
 
 class GetSettledBatchListController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -651,7 +619,6 @@ class GetSettledBatchListController extends APIOperationBase {
 	}
 }
 
-module.exports.GetSettledBatchListController = GetSettledBatchListController;
 
 class GetTransactionDetailsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -672,7 +639,6 @@ class GetTransactionDetailsController extends APIOperationBase {
 	}
 }
 
-module.exports.GetTransactionDetailsController = GetTransactionDetailsController;
 
 class GetTransactionListController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -693,7 +659,6 @@ class GetTransactionListController extends APIOperationBase {
 	}
 }
 
-module.exports.GetTransactionListController = GetTransactionListController;
 
 class GetTransactionListForCustomerController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -714,7 +679,6 @@ class GetTransactionListForCustomerController extends APIOperationBase {
 	}
 }
 
-module.exports.GetTransactionListForCustomerController = GetTransactionListForCustomerController;
 
 class GetUnsettledTransactionListController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -735,7 +699,6 @@ class GetUnsettledTransactionListController extends APIOperationBase {
 	}
 }
 
-module.exports.GetUnsettledTransactionListController = GetUnsettledTransactionListController;
 
 class IsAliveController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -756,7 +719,6 @@ class IsAliveController extends APIOperationBase {
 	}
 }
 
-module.exports.IsAliveController = IsAliveController;
 
 class LogoutController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -777,7 +739,6 @@ class LogoutController extends APIOperationBase {
 	}
 }
 
-module.exports.LogoutController = LogoutController;
 
 class MobileDeviceLoginController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -798,7 +759,6 @@ class MobileDeviceLoginController extends APIOperationBase {
 	}
 }
 
-module.exports.MobileDeviceLoginController = MobileDeviceLoginController;
 
 class MobileDeviceRegistrationController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -819,7 +779,6 @@ class MobileDeviceRegistrationController extends APIOperationBase {
 	}
 }
 
-module.exports.MobileDeviceRegistrationController = MobileDeviceRegistrationController;
 
 class SecurePaymentContainerController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -840,7 +799,6 @@ class SecurePaymentContainerController extends APIOperationBase {
 	}
 }
 
-module.exports.SecurePaymentContainerController = SecurePaymentContainerController;
 
 class SendCustomerTransactionReceiptController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -861,7 +819,6 @@ class SendCustomerTransactionReceiptController extends APIOperationBase {
 	}
 }
 
-module.exports.SendCustomerTransactionReceiptController = SendCustomerTransactionReceiptController;
 
 class UpdateCustomerPaymentProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -882,7 +839,6 @@ class UpdateCustomerPaymentProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateCustomerPaymentProfileController = UpdateCustomerPaymentProfileController;
 
 class UpdateCustomerProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -903,7 +859,6 @@ class UpdateCustomerProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateCustomerProfileController = UpdateCustomerProfileController;
 
 class UpdateCustomerShippingAddressController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -924,7 +879,6 @@ class UpdateCustomerShippingAddressController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateCustomerShippingAddressController = UpdateCustomerShippingAddressController;
 
 class UpdateHeldTransactionController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -945,7 +899,6 @@ class UpdateHeldTransactionController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateHeldTransactionController = UpdateHeldTransactionController;
 
 class UpdateMerchantDetailsController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -966,7 +919,6 @@ class UpdateMerchantDetailsController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateMerchantDetailsController = UpdateMerchantDetailsController;
 
 class UpdateSplitTenderGroupController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -987,7 +939,6 @@ class UpdateSplitTenderGroupController extends APIOperationBase {
 	}
 }
 
-module.exports.UpdateSplitTenderGroupController = UpdateSplitTenderGroupController;
 
 class ValidateCustomerPaymentProfileController extends APIOperationBase {
 	constructor(apiRequest) {
@@ -1008,5 +959,53 @@ class ValidateCustomerPaymentProfileController extends APIOperationBase {
 	}
 }
 
-module.exports.ValidateCustomerPaymentProfileController = ValidateCustomerPaymentProfileController;
-
+export default {
+	ANetApiController,
+	ARBCancelSubscriptionController,
+	ARBCreateSubscriptionController,
+	ARBGetSubscriptionController,
+	ARBGetSubscriptionListController,
+	ARBGetSubscriptionStatusController,
+	ARBUpdateSubscriptionController,
+	AuthenticateTestController,
+	CreateCustomerPaymentProfileController,
+	CreateCustomerProfileController,
+	CreateCustomerProfileFromTransactionController,
+	CreateCustomerProfileTransactionController,
+	CreateCustomerShippingAddressController,
+	CreateTransactionController,
+	DecryptPaymentDataController,
+	DeleteCustomerPaymentProfileController,
+	DeleteCustomerProfileController,
+	DeleteCustomerShippingAddressController,
+	GetAUJobDetailsController,
+	GetAUJobSummaryController,
+	GetBatchStatisticsController,
+	GetCustomerPaymentProfileController,
+	GetCustomerPaymentProfileListController,
+	GetCustomerPaymentProfileNonceController,
+	GetCustomerProfileController,
+	GetCustomerProfileIdsController,
+	GetCustomerShippingAddressController,
+	GetHostedPaymentPageController,
+	GetHostedProfilePageController,
+	GetMerchantDetailsController,
+	GetSettledBatchListController,
+	GetTransactionDetailsController,
+	GetTransactionListController,
+	GetTransactionListForCustomerController,
+	GetUnsettledTransactionListController,
+	IsAliveController,
+	LogoutController,
+	MobileDeviceLoginController,
+	MobileDeviceRegistrationController,
+	SecurePaymentContainerController,
+	SendCustomerTransactionReceiptController,
+	UpdateCustomerPaymentProfileController,
+	UpdateCustomerProfileController,
+	UpdateCustomerShippingAddressController,
+	UpdateHeldTransactionController,
+	UpdateMerchantDetailsController,
+	UpdateSplitTenderGroupController,
+	ValidateCustomerPaymentProfileController
+}

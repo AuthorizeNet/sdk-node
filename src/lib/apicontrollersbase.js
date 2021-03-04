@@ -1,9 +1,8 @@
-'use strict';
 
-var request = require('request');
-var logger = require('./logger.js').logger;
-var config = require('./config').config;
-var constants = require('./constants').constants;
+import request from 'request';
+import { logger }from './logger';
+import { config } from './config';
+import constants from './constants';
 
 class APIOperationBase {
 	constructor(apiRequest) {
