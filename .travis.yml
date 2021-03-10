@@ -4,6 +4,14 @@ node_js:
     - "4"
     - "6"
     - "8"
+    - "10"
+    - "12"
+    
+matrix:
+    allow_failures:
+        - node_js: "4"
+        - node_js: "6"
+        - node_js: "8"
 
 before_install:
     # execute all of the commands which need to be executed 
