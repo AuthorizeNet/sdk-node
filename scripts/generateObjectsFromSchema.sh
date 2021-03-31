@@ -11,17 +11,18 @@ echo Starting ${dt}
 CDIR=`pwd`
 SRCDIR=${CDIR}
 
-HOST=apitest.authorize.net
-PROTOCOL=https
-LOCALXSD=mappings/AnetApiSchema.xsd
+# HOST=apitest.authorize.net
+# PROTOCOL=https
+# LOCALXSD=mappings/AnetApiSchema.xsd
 
-XSD=${PROTOCOL}://${HOST}/xml/v1/schema/AnetApiSchema.xsd
+# XSD=${PROTOCOL}://${HOST}/xml/v1/schema/AnetApiSchema.xsd
 
-echo Get Latest XSD from path - ${XSD}
+# echo Get Latest XSD from path - ${XSD}
 
-wget -O ${LOCALXSD} ${XSD}
+# wget -O ${LOCALXSD} ${XSD}
 
-ERRORCODE=$?
+# ERRORCODE=$?
+ERRORCODE=0
 
 if [ $ERRORCODE -eq 0 ]; then
 	echo Generating Schema.js from XSD

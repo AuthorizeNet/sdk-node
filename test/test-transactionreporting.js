@@ -135,7 +135,7 @@ describe('Transaction Reporting', function() {
 
 			var getRequest = new ApiContracts.GetTransactionListForCustomerRequest();
 			getRequest.setMerchantAuthentication(testData.merchantAuthenticationType);
-			getRequest.setCustomerProfileId('1811474252');
+			getRequest.setCustomerProfileId('1930354059');
 
 			//console.log(JSON.stringify(getRequest.getJSON(), null, 2));
 				

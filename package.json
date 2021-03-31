@@ -1,6 +1,6 @@
 {
   "name": "authorizenet",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "nodejs sdk for Authorize.Net",
   "main": "lib/authorizenet.js",
   "directories": {
@@ -11,10 +11,10 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^2.12.0",
-    "jsonix": "^2.3.2",
     "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "eslint": "^6.6.0",
+    "jsonix": "^2.3.2",
+    "mocha": "^8.2.1"
   },
   "scripts": {
     "test": "mocha"
