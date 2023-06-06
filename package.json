@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "got": "^13.0.0",
+    "hpagent": "^1.2.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
