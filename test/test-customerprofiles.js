@@ -19,7 +19,7 @@ class CustomerProfilesTestData {
 
 		this.creditCard = new ApiContracts.CreditCardType();
 		this.creditCard.setCardNumber('4242424242424242');
-		this.creditCard.setExpirationDate('0822');
+		this.creditCard.setExpirationDate('0845');
 
 		this.paymentType = new ApiContracts.PaymentType();
 		this.paymentType.setCreditCard(this.creditCard);
@@ -61,7 +61,7 @@ class CustomerProfilesTestData {
 		//credit card details
 		this.creditCardForUpdate = new ApiContracts.CreditCardType();
 		this.creditCardForUpdate.setCardNumber('4111111111111111');
-		this.creditCardForUpdate.setExpirationDate('2023-12');
+		this.creditCardForUpdate.setExpirationDate('2045-12');
 
 		this.customerAddressType = new ApiContracts.CustomerAddressType();
 		this.customerAddressType.setFirstName('Johny');

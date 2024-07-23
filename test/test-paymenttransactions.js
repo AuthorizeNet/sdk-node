@@ -19,7 +19,7 @@ class PaymentTransactionsTestData {
 
 		this.creditCard = new ApiContracts.CreditCardType();
 		this.creditCard.setCardNumber('4242424242424242');
-		this.creditCard.setExpirationDate('0822');
+		this.creditCard.setExpirationDate('0845');
 
 		this.paymentType = new ApiContracts.PaymentType();
 		this.paymentType.setCreditCard(this.creditCard);
@@ -609,7 +609,7 @@ describe('Payment Transactions', function() {
 
 			var creditCard = new ApiContracts.CreditCardType();
 			creditCard.setCardNumber('4242424242424242');
-			creditCard.setExpirationDate('0822');
+			creditCard.setExpirationDate('0845');
 			creditCard.setCryptogram('EjRWeJASNFZ4kBI0VniQEjRWeJA=');
 
 			var paymentType = new ApiContracts.PaymentType();
