@@ -7,13 +7,15 @@
     "test": "tests"
   },
   "dependencies": {
-    "request": "^2.72.0",
-    "winston": "^2.2.0"
+    "axios": "1.6.4",
+    "https-proxy-agent": "^7.0.0",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^6.6.0",
-    "jsonix": "^2.3.2",
+    "jsonix": "^3.0.0",
     "mocha": "^8.2.1"
   },
   "scripts": {
