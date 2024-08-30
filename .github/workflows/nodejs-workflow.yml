@@ -58,5 +58,6 @@ jobs:
                 PACKAGE_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1)
                 cd ../$sample_code_node
                 npm install file:../$sdk_node/authorizenet-$PACKAGE_VERSION.tgz
+                npm list
                 node test-runner.js
 
