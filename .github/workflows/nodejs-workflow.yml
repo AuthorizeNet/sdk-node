@@ -30,16 +30,19 @@ jobs:
                 rm -rf $sdk_node
                 rm -rf $sample_code_node
                 mkdir $sdk_node $sample_code_node
+
             - name: Checkout authorizenet/sdk-node
               uses: actions/checkout@v4
               with:
                 path: ${{env.sdk_node}}
+
             - name: Checkout authorizenet/sample-code-node
               uses: actions/checkout@v4
               with:
                 repository: 'authorizenet/sample-code-node'
                 ref: 'master'
                 path: ${{env.sample_code_node}}
+
             - name: Install Node
               uses: actions/setup-node@v4
               with:
@@ -61,4 +64,3 @@ jobs:
             # cd ../../$sample_code_node
             # npm link authorizenet
             # npm install
-                
