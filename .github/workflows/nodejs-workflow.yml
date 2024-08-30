@@ -59,6 +59,9 @@ jobs:
                 cd ../$sample_code_node
                 npm install
                 npm install file:../$sdk_node/authorizenet-$PACKAGE_VERSION.tgz
+                if [[ ${{matrix.node-ver}} = 14* ]]; then
+                    npm install ajv@5.5.2
+                fi
                 npm list
                 node test-runner.js
 
