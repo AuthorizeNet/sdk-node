@@ -1,7 +1,8 @@
 class APICONTROLLERNAMEController extends APIOperationBase {
-	constructor(apiRequest) {
+	constructor(apiRequest, externalConfig = null) {
+		var logger = Logger.getLogger('APICONTROLLERNAMEController', externalConfig)
 		logger.debug('Enter APICONTROLLERNAMEController constructor');
-		super(apiRequest);
+		super(apiRequest, externalConfig);
 		logger.debug('Exit APICONTROLLERNAMEController constructor');
 	}
 

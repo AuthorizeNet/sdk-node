@@ -1,11 +1,11 @@
 # Authorize.Net Node.js SDK 
 
-[![Travis CI Status](https://travis-ci.org/AuthorizeNet/sdk-node.svg?branch=master)](https://travis-ci.org/AuthorizeNet/sdk-node)
+[![Authorize.net Node.js CI](https://github.com/AuthorizeNet/sdk-node/actions/workflows/nodejs-workflow.yml/badge.svg?branch=master)](https://github.com/AuthorizeNet/sdk-node/actions/workflows/nodejs-workflow.yml)
 [![NPM version](https://badge.fury.io/js/authorizenet.png)](http://badge.fury.io/js/authorizenet)
 
 
 ## Requirements  
-* Node.js version 10.0.0 or higher
+* Node.js version 14.x.x or higher
 * An Authorize.Net account (see _Registration & Configuration_ section below)
 
 ### Contribution  

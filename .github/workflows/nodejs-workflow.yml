@@ -1,0 +1,67 @@
+name: Authorize.net Node.js CI
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+env:
+    sdk_node: 'sdk-node'
+    sample_code_node: 'sample-code-node'
+    local_npm_folder: 'local-npm-folder'
+jobs:
+    workflow-job:
+        defaults:
+            run:
+                shell: bash
+        strategy:
+            fail-fast: false
+            matrix:
+                operating-system: [ubuntu-latest, macos-latest, windows-latest]
+                node-ver: [14.x, 16.x, 17.x, 18.x, 19.x, 20.x, 21.x, 22.x]
+                exclude:
+                - operating-system: macos-latest
+                  node-ver: 14.x
+                include:
+                - operating-system: macos-13
+                  node-ver: 14.x
+        runs-on: ${{matrix.operating-system}}
+        steps:
+            - name: Creating separate folders for SDK and Sample Codes
+              run: |
+                rm -rf $sdk_node
+                rm -rf $sample_code_node
+                mkdir $sdk_node $sample_code_node
+
+            - name: Checkout authorizenet/sdk-node
+              uses: actions/checkout@v4
+              with:
+                path: ${{env.sdk_node}}
+
+            - name: Checkout authorizenet/sample-code-node
+              uses: actions/checkout@v4
+              with:
+                repository: 'authorizenet/sample-code-node'
+                ref: 'future'
+                path: ${{env.sample_code_node}}
+
+            - name: Install Node
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{matrix.node-ver}}
+
+            - name: Install and Test
+              run: |
+                cd $sdk_node
+                npm install
+                npm test
+
+                npm pack
+                PACKAGE_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1)
+                cd ../$sample_code_node
+                npm install
+                npm install file:../$sdk_node/authorizenet-$PACKAGE_VERSION.tgz
+                if [[ ${{matrix.node-ver}} = 14* ]]; then
+                    npm install ajv@5.5.2
+                fi
+                npm list
+                node test-runner.js
+
