@@ -24,7 +24,7 @@ To install AuthorizeNet
 
 ## Registration & Configuration
 Use of this SDK and the Authorize.Net APIs requires having an account on the Authorize.Net system. You can find these details in the Settings section.
-If you don't currently have a production Authorize.Net account, [sign up for a sandbox account](https://developer.authorize.net/sandbox/).
+If you don't currently have a production Authorize.Net account, [sign up for a sandbox account](https://developer.authorize.net/hello_world/sandbox.html).
 
 ### Authentication
 To authenticate with the Authorize.Net API, use your account's API Login ID and Transaction Key. If you don't have these credentials, you can obtain them from our Merchant Interface site. For production accounts, the Merchant Interface is located at (https://account.authorize.net/); and for sandbox accounts, at (https://sandbox.authorize.net).
