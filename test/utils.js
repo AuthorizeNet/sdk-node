@@ -3,12 +3,12 @@
 const crypto = require('crypto');
 
 function getRandomString(text){
-	const randomInt = crypto.randomBytes(4).readUInt32BE(0) % 100000 + 1;
+	const randomInt = crypto.randomBytes(4).readUInt32BE(0);
 	return text + randomInt;
 }
 
 function getRandomInt(){
-	return crypto.randomBytes(4).readUInt32BE(0) % 100000 + 1;
+	return crypto.randomBytes(4).readUInt32BE(0);
 }
 
 function getRandomAmount(){
