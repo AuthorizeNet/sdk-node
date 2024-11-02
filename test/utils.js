@@ -1,15 +1,19 @@
 'use strict';
 
+const crypto = require('crypto');
+
 function getRandomString(text){
-	return text + Math.floor((Math.random() * 100000) + 1);
+	const randomInt = crypto.randomBytes(4).readUInt32BE(0);
+	return text + randomInt;
 }
 
 function getRandomInt(){
-	return Math.floor((Math.random() * 100000) + 1);
+	return crypto.randomBytes(4).readUInt32BE(0);
 }
 
 function getRandomAmount(){
-	return ((Math.random() * 1000) + 1).toFixed(2);
+	const randomFloat = crypto.randomBytes(4).readUInt32BE(0) / 0xFFFFFFFF;
+	return ((randomFloat * 1000) + 1).toFixed(2);
 }
 
 function getDate(){
