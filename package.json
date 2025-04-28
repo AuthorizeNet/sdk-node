@@ -1,13 +1,13 @@
 {
   "name": "authorizenet",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "nodejs sdk for Authorize.Net",
   "main": "lib/authorizenet.js",
   "directories": {
     "test": "tests"
   },
   "dependencies": {
-    "axios": "1.7.4",
+    "axios": "1.8.3",
     "https-proxy-agent": "^7.0.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
