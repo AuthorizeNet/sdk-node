@@ -1,6 +1,6 @@
 {
   "name": "authorizenet",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "nodejs sdk for Authorize.Net",
   "main": "lib/authorizenet.js",
   "directories": {
