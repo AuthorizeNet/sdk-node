@@ -6,6 +6,9 @@
   "directories": {
     "test": "tests"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "axios": "1.8.3",
     "https-proxy-agent": "^7.0.0",
