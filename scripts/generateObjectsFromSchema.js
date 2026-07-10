@@ -67,7 +67,7 @@ for (i = 0; i < schema.typeInfos.length; i++) {
 	classDefinition += newline;
 
 	if ((obj['localName'].match('Request' + '$') == 'Request') || (obj['localName'].match('Response' + '$') == 'Response')) {
-		if (elementInfo[obj['localName']] != null) {
+		if (elementInfo[obj['localName']] != null || obj['localName'] == "ANetApiRequest") {
 			var getJSONfunc = tab.repeat(tabcount) + 'getJSON() { ' + newline;
 			tabcount++;
 			getJSONfunc += tab.repeat(tabcount) + 'var logger = Logger.getLogger(\'' + obj['localName'] + '\');' + newline;
